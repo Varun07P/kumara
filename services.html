@@ -35,31 +35,117 @@ ul{list-style:none}
 .d5{transition-delay:.40s}.d6{transition-delay:.48s}
 
 /* ── HERO ── */
-.shero{position:relative;min-height:100vh;display:flex;align-items:flex-end;background:var(--navy);overflow:hidden}
-.shero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&q=85') center/cover no-repeat;opacity:.18}
-.shero-grad{position:absolute;inset:0;background:linear-gradient(115deg,var(--navy) 38%,rgba(8,17,31,.55) 100%)}
-.shero-art{position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(204,39,0,.15) 0%,transparent 70%)}
-.shero-arc{position:absolute;right:80px;top:50%;transform:translateY(-50%);width:420px;height:420px;border-radius:50%;border:1px solid rgba(204,39,0,.12)}
-.shero-inner{position:relative;z-index:2;padding:160px 0 72px}
-.shero-crumb{display:flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:.14em;text-transform:uppercase;margin-bottom:28px}
-.shero-crumb a{transition:color .2s}.shero-crumb a:hover{color:var(--red)}
-.shero-crumb .sep{color:rgba(255,255,255,.15)}
-.shero-crumb .cur{color:var(--red)}
-.shero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(204,39,0,.14);border:1px solid rgba(204,39,0,.3);color:var(--red);font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px;border-radius:2px;margin-bottom:22px}
-.shero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(56px,7.5vw,108px);font-weight:900;color:#fff;text-transform:uppercase;line-height:.9;letter-spacing:-.025em;margin-bottom:28px}
-.shero h1 em{font-style:normal;color:var(--red)}
-.shero-sub{font-size:clamp(15px,1.4vw,18px);color:rgba(255,255,255,.55);max-width:640px;line-height:1.72;margin-bottom:44px}
-.shero-btns{display:flex;gap:16px;flex-wrap:wrap}
-.btn-red{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:#fff;padding:16px 36px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;transition:all .25s;box-shadow:0 6px 28px rgba(204,39,0,.35)}
-.btn-red:hover{background:var(--red2);transform:translateY(-2px);box-shadow:0 12px 40px rgba(204,39,0,.45)}
-.btn-ghost{display:inline-flex;align-items:center;gap:10px;border:1.5px solid rgba(255,255,255,.22);color:rgba(255,255,255,.75);padding:14px 32px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;backdrop-filter:blur(8px);transition:all .25s}
-.btn-ghost:hover{border-color:rgba(255,255,255,.55);color:#fff;background:rgba(255,255,255,.07)}
-.shero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(255,255,255,.1);margin-top:72px;padding-top:48px}
-.sh-stat{padding-right:40px;border-right:1px solid rgba(255,255,255,.08)}
-.sh-stat:last-child{border-right:none}
-.sh-stat .n{font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:900;color:#fff;line-height:1}
-.sh-stat .n span{color:var(--red)}
-.sh-stat .l{font-size:11px;color:rgba(255,255,255,.38);margin-top:6px;letter-spacing:.1em;text-transform:uppercase}
+.shero {
+  position: relative; height: 100vh; min-height: 100vh;
+  display: flex; align-items: flex-start; 
+  background: var(--navy); overflow: hidden;
+}
+.shero-bg {
+  position: absolute; inset: 0; 
+  background: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&q=85') center/cover no-repeat;
+  opacity: 0.25;
+}
+.shero-grad {
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg, var(--navy) 40%, rgba(8,17,31,0.4) 100%);
+}
+.shero-inner {
+  position: relative; z-index: 2; width: 100%;
+  display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: center;
+  padding: 0;
+}
+.shero-crumb {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700;
+  color: rgba(255,255,255,0.3); letter-spacing: 0.14em; text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.shero-crumb a { transition: color 0.2s; }
+.shero-crumb a:hover { color: var(--red); }
+.shero-crumb .sep { color: rgba(255,255,255,0.15); }
+.shero-crumb .cur { color: var(--red); }
+.shero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(204,39,0,0.1); border: 1px solid rgba(204,39,0,0.25);
+  color: var(--red); font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 100px; margin-bottom: 16px;
+}
+.shero-h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(40px, 5.5vw, 84px); font-weight: 900; color: #fff;
+  text-transform: uppercase; line-height: 0.95; letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+.shero-h1 em { font-style: normal; color: var(--red); }
+.shero-sub {
+  font-size: 14.5px; color: rgba(255,255,255,0.6); line-height: 1.6;
+  margin-bottom: 28px; font-weight: 300; max-width: 580px;
+}
+.shero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.shero-btns a { padding: 12px 28px !important; font-size: 14px !important; }
+
+
+.btn-red {
+  display:inline-flex; align-items:center; gap:10px;
+  background:var(--red); color:#fff;
+  padding:16px 36px !important; border-radius:4px;
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:15px !important; font-weight:800; text-transform:uppercase;
+  letter-spacing:.07em; transition:all .25s;
+  box-shadow:0 6px 28px rgba(204,39,0,.35);
+  border:none; cursor:pointer;
+}
+.btn-red:hover {
+  background:var(--red2); transform:translateY(-2px); box-shadow:0 12px 40px rgba(204,39,0,.45);
+}
+.btn-ghost {
+  display:inline-flex; align-items:center; gap:10px;
+  border:1.5px solid rgba(255,255,255,.22); color:rgba(255,255,255,.75);
+  padding:14px 32px !important; border-radius:4px;
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:15px !important; font-weight:700; text-transform:uppercase;
+  letter-spacing:.06em; backdrop-filter:blur(8px); transition:all .25s; cursor:pointer;
+}
+.btn-ghost:hover {
+  border-color:rgba(255,255,255,.55); color:#fff; background:rgba(255,255,255,.07); transform:translateY(-2px);
+}
+
+/* Dynamic Right Side Feature Stack */
+.shero-visual {
+  position: relative; display: flex; flex-direction: column; gap: 12px;
+}
+.sv-card {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px; padding: 16px 20px; display: flex; align-items: center; gap: 16px;
+  backdrop-filter: blur(12px); box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s, border-color 0.4s;
+}
+.sv-card:hover {
+  transform: translateX(-8px); background: rgba(255,255,255,0.06);
+  border-color: rgba(204,39,0,0.3);
+}
+.sv-card:nth-child(2) { margin-left: 24px; }
+.sv-card:nth-child(3) { margin-left: 48px; }
+.sv-card:nth-child(4) { margin-left: 72px; }
+.sv-icon {
+  width: 44px; height: 44px; background: rgba(204,39,0,0.15); border-radius: 10px;
+  display: grid; place-items: center; flex-shrink: 0;
+}
+.sv-icon svg { width: 22px; height: 22px; stroke: var(--red); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.sv-text h4 {
+  font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800;
+  color: #fff; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 2px;
+}
+.sv-text p {
+  font-size: 12.5px; color: rgba(255,255,255,0.5); line-height: 1.4; margin-bottom: 0;
+}
+
+@media(max-width:900px){
+  .shero-inner { grid-template-columns: 1fr; gap: 32px; padding: 100px 0 40px; }
+  .shero-h1 { font-size: clamp(38px,8vw,64px); }
+  .sv-card:nth-child(n+2) { margin-left: 0; }
+}
 
 /* ── SECTION COMMONS ── */
 .sec{padding:60px 0}
@@ -214,24 +300,48 @@ h2.sec-title.w{color:#fff}
 <section class="shero">
   <div class="shero-bg"></div>
   <div class="shero-grad"></div>
-  <div class="shero-art"></div>
-  <div class="shero-arc"></div>
   <div class="W shero-inner">
-    <div class="shero-crumb rv">
-      <a href="index.html">Home</a><span class="sep">/</span><span class="cur">Services</span>
+    <div class="shero-content">
+      <div class="shero-crumb rv">
+        <a href="index.html">Home</a><span class="sep">/</span><span class="cur">Services</span>
+      </div>
+      <div class="shero-tag rv d1">⚡ Class I Govt. Licensed Electrical Contractor — Karnataka</div>
+      <h1 class="shero-h1 rv d1" style="font-size:clamp(44px,7vw,84px);margin-bottom:16px;">End-to-End <em>Electrical</em><br>Engineering Services</h1>
+      <p class="shero-sub rv d2">From high-tension substation erection to precision panel installation, transformer maintenance, cable work, AMC contracts and CEIG statutory approvals — KES is your single point of accountability across Karnataka.</p>
+      <div class="shero-btns rv d3">
+        <a href="contactus.html" class="btn-red">Request a Quote &rarr;</a>
+        <a href="#core-services" class="btn-ghost">View All Services</a>
+      </div>
     </div>
-    <div class="shero-tag rv d1">⚡ Class I Govt. Licensed Electrical Contractor — Karnataka</div>
-    <h1 class="rv d1">End-to-End <em>Electrical</em><br>Engineering Services</h1>
-    <p class="shero-sub rv d2">From high-tension substation erection to precision panel installation, transformer maintenance, cable work, AMC contracts and CEIG statutory approvals — KES is your single point of accountability across Karnataka.</p>
-    <div class="shero-btns rv d3">
-      <a href="contactus.html" class="btn-red">Request a Quote →</a>
-      <a href="#core-services" class="btn-ghost">View All Services</a>
-    </div>
-    <div class="shero-stats rv d4">
-      <div class="sh-stat"><div class="n">16<span>+</span></div><div class="l">Years Experience</div></div>
-      <div class="sh-stat"><div class="n">25<span>+</span></div><div class="l">Engineers & Technicians</div></div>
-      <div class="sh-stat"><div class="n">500<span>+</span></div><div class="l">Projects Delivered</div></div>
-      <div class="sh-stat"><div class="n">100<span>%</span></div><div class="l">IEC Compliant Delivery</div></div>
+    <div class="shero-visual rv d4">
+      <div class="sv-card">
+        <div class="sv-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+        <div class="sv-text">
+          <h4>Turnkey Project Execution</h4>
+          <p>Seamless design-to-commissioning with complete IEC compliance.</p>
+        </div>
+      </div>
+      <div class="sv-card">
+        <div class="sv-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg></div>
+        <div class="sv-text">
+          <h4>Preventive Asset Care</h4>
+          <p>Advanced diagnostic testing &amp; maintenance for HT/LT systems.</p>
+        </div>
+      </div>
+      <div class="sv-card">
+        <div class="sv-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="sv-text">
+          <h4>24/7 SLA-Driven O&amp;M</h4>
+          <p>Targeted uptime guarantees with emergency rapid response teams.</p>
+        </div>
+      </div>
+      <div class="sv-card">
+        <div class="sv-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <div class="sv-text">
+          <h4>CEIG Approvals & Compliance</h4>
+          <p>End-to-end liaisoning and safety certification for HT/LT setups.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -361,7 +471,7 @@ h2.sec-title.w{color:#fff}
       <!-- Card 7 -->
       <div class="sb-card rv">
         <div class="sb-img">
-          <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=800&q=85" alt="AC Drive Servicing"/>
+          <img src="https://www.powercontrolsystems.in/innovtouch/uploads/2021/08/pcs-oem-drive-panels-1.jpg" alt="AC Drive Servicing"/>
           <span class="sb-badge">07</span>
           <div class="sb-num">07</div>
         </div>
@@ -403,7 +513,7 @@ h2.sec-title.w{color:#fff}
   <div class="W">
     <div class="ddv-inner">
       <div class="ddv-img rr">
-        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=900&q=85" alt="HT Panel Maintenance"/>
+        <img src="https://nakshatraelectricals.com/wp-content/uploads/2025/05/product-jpeg-1024x768.jpg" alt="HT Panel Maintenance"/>
         <div class="ddv-img-badge">Class I <span>Certified</span> Engineers</div>
       </div>
       <div class="ddv-content rl">
@@ -437,7 +547,7 @@ h2.sec-title.w{color:#fff}
   <div class="W">
     <div class="ddv-inner flip">
       <div class="ddv-img rl">
-        <img src="https://images.unsplash.com/photo-1558618747-fcd25c85cd64?w=900&q=85" alt="Transformer Maintenance"/>
+        <img src="https://www.ukelectric.in/wp-content/uploads/2025/05/transformer-repair-service.jpg" alt="Transformer Maintenance"/>
         <div class="ddv-img-badge">AMC <span>Contracts Available</span></div>
       </div>
       <div class="ddv-content rr">
@@ -465,7 +575,7 @@ h2.sec-title.w{color:#fff}
   <div class="W">
     <div class="ddv-inner">
       <div class="ddv-img rr">
-        <img src="https://images.unsplash.com/photo-1473643033580-0a2562479e0a?w=900&q=85" alt="HT LT Cables"/>
+        <img src="https://5.imimg.com/data5/SELLER/Default/2024/3/401908020/PI/YL/SS/28954157/cable-installation-services-500x500.jpg" alt="HT LT Cables"/>
         <div class="ddv-img-badge">Copper & <span>Aluminium</span> Conductors</div>
       </div>
       <div class="ddv-content rl">
@@ -499,7 +609,7 @@ h2.sec-title.w{color:#fff}
   <div class="W">
     <div class="ddv-inner flip">
       <div class="ddv-img rl">
-        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=900&q=85" alt="Substation Erection"/>
+        <img src="https://5.imimg.com/data5/SELLER/Default/2023/2/ZI/LF/CV/2887104/765kv-electrical-substation-erection-service.jpeg" alt="Substation Erection"/>
         <div class="ddv-img-badge">Up to <span>33KV</span> HT Systems</div>
       </div>
       <div class="ddv-content rr">
@@ -526,7 +636,7 @@ h2.sec-title.w{color:#fff}
   <div class="W">
     <div class="ddv-inner">
       <div class="ddv-img rr">
-        <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=900&q=85" alt="O&M AMC"/>
+        <img src="https://nakshatraelectricals.com/wp-content/uploads/2025/05/product-jpeg-1024x768.jpg" alt="O&M AMC"/>
         <div class="ddv-img-badge">24/7 <span>Emergency Response</span></div>
       </div>
       <div class="ddv-content rl">

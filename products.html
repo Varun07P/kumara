@@ -23,26 +23,83 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
 
 /* ─── SITE-MATCHING HERO ─── */
 .page-hero{
-  position:relative;min-height:480px;display:flex;align-items:flex-end;
-  background:var(--bg);overflow:hidden;padding:0;
+  position:relative;height:100vh;min-height:100vh;display:flex;align-items:center;
+  background:var(--bg);overflow:hidden;
 }
-.phero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1920&q=80') center/cover no-repeat;opacity:.14}
-.phero-grad{position:absolute;inset:0;background:linear-gradient(115deg,var(--bg) 45%,rgba(11,13,15,.5) 100%)}
-.phero-inner{position:relative;z-index:2;padding:180px 0 56px;width:100%}
-.phero-crumb{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;font-weight:700;color:rgba(255,255,255,.28);letter-spacing:.12em;text-transform:uppercase;margin-bottom:24px}
-.phero-crumb a{transition:color .2s}.phero-crumb a:hover{color:var(--red2)}
-.phero-crumb .sep{color:rgba(255,255,255,.12)}
-.phero-crumb .cur{color:var(--red2)}
-.phero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(224,50,16,.13);border:1px solid rgba(224,50,16,.28);color:var(--red2);font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 13px;border-radius:2px;margin-bottom:20px}
-.phero-h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(56px,7.5vw,110px);font-weight:900;color:rgba(255,255,255,.93);text-transform:uppercase;line-height:.9;letter-spacing:-.02em;margin-bottom:22px}
-.phero-h1 em{font-style:normal;color:var(--red2)}
-.phero-sub{font-size:16px;color:rgba(255,255,255,.5);max-width:620px;line-height:1.7;margin-bottom:44px;font-family:'Barlow',sans-serif;font-weight:300}
-.phero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid rgba(255,255,255,.08);padding-top:36px;margin-top:0}
-.phs{padding-right:36px;border-right:1px solid rgba(255,255,255,.07)}
-.phs:last-child{border-right:none}
-.phs .n{font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;color:rgba(255,255,255,.93);line-height:1}
-.phs .n span{color:var(--red2)}
-.phs .l{font-size:10px;color:rgba(255,255,255,.35);margin-top:5px;letter-spacing:.1em;text-transform:uppercase;font-family:var(--mono)}
+.phero-bg{
+  position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1920&q=80') center/cover no-repeat;
+  opacity:0.1;
+}
+.phero-grad{
+  position:absolute;inset:0;
+  background:linear-gradient(115deg,var(--bg) 45%,rgba(11,13,15,0.6) 100%);
+}
+.phero-inner{
+  position:relative;z-index:2;width:100%;
+  display:grid;grid-template-columns:1.2fr 0.8fr;gap:60px;align-items:center;padding:0 80px;
+}
+.phero-crumb{
+  display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;font-weight:700;
+  color:rgba(255,255,255,0.28);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:24px;
+}
+.phero-crumb a{transition:color 0.2s;}
+.phero-crumb a:hover{color:var(--red2);}
+.phero-crumb .sep{color:rgba(255,255,255,0.12);}
+.phero-crumb .cur{color:var(--red2);}
+.phero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(224,50,16,0.1);border:1px solid rgba(224,50,16,0.25);color:var(--red2);
+  font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.12em;
+  text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:20px;
+}
+.phero-h1{
+  font-family:'Barlow Condensed',sans-serif;font-size:clamp(48px,6.5vw,90px);
+  font-weight:900;color:rgba(255,255,255,0.95);text-transform:uppercase;
+  line-height:0.95;letter-spacing:-0.02em;margin-bottom:22px;
+}
+.phero-h1 em{font-style:normal;color:var(--red2);}
+.phero-sub{
+  font-size:15px;color:rgba(255,255,255,0.55);line-height:1.7;
+  margin-bottom:34px;font-family:'Barlow',sans-serif;font-weight:300;max-width:560px;
+}
+
+/* Dynamic Right-Side Product Showcase Grid */
+.phero-visual {
+  display:grid;grid-template-columns:1fr 1fr;grid-template-rows:160px 160px;gap:16px;position:relative;
+}
+.pv-card {
+  position:relative;border-radius:12px;overflow:hidden;background:var(--bg2);
+  border:1px solid rgba(255,255,255,0.06);transition:all 0.4s cubic-bezier(0.16,1,0.3,1);
+  box-shadow:0 16px 40px rgba(0,0,0,0.4);
+}
+.pv-card:hover {
+  transform:translateY(-6px);border-color:var(--red2);box-shadow:0 24px 50px rgba(224,50,16,0.2);
+}
+.pv-card.tall { grid-row:span 2; }
+.pv-card img {
+  width:100%;height:100%;object-fit:cover;opacity:0.4;transition:opacity 0.4s;
+}
+.pv-card:hover img { opacity:0.8; }
+.pv-card .pv-ov {
+  position:absolute;inset:0;background:linear-gradient(0deg, var(--bg) 0%, transparent 70%);
+}
+.pv-card .pv-txt {
+  position:absolute;bottom:18px;left:20px;right:20px;z-index:2;
+}
+.pv-txt h4 {
+  font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;
+  color:#fff;text-transform:uppercase;margin-bottom:4px;letter-spacing:0.02em;
+}
+.pv-txt p {
+  font-size:11px;font-family:var(--mono);color:var(--red2);
+  letter-spacing:0.1em;text-transform:uppercase;margin:0;font-weight:500;
+}
+
+@media(max-width:900px){
+  .phero-inner{grid-template-columns:1fr;gap:40px;padding:80px 0 0;}
+  .phero-visual{grid-template-rows:120px 120px;}
+}
 
 /* ─── FILTER BAR ─── */
 .filter-bar{
@@ -212,17 +269,42 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
   <div class="phero-bg"></div>
   <div class="phero-grad"></div>
   <div class="W phero-inner">
-    <div class="phero-crumb rv">
-      <a href="index.html">Home</a><span class="sep">/</span><span class="cur">Products</span>
+    <div class="phero-content">
+      <div class="phero-crumb rv">
+        <a href="index.html">Home</a><span class="sep">/</span><span class="cur">Products</span>
+      </div>
+      <div class="phero-tag rv d1">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M12 2L2 22h20L12 2z"/></svg>
+        IEC 61439 · IS:8623 · CPRI Certified
+      </div>
+      <h1 class="phero-h1 rv d1">The Complete<br><em>Product</em> Showcase</h1>
+      <p class="phero-sub rv d2">Explore 25+ engineered product lines spanning LV &amp; MV switchgears, intelligent automation panels, HVAC controls, and comprehensive electrical infrastructure.</p>
     </div>
-    <div class="phero-tag rv d1">⚡ IEC 61439 · IS:8623 · CPRI Certified</div>
-    <h1 class="phero-h1 rv d1">Our Full<br><em>Product</em> Catalogue</h1>
-    <p class="phero-sub rv d2">25 product lines spanning LV/MV switchgears, automation panels, building systems, and electrical infrastructure — manufactured to IEC 61439, IS:8623, and CPRI standards.</p>
-    <div class="phero-stats rv d3">
-      <div class="phs"><div class="n">25<span>+</span></div><div class="l">Product Lines</div></div>
-      <div class="phs"><div class="n">6300<span>A</span></div><div class="l">Max Current</div></div>
-      <div class="phs"><div class="n">IP66<span></span></div><div class="l">Max Protection</div></div>
-      <div class="phs"><div class="n">50<span>kA</span></div><div class="l">Fault Withstand</div></div>
+    <div class="phero-visual rv d3">
+      <a href="#lt-panel" class="pv-card tall">
+        <img src="https://image.made-in-china.com/202f0j00LCnbwlagCpkz/Low-Voltage-Panels-Electrical-LV-Panel-Low-Voltage-Switchgear.webp" alt="LT Power Panels"/>
+        <div class="pv-ov"></div>
+        <div class="pv-txt">
+          <h4>LT Power Panels</h4>
+          <p>Up to 6300A · IP66</p>
+        </div>
+      </a>
+      <a href="#plc-panel" class="pv-card">
+        <img src="https://esswin.com/wp-content/uploads/2024/08/vfdplc-n2.jpeg" alt="Automation & PLC"/>
+        <div class="pv-ov"></div>
+        <div class="pv-txt">
+          <h4>PLC &amp; AC Drives</h4>
+          <p>Smart Automation</p>
+        </div>
+      </a>
+      <a href="#busduct" class="pv-card">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2024/5/411234568/lv-bus-duct-system.jpg" alt="HV/LV Bus Ducts"/>
+        <div class="pv-ov"></div>
+        <div class="pv-txt">
+          <h4>HV/LV Bus Ducts</h4>
+          <p>99.9% Copper Systems</p>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -274,7 +356,7 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
         <div class="pc-img">
           <span class="pc-cat-badge">LV Switchgear · Featured</span>
           <div class="pc-stds"><span class="pc-std">IEC 61439</span><span class="pc-std">IS:8623</span><span class="pc-std">CPRI</span></div>
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=85" alt="LT Panel"/>
+          <img src="https://image.made-in-china.com/202f0j00LCnbwlagCpkz/Low-Voltage-Panels-Electrical-LV-Panel-Low-Voltage-Switchgear.webp" alt="LT Panel"/>
         </div>
         <div class="pc-body">
           <div class="pc-idx">01 — Flagship Product</div>
@@ -299,7 +381,7 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
 
       <!-- MCC -->
       <article class="pcard" data-cat="distribution" style="animation-delay:40ms" id="mcc-panel">
-        <div class="pc-img"><span class="pc-cat-badge">Motor Control</span><img src="https://images.unsplash.com/photo-1625574599982-78c56498e7cb?w=700&q=80" alt="MCC Panel"/></div>
+        <div class="pc-img"><span class="pc-cat-badge">Motor Control</span><img src="https://image.made-in-china.com/202f0j00LCnbwlagCpkz/Low-Voltage-Panels-Electrical-LV-Panel-Low-Voltage-Switchgear.webp" alt="MCC Panel"/></div>
         <div class="pc-body">
           <div class="pc-idx">02 — Distribution</div>
           <h3 class="pc-title">MCC Panel</h3>
@@ -383,7 +465,7 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
 
       <!-- DG Sync -->
       <article class="pcard" data-cat="control" style="animation-delay:0ms" id="dg-sync">
-        <div class="pc-img"><span class="pc-cat-badge">Generator Control</span><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=700&q=80" alt="DG Synchronization Panel"/></div>
+        <div class="pc-img"><span class="pc-cat-badge">Generator Control</span><img src="https://brothersengineering.co.in/nm/DG%20SYNCHRONIZING%20PANEL.jpeg" alt="DG Synchronization Panel"/></div>
         <div class="pc-body">
           <div class="pc-idx">08 — Control &amp; Sync</div>
           <h3 class="pc-title">DG Synchronization Panel</h3>
@@ -400,7 +482,7 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
 
       <!-- APFC -->
       <article class="pcard" data-cat="control" style="animation-delay:40ms" id="apfc-panel">
-        <div class="pc-img"><span class="pc-cat-badge">Power Factor</span><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80" alt="APFC Panel"/></div>
+        <div class="pc-img"><span class="pc-cat-badge">Power Factor</span><img src="https://cpimg.tistatic.com/07702569/b/4/HT-APFC-Panel.jpg" alt="APFC Panel"/></div>
         <div class="pc-body">
           <div class="pc-idx">09 — Control &amp; Sync</div>
           <h3 class="pc-title">APFC Panel</h3>
@@ -412,7 +494,7 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
 
       <!-- ATS -->
       <article class="pcard" data-cat="control" style="animation-delay:80ms" id="ats-panel">
-        <div class="pc-img"><span class="pc-cat-badge">Auto Transfer</span><div class="pc-stds"><span class="pc-std">Auto/Manual</span></div><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&q=80" alt="ATS Panel"/></div>
+        <div class="pc-img"><span class="pc-cat-badge">Auto Transfer</span><div class="pc-stds"><span class="pc-std">Auto/Manual</span></div><img src="https://brothersengineering.co.in/nm/DG%20SYNCHRONIZING%20PANEL.jpeg" alt="ATS Panel"/></div>
         <div class="pc-body">
           <div class="pc-idx">10 — Control &amp; Sync</div>
           <h3 class="pc-title">ATS Panel</h3>
@@ -429,7 +511,7 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
 
       <!-- PLC -->
       <article class="pcard" data-cat="control" style="animation-delay:120ms" id="plc-panel">
-        <div class="pc-img"><span class="pc-cat-badge">Automation</span><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=80" alt="PLC Control Panel"/></div>
+        <div class="pc-img"><span class="pc-cat-badge">Automation</span><img src="https://esswin.com/wp-content/uploads/2024/08/vfdplc-n2.jpeg" alt="PLC Control Panel"/></div>
         <div class="pc-body">
           <div class="pc-idx">11 — Control &amp; Sync</div>
           <h3 class="pc-title">PLC Control Panel</h3>
@@ -445,7 +527,7 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
 
       <!-- VFD -->
       <article class="pcard" data-cat="control" style="animation-delay:160ms" id="vfd-panel">
-        <div class="pc-img"><span class="pc-cat-badge">Variable Frequency Drive</span><img src="https://images.unsplash.com/photo-1563203369-26f2e4a5ccf7?w=700&q=80" alt="VFD Panel"/></div>
+        <div class="pc-img"><span class="pc-cat-badge">Variable Frequency Drive</span><img src="https://esswin.com/wp-content/uploads/2024/08/vfdplc-n2.jpeg" alt="VFD Panel"/></div>
         <div class="pc-body">
           <div class="pc-idx">12 — Control &amp; Sync</div>
           <h3 class="pc-title">VFD Panel</h3>
@@ -477,7 +559,7 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
 
       <!-- HVAC -->
       <article class="pcard" data-cat="building" style="animation-delay:0ms" id="hvac-panel">
-        <div class="pc-img"><span class="pc-cat-badge">Climate Control</span><img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=700&q=80" alt="HVAC Control Panel"/></div>
+        <div class="pc-img"><span class="pc-cat-badge">Climate Control</span><img src="https://www.powercontrolsystems.in/innovtouch/uploads/2021/08/pcs-oem-drive-panels-1.jpg" alt="HVAC Control Panel"/></div>
         <div class="pc-body">
           <div class="pc-idx">14 — Building &amp; HVAC</div>
           <h3 class="pc-title">HVAC Control Panel</h3>
@@ -653,7 +735,7 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
         <div class="pc-img">
           <span class="pc-cat-badge">Busway Systems · Featured</span>
           <div class="pc-stds"><span class="pc-std">IP54–IP66</span><span class="pc-std">AS1530.4</span><span class="pc-std">630–6300A</span></div>
-          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=900&q=85" alt="HV LV Bus Duct"/>
+          <img src="https://5.imimg.com/data5/SELLER/Default/2024/5/411234568/lv-bus-duct-system.jpg" alt="HV LV Bus Duct"/>
         </div>
         <div class="pc-body">
           <div class="pc-idx">25a — Infrastructure · Featured</div>

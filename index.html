@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -170,12 +170,12 @@ h2.sec-title-w em { color:var(--red); }
   display:flex; align-items:center;       /* vertically centred in the remaining space */
   padding-left:calc((100vw - 1300px)/2 + 100px);
   padding-right:calc((100vw - 1300px)/2 + 100px);
-  padding-top:105px;   /* just below topbar (32px) + navbar (68px) + 5px gap */
-  padding-bottom:105px; /* mirror so centering looks balanced */
+  
+  
 }
 @media(max-width:1300px){ .hero-content{ padding-left:100px; padding-right:100px; } }
-@media(max-width:768px){ .hero-content{ padding-left:24px; padding-right:24px; padding-top:85px; padding-bottom:85px; } }
-@media(max-width:480px){ .hero-content{ padding-left:20px; padding-right:20px; padding-top:70px; padding-bottom:70px; } }
+@media(max-width:768px){ .hero-content{ padding-left:24px; padding-right:24px;  } }
+@media(max-width:480px){ .hero-content{ padding-left:20px; padding-right:20px;  } }
 
 .hero-text { max-width:760px; }
 
@@ -1409,27 +1409,27 @@ footer { background:var(--navy); color:#fff; padding:80px 0 0; }
     </div>
     <div class="prod-mosaic rv">
       <div class="prod-card tall">
-        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=85" alt="LT Panel"/>
+        <img src="https://image.made-in-china.com/202f0j00LCnbwlagCpkz/Low-Voltage-Panels-Electrical-LV-Panel-Low-Voltage-Switchgear.webp" alt="LT Panel"/>
         <div class="prod-over"><div class="prod-cat">LV Switchgear</div><div class="prod-name">LT &amp; MCC Power Panels</div></div>
         <div class="prod-hover"><p>Low-tension distribution and Motor Control Centres — built to IS &amp; IEC 61439-2 for all industrial applications.</p><button class="ph-btn" onclick="location.href='products.html'">Explore →</button></div>
       </div>
       <div class="prod-card">
-        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=85" alt="PLC Panel"/>
+        <img src="https://esswin.com/wp-content/uploads/2024/08/vfdplc-n2.jpeg" alt="PLC Panel"/>
         <div class="prod-over"><div class="prod-cat">Automation</div><div class="prod-name">PLC &amp; VFD Control</div></div>
         <div class="prod-hover"><p>Programmable Logic Control and Variable Frequency Drive panels for automated production lines.</p><button class="ph-btn" onclick="location.href='products.html'">Explore →</button></div>
       </div>
       <div class="prod-card">
-        <img src="https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=600&q=85" alt="APFC Panel"/>
+        <img src="https://cpimg.tistatic.com/07702569/b/4/HT-APFC-Panel.jpg" alt="APFC Panel"/>
         <div class="prod-over"><div class="prod-cat">Power Factor</div><div class="prod-name">APFC Panels</div></div>
         <div class="prod-hover"><p>Automatic power factor correction to reduce electricity bills and eliminate penalty charges.</p><button class="ph-btn" onclick="location.href='products.html'">Explore →</button></div>
       </div>
       <div class="prod-card">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=85" alt="ATS Panel"/>
+        <img src="https://brothersengineering.co.in/nm/DG%20SYNCHRONIZING%20PANEL.jpeg" alt="ATS Panel"/>
         <div class="prod-over"><div class="prod-cat">Emergency</div><div class="prod-name">ATS &amp; DG Sync</div></div>
         <div class="prod-hover"><p>Auto transfer switch panels with automatic mains-to-generator changeover for uninterrupted power.</p><button class="ph-btn" onclick="location.href='products.html'">Explore →</button></div>
       </div>
       <div class="prod-card">
-        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=85" alt="Bus Duct"/>
+        <img src="data:image/jpeg;base64,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" alt="Bus Duct"/>
         <div class="prod-over"><div class="prod-cat">630A–6300A</div><div class="prod-name">HV/LV Bus Duct</div></div>
         <div class="prod-hover"><p>99.97% copper purity, silver-plated conductors. IP54–IP66. Fire resistance certified.</p><button class="ph-btn" onclick="location.href='products.html'">Explore →</button></div>
       </div>
@@ -1458,7 +1458,7 @@ footer { background:var(--navy); color:#fff; padding:80px 0 0; }
     </div>
     <div class="svc-grid rv">
       <div class="svc-card">
-        <img class="svc-img" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=700&q=85" alt="HT Panel Services"/>
+        <img class="svc-img" src="https://nakshatraelectricals.com/wp-content/uploads/2025/05/product-jpeg-1024x768.jpg" alt="HT Panel Services"/>
         <div class="svc-ov"></div>
         <div class="svc-body">
           <span class="svc-tag">HT Systems</span>
@@ -1468,7 +1468,7 @@ footer { background:var(--navy); color:#fff; padding:80px 0 0; }
         </div>
       </div>
       <div class="svc-card">
-        <img class="svc-img" src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=700&q=85" alt="Transformer"/>
+        <img class="svc-img" src="https://www.ukelectric.in/wp-content/uploads/2025/05/transformer-repair-service.jpg" alt="Transformer"/>
         <div class="svc-ov"></div>
         <div class="svc-body">
           <span class="svc-tag">Maintenance</span>
@@ -1478,7 +1478,7 @@ footer { background:var(--navy); color:#fff; padding:80px 0 0; }
         </div>
       </div>
       <div class="svc-card">
-        <img class="svc-img" src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=700&q=85" alt="Cable Work"/>
+        <img class="svc-img" src="https://5.imimg.com/data5/SELLER/Default/2024/3/401908020/PI/YL/SS/28954157/cable-installation-services-500x500.jpg" alt="Cable Work"/>
         <div class="svc-ov"></div>
         <div class="svc-body">
           <span class="svc-tag">Installation</span>
@@ -1488,7 +1488,7 @@ footer { background:var(--navy); color:#fff; padding:80px 0 0; }
         </div>
       </div>
       <div class="svc-card">
-        <img class="svc-img" src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=700&q=85" alt="Substation"/>
+        <img class="svc-img" src="https://5.imimg.com/data5/SELLER/Default/2023/2/ZI/LF/CV/2887104/765kv-electrical-substation-erection-service.jpeg" alt="Substation"/>
         <div class="svc-ov"></div>
         <div class="svc-body">
           <span class="svc-tag">Sub Station</span>
@@ -1498,7 +1498,7 @@ footer { background:var(--navy); color:#fff; padding:80px 0 0; }
         </div>
       </div>
       <div class="svc-card">
-        <img class="svc-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=700&q=85" alt="Panel Servicing"/>
+        <img class="svc-img" src="https://www.powercontrolsystems.in/innovtouch/uploads/2021/08/pcs-oem-drive-panels-1.jpg" alt="Panel Servicing"/>
         <div class="svc-ov"></div>
         <div class="svc-body">
           <span class="svc-tag">Servicing</span>
