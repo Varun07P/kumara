@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact Us — Kumara Engineering Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* SVGs */
+.svg-ic { width: 1.25em; height: 1.25em; display: inline-block; vertical-align: middle; flex-shrink: 0; }
+
+:root{
+  --navy:     #08111f;
+  --navy2:    #0c1a30;
+  --navy3:    #0f2040;
+  --blue:     #1251a3;
+  --blue2:    #1565c8;
+  --blue3:    #1a7ae8;
+  --blue-pale:#fbeae6;
+  --blue-alt:#cc2700;
+  --blue-alt2:#a81e00;
+  --blue-alt3:#8a1800;
+  --white:    #ffffff;
+  --off:      #f3f6fb;
+  --grey:     #64748b;
+  --grey2:    #94a3b8;
+  --border:   #dde6f5;
+  --text:     #0f1f35;
+  --s1: 0 2px 16px rgba(8,17,31,.08);
+  --s2: 0 8px 36px rgba(8,17,31,.14);
+  --s3: 0 24px 64px rgba(8,17,31,.22);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;color:var(--text);background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;outline:none;background:none}
+img{display:block;max-width:100%}
+.W{max-width:1300px;margin:0 auto;padding:0 48px}
+
+
+
+/* ─────────────────────────────────────────────
+   HERO SUBPAGE
+───────────────────────────────────────────── */
+.hero-subpage{position:relative;padding:120px 0 80px;background:var(--navy);overflow:hidden}
+.hero-subpage::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1600&q=80') center/cover no-repeat;opacity:0.25;filter:brightness(0.5)}
+.hero-subpage::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,var(--navy) 0%,transparent 100%)}
+.hero-sub-inner{position:relative;z-index:10;text-align:center}
+.title-big{font-family:'Barlow Condensed',sans-serif;font-size:clamp(48px,8vw,120px);font-weight:900;color:#fff;text-transform:uppercase;line-height:0.9;letter-spacing:-0.03em;margin-bottom:20px}
+.title-big em{font-style:normal;color:var(--blue-alt)}
+.hero-path{display:flex;justify-content:center;gap:12px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em}
+.hero-path span.active{color:var(--blue-alt)}
+
+/* ─────────────────────────────────────────────
+   CONTACT CONTENT
+───────────────────────────────────────────── */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; margin-top: 40px; }
+.info-col { color: var(--text); }
+.sec-label{display:inline-flex;align-items:center;gap:9px;margin-bottom:14px}
+.sl-bar{width:32px;height:3px;background:var(--blue-alt);border-radius:1px;flex-shrink:0}
+.sl-txt{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;color:var(--blue2);letter-spacing:.15em;text-transform:uppercase}
+h2.sec-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(30px,3.4vw,54px);font-weight:900;line-height:1.02;color:var(--navy);letter-spacing:-.01em;text-transform:uppercase;margin-bottom:24px}
+h2.sec-title em{font-style:normal;color:var(--blue2)}
+
+.contact-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+.ccard { background: var(--off); border: 1px solid var(--border); padding: 32px 24px; border-radius: 12px; transition: all 0.3s; position: relative; }
+.ccard:hover { background: #fff; border-color: var(--blue-alt); transform: translateY(-5px); box-shadow: var(--s1); }
+.ccard-ico { width: 44px; height: 44px; background: rgba(204,39,0,0.1); border-radius: 8px; display: grid; place-items: center; color: var(--blue-alt); font-size: 20px; margin-bottom: 20px; transition: background 0.3s; }
+.ccard:hover .ccard-ico { background: var(--blue-alt); color: #fff; }
+.ccard h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; color: var(--navy); }
+.ccard p { font-size: 14px; color: var(--grey); line-height: 1.5; font-weight: 400; }
+.ccard a { color: var(--blue); font-weight: 700; }
+
+.form-box { background: #fff; border: 1px solid var(--border); border-radius: 15px; overflow: hidden; box-shadow: var(--s3); }
+.form-hd { background: var(--navy); padding: 40px; }
+.form-hd h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 800; color: #fff; text-transform: uppercase; line-height: 1; }
+.form-hd p { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 8px; }
+
+.form-body { padding: 40px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+.form-full { grid-template-columns: 1fr; }
+.fgroup { display: flex; flex-direction: column; gap: 8px; }
+.fgroup label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; color: var(--grey); text-transform: uppercase; letter-spacing: 0.1em; }
+.finput { background: var(--off); border: 1.5px solid var(--border); border-radius: 6px; padding: 14px 18px; font-family: 'Barlow', sans-serif; font-size: 14px; color: var(--navy); outline: none; transition: all 0.2s; }
+.finput:focus { border-color: var(--blue-alt); background: #fff; box-shadow: 0 0 0 4px rgba(204,39,0,0.08); }
+.ftextarea { min-height: 120px; resize: none; }
+.fbtn { width: 100%; background: var(--blue-alt); color: var(--navy); border: none; border-radius: 6px; padding: 18px; font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: all 0.2s; box-shadow: 0 6px 20px rgba(204,39,0,0.3); }
+.fbtn:hover { background: var(--blue-alt2); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(204,39,0,0.4); }
+
+/* ─────────────────────────────────────────────
+   FOOTER (Identical)
+───────────────────────────────────────────── */
+
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
+.rl{opacity:0;transform:translateX(-32px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
+.rr{opacity:0;transform:translateX(32px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
+.rv.in,.rl.in,.rr.in{opacity:1;transform:none}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}
+
+@media(max-width:1024px){
+  .ccard { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; gap: 56px; }
+}
+@media(max-width:480px) {
+  .contact-cards { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Shared header loaded by site.js -->
+<div id="site-header"></div>
+
+<!-- ══════════ HERO SUBPAGE ══════════ -->
+<header class="hero-subpage">
+  <div class="W hero-sub-inner">
+    <div class="hero-path rv">Home / <span class="active">Contact Us</span></div>
+    <h1 class="title-big rv d1">Let's <em>Power</em> Up</h1>
+  </div>
+</header>
+
+<!-- ══════════ CONTACT SECTION ══════════ -->
+<section class="sec">
+  <div class="W">
+    <div class="contact-grid">
+      <div class="info-col rl">
+        <div class="sec-label">
+          <span class="sl-bar"></span>
+          <span class="sl-txt">Get In Touch</span>
+        </div>
+        <h2 class="sec-title">Ready to <em>Connect</em>?</h2>
+        <p class="sec-body">Whether you need a custom LT Panel design or a full-scale industrial power audit, our team is ready to assist. Reach out to our experts for technical consultation and transparent pricing.</p>
+
+        <div class="contact-cards">
+          <div class="ccard">
+            <div class="ccard-ico">📍</div>
+            <h4>Visit Our Facility</h4>
+            <p>No.79, Viratnagar, Bommanahalli, Bengaluru – 560 068</p>
+          </div>
+          <div class="ccard">
+            <div class="ccard-ico">📞</div>
+            <h4>Call Our Experts</h4>
+            <p>+91 99802 77557 <br> +91 80 2573 7557</p>
+          </div>
+          <div class="ccard">
+            <div class="ccard-ico">📧</div>
+            <h4>Electronic Mail</h4>
+            <p>info@kespl.co.in <br> kumaraespl@gmail.com</p>
+          </div>
+          <div class="ccard">
+            <div class="ccard-ico">🕒</div>
+            <h4>Business Hours</h4>
+            <p>Mon–Sat: 9:00 AM – 6:00 PM <br> Sunday: Closed</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-col rr">
+        <div class="form-box">
+          <div class="form-hd">
+            <h3>Technical Inquiry</h3>
+            <p>Fill out the form below and an engineer will contact you within 24 hours.</p>
+          </div>
+          <div class="form-body">
+            <form action="#">
+              <div class="form-row">
+                <div class="fgroup">
+                  <label>Your Name</label>
+                  <input type="text" class="finput" placeholder="e.g. Rahul Sharma" required>
+                </div>
+                <div class="fgroup">
+                  <label>Company Name</label>
+                  <input type="text" class="finput" placeholder="e.g. Power Grid Ltd">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="fgroup">
+                  <label>Email Address</label>
+                  <input type="email" class="finput" placeholder="name@company.com" required>
+                </div>
+                <div class="fgroup">
+                  <label>Phone Number</label>
+                  <input type="tel" class="finput" placeholder="+91 90000 00000" required>
+                </div>
+              </div>
+              <div class="fgroup form-full" style="margin-bottom:20px">
+                <label>Discussion Topic</label>
+                <select class="finput">
+                  <option>New Project Quote</option>
+                  <option>Service & Maintenance</option>
+                  <option>Retrofitting Inquiry</option>
+                  <option>Technical Consultation</option>
+                </select>
+              </div>
+              <div class="fgroup form-full" style="margin-bottom:30px">
+                <label>Detailed Requirements</label>
+                <textarea class="finput ftextarea" placeholder="Tell us about your technical specifications..."></textarea>
+              </div>
+              <button type="submit" class="fbtn">Submit Inquiry →</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ MAP SECTION ══════════ -->
+<section style="height:450px; background:#eee">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.358210350438!2d77.620023!3d12.906789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU0JzI0LjQiTiA3N8KwMzcnMTIuMSJF!5e0!3m2!1sen!2sin!4v1640000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<!-- Shared footer loaded by site.js -->
+<div id="site-footer"></div>
+
+<!-- ══════════ SCRIPTS ══════════ -->
+<script src="site.js"></script>
+</body>
+</html>

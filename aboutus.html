@@ -1,0 +1,827 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>About Us — Kumara Engineering Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ─────────────────────────────────────────────
+   ROOT TOKENS - Clean White Theme (ADM Style)
+───────────────────────────────────────────── */
+:root{
+  --primary: #1a1a1a;
+  --secondary: #666666;
+  --muted: #888888;
+  --light: #f5f5f5;
+  --lighter: #fafafa;
+  --white: #ffffff;
+  --accent: #c41e3a;
+  --accent-dark: #a01830;
+  --border: #e5e5e5;
+  --border-light: #f0f0f0;
+  --text: #1a1a1a;
+  --text-light: #666666;
+  --shadow: 0 4px 24px rgba(0,0,0,0.06);
+  --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif;
+  color:var(--text);
+  background:var(--white);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;outline:none;background:none}
+img{display:block;max-width:100%}
+.W{max-width:1200px;margin:0 auto;padding:0 48px}
+
+/* ─────────────────────────────────────────────
+   HERO SECTION - Clean White
+───────────────────────────────────────────── */
+.about-hero{
+  position:relative;
+  padding:140px 0 100px;
+  background:var(--white);
+  overflow:hidden;
+}
+.about-hero::before{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  width:40%;
+  height:100%;
+  background:linear-gradient(135deg,var(--lighter) 0%,var(--light) 100%);
+  z-index:0;
+}
+.hero-inner{position:relative;z-index:10}
+
+/* Breadcrumb */
+.breadcrumb{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:24px;
+  font-size:12px;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color:var(--muted);
+}
+.breadcrumb span{color:var(--accent)}
+.breadcrumb::after{
+  content:'';
+  width:40px;
+  height:1px;
+  background:var(--border);
+}
+
+/* Hero Title */
+.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(48px,6vw,72px);
+  font-weight:600;
+  line-height:1.1;
+  color:var(--primary);
+  margin-bottom:32px;
+  letter-spacing:-0.02em;
+}
+.hero-title em{
+  font-style:italic;
+  color:var(--accent);
+}
+
+/* Hero Intro Text */
+.hero-intro{
+  max-width:700px;
+  font-size:18px;
+  line-height:1.8;
+  color:var(--secondary);
+  font-weight:300;
+}
+.hero-intro strong{
+  font-weight:600;
+  color:var(--primary);
+}
+
+/* ─────────────────────────────────────────────
+   SECTION STYLING
+───────────────────────────────────────────── */
+.section{
+  padding:100px 0;
+  background:var(--white);
+}
+.section-alt{background:var(--lighter)}
+.section-dark{background:var(--primary)}
+
+.section-header{
+  display:flex;
+  align-items:flex-start;
+  gap:60px;
+  margin-bottom:60px;
+}
+.section-label{
+  flex-shrink:0;
+  font-size:11px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.15em;
+  color:var(--accent);
+  padding-top:8px;
+}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,4vw,48px);
+  font-weight:500;
+  line-height:1.2;
+  color:var(--primary);
+  max-width:600px;
+}
+.section-title em{
+  font-style:italic;
+  color:var(--accent);
+}
+
+/* ─────────────────────────────────────────────
+   STORY SECTION - Split Layout
+───────────────────────────────────────────── */
+.story-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+}
+.story-content{font-size:16px;line-height:1.9;color:var(--secondary)}
+.story-content p{margin-bottom:24px}
+.story-content p:last-child{margin-bottom:0}
+
+.story-stats{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:32px;
+  margin-top:48px;
+  padding-top:48px;
+  border-top:1px solid var(--border);
+}
+.stat-item{text-align:left}
+.stat-num{
+  font-family:'Playfair Display',serif;
+  font-size:48px;
+  font-weight:600;
+  color:var(--accent);
+  line-height:1;
+  margin-bottom:8px;
+}
+.stat-label{
+  font-size:13px;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  color:var(--muted);
+}
+
+.story-image{
+  position:relative;
+  height:600px;
+  overflow:hidden;
+}
+.story-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform 0.8s ease;
+}
+.story-image:hover img{transform:scale(1.05)}
+.story-image::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,0.3) 100%);
+}
+
+/* ─────────────────────────────────────────────
+   MISSION VISION CARDS
+───────────────────────────────────────────── */
+.mv-section{background:var(--lighter)}
+.mv-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:32px;
+}
+.mv-card{
+  background:var(--white);
+  padding:48px 40px;
+  border:1px solid var(--border);
+  transition:all 0.4s ease;
+  position:relative;
+  overflow:hidden;
+}
+.mv-card::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:3px;
+  background:var(--accent);
+  transform:scaleX(0);
+  transition:transform 0.4s ease;
+}
+.mv-card:hover{
+  border-color:var(--accent);
+  box-shadow:var(--shadow-lg);
+  transform:translateY(-4px);
+}
+.mv-card:hover::before{transform:scaleX(1)}
+
+.mv-icon{
+  width:56px;
+  height:56px;
+  background:var(--lighter);
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  margin-bottom:32px;
+  transition:all 0.3s ease;
+}
+.mv-card:hover .mv-icon{
+  background:var(--accent);
+  color:var(--white);
+}
+.mv-icon svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.5}
+
+.mv-card h3{
+  font-family:'Playfair Display',serif;
+  font-size:28px;
+  font-weight:500;
+  margin-bottom:16px;
+  color:var(--primary);
+}
+.mv-card p{
+  font-size:15px;
+  line-height:1.8;
+  color:var(--secondary);
+}
+
+/* ─────────────────────────────────────────────
+   CORE VALUES
+───────────────────────────────────────────── */
+.values-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+}
+.value-cell{
+  background:var(--white);
+  padding:48px 40px;
+  transition:all 0.3s ease;
+}
+.value-cell:hover{
+  background:var(--lighter);
+}
+.value-num{
+  font-family:'Playfair Display',serif;
+  font-size:14px;
+  font-weight:600;
+  color:var(--accent);
+  margin-bottom:16px;
+  letter-spacing:0.1em;
+}
+.value-cell h4{
+  font-family:'Playfair Display',serif;
+  font-size:24px;
+  font-weight:500;
+  margin-bottom:16px;
+  color:var(--primary);
+}
+.value-cell p{
+  font-size:14px;
+  line-height:1.7;
+  color:var(--secondary);
+}
+
+/* ─────────────────────────────────────────────
+   FACILITIES SECTION
+───────────────────────────────────────────── */
+.facilities-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:48px;
+}
+.facility-card{
+  display:flex;
+  gap:32px;
+  padding:40px;
+  background:var(--white);
+  border:1px solid var(--border);
+  transition:all 0.3s ease;
+}
+.facility-card:hover{
+  border-color:var(--accent);
+  box-shadow:var(--shadow);
+}
+.facility-icon{
+  flex-shrink:0;
+  width:64px;
+  height:64px;
+  background:var(--lighter);
+  border-radius:8px;
+  display:grid;
+  place-items:center;
+  transition:all 0.3s ease;
+}
+.facility-card:hover .facility-icon{
+  background:var(--accent);
+  color:var(--white);
+}
+.facility-icon svg{width:28px;height:28px;stroke:currentColor;fill:none;stroke-width:1.5}
+
+.facility-content h4{
+  font-family:'Playfair Display',serif;
+  font-size:24px;
+  font-weight:500;
+  margin-bottom:12px;
+  color:var(--primary);
+}
+.facility-content p{
+  font-size:14px;
+  line-height:1.7;
+  color:var(--secondary);
+}
+
+/* ─────────────────────────────────────────────
+   INDUSTRIES
+───────────────────────────────────────────── */
+.industries-section{background:var(--primary);color:var(--white)}
+.industries-section .section-title{color:var(--white)}
+.industries-section .section-label{color:var(--accent)}
+
+.industries-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:rgba(255,255,255,0.1);
+}
+.industry-item{
+  background:var(--primary);
+  padding:32px 24px;
+  text-align:center;
+  transition:all 0.3s ease;
+  border:1px solid transparent;
+}
+.industry-item:hover{
+  background:rgba(255,255,255,0.03);
+  border-color:var(--accent);
+}
+.industry-item svg{
+  width:32px;
+  height:32px;
+  stroke:var(--accent);
+  fill:none;
+  stroke-width:1.5;
+  margin-bottom:16px;
+}
+.industry-item span{
+  display:block;
+  font-size:14px;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+}
+
+/* ─────────────────────────────────────────────
+   LEADERSHIP
+───────────────────────────────────────────── */
+.leadership-card{
+  display:grid;
+  grid-template-columns:400px 1fr;
+  gap:64px;
+  align-items:center;
+  background:var(--lighter);
+  padding:64px;
+}
+.leader-image{
+  height:400px;
+  background:var(--border);
+  position:relative;
+  overflow:hidden;
+}
+.leader-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:grayscale(100%);
+  transition:all 0.5s ease;
+}
+.leadership-card:hover .leader-image img{
+  filter:grayscale(0%);
+  transform:scale(1.05);
+}
+.leader-content h3{
+  font-family:'Playfair Display',serif;
+  font-size:36px;
+  font-weight:500;
+  margin-bottom:8px;
+  color:var(--primary);
+}
+.leader-role{
+  font-size:14px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color:var(--accent);
+  margin-bottom:32px;
+}
+.leader-bio{
+  font-size:16px;
+  line-height:1.8;
+  color:var(--secondary);
+}
+.leader-bio p{margin-bottom:20px}
+
+/* ─────────────────────────────────────────────
+   ANIMATIONS
+───────────────────────────────────────────── */
+.reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:all 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.in{opacity:1;transform:none}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}
+.reveal-right{opacity:0;transform:translateX(40px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}
+.reveal-left.in,.reveal-right.in{opacity:1;transform:none}
+
+.delay-1{transition-delay:0.1s}
+.delay-2{transition-delay:0.2s}
+.delay-3{transition-delay:0.3s}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────── */
+@media(max-width:1024px){
+  .W{padding:0 32px}
+  .story-grid{grid-template-columns:1fr;gap:48px}
+  .story-image{height:400px}
+  .mv-grid{grid-template-columns:repeat(2,1fr)}
+  .values-grid{grid-template-columns:repeat(2,1fr)}
+  .facilities-grid{grid-template-columns:1fr}
+  .industries-grid{grid-template-columns:repeat(2,1fr)}
+  .leadership-card{grid-template-columns:1fr;gap:40px}
+  .leader-image{height:300px}
+}
+
+@media(max-width:768px){
+  .W{padding:0 24px}
+  .about-hero{padding:100px 0 60px}
+  .section{padding:60px 0}
+  .section-header{flex-direction:column;gap:16px}
+  .mv-grid{grid-template-columns:1fr}
+  .values-grid{grid-template-columns:1fr}
+  .industries-grid{grid-template-columns:1fr}
+  .story-stats{grid-template-columns:1fr;gap:24px}
+  .leadership-card{padding:32px}
+}
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<section class="about-hero">
+  <div class="W hero-inner">
+    <div class="breadcrumb reveal">
+      <span>Home</span>
+      <span>/</span>
+      <span>About Us</span>
+    </div>
+    <h1 class="hero-title reveal delay-1">
+      Engineering <em>Excellence</em><br/>
+      Since 2011
+    </h1>
+    <p class="hero-intro reveal delay-2">
+      <strong>Kumara Engineering Solutions Pvt. Ltd.</strong> was formally incepted in 2023, 
+      inheriting the operational legacy and deep expertise of <strong>Sunrise Enterprises, 
+      established in 2011</strong>. We are the true leaders in end-to-end power distribution, 
+      control systems, and turnkey electrical solutions.
+    </p>
+  </div>
+</section>
+
+<!-- OUR STORY SECTION -->
+<section class="section">
+  <div class="W">
+    <div class="section-header reveal">
+      <span class="section-label">Our Story</span>
+      <h2 class="section-title">Built on a foundation of <em>technical mastery</em> and unwavering commitment</h2>
+    </div>
+
+    <div class="story-grid">
+      <div class="story-content reveal-left">
+        <p>
+          Managed by <strong>Mr. Kumaraswamy B.R.</strong>, a professionally qualified Electrical Engineer 
+          with 16+ years of vast experience in Electrical Engineering and allied fields, our company 
+          has established itself as a reputed manufacturer and supplier of premium quality customized panels.
+        </p>
+        <p>
+          We specialize in distribution panels, star delta panels, MCC and PCC panels, bus ducts, 
+          LT panels, APFC panels, ATS panels, fire protection panels, lighting panels, DG synchronizing 
+          panels, and PLC control panels. Known for their high performance, less maintenance, easy operation, 
+          sturdy construction, and long service life.
+        </p>
+        <p>
+          Our products are manufactured using cutting-edge technology and high-quality raw material 
+          as per set industry standards including IS and IEC 61439 Part I and II. To meet diverse client 
+          needs, we offer products in several technical specifications.
+        </p>
+
+        <div class="story-stats">
+          <div class="stat-item">
+            <div class="stat-num">2023</div>
+            <div class="stat-label">Established Year</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">25+</div>
+            <div class="stat-label">Permanent Staff</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">15+</div>
+            <div class="stat-label">Trained Technicians</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">16+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-image reveal-right">
+        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80" alt="Engineering Facility"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION VISION QUALITY -->
+<section class="section mv-section">
+  <div class="W">
+    <div class="section-header reveal">
+      <span class="section-label">Our Purpose</span>
+      <h2 class="section-title">Guided by clear <em>vision</em> and strong principles</h2>
+    </div>
+
+    <div class="mv-grid">
+      <div class="mv-card reveal">
+        <div class="mv-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3>Our Mission</h3>
+        <p>To provide reliable and cost-effective engineering solutions exactly meeting the needs of the customer, while maintaining Corporate Social Responsibility by using Energy Conservation Methods and safety systems that meet national and international standards.</p>
+      </div>
+
+      <div class="mv-card reveal delay-1">
+        <div class="mv-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+        </div>
+        <h3>Our Vision</h3>
+        <p>To be a True Leader in Designing, Manufacturing, and Providing the Heart of Power Distribution and Control Systems, setting a benchmark for Quality, Precision, and Consistency.</p>
+      </div>
+
+      <div class="mv-card reveal delay-2">
+        <div class="mv-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        </div>
+        <h3>Our Quality</h3>
+        <p>The word "Quality" runs in KES. We comply to the latest IS and IEC 61439 standards. All materials are sourced from OEMs with stringent Quality Check Process. We believe in "Doing right the First Time" and adopting "Continuous Improvement".</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CORE VALUES -->
+<section class="section">
+  <div class="W">
+    <div class="section-header reveal">
+      <span class="section-label">Principles</span>
+      <h2 class="section-title">Our <em>Core Values</em></h2>
+    </div>
+
+    <div class="values-grid">
+      <div class="value-cell reveal">
+        <div class="value-num">01</div>
+        <h4>Teamwork</h4>
+        <p>We recognize our primary asset is people. We work with our clients as a team. Mutual respect provides the foundation for our success.</p>
+      </div>
+
+      <div class="value-cell reveal delay-1">
+        <div class="value-num">02</div>
+        <h4>Integrity</h4>
+        <p>We abide by the principle that our "yes is yes" and our "no is no". When we make a commitment, we will always follow through.</p>
+      </div>
+
+      <div class="value-cell reveal delay-2">
+        <div class="value-num">03</div>
+        <h4>Excellence</h4>
+        <p>Skillfully executing our work, utilizing innovation and ingenuity, so that we provide a high-quality finished product and excellent service.</p>
+      </div>
+
+      <div class="value-cell reveal">
+        <div class="value-num">04</div>
+        <h4>Safety</h4>
+        <p>At KES, we are dedicated to maintaining a safe work environment for our employees, subcontractors, clients and the general public.</p>
+      </div>
+
+      <div class="value-cell reveal delay-1">
+        <div class="value-num">05</div>
+        <h4>Innovation</h4>
+        <p>We foster a culture that embraces the need for change. We encourage innovation and individual creativity in problem solving.</p>
+      </div>
+
+      <div class="value-cell reveal delay-2">
+        <div class="value-num">06</div>
+        <h4>Communication</h4>
+        <p>We take time to listen. Open, honest, and pro-active communication with clients, partners, and employees is essential.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITIES -->
+<section class="section section-alt">
+  <div class="W">
+    <div class="section-header reveal">
+      <span class="section-label">Infrastructure</span>
+      <h2 class="section-title">World-class <em>facilities</em> & capabilities</h2>
+    </div>
+
+    <div class="facilities-grid">
+      <div class="facility-card reveal">
+        <div class="facility-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l8-4 8 4v14M8 21v-9a2 2 0 012-2h4a2 2 0 012 2v9"/></svg>
+        </div>
+        <div class="facility-content">
+          <h4>Manufacturing Facility</h4>
+          <p>Spread across a vast area, our infrastructural unit is installed with modern CNC tools and machines. Divided into dedicated departments: Procurement, Manufacturing, Quality-Testing, R&D, and Warehousing.</p>
+        </div>
+      </div>
+
+      <div class="facility-card reveal delay-1">
+        <div class="facility-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div class="facility-content">
+          <h4>In-house Testing</h4>
+          <p>Well-equipped laboratory for routine tests: High Voltage Dielectric Strength, Megger insulation testing, Operational secondary current injection. Temperature Rise Test facility up to 4000Amps.</p>
+        </div>
+      </div>
+
+      <div class="facility-card reveal">
+        <div class="facility-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+        </div>
+        <div class="facility-content">
+          <h4>Research & Development</h4>
+          <p>In-house R&D facilities for product design and innovation. Combining market technology insights with highly skilled engineers to provide integrated products from concept to manufacture.</p>
+        </div>
+      </div>
+
+      <div class="facility-card reveal delay-1">
+        <div class="facility-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z"/><path d="M14 3v5h5M16 13H8M16 17H8M10 9H8"/></svg>
+        </div>
+        <div class="facility-content">
+          <h4>Quality Assurance</h4>
+          <p>Committed to fulfilling all requirements and applicable standards. Our Quality Policy aims at meeting customer expectations and continuous improvement of processes through constant training.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="section industries-section">
+  <div class="W">
+    <div class="section-header reveal">
+      <span class="section-label">Our Reach</span>
+      <h2 class="section-title">Industries We <em>Cater To</em></h2>
+    </div>
+
+    <div class="industries-grid">
+      <div class="industry-item reveal">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M12 8v8M8 12h8"/></svg>
+        <span>Pharma Industry</span>
+      </div>
+      <div class="industry-item reveal delay-1">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M12 8v8M8 12h8"/></svg>
+        <span>Chemical Industry</span>
+      </div>
+      <div class="industry-item reveal delay-2">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M12 8v8M8 12h8"/></svg>
+        <span>Textile Industry</span>
+      </div>
+      <div class="industry-item reveal">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M12 8v8M8 12h8"/></svg>
+        <span>Automobile Industry</span>
+      </div>
+      <div class="industry-item reveal delay-1">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M12 8v8M8 12h8"/></svg>
+        <span>Manufacturing</span>
+      </div>
+      <div class="industry-item reveal delay-2">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M12 8v8M8 12h8"/></svg>
+        <span>Hospitality</span>
+      </div>
+      <div class="industry-item reveal">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M12 8v8M8 12h8"/></svg>
+        <span>Food Industry</span>
+      </div>
+      <div class="industry-item reveal delay-1">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M12 8v8M8 12h8"/></svg>
+        <span>Agriculture</span>
+      </div>
+      <div class="industry-item reveal delay-2">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M12 8v8M8 12h8"/></svg>
+        <span>Refrigeration</span>
+      </div>
+      <div class="industry-item reveal">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M12 8v8M8 12h8"/></svg>
+        <span>Villas & Residencies</span>
+      </div>
+      <div class="industry-item reveal delay-1">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M12 8v8M8 12h8"/></svg>
+        <span>Plastic Industry</span>
+      </div>
+      <div class="industry-item reveal delay-2">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M12 8v8M8 12h8"/></svg>
+        <span>Large Apartments</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section class="section">
+  <div class="W">
+    <div class="section-header reveal">
+      <span class="section-label">Leadership</span>
+      <h2 class="section-title">Meet our <em>founder</em></h2>
+    </div>
+
+    <div class="leadership-card reveal">
+      <div class="leader-image">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80" alt="Mr. Kumaraswamy B.R."/>
+      </div>
+      <div class="leader-content">
+        <h3>Mr. Kumaraswamy B.R.</h3>
+        <div class="leader-role">Managing Director</div>
+        <div class="leader-bio">
+          <p>
+            A professionally qualified Electrical Engineer with a Bachelor of Engineering degree 
+            in Electrical and Electronics, bringing over 16 years of immense knowledge and vast 
+            experience in Electrical Engineering, project management, estimation, execution, and 
+            allied infrastructure fields.
+          </p>
+          <p>
+            Under his direction, Kumara Engineering Solutions has been able to attain maximum 
+            satisfaction of respected clients through client-oriented approach, fair business 
+            practices, competitive pricing structure, and on-time delivery.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// Scroll Reveal Animation
+const observerOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<style>
+/* ─────────────────────────────────────────────
+   GLOBAL DESIGN TOKENS (Self-contained)
+───────────────────────────────────────────── */
+:root {
+  --navy:      #08111f;
+  --navy2:     #0c1a30;
+  --navy3:     #0f2040;
+  --blue:      #1251a3;
+  --blue2:     #1565c8;
+  --blue3:     #1a7ae8;
+  --blue-pale: #fbeae6;
+  --blue-alt:  #cc2700;
+  --blue-alt2: #a81e00;
+  --blue-alt3: #8a1800;
+  --white:     #ffffff;
+  --off:       #f9f5f4;
+  --grey:      #64748b;
+  --grey2:     #94a3b8;
+  --border:    #dde6f5;
+  --text:      #0f1f35;
+}
+
+/* ─────────────────────────────────────────────
+   FOOTER
+   ───────────────────────────────────────────── */
+footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
+.ft-grid { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1.35fr; gap: 56px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,.07); }
+.ft-logo { display: flex; align-items: center; gap: 13px; margin-bottom: 17px; }
+.fl-mk { width: 42px; height: 42px; border-radius: 6px; background: var(--blue); display: grid; place-items: center; flex-shrink: 0; }
+.fl-mk svg { width: 20px; height: 20px; }
+.fl-nm { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 15px; color: #fff; letter-spacing: .01em; line-height: 1.2; }
+.fl-sub { font-size: 10px; color: var(--blue-alt); letter-spacing: .05em; text-transform: uppercase; margin-top: 1px; }
+.ft-desc { font-size: 13.5px; line-height: 1.82; color: rgba(255,255,255,.3); font-weight: 300; margin-bottom: 24px; max-width: 320px; }
+.ft-soc { display: flex; gap: 8px; }
+.fsoc { width: 36px; height: 36px; border-radius: 6px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); display: grid; place-items: center; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; color: rgba(255,255,255,.38); transition: all .2s; text-decoration: none; }
+.fsoc:hover { background: var(--blue-alt); color: #fff; border-color: var(--blue-alt); }
+.ft-col h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 9.5px; font-weight: 700; color: rgba(255,255,255,.2); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,.06); letter-spacing: .14em; text-transform: uppercase; }
+.ft-links { display: flex; flex-direction: column; gap: 10px; }
+.ft-links a { font-size: 13.5px; color: rgba(255,255,255,.36); font-weight: 300; cursor: pointer; transition: color .2s; display: flex; align-items: center; gap: 7px; text-decoration: none; }
+.ft-links a:hover { color: rgba(255,255,255,.78); }
+.ft-links a::before { content: ''; width: 6px; height: 2px; background: var(--blue-alt); opacity: .4; flex-shrink: 0; transition: width .2s, opacity .2s; }
+.ft-links a:hover::before { width: 12px; opacity: 1; }
+.ft-contact { display: flex; flex-direction: column; gap: 11px; }
+.fc-i { display: flex; align-items: flex-start; gap: 9px; font-size: 12.5px; color: rgba(255,255,255,.34); line-height: 1.6; font-weight: 300; }
+.ft-bottom { padding: 22px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+.ft-bottom p { font-size: 11.5px; color: rgba(255,255,255,.2); }
+.ft-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+.ftb { padding: 3px 9px; border: 1px solid rgba(204,39,0,.22); border-radius: 2px; font-family: 'Barlow Condensed', sans-serif; font-size: 9.5px; font-weight: 700; color: var(--blue-alt); letter-spacing: .09em; text-transform: uppercase; }
+
+/* Back to Top */
+#btt { position: fixed; bottom: 28px; right: 28px; z-index: 999; width: 44px; height: 44px; border-radius: 6px; background: var(--blue-alt); color: #fff; display: none; align-items: center; justify-content: center; font-size: 18px; font-weight: 900; box-shadow: 0 4px 18px rgba(204,39,0,.4); cursor: pointer; transition: all .22s; font-family: 'Barlow Condensed', sans-serif; border: none; outline: none; }
+#btt.on { display: flex; }
+#btt:hover { background: var(--blue-alt2); transform: translateY(-3px); }
+
+@media (max-width: 1024px) {
+  .ft-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .ft-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<!-- FOOTER -->
+<footer>
+  <div class="W">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-logo">
+          <div class="fl-mk">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue-alt)" stroke-width="1.8" stroke-linecap="round">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="fl-nm">Kumara Engineering Solutions</div>
+            <div class="fl-sub">Private Limited &middot; Est. 2023</div>
+          </div>
+        </div>
+        <p class="ft-desc">The True Leader in End-to-End Power Distribution, Control Systems and Turnkey Electrical Solutions. Serving Karnataka and beyond &mdash; built on 16+ years of inherited excellence.</p>
+        <div class="ft-soc">
+          <a href="#" class="fsoc">in</a>
+          <a href="#" class="fsoc">fb</a>
+          <a href="#" class="fsoc">yt</a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h4>Quick Links</h4>
+        <div class="ft-links">
+          <a href="index.html">Home</a>
+          <a href="aboutus.html">About Us</a>
+          <a href="products.html">Products</a>
+          <a href="services.html">Services</a>
+          <a href="process.html">Manufacturing Process</a>
+          <a href="contactus.html">Contact</a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h4>Products</h4>
+        <div class="ft-links">
+          <a href="products.html#lt-panel">LT Panel</a>
+          <a href="products.html#mcc-panel">MCC Panel</a>
+          <a href="products.html#plc-panel">PLC Control Panel</a>
+          <a href="products.html#apfc-panel">APFC Panel</a>
+          <a href="products.html#busduct">HV &amp; LV Bus Duct</a>
+          <a href="products.html#vfd-panel">VFD Panel</a>
+          <a href="products.html#ats-panel">ATS Panel</a>
+          <a href="products.html#dg-panel">DG Sync Panel</a>
+        </div>
+      </div>
+      <div class="ft-col">
+        <h4>Contact Us</h4>
+        <div class="ft-contact">
+          <div class="fc-i"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/></svg> No.79, GF, BHCS Layout, Viratnagar, Bommanahalli, Bengaluru &ndash; 560 068</div>
+          <div class="fc-i"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg> +91 80 2573 7557 &nbsp;/&nbsp; +91 99802 77557</div>
+          <div class="fc-i"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 6l-10 7L2 6"/></svg> info@kespl.co.in</div>
+          <div class="fc-i"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/></svg> Mon&ndash;Sat &middot; 9 AM &ndash; 6 PM IST</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:18px">
+          <span class="ftb">IEC 61439</span>
+          <span class="ftb">IS:8623</span>
+          <span class="ftb">CPRI</span>
+          <span class="ftb">ISO 9001</span>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <p>&copy; 2025 Kumara Engineering Solutions Private Limited. All rights reserved.</p>
+      <div class="ft-badges">
+        <span class="ftb">ISO Certified</span>
+        <span class="ftb">Class I Contractor</span>
+        <span class="ftb">GSTIN: 29ANNPB3536E1Z3</span>
+        <span class="ftb">Bengaluru, Karnataka</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">&uarr;</button>

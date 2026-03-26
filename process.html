@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Manufacturing Process — Kumara Engineering Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* SVGs */
+.svg-ic { width: 1.25em; height: 1.25em; display: inline-block; vertical-align: middle; flex-shrink: 0; }
+
+:root{
+  --navy:     #08111f;
+  --navy2:    #0c1a30;
+  --navy3:    #0f2040;
+  --blue:     #1251a3;
+  --blue2:    #1565c8;
+  --blue3:    #1a7ae8;
+  --blue-pale:#fbeae6;
+  --blue-alt:#cc2700; 
+  --blue-alt2:#a81e00; 
+  --blue-alt3:#8a1800; 
+  --white:    #ffffff;
+  --off:      #f9f5f4;
+  --grey:     #64748b;
+  --grey2:    #94a3b8;
+  --border:   #dde6f5;
+  --text:     #0f1f35;
+  --s1: 0 2px 16px rgba(8,17,31,.08);
+  --s2: 0 8px 36px rgba(8,17,31,.14);
+  --s3: 0 24px 64px rgba(8,17,31,.22);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;color:var(--text);background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;outline:none;background:none}
+img{display:block;max-width:100%}
+.W{max-width:1300px;margin:0 auto;padding:0 48px}
+
+/* Navbar / Header */
+
+
+/* Hero Subpage */
+.hero-subpage{position:relative;padding:120px 0 80px;background:var(--navy);overflow:hidden}
+.hero-subpage::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?w=1600&q=80') center/cover no-repeat;opacity:0.25;filter:brightness(0.5)}
+.hero-subpage::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,var(--navy) 0%,transparent 100%)}
+.hero-sub-inner{position:relative;z-index:10;text-align:center}
+.title-big{font-family:'Barlow Condensed',sans-serif;font-size:clamp(48px,8vw,120px);font-weight:900;color:#fff;text-transform:uppercase;line-height:0.9;letter-spacing:-0.03em;margin-bottom:20px}
+.title-big em{font-style:normal;color:var(--blue-alt)}
+.hero-path{display:flex;justify-content:center;gap:12px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em}
+.hero-path span.active{color:var(--blue-alt)}
+
+/* Process Timeline Layout */
+.sec { padding: 96px 0; }
+.bggry { background: var(--off); }
+.sec-hd { text-align: center; max-width: 680px; margin: 0 auto 56px; }
+.sec-hd .sl-bar { width: 32px; height: 3px; background: var(--blue-alt); display: inline-block; vertical-align: middle; margin-right: 8px; border-radius: 2px;}
+.sec-hd .sl-txt { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; color: var(--blue-alt); letter-spacing: 0.15em; text-transform: uppercase; vertical-align: middle;}
+.sec-hd h2 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(32px, 4vw, 54px); font-weight: 800; color: var(--navy); text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.1; margin-top: 14px; margin-bottom: 18px; }
+.sec-hd h2 em { font-style: normal; color: var(--blue-alt); }
+.sec-hd p { font-size: 15px; color: var(--grey); line-height: 1.6; }
+
+.timeline { position: relative; max-width: 1000px; margin: 0 auto; padding: 40px 0; }
+.timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 4px; background: var(--border); transform: translateX(-50%); border-radius: 2px; }
+
+.tl-item { position: relative; width: 100%; margin-bottom: 80px; align-items: center; justify-content: space-between; clear: both; display: flex; }
+.tl-item:last-child { margin-bottom: 0; }
+
+.tl-content { width: 45%; background: #fff; padding: 32px; border-radius: 12px; border: 1px solid var(--border); box-shadow: var(--s1); position: relative; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+.tl-content:hover { transform: translateY(-5px); border-color: var(--blue-alt); box-shadow: var(--s2); }
+
+/* Marker dot on the line */
+.tl-marker { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 24px; height: 24px; background: #fff; border: 4px solid var(--blue-alt); border-radius: 50%; z-index: 2; box-shadow: 0 0 0 4px rgba(204,39,0,0.1); }
+.tl-step { position: absolute; font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 900; color: var(--border); top: -24px; z-index: 0; transition: color 0.3s; }
+.tl-item:hover .tl-step { color: var(--blue-pale); }
+
+.tl-left .tl-content { margin-right: auto; }
+.tl-right .tl-content { margin-left: auto; }
+.tl-left .tl-step { right: 24px; }
+.tl-right .tl-step { left: 24px; }
+
+.tl-content h3 { position: relative; z-index: 10; font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 800; color: var(--navy); text-transform: uppercase; margin-bottom: 12px; }
+.tl-content p { position: relative; z-index: 10; font-size: 14.5px; color: var(--grey); line-height: 1.65; }
+
+/* In-house specific callout grid underneath */
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 80px; }
+.f-box { text-align: center; padding: 32px; background: #fff; border: 1px dashed var(--border); border-radius: 10px; transition: all 0.3s; }
+.f-box:hover { border-style: solid; border-color: var(--blue-alt); background: var(--off); transform: translateY(-3px); }
+.f-box-ico { width: 64px; height: 64px; margin: 0 auto 20px; background: var(--blue-pale); color: var(--blue-alt); border-radius: 50%; display: grid; place-items: center; font-size: 28px; }
+.f-box h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; color: var(--navy); text-transform: uppercase; margin-bottom: 8px; }
+.f-box p { font-size: 13.5px; color: var(--grey); }
+
+/* Facility Banner */
+.fac-banner { display: grid; grid-template-columns: 1fr 1fr; background: var(--navy); overflow: hidden; }
+.fac-vid { position: relative; min-height: 400px; }
+.fac-vid img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+.fac-content { padding: 96px 80px; color: #fff; display: flex; flex-direction: column; justify-content: center; }
+.fac-content h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 40px; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; color: #fff; line-height: 1.1; }
+.fac-content h3 em { font-style: normal; color: var(--blue-alt); }
+.fac-content p { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 32px; }
+
+/* Shared footer handled by site.js */
+
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
+.rl{opacity:0;transform:translateX(-32px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
+.rr{opacity:0;transform:translateX(32px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
+.rv.in,.rl.in,.rr.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}
+.d2{transition-delay:.2s}
+.d3{transition-delay:.3s}
+
+@media(max-width:1024px){
+  .timeline::before { left: 24px; }
+  .tl-content { width: calc(100% - 60px); }
+  .tl-left .tl-content, .tl-right .tl-content { margin-left: 60px; margin-right: 0; }
+  .tl-marker { left: 24px; }
+  .features-grid { grid-template-columns: 1fr; }
+  .fac-banner { grid-template-columns: 1fr; }
+  .fac-content { padding: 48px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Shared header loaded by site.js -->
+<div id="site-header"></div>
+
+<!-- ══════════ HERO SUBPAGE ══════════ -->
+<header class="hero-subpage">
+  <div class="W hero-sub-inner">
+    <div class="hero-path rv">Home / <span class="active">Process</span></div>
+    <h1 class="title-big rv" style="transition-delay:0.1s">Factory <em>Floor</em></h1>
+    <p style="color:rgba(255,255,255,0.7); max-width:600px; margin:0 auto; font-size:16px" class="rv" style="transition-delay:0.2s">From blueprint CAD software to physical steel fabrication and rigid high-voltage testing, explore how we build world-class switchgear.</p>
+  </div>
+</header>
+
+<!-- ══════════ TIMELINE MAIN ══════════ -->
+<section class="sec bggry">
+  <div class="W">
+    
+    <div class="sec-hd rv">
+      <span class="sl-bar"></span><span class="sl-txt">Manufacturing Stages</span>
+      <h2>The 6-Step <em>Workflow</em></h2>
+      <p>Precision executed at every stage ensuring safety, longevity, and IEC compliance.</p>
+    </div>
+
+    <div class="timeline">
+      
+      <!-- Stage 1 -->
+      <div class="tl-item tl-left rv">
+        <div class="tl-marker"></div>
+        <div class="tl-content">
+          <div class="tl-step">01</div>
+          <h3>Design &amp; Estimation</h3>
+          <p>Our in-house engineering team works closely with factory requirements to draft precise Single Line Diagrams (SLDs) and fully realized layout plans using advanced CAD tools.</p>
+        </div>
+      </div>
+
+      <!-- Stage 2 -->
+      <div class="tl-item tl-right rv">
+        <div class="tl-marker"></div>
+        <div class="tl-content">
+          <div class="tl-step">02</div>
+          <h3>Fabrication &amp; Coating</h3>
+          <p>Premium CRCA sheet steel is rigorously fabricated, folded, and passed through a 9-tank pre-treatment anti-corrosion process before receiving a thick RAL 7032/7035 powder coating.</p>
+        </div>
+      </div>
+
+      <!-- Stage 3 -->
+      <div class="tl-item tl-left rv">
+        <div class="tl-marker"></div>
+        <div class="tl-content">
+          <div class="tl-step">03</div>
+          <h3>Switchgear Assembly</h3>
+          <p>The panel backbone. Internal busbar routing is implemented utilizing highly conductive Copper or Aluminium rated precisely per IS standards, with safety torque marking visible.</p>
+        </div>
+      </div>
+
+      <!-- Stage 4 -->
+      <div class="tl-item tl-right rv">
+        <div class="tl-marker"></div>
+        <div class="tl-content">
+          <div class="tl-step">04</div>
+          <h3>Wiring &amp; Harnessing</h3>
+          <p>Immaculate control logic wiring using flame-retardant (FRLS) wires. Neat PVC channel routing with distinct color coding makes later troubleshooting and maintenance entirely straightforward.</p>
+        </div>
+      </div>
+
+      <!-- Stage 5 -->
+      <div class="tl-item tl-left rv">
+        <div class="tl-marker"></div>
+        <div class="tl-content">
+          <div class="tl-step">05</div>
+          <h3>Testing &amp; Q/C</h3>
+          <p>Safety is non-negotiable. Every delivered panel is subjected to rigorous high-voltage tests, Megger insulation tests, and routine functional checks before earning its internal QC passing tag.</p>
+        </div>
+      </div>
+
+      <!-- Stage 6 -->
+      <div class="tl-item tl-right rv">
+        <div class="tl-marker"></div>
+        <div class="tl-content">
+          <div class="tl-step">06</div>
+          <h3>Dispatch &amp; Handover</h3>
+          <p>Once certified, the panels are safely packed for transit. Our certified erection engineers manage onsite placement, perform commissioning, and navigate the final CEIG handover.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="features-grid">
+      <div class="f-box rv d1">
+        <div class="f-box-ico">📏</div>
+        <h4>Precision Fabrication</h4>
+        <p>1.6mm & 2.0mm CRCA sheet bending with exact tight-tolerance CNC matching.</p>
+      </div>
+      <div class="f-box rv d2">
+        <div class="f-box-ico">🎨</div>
+        <h4>9-Tank Process</h4>
+        <p>Complete rust-free chemical treatment ensuring zero corrosion over decades of use.</p>
+      </div>
+      <div class="f-box rv d3">
+        <div class="f-box-ico">🧪</div>
+        <h4>HV Testing Lab</h4>
+        <p>In-house high voltage injection tests providing CPRI level quality assurance.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ FACILITY BANNER ══════════ -->
+<section class="fac-banner rv">
+  <div class="fac-content">
+    <h3>Visit our <em>Manufacturing Unit</em></h3>
+    <p>Located in Bommanahalli, Bengaluru, our production facility houses advanced sheet routing, heavy-duty busbar cutting machinery, and full inventory bays ensuring fast turnaround times.</p>
+    <div>
+      <a href="contactus.html" class="nav-cta" style="display:inline-flex; border-radius:4px">Schedule a Tour <span class="arr">→</span></a>
+    </div>
+  </div>
+  <div class="fac-vid">
+    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80" alt="Factory Floor">
+  </div>
+</section>
+
+<!-- Shared footer loaded by site.js -->
+<div id="site-footer"></div>
+
+<!-- ══════════ SCRIPTS ══════════ -->
+<script src="site.js"></script>
+</body>
+</html>
