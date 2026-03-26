@@ -1,904 +1,1134 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>KES — Kumara Engineering Solutions Pvt. Ltd.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,700&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet"/>
 <style>
-/* SVGs */
-.svg-ic { width: 1.25em; height: 1.25em; display: inline-block; vertical-align: middle; flex-shrink: 0; }
 
-/* ─────────────────────────────────────────────
+/* ═══════════════════════════════════════════════
    ROOT TOKENS
-───────────────────────────────────────────── */
-:root{
-  --navy:     #08111f;
-  --navy2:    #0c1a30;
-  --navy3:    #0f2040;
-  --blue:     #1251a3;
-  --blue2:    #1565c8;
-  --blue3:    #1a7ae8;
-  --blue-pale:#fbeae6;
-  --blue-alt:#cc2700; /* Brand accent — logo red */
-  --blue-alt2:#a81e00; /* Hover / darker shade */
-  --blue-alt3:#8a1800; /* Deep shade for borders */
-  --white:    #ffffff;
-  --off:      #f9f5f4;
-  --grey:     #64748b;
-  --grey2:    #94a3b8;
-  --border:   #dde6f5;
-  --text:     #0f1f35;
-  --s1: 0 2px 16px rgba(8,17,31,.08);
-  --s2: 0 8px 36px rgba(8,17,31,.14);
-  --s3: 0 24px 64px rgba(8,17,31,.22);
+═══════════════════════════════════════════════ */
+:root {
+  --navy:      #07101e;
+  --navy2:     #0b1829;
+  --navy3:     #0f2040;
+  --blue:      #1251a3;
+  --blue2:     #1565c8;
+  --blue3:     #1a7ae8;
+  --red:       #cc2700;
+  --red2:      #a81e00;
+  --red3:      #8a1800;
+  --red-glow:  rgba(204,39,0,.22);
+  --white:     #ffffff;
+  --off:       #f8f6f4;
+  --off2:      #f2eeeb;
+  --grey:      #64748b;
+  --grey2:     #94a3b8;
+  --border:    #e2dbd6;
+  --text:      #0f1f35;
+  --s1: 0 2px 16px rgba(8,17,31,.07);
+  --s2: 0 8px 36px rgba(8,17,31,.13);
+  --s3: 0 24px 64px rgba(8,17,31,.2);
+  --s4: 0 40px 100px rgba(8,17,31,.28);
 }
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Barlow',sans-serif;color:var(--text);background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-a{text-decoration:none;color:inherit}
-button{font-family:inherit;cursor:pointer;border:none;outline:none;background:none}
-img{display:block;max-width:100%}
-.W{max-width:1300px;margin:0 auto;padding:0 48px}
 
-/* ─────────────────────────────────────────────
-   HERO — FULL IMAGE
-───────────────────────────────────────────── */
-.hero{position:relative;height:100vh;min-height:780px;max-height:1000px;overflow:hidden;background:var(--navy)}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Barlow', sans-serif;
+  color:var(--text);
+  background:#fff;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a { text-decoration:none; color:inherit; }
+button { font-family:inherit; cursor:pointer; border:none; outline:none; background:none; }
+img { display:block; max-width:100%; }
 
-/* Full bleed background image */
-.hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transform:scale(1.05);transition:transform 9s ease-out}
-.hero.ready .hero-bg img{transform:scale(1)}
+.W { max-width:1300px; margin:0 auto; padding:0 56px; }
+@media(max-width:768px){ .W{ padding:0 24px; } }
+@media(max-width:480px){ .W{ padding:0 18px; } }
 
-/* Layered overlays for deep blue feel */
-.hero-ov1{position:absolute;inset:0;z-index:1;background:linear-gradient(108deg,rgba(4,12,28,.92) 0%,rgba(8,20,45,.78) 45%,rgba(10,26,58,.5) 75%,rgba(12,30,65,.15) 100%)}
-.hero-ov2{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,transparent 40%,rgba(4,12,28,.85) 100%)}
-/* Blue colour wash */
-.hero-ov3{position:absolute;inset:0;z-index:3;background:radial-gradient(ellipse at 70% 50%,rgba(18,81,163,.25) 0%,transparent 65%)}
+/* ═══════════════════════════════════════════════
+   REVEAL ANIMATIONS
+═══════════════════════════════════════════════ */
+.rv  { opacity:0; transform:translateY(36px); transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+.rl  { opacity:0; transform:translateX(-40px); transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+.rr  { opacity:0; transform:translateX(40px);  transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+.rv.in, .rl.in, .rr.in { opacity:1; transform:none; }
+.d1{transition-delay:.06s} .d2{transition-delay:.12s} .d3{transition-delay:.18s}
+.d4{transition-delay:.24s} .d5{transition-delay:.30s} .d6{transition-delay:.36s}
 
-/* Left accent bar */
+/* ═══════════════════════════════════════════════
+   SECTION COMMONS
+═══════════════════════════════════════════════ */
+.sec     { padding:68px 0; }
+.sec-alt { background:var(--off); }
+.sec-dark{ background:var(--navy); }
 
+.sec-label {
+  display:inline-flex; align-items:center; gap:10px; margin-bottom:16px;
+}
+.sl-bar { width:28px; height:3px; background:var(--red); border-radius:1px; flex-shrink:0; }
+.sl-txt {
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:11px; font-weight:700; color:var(--red);
+  letter-spacing:.18em; text-transform:uppercase;
+}
+
+h2.sec-title {
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:clamp(32px,3.6vw,56px);
+  font-weight:900; line-height:1.04;
+  color:var(--navy); letter-spacing:-.01em; text-transform:uppercase;
+}
+h2.sec-title em   { font-style:normal; color:var(--red); }
+h2.sec-title-w    { color:#fff; }
+h2.sec-title-w em { color:var(--red); }
+.sec-body {
+  font-size:15.5px; line-height:1.82; color:var(--grey);
+  font-weight:300; margin-top:14px;
+}
+
+/* Shared Buttons */
+.btn-red {
+  display:inline-flex; align-items:center; gap:10px;
+  background:var(--red); color:#fff;
+  padding:15px 36px; border-radius:4px;
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:15px; font-weight:800; letter-spacing:.07em; text-transform:uppercase;
+  transition:all .28s; box-shadow:0 6px 28px rgba(204,39,0,.3);
+}
+.btn-red:hover { background:var(--red2); transform:translateY(-3px); box-shadow:0 14px 40px rgba(204,39,0,.45); }
+.btn-red .arr  { transition:transform .22s; }
+.btn-red:hover .arr { transform:translateX(4px); }
+
+.btn-border {
+  display:inline-flex; align-items:center; gap:9px;
+  border:1.5px solid var(--border); color:var(--grey);
+  padding:14px 32px; border-radius:4px;
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:15px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  background:#fff; transition:all .25s;
+}
+.btn-border:hover { border-color:var(--red); color:var(--red); transform:translateY(-2px); box-shadow:var(--s1); }
+
+.btn-ghost-w {
+  display:inline-flex; align-items:center; gap:9px;
+  border:1.5px solid rgba(255,255,255,.25); color:rgba(255,255,255,.75);
+  padding:14px 32px; border-radius:4px;
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:15px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  backdrop-filter:blur(10px); transition:all .25s;
+}
+.btn-ghost-w:hover { border-color:rgba(255,255,255,.6); color:#fff; background:rgba(255,255,255,.08); transform:translateY(-2px); }
+
+/* ═══════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════ */
+#site-header { position:absolute; top:0; left:0; right:0; z-index:1000; }
+.hero {
+  position:relative; height:100vh; min-height:720px; max-height:1100px;
+  overflow:hidden; background:var(--navy);
+}
+
+/* Carousel track */
+.hc-track { position:absolute; inset:0; z-index:0; }
+.hc-slide {
+  position:absolute; inset:0;
+  opacity:0; pointer-events:none;
+  transition:opacity 1s cubic-bezier(.4,0,.2,1);
+}
+.hc-slide.active { opacity:1; pointer-events:auto; z-index:2; }
+
+/* Background image */
+.hc-slide .h-bg { position:absolute; inset:0; }
+.hc-slide .h-bg img {
+  width:100%; height:100%; object-fit:cover; object-position:center;
+  transform:scale(1.06); transition:transform 9s ease-out;
+}
+.hc-slide.active .h-bg img { transform:scale(1); }
+
+/* Overlays */
+.h-ov1 { position:absolute; inset:0; background:linear-gradient(110deg,rgba(5,11,24,.94) 0%,rgba(7,18,40,.8) 42%,rgba(9,24,55,.48) 70%,rgba(10,28,65,.12) 100%); z-index:1; }
+.h-ov2 { position:absolute; inset:0; background:linear-gradient(180deg,transparent 38%,rgba(5,11,24,.9) 100%); z-index:2; }
+.h-ov3 { position:absolute; inset:0; background:radial-gradient(ellipse at 72% 48%,rgba(18,81,163,.22) 0%,transparent 62%); z-index:3; }
+
+/* Diagonal accent line */
+.h-diag {
+  position:absolute; z-index:4;
+  top:0; right:22%; width:1px; height:100%;
+  background:linear-gradient(180deg,transparent 0%,rgba(204,39,0,.3) 40%,rgba(204,39,0,.1) 100%);
+}
 
 /* Content */
-.hero-content{position:absolute;inset:0;z-index:10;display:flex;align-items:center}
-.hero-text{padding:0 calc((100vw - 1300px)/2 + 48px);padding-right:0;max-width:820px}
+.hero-content {
+  position:absolute; inset:0; z-index:10;
+  display:flex; align-items:center;       /* vertically centred in the remaining space */
+  padding-left:calc((100vw - 1300px)/2 + 100px);
+  padding-right:calc((100vw - 1300px)/2 + 100px);
+  padding-top:105px;   /* just below topbar (32px) + navbar (68px) + 5px gap */
+  padding-bottom:105px; /* mirror so centering looks balanced */
+}
+@media(max-width:1300px){ .hero-content{ padding-left:100px; padding-right:100px; } }
+@media(max-width:768px){ .hero-content{ padding-left:24px; padding-right:24px; padding-top:85px; padding-bottom:85px; } }
+@media(max-width:480px){ .hero-content{ padding-left:20px; padding-right:20px; padding-top:70px; padding-bottom:70px; } }
+
+.hero-text { max-width:760px; }
+
+/* Slide text — all hidden until .active fires */
+.hc-slide .h-badge,
+.hc-slide .h-h1,
+.hc-slide .h-rule,
+.hc-slide .h-sub,
+.hc-slide .h-body,
+.hc-slide .h-btns { opacity:0; }
+
+@keyframes hIn { from{opacity:0;transform:translateY(26px)} to{opacity:1;transform:none} }
+@keyframes hInL{ from{opacity:0;transform:translateX(-20px)} to{opacity:1;transform:none} }
+
+.hc-slide.active .h-badge{ animation:hIn .65s .08s forwards; }
+.hc-slide.active .h-h1   { animation:hIn .78s .22s forwards; }
+.hc-slide.active .h-rule  { animation:hInL .55s .44s forwards; }
+.hc-slide.active .h-sub   { animation:hIn .65s .52s forwards; }
+.hc-slide.active .h-body  { animation:hIn .65s .62s forwards; }
+.hc-slide.active .h-btns  { animation:hIn .6s .75s forwards; }
 
 /* Badge */
-.hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(204,39,0,.1);border:1px solid rgba(204,39,0,.28);padding:7px 16px;border-radius:4px;margin-bottom:26px;opacity:0;animation:hIn .7s .1s forwards}
-.hb-dot{width:6px;height:6px;border-radius:50%;background:var(--blue-alt);animation:hblink 2s infinite}
-@keyframes hblink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(1.6)}}
-.hero-badge span{font-family:'Barlow Condensed',sans-serif;font-size:11.5px;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:.13em;text-transform:uppercase}
+.h-badge {
+  display:inline-flex; align-items:center; gap:10px;
+  background:rgba(204,39,0,.1);
+  border:1px solid rgba(204,39,0,.3);
+  padding:7px 16px; border-radius:100px; margin-bottom:28px;
+}
+.hb-dot {
+  width:6px; height:6px; border-radius:50%; background:var(--red);
+  animation:blink 2.2s infinite;
+}
+@keyframes blink{ 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.25;transform:scale(1.7)} }
+.h-badge span {
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:11px; font-weight:700;
+  color:rgba(255,255,255,.55); letter-spacing:.14em; text-transform:uppercase;
+}
 
 /* Headline */
-.hero-h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;line-height:.97;text-transform:uppercase;margin-bottom:0;opacity:0;animation:hIn .85s .25s forwards}
-.h1-line1{display:block;font-size:clamp(52px,6.5vw,94px);color:#fff;letter-spacing:.02em;text-shadow:0 2px 40px rgba(0,0,0,.3)}
-.h1-line2{display:block;font-size:clamp(56px,7vw,102px);color:var(--blue-alt);letter-spacing:.02em;text-shadow:0 0 80px rgba(204,39,0,.35),0 2px 30px rgba(0,0,0,.4)}
+.h-h1 {
+  font-family:'Barlow Condensed', sans-serif;
+  font-weight:900; line-height:.95; text-transform:uppercase; margin-bottom:0;
+}
+.h1-line1 {
+  display:block;
+  font-size:clamp(54px,7vw,106px);
+  color:#fff; letter-spacing:.015em;
+  text-shadow:0 2px 50px rgba(0,0,0,.35);
+}
+.h1-line2 {
+  display:block;
+  font-size:clamp(58px,7.5vw,114px);
+  color:var(--red); letter-spacing:.015em;
+  text-shadow:0 0 100px rgba(204,39,0,.4), 0 2px 36px rgba(0,0,0,.45);
+}
 
-/* Divider */
-.hero-rule{width:64px;height:3px;background:var(--blue-alt);margin:24px 0;opacity:0;animation:hIn .6s .5s forwards}
+/* Rule */
+.h-rule {
+  width:72px; height:3px;
+  background:linear-gradient(90deg,var(--red),transparent);
+  margin:26px 0;
+}
 
-/* Sub-headline */
-.hero-sub{font-family:'Barlow Condensed',sans-serif;font-size:clamp(15px,1.7vw,21px);font-weight:600;color:rgba(255,255,255,.65);letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px;opacity:0;animation:hIn .7s .58s forwards}
+/* Sub */
+.h-sub {
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:clamp(14px,1.6vw,19px); font-weight:600;
+  color:rgba(255,255,255,.55); letter-spacing:.12em; text-transform:uppercase;
+  margin-bottom:18px;
+}
 
 /* Body */
-.hero-body{font-size:16px;line-height:1.8;color:rgba(255,255,255,.55);font-weight:300;max-width:540px;margin-bottom:40px;opacity:0;animation:hIn .7s .7s forwards}
+.h-body {
+  font-size:clamp(14px,1.4vw,16.5px); line-height:1.84;
+  color:rgba(255,255,255,.45); font-weight:300;
+  max-width:520px; margin-bottom:42px;
+}
 
 /* Buttons */
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px;opacity:0;animation:hIn .6s .82s forwards}
-.btn-blue{display:inline-flex;align-items:center;gap:10px;background:var(--blue-alt);color:#fff;padding:16px 38px;border-radius:5px;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;transition:all .28s;box-shadow:0 6px 28px rgba(204,39,0,.32)}
-.btn-blue:hover{background:var(--blue-alt2);transform:translateY(-3px);box-shadow:0 14px 38px rgba(204,39,0,.48)}
-.btn-blue .arr{display:inline-block;transition:transform .22s}
-.btn-blue:hover .arr{transform:translateX(5px)}
-.btn-ghost{display:inline-flex;align-items:center;gap:10px;border:2px solid rgba(255,255,255,.28);color:rgba(255,255,255,.8);padding:15px 36px;border-radius:5px;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;backdrop-filter:blur(10px);transition:all .28s}
-.btn-ghost:hover{border-color:rgba(255,255,255,.65);color:#fff;background:rgba(255,255,255,.08);transform:translateY(-3px)}
-
-/* Stats bar — bottom overlay */
-.hero-stats{position:absolute;bottom:0;left:0;right:0;z-index:20;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(4,12,28,.88);backdrop-filter:blur(24px)}
-.hs-item{padding:22px 32px;border-right:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:16px;transition:background .28s;cursor:default}
-.hs-item:last-child{border-right:none}
-.hs-item:hover{background:rgba(18,81,163,.2)}
-.hs-ico{font-size:26px;flex-shrink:0;opacity:.75}
-.hs-n{font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:900;color:var(--blue-alt);line-height:1;letter-spacing:-.02em}
-.hs-l{font-size:11px;color:rgba(255,255,255,.38);margin-top:3px;letter-spacing:.05em;text-transform:uppercase;font-weight:400}
-
-@keyframes hIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-
-/* ─────────────────────────────────────────────
-   HERO CAROUSEL
-───────────────────────────────────────────── */
-/* Track fills the hero */
-.hc-track{position:absolute;inset:0;z-index:0}
-
-/* Each slide absolutely fills the hero */
-.hc-slide{
-  position:absolute;
-  inset:0;
-  opacity:0;
-  transition:opacity .9s cubic-bezier(.4,0,.2,1);
-  pointer-events:none;
+.h-btns { display:flex; gap:14px; flex-wrap:wrap; }
+.h-btn-red {
+  display:inline-flex; align-items:center; gap:10px;
+  background:var(--red); color:#fff;
+  padding:17px 40px; border-radius:4px;
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:16px; font-weight:800; letter-spacing:.07em; text-transform:uppercase;
+  transition:all .28s; box-shadow:0 6px 32px rgba(204,39,0,.35);
 }
-.hc-slide.active{
-  opacity:1;
-  pointer-events:auto;
-  z-index:2;
+.h-btn-red:hover { background:var(--red2); transform:translateY(-3px); box-shadow:0 16px 44px rgba(204,39,0,.5); }
+.h-btn-red .arr  { transition:transform .22s; display:inline-block; }
+.h-btn-red:hover .arr { transform:translateX(5px); }
+.h-btn-ghost {
+  display:inline-flex; align-items:center; gap:10px;
+  border:1.5px solid rgba(255,255,255,.25); color:rgba(255,255,255,.75);
+  padding:16px 38px; border-radius:4px;
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:16px; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
+  backdrop-filter:blur(12px); background:rgba(255,255,255,.04);
+  transition:all .28s;
 }
+.h-btn-ghost:hover { border-color:rgba(255,255,255,.55); color:#fff; background:rgba(255,255,255,.1); transform:translateY(-3px); }
 
-/* Ken-Burns zoom on the active slide image */
-.hc-slide .hero-bg img{transform:scale(1.06);transition:transform 8s ease-out}
-.hc-slide.active .hero-bg img{transform:scale(1)}
-
-/* Text animation per slide */
-.hc-slide .hero-badge,
-.hc-slide .hero-h1,
-.hc-slide .hero-rule,
-.hc-slide .hero-sub,
-.hc-slide .hero-body,
-.hc-slide .hero-btns{opacity:0}
-
-.hc-slide.active .hero-badge{animation:hIn .65s .1s forwards}
-.hc-slide.active .hero-h1   {animation:hIn .75s .25s forwards}
-.hc-slide.active .hero-rule  {animation:hIn .55s .45s forwards}
-.hc-slide.active .hero-sub   {animation:hIn .65s .55s forwards}
-.hc-slide.active .hero-body  {animation:hIn .65s .65s forwards}
-.hc-slide.active .hero-btns  {animation:hIn .6s .78s forwards}
+/* Progress bar at bottom of hero */
+.hero-progress {
+  position:absolute; bottom:0; left:0; right:0; z-index:25;
+  height:3px; background:rgba(255,255,255,.07);
+}
+.hero-progress-fill {
+  height:100%; background:var(--red);
+  width:0%; transition:width 5s linear;
+}
 
 /* Arrows */
-.hc-arrow{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  z-index:30;
-  width:52px;height:52px;
-  border-radius:50%;
-  background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.22);
-  backdrop-filter:blur(8px);
-  display:flex;align-items:center;justify-content:center;
-  cursor:pointer;
-  transition:all .25s;
+.hc-arrow {
+  position:absolute; top:50%; transform:translateY(-50%); z-index:30;
+  width:54px; height:54px; border-radius:50%;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);
+  backdrop-filter:blur(10px);
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+  transition:all .28s;
 }
-.hc-arrow svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.hc-arrow:hover{background:var(--blue-alt);border-color:var(--blue-alt)}
-.hc-arrow:hover svg{stroke:var(--navy)}
-.hc-prev{left:28px}
-.hc-next{right:28px}
+.hc-arrow svg { width:22px; height:22px; fill:none; stroke:#fff; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.hc-arrow:hover { background:var(--red); border-color:var(--red); }
+.hc-prev { left:32px; }
+.hc-next { right:32px; }
 
 /* Dots */
-.hc-dots{
-  position:absolute;
-  bottom:92px; /* above the stats bar */
-  left:50%;
-  transform:translateX(-50%);
-  z-index:30;
-  display:flex;
-  gap:9px;
+.hc-dots {
+  position:absolute; bottom:82px; left:50%; transform:translateX(-50%);
+  z-index:30; display:flex; gap:10px;
 }
-.hc-dot{
-  width:8px;height:8px;
-  border-radius:50%;
-  background:rgba(255,255,255,.3);
-  border:none;
-  cursor:pointer;
-  transition:all .3s;
-  padding:0;
+.hc-dot {
+  width:8px; height:8px; border-radius:50%;
+  background:rgba(255,255,255,.25); border:none; cursor:pointer;
+  transition:all .35s; padding:0;
 }
-.hc-dot.active{
-  background:var(--blue-alt);
-  width:26px;
-  border-radius:4px;
+.hc-dot.active { background:var(--red); width:28px; border-radius:4px; }
+
+/* Stats bar */
+.hero-stats {
+  position:absolute; bottom:0; left:0; right:0; z-index:20;
+  display:grid; grid-template-columns:repeat(4,1fr);
+  background:rgba(5,11,24,.88); backdrop-filter:blur(28px);
+  border-top:1px solid rgba(255,255,255,.05);
+}
+.hs-item {
+  padding:22px 28px; border-right:1px solid rgba(255,255,255,.05);
+  display:flex; align-items:center; gap:16px;
+  cursor:default; transition:background .28s;
+}
+.hs-item:last-child { border-right:none; }
+.hs-item:hover { background:rgba(204,39,0,.12); }
+.hs-ico { width:36px; height:36px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.hs-ico svg { width:22px; height:22px; fill:none; stroke:rgba(255,255,255,.3); stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; }
+.hs-n {
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:34px; font-weight:900; color:var(--red);
+  line-height:1; letter-spacing:-.02em;
+}
+.hs-l { font-size:10.5px; color:rgba(255,255,255,.32); margin-top:3px; letter-spacing:.06em; text-transform:uppercase; }
+
+/* Slide counter */
+.hc-counter {
+  position:absolute; right:40px; top:50%; transform:translateY(-50%);
+  z-index:30; writing-mode:vertical-lr; text-orientation:mixed;
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+}
+.hc-cur {
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:56px; font-weight:900; color:rgba(255,255,255,.06);
+  line-height:1; letter-spacing:-.04em;
+}
+.hc-bar { width:1px; height:60px; background:rgba(255,255,255,.1); }
+.hc-total {
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:14px; font-weight:600; color:rgba(255,255,255,.25);
+  letter-spacing:.1em;
 }
 
-/* Keep hero-content above the track */
-.hero-content{z-index:10}
-.hero-stats{z-index:20}
-
-
-@media(max-width:768px){
-  .hc-arrow{width:40px;height:40px}
-  .hc-prev{left:14px}
-  .hc-next{right:14px}
-  .hc-dots{bottom:82px}
+@media(max-width:1024px){
+  .hero-stats { grid-template-columns:repeat(2,1fr); }
+  .hc-counter { display:none; }
+  .hc-prev { left:18px; } .hc-next { right:18px; }
 }
-@media(max-width:480px){
-  .hc-arrow{display:none}
-  .hc-dots{bottom:72px}
+@media(max-width:640px){
+  .hero-stats { display:none; }
+  .hc-dots { bottom:28px; }
+  .hc-arrow { width:42px; height:42px; }
+  .h1-line1 { font-size:clamp(46px,13vw,68px); }
+  .h1-line2 { font-size:clamp(50px,14vw,74px); }
+}
+@media(max-width:400px){
+  .hc-arrow { display:none; }
 }
 
+/* ──────────────── SHORT SCREEN RESPONSIVENESS ──────────────── */
+@media(max-height:850px){
+  .h1-line1 { font-size:clamp(46px,6vw,90px); }
+  .h1-line2 { font-size:clamp(50px,6.5vw,98px); }
+  .h-badge { margin-bottom:14px; }
+  .h-rule { margin:18px 0; }
+  .h-body { margin-bottom:28px; }
+  .hero-stats { grid-template-columns:repeat(4,1fr); }
+  .hs-item { padding:14px 20px; }
+  .hs-n { font-size:28px; }
+}
+@media(max-height:720px){
+  .hero-content { padding-top:60px; }
+  .h-badge { margin-bottom:8px; padding:4px 12px; }
+  .h-badge span { font-size:9px; }
+  .h-sub { font-size:13px; margin-bottom:8px; }
+  .h-body { font-size:13px; line-height:1.5; margin-bottom:18px; max-width:440px; }
+  .h1-line1 { font-size:clamp(38px,5vw,68px); }
+  .h1-line2 { font-size:clamp(42px,5.5vw,74px); }
+  .h-btns { margin-top:8px; gap:10px; }
+  .h-btn-red, .h-btn-ghost { padding:10px 24px; font-size:13px; }
+  .h-rule { margin:12px 0; }
+  .hs-item { padding:8px 12px; }
+  .hs-n { font-size:22px; }
+  .hs-l { font-size:9px; }
+}
 
-/* ─────────────────────────────────────────────
+/* ═══════════════════════════════════════════════
    TICKER
-───────────────────────────────────────────── */
-.ticker{background:var(--navy2);overflow:hidden;border-bottom:1px solid rgba(255,255,255,.04)}
-.t-track{display:flex;white-space:nowrap;animation:tickAnim 34s linear infinite;padding:12px 0}
-.t-item{display:inline-flex;align-items:center;gap:14px;padding:0 28px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,.32);letter-spacing:.1em;text-transform:uppercase}
-.t-sep{color:var(--blue-alt);opacity:.5;font-size:8px}
-@keyframes tickAnim{to{transform:translateX(-50%)}}
-
-/* ─────────────────────────────────────────────
-   SECTION COMMONS
-───────────────────────────────────────────── */
-.sec{padding:92px 0}
-.sec-alt{background:var(--off)}
-.sec-dark{background:var(--navy)}
-
-.sec-label{display:inline-flex;align-items:center;gap:9px;margin-bottom:14px}
-.sl-bar{width:32px;height:3px;background:var(--blue-alt);border-radius:1px;flex-shrink:0}
-.sl-txt{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;color:var(--blue2);letter-spacing:.15em;text-transform:uppercase}
-
-
-h2.sec-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(30px,3.4vw,50px);font-weight:900;line-height:1.06;color:var(--navy);letter-spacing:-.01em;text-transform:uppercase}
-h2.sec-title em{font-style:normal;color:var(--blue2)}
-h2.sec-title-w{color:#fff}
-h2.sec-title-w em{color:var(--blue-alt)}
-.sec-body{font-size:15px;line-height:1.8;color:var(--grey);font-weight:300;margin-top:13px}
-.sec-body-w{color:rgba(255,255,255,.45)}
-
-/* Buttons */
-.btn-blue{display:inline-flex;align-items:center;gap:9px;background:var(--blue);color:#fff;padding:14px 32px;border-radius:5px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:all .25s}
-.btn-blue:hover{background:var(--blue2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(18,81,163,.3)}
-.btn-blue .arr{transition:transform .2s}
-.btn-blue:hover .arr{transform:translateX(3px)}
-.btn-border{display:inline-flex;align-items:center;gap:9px;border:2px solid var(--border);color:var(--grey);padding:13px 30px;border-radius:5px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#fff;transition:all .25s}
-.btn-border:hover{border-color:var(--blue-alt);color:var(--blue-alt);transform:translateY(-2px)}
-.btn-border-w{display:inline-flex;align-items:center;gap:9px;border:2px solid rgba(255,255,255,.22);color:rgba(255,255,255,.7);padding:13px 30px;border-radius:5px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;backdrop-filter:blur(8px);transition:all .25s}
-.btn-border-w:hover{border-color:rgba(255,255,255,.6);color:#fff;background:rgba(255,255,255,.08);transform:translateY(-2px)}
-
-/* Reveal */
-.rv{opacity:0;transform:translateY(30px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
-.rl{opacity:0;transform:translateX(-32px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
-.rr{opacity:0;transform:translateX(32px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
-.rv.in,.rl.in,.rr.in{opacity:1;transform:none}
-.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}
-.d4{transition-delay:.28s}.d5{transition-delay:.35s}
-
-/* ─────────────────────────────────────────────
-   WHAT WE DO — SCATTERED LAYOUT
-───────────────────────────────────────────── */
-.wwd-sec { background: #0f0f10; position: relative; overflow: hidden; padding: 130px 0; }
-
-/* Concentric golden ring accents */
-.wwd-circles { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; z-index: 0; }
-.wwd-circle { position: absolute; border-radius: 50%; transform: translate(-50%, -50%); top: 50%; left: 50%; }
-.wwd-c1 { width: 480px; height: 480px; border: 1px solid rgba(204,39,0,0.18); }
-.wwd-c2 { width: 820px; height: 820px; border: 1px solid rgba(204,39,0,0.09); }
-.wwd-c3 { width: 1160px; height: 1160px; border: 1px solid rgba(204,39,0,0.04); }
-
-/* Wrapper — controls the canvas for the scattered items */
-.wwd-wrap { position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; min-height: 620px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
-/* ── Center headline ── */
-.wwd-center { text-align: center; max-width: 520px; position: relative; z-index: 10; padding: 0 30px; }
-.wwd-sup { display: inline-block; color: #cc2700; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 18px; background: rgba(204,39,0,0.1); border: 1px solid rgba(204,39,0,0.25); padding: 5px 14px; border-radius: 100px; }
-.wwd-h2 { font-family: 'Barlow', sans-serif; font-size: clamp(30px, 3.5vw, 48px); font-weight: 500; color: #fff; line-height: 1.25; margin: 0 0 36px; letter-spacing: -0.02em; }
-.wwd-h2 em { font-style: italic; color: #cc2700; font-weight: 400; }
-.wwd-btn { display: inline-flex; align-items: center; gap: 10px; background: #cc2700; color: #fff; padding: 14px 36px; border-radius: 3px; font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; transition: background 0.2s, transform 0.2s; text-decoration: none; cursor: pointer; border: none; }
-.wwd-btn:hover { background: #a81e00; transform: translateY(-2px); color: #fff; }
-.wwd-btn svg { width: 16px; height: 16px; fill: currentColor; transition: transform 0.2s; }
-.wwd-btn:hover svg { transform: translateX(3px); }
-
-/* ── Tiles container ── */
-.wwd-items { position: absolute; inset: 0; pointer-events: none; }
-
-/* ── Base Tile ── */
-.wwd-item {
-  position: absolute;
-  overflow: hidden;
-  border-radius: 8px;
-  background: #1a1a1a;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
-  border: 1px solid rgba(255,255,255,0.07);
-  pointer-events: auto;
-  cursor: pointer;
-  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s, border-color 0.22s;
-  z-index: 5;
+═══════════════════════════════════════════════ */
+.ticker { background:var(--navy2); overflow:hidden; border-bottom:1px solid rgba(255,255,255,.04); }
+.t-track {
+  display:flex; white-space:nowrap;
+  animation:tickAnim 38s linear infinite; padding:13px 0;
 }
-.wwd-item img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.75; transition: opacity 0.22s, transform 0.5s; }
+.t-item {
+  display:inline-flex; align-items:center; gap:16px; padding:0 32px;
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:12px; font-weight:700;
+  color:rgba(255,255,255,.28); letter-spacing:.14em; text-transform:uppercase;
+}
+.t-sep { color:var(--red); opacity:.45; font-size:7px; }
+@keyframes tickAnim { to{ transform:translateX(-50%); } }
 
-/* Always-visible bottom label */
+/* ═══════════════════════════════════════════════
+   WHAT WE DO
+═══════════════════════════════════════════════ */
+.wwd-sec {
+  background:#0c0d0f; position:relative; overflow:hidden; padding:130px 0;
+}
+.wwd-circles { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none; }
+.wwd-circle  { position:absolute; border-radius:50%; transform:translate(-50%,-50%); top:50%; left:50%; }
+.wwd-c1 { width:460px; height:460px; border:1px solid rgba(204,39,0,.16); }
+.wwd-c2 { width:800px; height:800px; border:1px solid rgba(204,39,0,.08); }
+.wwd-c3 { width:1140px; height:1140px; border:1px solid rgba(204,39,0,.04); }
+
+.wwd-wrap {
+  position:relative; z-index:2;
+  display:flex; align-items:center; justify-content:center;
+  min-height:640px; max-width:1200px; margin:0 auto; padding:0 20px;
+}
+.wwd-center { text-align:center; max-width:500px; position:relative; z-index:10; padding:0 24px; }
+.wwd-sup {
+  display:inline-block; color:var(--red);
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:11px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  margin-bottom:18px;
+  background:rgba(204,39,0,.08); border:1px solid rgba(204,39,0,.22);
+  padding:5px 14px; border-radius:100px;
+}
+.wwd-h2 {
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:clamp(28px,3.2vw,46px); font-weight:800;
+  color:#fff; line-height:1.2; margin:0 0 34px; letter-spacing:-.01em;
+}
+.wwd-h2 em { font-style:italic; color:var(--red); font-weight:700; }
+.wwd-btn {
+  display:inline-flex; align-items:center; gap:10px;
+  background:var(--red); color:#fff;
+  padding:14px 36px; border-radius:3px;
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:14.5px; font-weight:800; letter-spacing:.08em; text-transform:uppercase;
+  transition:all .22s; cursor:pointer; border:none;
+  box-shadow:0 6px 28px rgba(204,39,0,.3);
+}
+.wwd-btn:hover { background:var(--red2); transform:translateY(-2px); color:#fff; }
+.wwd-btn svg { width:15px; height:15px; fill:currentColor; transition:transform .2s; }
+.wwd-btn:hover svg { transform:translateX(3px); }
+
+.wwd-items { position:absolute; inset:0; pointer-events:none; }
+.wwd-item {
+  position:absolute; overflow:hidden; border-radius:10px;
+  background:#1a1a1c; box-shadow:0 12px 40px rgba(0,0,0,.65);
+  border:1px solid rgba(255,255,255,.07); pointer-events:auto; cursor:pointer;
+  transition:transform .25s cubic-bezier(.16,1,.3,1), box-shadow .25s, border-color .25s;
+  z-index:5;
+}
+.wwd-item img { width:100%; height:100%; object-fit:cover; opacity:.72; transition:opacity .25s, transform .55s; }
 .wwd-item-info {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(0deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.55) 55%, transparent 100%);
-  padding: 40px 16px 16px;
+  position:absolute; bottom:0; left:0; right:0;
+  background:linear-gradient(0deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.52) 55%,transparent 100%);
+  padding:42px 18px 18px;
 }
 .wwd-item-title {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 15px; font-weight: 700; letter-spacing: 0.06em;
-  text-transform: uppercase; color: #fff; line-height: 1.1;
-  display: flex; align-items: center; gap: 8px;
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:14.5px; font-weight:800; letter-spacing:.06em;
+  text-transform:uppercase; color:#fff; line-height:1.1;
+  display:flex; align-items:center; gap:8px;
 }
-.wwd-item-title::before { content:''; display:inline-block; width: 6px; height: 6px; border-radius: 50%; background: #cc2700; flex-shrink: 0; }
+.wwd-item-title::before {
+  content:''; display:inline-block;
+  width:6px; height:6px; border-radius:50%; background:var(--red); flex-shrink:0;
+}
 .wwd-item-desc {
-  font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.4;
-  font-weight: 300; margin-top: 5px;
-  display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2;
-  -webkit-box-orient: vertical; overflow: hidden;
-  transition: color 0.22s ease;
+  font-size:11px; color:rgba(255,255,255,.55); line-height:1.5; font-weight:300;
+  margin-top:5px;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+  transition:color .22s;
+}
+.wwd-item:hover { transform:scale(1.06) translateY(-7px) !important; box-shadow:0 24px 64px rgba(0,0,0,.7); border-color:rgba(204,39,0,.55); z-index:20; }
+.wwd-item:hover img { opacity:1; transform:scale(1.09); }
+.wwd-item:hover .wwd-item-desc { color:rgba(255,255,255,.88); }
+.wwd-item:hover .wwd-item-title { color:var(--red); }
+
+@keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+.wwd-1 { top:8%; left:0; width:238px; height:162px; animation:floatY 6s ease-in-out infinite; }
+.wwd-2 { top:0%; right:6%; width:238px; height:162px; animation:floatY 7.2s ease-in-out infinite 1s; }
+.wwd-3 { bottom:8%; left:3%; width:238px; height:162px; animation:floatY 6.5s ease-in-out infinite 0.5s; }
+.wwd-4 { bottom:0%; right:0; width:238px; height:162px; animation:floatY 8s ease-in-out infinite 1.6s; }
+
+@media(max-width:1100px){
+  .wwd-wrap { min-height:540px; }
+  .wwd-1,.wwd-2,.wwd-3,.wwd-4 { width:190px; height:136px; }
+  .wwd-2 { right:0; } .wwd-4 { right:0; }
+}
+@media(max-width:768px){
+  .wwd-sec { padding:64px 0; }
+  .wwd-circles { display:none; }
+  .wwd-wrap { flex-direction:column; gap:40px; min-height:auto; }
+  .wwd-center { padding:0 16px; }
+  .wwd-items {
+    position:relative; inset:auto; display:grid; grid-template-columns:repeat(2,1fr);
+    gap:14px; width:100%; pointer-events:auto;
+  }
+  .wwd-item {
+    position:relative !important; top:auto !important; left:auto !important;
+    right:auto !important; bottom:auto !important;
+    width:100% !important; height:auto !important;
+    aspect-ratio:4/3; animation:none !important; transform:none !important;
+  }
+  .wwd-item:hover { transform:translateY(-4px) !important; }
+}
+@media(max-width:480px){ .wwd-items { grid-template-columns:1fr; } }
+
+/* ═══════════════════════════════════════════════
+   ABOUT — COMPLETE REDESIGN
+═══════════════════════════════════════════════ */
+.about-sec { padding:120px 0; background:#fff; overflow:hidden; position:relative; }
+
+/* Subtle bg grid */
+.about-sec::before {
+  content:'';
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(204,39,0,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(204,39,0,.025) 1px, transparent 1px);
+  background-size:80px 80px;
+  pointer-events:none;
 }
 
-/* ── Direct hover — instant feel ── */
-.wwd-item:hover { transform: scale(1.05) translateY(-6px) !important; box-shadow: 0 20px 60px rgba(0,0,0,0.7); border-color: rgba(204,39,0,0.6); z-index: 20; }
-.wwd-item:hover img { opacity: 1; transform: scale(1.08); }
-.wwd-item:hover .wwd-item-desc { color: rgba(255,255,255,0.9); }
-.wwd-item:hover .wwd-item-title { color: #cc2700; }
+.about-inner { position:relative; z-index:2; }
 
-/* ── Individual positions & sizes (desktop) ── */
-@keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-
-.wwd-1 { top: 8%; left: 0; width: 240px; height: 165px; animation: floatY 6s ease-in-out infinite; }
-.wwd-2 { top: 0%; right: 8%; width: 240px; height: 165px; animation: floatY 7s ease-in-out infinite 1s; }
-.wwd-3 { bottom: 8%; left: 4%; width: 240px; height: 165px; animation: floatY 6.5s ease-in-out infinite 0.5s; }
-.wwd-4 { bottom: 0%; right: 0; width: 240px; height: 165px; animation: floatY 8s ease-in-out infinite 1.5s; }
-
-/* ── 1024px breakpoint ── */
-@media (max-width: 1100px) {
-  .wwd-wrap { min-height: 540px; }
-  .wwd-1 { width: 195px; height: 140px; left: 0; top: 8%; }
-  .wwd-2 { width: 195px; height: 140px; right: 0; top: 4%; }
-  .wwd-3 { width: 195px; height: 140px; left: 0; bottom: 8%; }
-  .wwd-4 { width: 195px; height: 140px; right: 0; bottom: 4%; }
+/* Top bar: eyebrow + headline spanning full width */
+.about-intro {
+  display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:end;
+  margin-bottom:72px;
 }
-
-/* ── Mobile fallback → clean 2-col grid ── */
-@media (max-width: 768px) {
-  .wwd-sec { padding: 56px 0; }
-  .wwd-circles { display: none; }
-  .wwd-wrap { flex-direction: column; gap: 36px; min-height: auto; padding: 0 20px; }
-  .wwd-center { padding: 0; }
-  .wwd-items { position: relative; inset: auto; display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; width: 100%; pointer-events: auto; }
-  .wwd-item { position: relative !important; top: auto !important; left: auto !important; right: auto !important; bottom: auto !important; width: 100% !important; height: auto !important; aspect-ratio: 4/3; animation: none !important; transform: none !important; }
-  .wwd-item:hover { transform: translateY(-4px) !important; }
+.about-intro-left { }
+.about-intro-right {
+  font-size:15.5px; line-height:1.88; color:var(--grey);
+  font-weight:300; padding-top:4px;
 }
-@media (max-width: 480px) {
-  .wwd-items { grid-template-columns: 1fr; }
-}
+.about-intro-right strong { color:var(--red); font-weight:600; }
 
-
-/* ─────────────────────────────────────────────
-   ABOUT
-───────────────────────────────────────────── */
-/* ─────────────────────────────────────────────
-   ABOUT — DARK REDESIGN
-   ───────────────────────────────────────────── */
+/* Main grid */
 .about-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 64px;
-  align-items: start;
+  display:grid; grid-template-columns:1fr 1fr; gap:3px;
+  border-radius:16px; overflow:hidden; box-shadow:var(--s3);
 }
 
-.about-left {
-  color: var(--grey);
+/* Left: dark panel */
+.ag-left {
+  background:var(--navy);
+  padding:56px 52px;
+  display:flex; flex-direction:column; gap:0;
 }
 
-.about-left strong {
-  color: var(--blue-alt);
-  font-weight: 700;
+/* Director card */
+.director-card {
+  display:flex; gap:22px; align-items:flex-start;
+  padding-bottom:40px; margin-bottom:40px;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.director-avatar {
+  width:72px; height:72px; border-radius:12px; flex-shrink:0; overflow:hidden;
+  border:2px solid rgba(204,39,0,.35);
+  background:linear-gradient(135deg,var(--navy3),var(--navy2));
+  display:grid; place-items:center;
+}
+.director-avatar svg { width:36px; height:36px; fill:none; stroke:var(--red); stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+.director-info { flex:1; }
+.director-name {
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:22px; font-weight:900; color:#fff;
+  text-transform:uppercase; letter-spacing:.02em; margin-bottom:4px;
+}
+.director-title {
+  font-size:12px; color:var(--red);
+  font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+  margin-bottom:10px;
+}
+.director-bio {
+  font-size:13.5px; line-height:1.7; color:rgba(255,255,255,.42); font-weight:300;
 }
 
-/* Operations Box */
-.ops-box {
-  background: var(--off);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 28px 32px;
-  margin: 40px 0;
+/* Certifications row */
+.cert-row { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:40px; }
+.cert-badge {
+  display:inline-flex; align-items:center; gap:7px;
+  background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1);
+  border-radius:100px; padding:7px 14px;
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:11.5px; font-weight:700; color:rgba(255,255,255,.55);
+  letter-spacing:.06em; text-transform:uppercase; cursor:default;
+  transition:all .25s;
+}
+.cert-badge:hover { border-color:rgba(204,39,0,.5); color:var(--red); background:rgba(204,39,0,.08); }
+.cert-badge svg { width:14px; height:14px; fill:none; stroke:var(--red); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; flex-shrink:0; }
+
+/* Operations list */
+.ops-sec-title {
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:11px; font-weight:700; color:rgba(255,255,255,.25);
+  letter-spacing:.18em; text-transform:uppercase; margin-bottom:18px;
+}
+.ops-rows { display:flex; flex-direction:column; gap:0; }
+.ops-row {
+  display:flex; align-items:center; gap:16px;
+  padding:14px 0; border-bottom:1px solid rgba(255,255,255,.05);
+}
+.ops-row:last-child { border-bottom:none; }
+.ops-row-ico {
+  width:38px; height:38px; border-radius:8px;
+  background:rgba(204,39,0,.1); border:1px solid rgba(204,39,0,.2);
+  display:grid; place-items:center; flex-shrink:0;
+}
+.ops-row-ico svg { width:18px; height:18px; fill:none; stroke:var(--red); stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; }
+.ops-row-label {
+  font-size:11px; font-weight:700; color:rgba(255,255,255,.3);
+  letter-spacing:.08em; text-transform:uppercase; margin-bottom:2px;
+}
+.ops-row-val { font-size:14px; font-weight:400; color:rgba(255,255,255,.7); }
+
+/* Right: light panel split */
+.ag-right { display:grid; grid-template-rows:1fr auto; }
+.ag-right-img { position:relative; overflow:hidden; min-height:340px; }
+.ag-right-img img { width:100%; height:100%; object-fit:cover; display:block; }
+.ag-right-img::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg,transparent 50%,rgba(7,16,30,.7) 100%);
+}
+.ag-img-caption {
+  position:absolute; bottom:24px; left:28px; right:28px; z-index:2;
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:14px; font-weight:600; color:rgba(255,255,255,.7);
+  letter-spacing:.06em; text-transform:uppercase;
 }
 
-.ops-title {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 20px;
-  font-weight: 800;
-  color: var(--blue-alt);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 20px;
+/* Stats mosaic */
+.ag-stats { display:grid; grid-template-columns:repeat(2,1fr); gap:0; background:var(--off2); }
+.ag-stat {
+  padding:32px 30px; border-right:1px solid var(--border); border-bottom:1px solid var(--border);
+  transition:background .28s; cursor:default;
+}
+.ag-stat:nth-child(2){ border-right:none; }
+.ag-stat:nth-child(3){ border-bottom:none; }
+.ag-stat:nth-child(4){ border-right:none; border-bottom:none; }
+.ag-stat:hover { background:#fff; }
+.ag-stat-val {
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:48px; font-weight:900; color:var(--red);
+  line-height:1; letter-spacing:-.03em; margin-bottom:8px;
+}
+.ag-stat-lbl {
+  font-size:11px; font-weight:700; color:var(--grey2);
+  letter-spacing:.09em; text-transform:uppercase;
+}
+.ag-stat-sub { font-size:12px; color:var(--grey); margin-top:3px; font-weight:300; }
+
+/* Expertise strip — full width below grid */
+.expert-strip {
+  margin-top:3px; border-radius:0 0 16px 16px; overflow:hidden;
+  background:var(--off); border:1px solid var(--border);
+  border-top:none; display:grid; grid-template-columns:repeat(5,1fr);
+}
+.exp-item {
+  display:flex; align-items:center; gap:12px;
+  padding:20px 22px; border-right:1px solid var(--border);
+  transition:background .25s; cursor:default;
+}
+.exp-item:last-child { border-right:none; }
+.exp-item:hover { background:#fff; }
+.exp-ico {
+  width:32px; height:32px; border-radius:7px; flex-shrink:0;
+  background:rgba(204,39,0,.08); display:grid; place-items:center;
+}
+.exp-ico svg { width:16px; height:16px; fill:none; stroke:var(--red); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.exp-lbl { font-size:12px; font-weight:600; color:var(--text); line-height:1.35; }
+
+@media(max-width:1200px){ .about-grid { grid-template-columns:1fr; } .ag-left { padding:48px 40px; } }
+@media(max-width:960px){ .about-intro { grid-template-columns:1fr; gap:24px; margin-bottom:48px; } }
+@media(max-width:640px){
+  .about-sec { padding:80px 0; }
+  .ag-left { padding:36px 28px; }
+  .ag-stats { grid-template-columns:repeat(2,1fr); }
+  .expert-strip { grid-template-columns:repeat(2,1fr); }
+  .exp-item:nth-child(2n){ border-right:none; }
+  .expert-strip .exp-item { border-bottom:1px solid var(--border); }
 }
 
-.ops-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+/* ═══════════════════════════════════════════════
+   PRODUCTS
+═══════════════════════════════════════════════ */
+.prod-mosaic {
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  grid-template-rows:290px 290px;
+  gap:3px;
+}
+.prod-card { position:relative; overflow:hidden; cursor:pointer; background:var(--navy); }
+.prod-card.tall { grid-row:1/3; }
+.prod-card img { width:100%; height:100%; object-fit:cover; filter:brightness(.52) saturate(.7); transition:transform .7s ease, filter .6s ease; display:block; }
+.prod-card:hover img { transform:scale(1.09); filter:brightness(.28) saturate(.5); }
+.prod-over {
+  position:absolute; inset:0;
+  background:linear-gradient(to top,rgba(7,16,30,.92) 0%,transparent 55%);
+  display:flex; flex-direction:column; justify-content:flex-end; padding:28px 24px;
+  transition:opacity .3s;
+}
+.prod-cat { font-family:'Barlow Condensed', sans-serif; font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--red); margin-bottom:6px; }
+.prod-name { font-family:'Barlow Condensed', sans-serif; font-size:20px; font-weight:900; color:#fff; line-height:1.12; text-transform:uppercase; letter-spacing:.01em; }
+.prod-card.tall .prod-name { font-size:30px; }
+.prod-hover {
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; padding:24px;
+  text-align:center; opacity:0; transition:opacity .32s;
+}
+.prod-card:hover .prod-hover { opacity:1; }
+.prod-hover p { font-size:12.5px; color:rgba(255,255,255,.68); line-height:1.65; max-width:210px; }
+.ph-btn {
+  margin-top:16px; background:var(--red); color:#fff; border:none; border-radius:3px;
+  padding:11px 24px; font-family:'Barlow Condensed', sans-serif;
+  font-size:12.5px; font-weight:800; letter-spacing:.08em; text-transform:uppercase;
+  cursor:pointer; transition:background .2s;
+}
+.ph-btn:hover { background:#fff; color:var(--red); }
+
+.prod-tags { display:flex; flex-wrap:wrap; gap:9px; margin-top:34px; }
+.ptag {
+  font-family:'Barlow Condensed', sans-serif; font-size:12.5px; font-weight:600;
+  color:var(--grey); border:1px solid var(--border); border-radius:100px;
+  padding:8px 18px; background:#fff; cursor:pointer;
+  transition:all .22s; letter-spacing:.02em;
+}
+.ptag:hover { border-color:var(--red); color:var(--red); background:rgba(204,39,0,.04); }
+.ptag.accent {
+  background:var(--red); color:#fff; border-color:var(--red3); font-weight:800;
 }
 
-.ops-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 14px;
-  color: var(--grey);
+@media(max-width:1024px){ .prod-mosaic { grid-template-columns:1fr 1fr; grid-template-rows:auto; } .prod-card.tall { grid-row:1/3; } }
+@media(max-width:600px){ .prod-mosaic { grid-template-columns:1fr; } .prod-card.tall { grid-row:auto; } .prod-mosaic { grid-template-rows:auto; } .prod-card { min-height:220px; } }
+
+/* ═══════════════════════════════════════════════
+   SERVICES
+═══════════════════════════════════════════════ */
+.svc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.svc-card {
+  border-radius:10px; overflow:hidden; position:relative;
+  height:390px; cursor:pointer; background:var(--navy);
+  box-shadow:var(--s2);
 }
-
-.ops-item strong {
-  color: var(--navy);
-  min-width: 90px;
+.svc-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(.5) saturate(.7); transition:transform .68s ease, filter .5s ease; display:block; }
+.svc-card:hover .svc-img { transform:scale(1.07); filter:brightness(.26) saturate(.5); }
+.svc-ov { position:absolute; inset:0; background:linear-gradient(180deg,transparent 20%,rgba(7,16,30,.94) 100%); transition:background .32s; }
+.svc-card:hover .svc-ov { background:linear-gradient(180deg,rgba(18,81,163,.15) 0%,rgba(7,16,30,.98) 100%); }
+.svc-body { position:absolute; bottom:0; left:0; right:0; padding:30px 24px; z-index:2; }
+.svc-tag {
+  display:inline-block; background:var(--red); color:#fff;
+  font-family:'Barlow Condensed', sans-serif; font-size:10px; font-weight:800;
+  padding:3px 10px; border-radius:3px; letter-spacing:.1em; text-transform:uppercase; margin-bottom:10px;
 }
+.svc-name { font-family:'Barlow Condensed', sans-serif; font-size:22px; font-weight:900; color:#fff; margin-bottom:7px; letter-spacing:.02em; text-transform:uppercase; line-height:1.15; }
+.svc-text { font-size:12.5px; line-height:1.68; color:rgba(255,255,255,.48); font-weight:300; max-height:0; overflow:hidden; transition:max-height .44s ease; }
+.svc-card:hover .svc-text { max-height:96px; }
+.svc-more { display:inline-flex; align-items:center; gap:5px; margin-top:12px; font-family:'Barlow Condensed', sans-serif; font-size:12px; font-weight:700; color:var(--red); letter-spacing:.08em; text-transform:uppercase; opacity:0; transition:opacity .32s; }
+.svc-card:hover .svc-more { opacity:1; }
 
-.ops-ico {
-  font-size: 16px;
-  color: var(--blue-alt);
-  width: 20px;
-  text-align: center;
+@media(max-width:900px){ .svc-grid { grid-template-columns:repeat(2,1fr); } }
+@media(max-width:560px){ .svc-grid { grid-template-columns:1fr; } .svc-card { height:340px; } }
+
+/* ═══════════════════════════════════════════════
+   WHY KES
+═══════════════════════════════════════════════ */
+.why-wrap {
+  display:grid; grid-template-columns:1fr 400px; gap:0;
+  background:var(--navy); border-radius:20px; overflow:hidden; box-shadow:var(--s4);
 }
-
-/* Stats Row */
-.stat-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+.why-left { padding:72px 64px; }
+.why-right {
+  position:relative; min-height:600px;
+  background:url('https://images.unsplash.com/photo-1516937941344-00b4e0337589?w=900&q=85') center/cover no-repeat;
 }
+.why-right::before { content:''; position:absolute; inset:0; background:linear-gradient(270deg,rgba(4,12,28,.1) 0%,rgba(4,12,28,.78) 100%); }
+.why-right-badge { position:absolute; bottom:52px; left:50%; transform:translateX(-50%); text-align:center; white-space:nowrap; }
+.why-right-badge strong { font-family:'Barlow Condensed', sans-serif; font-size:84px; font-weight:900; color:rgba(204,39,0,.16); line-height:1; display:block; letter-spacing:-.04em; }
+.why-right-badge span { font-family:'Barlow Condensed', sans-serif; font-size:12px; font-weight:700; color:rgba(255,255,255,.28); letter-spacing:.2em; text-transform:uppercase; }
+.why-lbl { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.why-lbl-bar { width:28px; height:3px; background:var(--red); border-radius:2px; flex-shrink:0; }
+.why-lbl-txt { font-family:'Barlow Condensed', sans-serif; font-size:11px; font-weight:700; color:var(--red); letter-spacing:.18em; text-transform:uppercase; }
+.why-h2 { font-family:'Barlow Condensed', sans-serif; font-size:clamp(36px,3.2vw,56px); font-weight:900; color:#fff; text-transform:uppercase; line-height:1.02; letter-spacing:-.01em; margin-bottom:52px; }
+.why-h2 em { font-style:normal; color:var(--red); }
+.why-list { list-style:none; border-top:1px solid rgba(255,255,255,.06); }
+.why-row { display:flex; align-items:flex-start; gap:22px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,.06); transition:all .28s; cursor:default; }
+.why-row:hover .why-row-ico { color:#fff; background:var(--red); }
+.why-row:hover .why-row-title { color:#fff; }
+.why-row-num { font-family:'Barlow Condensed', sans-serif; font-size:12px; font-weight:700; color:rgba(255,255,255,.18); letter-spacing:.06em; min-width:26px; padding-top:4px; }
+.why-row-ico { width:42px; height:42px; background:rgba(255,255,255,.05); border-radius:8px; display:grid; place-items:center; flex-shrink:0; color:var(--red); transition:all .28s; }
+.why-row-ico svg { width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; }
+.why-row-body { flex:1; }
+.why-row-title { font-family:'Barlow Condensed', sans-serif; font-size:18px; font-weight:800; color:rgba(255,255,255,.82); text-transform:uppercase; letter-spacing:.03em; margin-bottom:3px; transition:color .28s; }
+.why-row-desc { font-size:13px; line-height:1.65; color:rgba(255,255,255,.32); font-weight:300; }
 
-.stat-box {
-  background: var(--off);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 20px 10px;
-  text-align: center;
-  transition: transform 0.3s;
-}
+@media(max-width:1024px){ .why-wrap { grid-template-columns:1fr; } .why-right { display:none; } .why-left { padding:56px 40px; } }
+@media(max-width:600px){ .why-left { padding:44px 24px; } }
 
-.stat-box:hover {
-  transform: translateY(-5px);
-  background: #fff;
-  border-color: var(--blue-alt);
-  box-shadow: var(--s1);
-}
-
-.stat-val {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 32px;
-  font-weight: 900;
-  color: var(--blue-alt);
-  line-height: 1;
-  margin-bottom: 8px;
-}
-
-.stat-lbl {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--grey);
-  font-weight: 600;
-}
-
-/* Right Column */
-.about-right {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.about-img {
-  width: 100%;
-  border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(8,17,31, 0.1);
-  overflow: hidden;
-}
-
-.about-img img {
-  width: 100%;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  display: block;
-}
-
-/* Expertise Box */
-.expert-box {
-  background: var(--off);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 28px 32px;
-}
-
-.expert-title {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 19px;
-  font-weight: 800;
-  color: var(--blue-alt);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 22px;
-}
-
-.expert-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.expert-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 13.5px;
-  color: var(--grey);
-  font-weight: 500;
-}
-
-.expert-check {
-  width: 18px;
-  height: 18px;
-  background: var(--blue-alt);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: #fff;
-  font-size: 10px;
-  font-weight: 900;
-  flex-shrink: 0;
-}
-
-@media (max-width: 1024px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
-}
-
-@media (max-width: 480px) {
-  .stat-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* ─────────────────────────────────────────────
-   PRODUCTS — MOSAIC
-───────────────────────────────────────────── */
-.prod-mosaic{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:280px 280px;gap:3px}
-.prod-card{position:relative;overflow:hidden;cursor:pointer;background:var(--navy)}
-.prod-card.tall{grid-row:1/3}
-.prod-card img{width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.65);transition:transform .7s ease,filter .65s ease;display:block}
-.prod-card:hover img{transform:scale(1.08);filter:brightness(.28) saturate(.5)}
-.prod-over{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,17,31,.9) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:26px 24px;transition:opacity .3s}
-.prod-cat{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-alt);margin-bottom:5px}
-.prod-name{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:800;color:#fff;line-height:1.15;text-transform:uppercase;letter-spacing:.01em}
-.prod-card.tall .prod-name{font-size:28px}
-.prod-hover{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;opacity:0;transition:opacity .32s}
-.prod-card:hover .prod-hover{opacity:1}
-.prod-hover p{font-size:12.5px;color:rgba(255,255,255,.7);line-height:1.6;max-width:200px}
-.ph-btn{margin-top:14px;background:var(--blue-alt);color:var(--navy);border:none;border-radius:4px;padding:10px 22px;font-family:'Barlow Condensed',sans-serif;font-size:12.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s}
-.ph-btn:hover{background:#fff}
-
-.prod-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px}
-.ptag{font-family:'Barlow Condensed',sans-serif;font-size:12.5px;font-weight:600;color:var(--grey);border:1px solid var(--border);border-radius:100px;padding:7px 16px;background:#fff;cursor:pointer;transition:all .2s;letter-spacing:.02em}
-.ptag:hover{border-color:var(--blue-alt);color:var(--blue-alt);background:var(--blue-pale)}
-.ptag.accent{background:var(--blue-alt);color:var(--navy);border-color:var(--blue-alt3);font-weight:800}
-
-/* ─────────────────────────────────────────────
-   SERVICES — IMAGE CARDS
-───────────────────────────────────────────── */
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.svc-card{border-radius:8px;overflow:hidden;position:relative;height:380px;cursor:pointer;background:var(--navy)}
-.svc-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5) saturate(.7);transition:transform .65s ease,filter .5s ease;display:block}
-.svc-card:hover .svc-img{transform:scale(1.07);filter:brightness(.28) saturate(.55)}
-.svc-ov{position:absolute;inset:0;background:linear-gradient(180deg,transparent 18%,rgba(8,17,31,.92) 100%);transition:background .32s}
-.svc-card:hover .svc-ov{background:linear-gradient(180deg,rgba(18,81,163,.2) 0%,rgba(8,17,31,.97) 100%)}
-.svc-body{position:absolute;bottom:0;left:0;right:0;padding:28px 24px;z-index:2}
-.svc-tag{display:inline-block;background:var(--blue-alt);color:var(--navy);font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:800;padding:3px 9px;border-radius:3px;letter-spacing:.09em;text-transform:uppercase;margin-bottom:9px}
-.svc-name{font-family:'Barlow Condensed',sans-serif;font-size:21px;font-weight:800;color:#fff;margin-bottom:6px;letter-spacing:.02em;text-transform:uppercase;line-height:1.2}
-.svc-text{font-size:12.5px;line-height:1.65;color:rgba(255,255,255,.52);font-weight:300;max-height:0;overflow:hidden;transition:max-height .42s ease}
-.svc-card:hover .svc-text{max-height:90px}
-.svc-more{display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:var(--blue-alt);letter-spacing:.08em;text-transform:uppercase;opacity:0;transition:opacity .32s}
-.svc-card:hover .svc-more{opacity:1}
-
-/* ─────────────────────────────────────────────
-   WHY KES — FULL 10
-───────────────────────────────────────────── */
-/* ─────────────────────────────────────────────
-   WHY KES — FULL 10
-───────────────────────────────────────────── */
-/* Premium Bento Grid for 'Why KES' */
-/* ─────────────────────────────────────────────
-   WHY KES — EDITORIAL SPLIT
-───────────────────────────────────────────── */
-.why-wrap { display: grid; grid-template-columns: 1fr 420px; gap: 0; background: var(--navy); border-radius: 20px; overflow: hidden; box-shadow: var(--s3); }
-.why-left  { padding: 72px 64px; overflow-y: auto; }
-.why-right { position: relative; min-height: 600px; background: url('https://images.unsplash.com/photo-1516937941344-00b4e0337589?w=900&q=85') center/cover no-repeat; }
-.why-right::before { content: ''; position: absolute; inset: 0; background: linear-gradient(270deg, rgba(4,12,28,0.1) 0%, rgba(4,12,28,0.75) 100%); }
-.why-right-badge { position: absolute; bottom: 52px; left: 50%; transform: translateX(-50%); text-align: center; white-space: nowrap; }
-.why-right-badge strong { font-family: 'Barlow Condensed', sans-serif; font-size: 80px; font-weight: 900; color: rgba(204,39,0,.18); line-height: 1; display: block; letter-spacing: -.04em; }
-.why-right-badge span   { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; color: rgba(255,255,255,.3); letter-spacing: .2em; text-transform: uppercase; }
-
-.why-lbl { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-.why-lbl-bar { width: 28px; height: 3px; background: var(--blue-alt); border-radius: 2px; flex-shrink: 0; }
-.why-lbl-txt { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; color: var(--blue-alt); letter-spacing: .18em; text-transform: uppercase; }
-.why-h2 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(36px, 3.2vw, 54px); font-weight: 900; color: #fff; text-transform: uppercase; line-height: 1.02; letter-spacing: -.01em; margin-bottom: 52px; }
-.why-h2 em { font-style: normal; color: var(--blue-alt); }
-
-.why-list { list-style: none; border-top: 1px solid rgba(255,255,255,.07); }
-.why-row { display: flex; align-items: flex-start; gap: 28px; padding: 26px 0; border-bottom: 1px solid rgba(255,255,255,.07); transition: all .3s; cursor: default; }
-.why-row:hover .why-row-ico { color: #fff; background: var(--blue-alt); }
-.why-row:hover .why-row-title { color: #fff; }
-.why-row-num { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; color: rgba(255,255,255,.2); letter-spacing: .08em; min-width: 28px; padding-top: 3px; }
-.why-row-ico { width: 44px; height: 44px; background: rgba(255,255,255,.05); border-radius: 8px; display: grid; place-items: center; flex-shrink: 0; color: var(--blue-alt); transition: all .3s; }
-.why-row-ico svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
-.why-row-body { flex: 1; }
-.why-row-title { font-family: 'Barlow Condensed', sans-serif; font-size: 19px; font-weight: 800; color: rgba(255,255,255,.85); text-transform: uppercase; letter-spacing: .03em; margin-bottom: 4px; transition: color .3s; }
-.why-row-desc  { font-size: 13.5px; line-height: 1.65; color: rgba(255,255,255,.36); font-weight: 300; }
-
-@media (max-width: 1024px) { .why-wrap { grid-template-columns: 1fr; } .why-right { display: none; } .why-left { padding: 56px 40px; } }
-@media (max-width: 600px) { .why-left { padding: 44px 24px; } }
-
-/* ─────────────────────────────────────────────
+/* ═══════════════════════════════════════════════
    PROCESS
-───────────────────────────────────────────── */
-.process-track{display:grid;grid-template-columns:repeat(7,1fr);position:relative;margin-top:64px;gap:0}
-.process-track::before{content:'';position:absolute;top:30px;left:5%;right:5%;height:1px;background:var(--border);z-index:0}
-.pstep{text-align:center;padding:0 8px;position:relative;z-index:1}
-.pstep-num{width:60px;height:60px;margin:0 auto 18px;background:#fff;border:2px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:var(--grey);transition:all .25s}
-.pstep:hover .pstep-num{background:var(--blue-alt);border-color:var(--blue-alt3);color:var(--navy);box-shadow:0 6px 22px rgba(204,39,0,.35)}
-.pstep h4{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:var(--navy);margin-bottom:4px;letter-spacing:.03em;text-transform:uppercase}
-.pstep p{font-size:10.5px;color:var(--grey);line-height:1.55;font-weight:400}
+═══════════════════════════════════════════════ */
+.process-sec { padding:110px 0; background:var(--navy); position:relative; overflow:hidden; }
+.process-sec::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, rgba(204,39,0,.4), transparent);
+}
+.process-sec::after {
+  content:'';
+  position:absolute; bottom:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, rgba(204,39,0,.4), transparent);
+}
 
-/* ─────────────────────────────────────────────
+.process-track {
+  display:grid; grid-template-columns:repeat(7,1fr);
+  position:relative; margin-top:72px; gap:0;
+}
+.process-track::before {
+  content:''; position:absolute;
+  top:30px; left:6%; right:6%; height:1px;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.1) 10%, rgba(255,255,255,.1) 90%, transparent);
+  z-index:0;
+}
+.pstep { text-align:center; padding:0 8px; position:relative; z-index:1; }
+.pstep-num {
+  width:60px; height:60px; margin:0 auto 20px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-family:'Barlow Condensed', sans-serif; font-size:13px; font-weight:800;
+  color:rgba(255,255,255,.35); transition:all .28s; position:relative;
+}
+.pstep-num::after {
+  content:''; position:absolute; inset:-4px;
+  border-radius:50%; border:1px solid transparent;
+  transition:border-color .28s;
+}
+.pstep:hover .pstep-num {
+  background:var(--red); border-color:var(--red3);
+  color:#fff; box-shadow:0 6px 28px rgba(204,39,0,.4);
+}
+.pstep:hover .pstep-num::after { border-color:rgba(204,39,0,.3); }
+.pstep h4 {
+  font-family:'Barlow Condensed', sans-serif; font-size:13px; font-weight:800;
+  color:rgba(255,255,255,.7); margin-bottom:6px; letter-spacing:.03em; text-transform:uppercase;
+  transition:color .28s;
+}
+.pstep:hover h4 { color:#fff; }
+.pstep p { font-size:11px; color:rgba(255,255,255,.3); line-height:1.6; font-weight:300; }
+
+@media(max-width:900px){ .process-track { grid-template-columns:repeat(4,1fr); gap:24px; } .process-track::before { display:none; } }
+@media(max-width:560px){ .process-track { grid-template-columns:repeat(2,1fr); } }
+
+/* ═══════════════════════════════════════════════
    INDUSTRIES
-───────────────────────────────────────────── */
-.ind-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; margin-top: 48px; }
-.ind-box { position: relative; border-radius: 10px; overflow: hidden; aspect-ratio: 4/5; cursor: pointer; background: var(--navy); border: 1px solid var(--border); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-.ind-box img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7) saturate(0.85); transition: transform 0.6s ease, filter 0.4s; }
-.ind-box:hover img { transform: scale(1.08); filter: brightness(0.95) saturate(1.1); }
-.ind-box::before { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(4,12,28,0.95) 0%, rgba(4,12,28,0.2) 50%, transparent 100%); pointer-events: none; z-index: 1; transition: opacity 0.4s; }
-.ind-box:hover::before { opacity: 0.8; }
-.ind-box p { position: absolute; left: 16px; right: 16px; bottom: 18px; font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 0.04em; margin: 0; line-height: 1.25; z-index: 2; transition: color 0.3s; }
-.ind-box:hover p { color: var(--blue-alt); }
-@media (max-width: 1024px) { .ind-grid { grid-template-columns: repeat(4, 1fr); } }
-@media (max-width: 768px) { .ind-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 500px) { .ind-grid { grid-template-columns: repeat(2, 1fr); } }
+═══════════════════════════════════════════════ */
+.ind-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:12px; margin-top:52px; }
+.ind-box {
+  position:relative; border-radius:10px; overflow:hidden;
+  aspect-ratio:4/5; cursor:pointer; background:var(--navy);
+  border:1px solid var(--border); transition:all .4s cubic-bezier(.16,1,.3,1);
+  box-shadow:var(--s1);
+}
+.ind-box img { width:100%; height:100%; object-fit:cover; filter:brightness(.7) saturate(.85); transition:transform .65s ease, filter .4s; }
+.ind-box:hover img { transform:scale(1.09); filter:brightness(.92) saturate(1.1); }
+.ind-box::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(0deg,rgba(4,12,28,.95) 0%,rgba(4,12,28,.18) 55%,transparent 100%);
+  pointer-events:none; z-index:1; transition:opacity .4s;
+}
+.ind-box:hover::before { opacity:.75; }
+.ind-box p {
+  position:absolute; left:14px; right:14px; bottom:16px;
+  font-family:'Barlow Condensed', sans-serif; font-size:14px; font-weight:800;
+  color:#fff; text-transform:uppercase; letter-spacing:.04em;
+  margin:0; line-height:1.25; z-index:2; transition:color .28s;
+}
+.ind-box:hover p { color:var(--red); }
+.ind-box:hover { transform:translateY(-6px); box-shadow:var(--s3); border-color:transparent; }
 
-/* ─────────────────────────────────────────────
+@media(max-width:1024px){ .ind-grid { grid-template-columns:repeat(4,1fr); } }
+@media(max-width:640px){ .ind-grid { grid-template-columns:repeat(3,1fr); } }
+@media(max-width:400px){ .ind-grid { grid-template-columns:repeat(2,1fr); } }
+
+/* ═══════════════════════════════════════════════
    CLIENTS
-───────────────────────────────────────────── */
-.clients-wrap { position: relative; width: 100%; overflow: hidden; white-space: nowrap; padding: 20px 0; }
-.clients-wrap::before, .clients-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 150px; z-index: 2; pointer-events: none; }
-.clients-wrap::before { left: 0; background: linear-gradient(90deg, #fff 0%, transparent 100%); }
-.clients-wrap::after { right: 0; background: linear-gradient(270deg, #fff 0%, transparent 100%); }
+═══════════════════════════════════════════════ */
+.clients-wrap { position:relative; width:100%; overflow:hidden; padding:16px 0; }
+.clients-wrap::before,.clients-wrap::after {
+  content:''; position:absolute; top:0; bottom:0; width:160px; z-index:2; pointer-events:none;
+}
+.clients-wrap::before { left:0; background:linear-gradient(90deg,#fff 0%,transparent 100%); }
+.clients-wrap::after  { right:0; background:linear-gradient(270deg,#fff 0%,transparent 100%); }
+.clients-track {
+  display:flex; width:max-content; gap:16px;
+  animation:scrollLeft 48s linear infinite;
+}
+.clients-track:hover { animation-play-state:paused; }
+.cli-card {
+  width:178px; flex-shrink:0; background:#fff;
+  border:1px solid var(--border); border-radius:12px;
+  padding:30px 14px; text-align:center; transition:all .28s; cursor:pointer;
+  white-space:normal; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  box-shadow:var(--s1);
+}
+.cli-card:hover { border-color:var(--red); transform:translateY(-5px); box-shadow:var(--s2); }
+.cli-ico { font-size:24px; margin-bottom:14px; color:var(--red); }
+.cli-ico svg { width:26px; height:26px; fill:none; stroke:currentColor; stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; margin:0 auto; }
+.cli-n { font-size:11.5px; font-weight:700; color:var(--grey); line-height:1.35; transition:color .2s; text-transform:uppercase; letter-spacing:.04em; }
+.cli-card:hover .cli-n { color:var(--navy); }
+@keyframes scrollLeft { 0%{ transform:translateX(0); } 100%{ transform:translateX(calc(-50% - 8px)); } }
 
-.clients-track { display: flex; width: max-content; gap: 20px; animation: scroll-left 45s linear infinite; }
-.clients-track:hover { animation-play-state: paused; }
-
-.cli-card { width: 180px; flex-shrink: 0; background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 32px 14px; text-align: center; transition: all 0.28s; cursor: pointer; white-space: normal; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.cli-card:hover { border-color: var(--blue-alt); transform: translateY(-4px); box-shadow: var(--s2); }
-.cli-ico { font-size: 24px; margin-bottom: 14px; color: var(--blue-alt); }
-.cli-n { font-size: 11.5px; font-weight: 600; color: var(--grey); line-height: 1.35; transition: color 0.2s; text-transform: uppercase; letter-spacing: 0.04em; }
-.cli-card:hover .cli-n { color: var(--navy); }
-
-@keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-50% - 10px)); } }
-
-/* ─────────────────────────────────────────────
+/* ═══════════════════════════════════════════════
    CTA BAND
-───────────────────────────────────────────── */
-.cta-band{position:relative;overflow:hidden}
-.cta-bg-img{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1581093804475-577d72e35330?w=1800&q=85') center/cover no-repeat;filter:brightness(.35)}
-.cta-ov{position:absolute;inset:0;background:linear-gradient(108deg,rgba(4,12,28,.96) 0%,rgba(18,81,163,.85) 100%)}
-.cta-inner{position:relative;z-index:2;padding:96px 0;text-align:center}
-.cta-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(34px,4.5vw,66px);font-weight:900;color:#fff;line-height:1;letter-spacing:-.01em;text-transform:uppercase;margin-bottom:16px}
-.cta-title em{font-style:normal;color:var(--blue-alt)}
-.cta-sub{font-size:16px;color:rgba(255,255,255,.48);font-weight:300;max-width:500px;margin:0 auto 40px;line-height:1.78}
-.cta-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+═══════════════════════════════════════════════ */
+.cta-band { position:relative; overflow:hidden; }
+.cta-bg-img {
+  position:absolute; inset:0;
+  background:url('https://images.unsplash.com/photo-1581093804475-577d72e35330?w=1900&q=85') center/cover no-repeat;
+  filter:brightness(.3);
+}
+.cta-ov { position:absolute; inset:0; background:linear-gradient(108deg,rgba(4,12,28,.96) 0%,rgba(18,81,163,.82) 100%); }
+.cta-inner { position:relative; z-index:2; padding:106px 0; text-align:center; }
+.cta-title {
+  font-family:'Barlow Condensed', sans-serif;
+  font-size:clamp(36px,5vw,72px); font-weight:900; color:#fff;
+  line-height:.97; letter-spacing:-.01em; text-transform:uppercase; margin-bottom:18px;
+}
+.cta-title em { font-style:normal; color:var(--red); }
+.cta-sub { font-size:16px; color:rgba(255,255,255,.45); font-weight:300; max-width:500px; margin:0 auto 44px; line-height:1.82; }
+.cta-btns { display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
 
-/* ─────────────────────────────────────────────
+/* Decorative dots on CTA */
+.cta-dot1,.cta-dot2 {
+  position:absolute; border-radius:50%; z-index:1; pointer-events:none;
+}
+.cta-dot1 { width:400px; height:400px; top:-100px; left:-80px; background:radial-gradient(circle,rgba(204,39,0,.12) 0%,transparent 70%); }
+.cta-dot2 { width:500px; height:500px; bottom:-150px; right:-60px; background:radial-gradient(circle,rgba(18,81,163,.18) 0%,transparent 70%); }
+
+/* ═══════════════════════════════════════════════
    FOOTER
-───────────────────────────────────────────── */
-footer{background:var(--navy);color:#fff;padding:72px 0 0}
-.ft-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1.35fr;gap:56px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,.07)}
-.ft-logo{display:flex;align-items:center;gap:13px;margin-bottom:17px}
-.fl-mk{width:42px;height:42px;border-radius:6px;background:var(--blue);display:grid;place-items:center;flex-shrink:0}
-.fl-mk svg{width:20px;height:20px}
-.fl-nm{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;color:#fff;letter-spacing:.01em;line-height:1.2}
-.fl-sub{font-size:10px;color:var(--blue-alt);letter-spacing:.05em;text-transform:uppercase;margin-top:1px}
-.ft-desc{font-size:13.5px;line-height:1.82;color:rgba(255,255,255,.3);font-weight:300;margin-bottom:24px;max-width:320px}
-.ft-soc{display:flex;gap:8px}
-.fsoc{width:36px;height:36px;border-radius:6px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:grid;place-items:center;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,.38);transition:all .2s}
-.fsoc:hover{background:var(--blue-alt);color:#fff;border-color:var(--blue-alt)}
-.ft-col h4{font-family:'Barlow Condensed',sans-serif;font-size:9.5px;font-weight:700;color:rgba(255,255,255,.2);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.06);letter-spacing:.14em;text-transform:uppercase}
-.ft-links{display:flex;flex-direction:column;gap:10px}
-.ft-links a{font-size:13.5px;color:rgba(255,255,255,.36);font-weight:300;cursor:pointer;transition:color .2s;display:flex;align-items:center;gap:7px}
-.ft-links a:hover{color:rgba(255,255,255,.78)}
-.ft-links a::before{content:'';width:6px;height:2px;background:var(--blue-alt);opacity:.4;flex-shrink:0;transition:width .2s,opacity .2s}
-.ft-links a:hover::before{width:12px;opacity:1}
-.ft-contact{display:flex;flex-direction:column;gap:11px}
-.fc-i{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;color:rgba(255,255,255,.34);line-height:1.6;font-weight:300}
-.ft-bottom{padding:22px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.ft-bottom p{font-size:11.5px;color:rgba(255,255,255,.2)}
-.ft-badges{display:flex;gap:6px;flex-wrap:wrap}
-.ftb{padding:3px 9px;border:1px solid rgba(204,39,0,.22);border-radius:2px;font-family:'Barlow Condensed',sans-serif;font-size:9.5px;font-weight:700;color:var(--blue-alt);letter-spacing:.09em;text-transform:uppercase}
+═══════════════════════════════════════════════ */
+footer { background:var(--navy); color:#fff; padding:80px 0 0; }
+.ft-grid {
+  display:grid; grid-template-columns:2.3fr 1fr 1fr 1.4fr; gap:56px;
+  padding-bottom:60px; border-bottom:1px solid rgba(255,255,255,.06);
+}
+.ft-logo { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+.fl-mk {
+  width:44px; height:44px; border-radius:8px;
+  background:var(--blue); display:grid; place-items:center; flex-shrink:0;
+}
+.fl-mk svg { width:22px; height:22px; }
+.fl-nm { font-family:'Barlow Condensed', sans-serif; font-weight:900; font-size:16px; color:#fff; letter-spacing:.01em; line-height:1.2; }
+.fl-sub { font-size:10px; color:var(--red); letter-spacing:.06em; text-transform:uppercase; margin-top:1px; }
+.ft-desc { font-size:13.5px; line-height:1.84; color:rgba(255,255,255,.28); font-weight:300; margin-bottom:26px; max-width:310px; }
+.ft-soc { display:flex; gap:8px; }
+.fsoc {
+  width:36px; height:36px; border-radius:7px;
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08);
+  display:grid; place-items:center;
+  font-family:'Barlow Condensed', sans-serif; font-size:11px; font-weight:700;
+  color:rgba(255,255,255,.35); transition:all .22s;
+}
+.fsoc:hover { background:var(--red); color:#fff; border-color:var(--red); }
+.ft-col h4 {
+  font-family:'Barlow Condensed', sans-serif; font-size:9.5px; font-weight:700;
+  color:rgba(255,255,255,.2); margin-bottom:22px; padding-bottom:11px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  letter-spacing:.15em; text-transform:uppercase;
+}
+.ft-links { display:flex; flex-direction:column; gap:10px; }
+.ft-links a {
+  font-size:13.5px; color:rgba(255,255,255,.34); font-weight:300;
+  cursor:pointer; transition:color .2s;
+  display:flex; align-items:center; gap:8px;
+}
+.ft-links a:hover { color:rgba(255,255,255,.75); }
+.ft-links a::before {
+  content:''; width:6px; height:2px; background:var(--red); opacity:.35; flex-shrink:0;
+  transition:width .2s, opacity .2s;
+}
+.ft-links a:hover::before { width:12px; opacity:1; }
+.ft-contact { display:flex; flex-direction:column; gap:12px; }
+.fc-i { display:flex; align-items:flex-start; gap:10px; font-size:12.5px; color:rgba(255,255,255,.32); line-height:1.62; font-weight:300; }
+.ft-bottom {
+  padding:24px 0; display:flex; align-items:center;
+  justify-content:space-between; flex-wrap:wrap; gap:10px;
+}
+.ft-bottom p { font-size:11.5px; color:rgba(255,255,255,.2); }
+.ft-badges { display:flex; gap:6px; flex-wrap:wrap; }
+.ftb {
+  padding:3px 10px; border:1px solid rgba(204,39,0,.22); border-radius:2px;
+  font-family:'Barlow Condensed', sans-serif; font-size:9.5px; font-weight:700;
+  color:var(--red); letter-spacing:.09em; text-transform:uppercase;
+}
+
+@media(max-width:1024px){ .ft-grid { grid-template-columns:1fr 1fr; gap:36px; } }
+@media(max-width:560px){ .ft-grid { grid-template-columns:1fr; } }
 
 /* Back to top */
-#btt{position:fixed;bottom:28px;right:28px;z-index:999;width:44px;height:44px;border-radius:6px;background:var(--blue-alt);color:#fff;display:none;align-items:center;justify-content:center;font-size:18px;font-weight:900;box-shadow:0 4px 18px rgba(204,39,0,.4);cursor:pointer;transition:all .22s;font-family:'Barlow Condensed',sans-serif}
-#btt:hover{background:var(--blue-alt2);transform:translateY(-3px)}
-#btt.on{display:flex}
-
-/* ─────────────────────────────────────────────
-   RESPONSIVE
-───────────────────────────────────────────── */
-
-/* Tablet / Large mobile — show hamburger */
-@media(max-width:1024px){
-  .W{padding:0 32px}
-  .menu-toggle{display:flex}
-
-  /* Full-screen slide-in drawer */
-  .nav-menu{
-    position:fixed;
-    top:71px;   /* height of navbar (68px) + 3px yellow border */
-    left:0;
-    right:0;
-    bottom:0;
-    background:#fff;
-    flex-direction:column;
-    align-items:stretch;
-    height:auto;
-    padding:0;
-    gap:0;
-    transform:translateX(100%);
-    transition:transform .38s cubic-bezier(.16,1,.3,1);
-    z-index:999;
-    overflow-y:auto;
-    box-shadow:-4px 0 24px rgba(8,17,31,.12);
-  }
-
-  /* Slide in when open */
-  .nav-open .nav-menu{transform:translateX(0)}
-
-  /* Each nav item full width */
-  .nav-item{width:100%;height:auto;border-bottom:1px solid var(--border);display:block}
-  .nav-link{
-    height:56px;
-    width:100%;
-    padding:0 28px;
-    justify-content:space-between;
-    font-size:15px;
-    border-bottom:none;
-  }
-
-  /* Dropdown: hidden by default on mobile, revealed by JS toggling .open */
-  .dropdown{
-    position:static;
-    opacity:1;
-    visibility:visible;
-    transform:none;
-    box-shadow:none;
-    border:none;
-    border-radius:0;
-    max-height:0;
-    overflow:hidden;
-    transition:max-height .35s ease;
-    background:var(--off);
-    min-width:100%;
-  }
-  .nav-item.open .dropdown{max-height:1500px}
-
-  /* Mega grid → single column */
-  .mega{grid-template-columns:1fr;padding:8px 28px;min-width:100%}
-  .mega-hd{padding:8px 0 5px}
-  .mega-item{padding:10px 12px}
-  .dd-item{padding:13px 44px}
-
-  /* Other layout tweaks */
-  .hero-stats{grid-template-columns:repeat(2,1fr)}
-  .ft-grid{grid-template-columns:1fr 1fr;gap:36px}
-  .about-wrap{gap:56px}
-  .about-mini{display:none}
-  .prod-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto}
-  .prod-card.tall{grid-row:1/3}
+#btt {
+  position:fixed; bottom:28px; right:28px; z-index:999;
+  width:46px; height:46px; border-radius:8px;
+  background:var(--red); color:#fff;
+  display:none; align-items:center; justify-content:center;
+  font-size:20px; font-weight:900;
+  box-shadow:0 4px 22px rgba(204,39,0,.42); cursor:pointer;
+  transition:all .22s; font-family:'Barlow Condensed', sans-serif;
 }
+#btt:hover { background:var(--red2); transform:translateY(-3px); }
+#btt.on { display:flex; }
 
-/* Small tablets */
-@media(max-width:768px){
-  .W{padding:0 24px}
-  .tb-left{display:none}
-  .about-wrap{grid-template-columns:1fr;gap:40px}
-  .about-badge{right:-10px;bottom:-10px}
-  .exp-grid{grid-template-columns:1fr}
-  .svc-grid{grid-template-columns:1fr 1fr}
-  .why-grid{grid-template-columns:1fr}
-  .ind-grid{grid-template-columns:repeat(3,1fr)}
-  .clients-grid{grid-template-columns:repeat(3,1fr)}
-  .process-track{grid-template-columns:repeat(3,1fr);gap:20px}
-  .process-track::before{display:none}
-  .logo-text .sub{display:none}
-}
+/* SVG icon helper */
+.svg-ic { width:1.2em; height:1.2em; display:inline-block; vertical-align:middle; flex-shrink:0; }
 
-/* Mobile phones */
-@media(max-width:480px){
-  .W{padding:0 18px}
-  .hero-stats{display:none}
-  .svc-grid{grid-template-columns:1fr}
-  .ind-grid{grid-template-columns:repeat(2,1fr)}
-  .clients-grid{grid-template-columns:repeat(2,1fr)}
-  .ft-grid{grid-template-columns:1fr}
-  .process-track{grid-template-columns:repeat(2,1fr)}
-  .prod-mosaic{grid-template-columns:1fr}
-  .prod-card.tall{grid-row:auto}
-  .hero{min-height:620px}
-  .logo-text .name{font-size:14px}
-  .nav-cta{padding:8px 14px;font-size:12px}
-}
 </style>
 </head>
 <body>
 
-<!-- Shared header loaded by site.js -->
+<!-- HEADER placeholder -->
 <div id="site-header"></div>
 
-
-
-<!-- HERO CAROUSEL -->
+<!-- ═══════════════════════════════════════════
+     HERO CAROUSEL
+═══════════════════════════════════════════ -->
 <section class="hero" id="home">
   <div class="hc-track" id="hcTrack">
 
+    <!-- SLIDE 1 -->
     <div class="hc-slide active">
-      <div class="hero-bg"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1920&q=90" alt="Panel"/></div>
-      <div class="hero-ov1"></div><div class="hero-ov2"></div><div class="hero-ov3"></div>
+      <div class="h-bg"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1920&q=90" alt="Panel"/></div>
+      <div class="h-ov1"></div><div class="h-ov2"></div><div class="h-ov3"></div>
+      <div class="h-diag"></div>
       <div class="hero-content"><div class="hero-text">
-        <div class="hero-badge"><div class="hb-dot"></div><span>Turnkey Electrical Solutions</span></div>
-        <h1 class="hero-h1"><span class="h1-line1">Powering</span><span class="h1-line2">Your Success</span></h1>
-        <div class="hero-rule"></div>
-        <div class="hero-sub">End-to-End Electrical Engineering, Karnataka</div>
-        <p class="hero-body">Custom panel manufacturing to complete HT/LT installations. Trusted by Wipro, JSW and 18+ industry leaders across Karnataka. ISO 9001:2015 and IEC 61439 certified.</p>
-        <div class="hero-btns">
-          <button class="btn-blue" onclick="location.href='#contact'">Get a Quote <span class="arr">&rarr;</span></button>
-          <button class="btn-ghost" onclick="location.href='#about'">Learn More</button>
+        <div class="h-badge"><div class="hb-dot"></div><span>Turnkey Electrical Solutions — Karnataka</span></div>
+        <h1 class="h-h1"><span class="h1-line1">Powering</span><span class="h1-line2">Your Success</span></h1>
+        <div class="h-rule"></div>
+        <div class="h-sub">End-to-End Electrical Engineering</div>
+        <p class="h-body">Custom panel manufacturing to complete HT/LT installations. Trusted by Wipro, JSW and 18+ industry leaders across Karnataka. ISO 9001:2015 &amp; IEC 61439 certified.</p>
+        <div class="h-btns">
+          <button class="h-btn-red" onclick="location.href='#contact'">Get a Quote <span class="arr">&rarr;</span></button>
+          <button class="h-btn-ghost" onclick="location.href='aboutus.html'">Learn More</button>
         </div>
       </div></div>
     </div>
 
+    <!-- SLIDE 2 -->
     <div class="hc-slide">
-      <div class="hero-bg"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=90" alt="Automation"/></div>
-      <div class="hero-ov1"></div><div class="hero-ov2"></div><div class="hero-ov3"></div>
+      <div class="h-bg"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=90" alt="Automation"/></div>
+      <div class="h-ov1"></div><div class="h-ov2"></div><div class="h-ov3"></div>
+      <div class="h-diag"></div>
       <div class="hero-content"><div class="hero-text">
-        <div class="hero-badge"><div class="hb-dot"></div><span>Advanced Control and Automation</span></div>
-        <h1 class="hero-h1"><span class="h1-line1">Smart</span><span class="h1-line2">Automation</span></h1>
-        <div class="hero-rule"></div>
-        <div class="hero-sub">PLC, VFD, APFC, HVAC Control Systems</div>
-        <p class="hero-body">Intelligent automation solutions from PLC-driven motor control to advanced APFC and HVAC panels. Engineered for efficiency and reliability.</p>
-        <div class="hero-btns">
-          <button class="btn-blue" onclick="location.href='#products'">View Products <span class="arr">&rarr;</span></button>
-          <button class="btn-ghost" onclick="location.href='#services'">Our Services</button>
+        <div class="h-badge"><div class="hb-dot"></div><span>Advanced Control &amp; Automation</span></div>
+        <h1 class="h-h1"><span class="h1-line1">Smart</span><span class="h1-line2">Automation</span></h1>
+        <div class="h-rule"></div>
+        <div class="h-sub">PLC · VFD · APFC · HVAC Control Systems</div>
+        <p class="h-body">Intelligent automation solutions from PLC-driven motor control to advanced APFC and HVAC panels. Engineered for efficiency and reliability.</p>
+        <div class="h-btns">
+          <button class="h-btn-red" onclick="location.href='products.html'">View Products <span class="arr">&rarr;</span></button>
+          <button class="h-btn-ghost" onclick="location.href='services.html'">Our Services</button>
         </div>
       </div></div>
     </div>
 
+    <!-- SLIDE 3 -->
     <div class="hc-slide">
-      <div class="hero-bg"><img src="https://images.unsplash.com/photo-1581093804475-577d72e35330?w=1920&q=90" alt="Substation"/></div>
-      <div class="hero-ov1"></div><div class="hero-ov2"></div><div class="hero-ov3"></div>
+      <div class="h-bg"><img src="https://lecoinc.com/wp-content/uploads/2023/05/man-electrical-technician-working-switchboard-with-fuses.jpg" alt="Substation"/></div>
+      <div class="h-ov1"></div><div class="h-ov2"></div><div class="h-ov3"></div>
+      <div class="h-diag"></div>
       <div class="hero-content"><div class="hero-text">
-        <div class="hero-badge"><div class="hb-dot"></div><span>HT/LT Substation Specialists</span></div>
-        <h1 class="hero-h1"><span class="h1-line1">Built to</span><span class="h1-line2">Last</span></h1>
-        <div class="hero-rule"></div>
-        <div class="hero-sub">Complete Substation Erection and Commissioning</div>
-        <p class="hero-body">From HT and LT cable laying to complete substation erection, testing and CEIG liaisoning. We handle every step with precision and compliance.</p>
-        <div class="hero-btns">
-          <button class="btn-blue" onclick="location.href='#services'">Explore Services <span class="arr">&rarr;</span></button>
-          <button class="btn-ghost" onclick="location.href='#process'">Our Process</button>
+        <div class="h-badge"><div class="hb-dot"></div><span>HT/LT Substation Specialists</span></div>
+        <h1 class="h-h1"><span class="h1-line1">Built to</span><span class="h1-line2">Last</span></h1>
+        <div class="h-rule"></div>
+        <div class="h-sub">Complete Substation Erection &amp; Commissioning</div>
+        <p class="h-body">From HT and LT cable laying to complete substation erection, testing and CEIG liaisoning. We handle every step with precision and compliance.</p>
+        <div class="h-btns">
+          <button class="h-btn-red" onclick="location.href='services.html'">Explore Services <span class="arr">&rarr;</span></button>
+          <button class="h-btn-ghost" onclick="location.href='process.html'">Our Process</button>
         </div>
       </div></div>
     </div>
 
+    <!-- SLIDE 4 -->
     <div class="hc-slide">
-      <div class="hero-bg"><img src="https://images.unsplash.com/photo-1467533003447-e295ff1b0435?w=1920&q=90" alt="Facility"/></div>
-      <div class="hero-ov1"></div><div class="hero-ov2"></div><div class="hero-ov3"></div>
+      <div class="h-bg"><img src="https://images.unsplash.com/photo-1467533003447-e295ff1b0435?w=1920&q=90" alt="Facility"/></div>
+      <div class="h-ov1"></div><div class="h-ov2"></div><div class="h-ov3"></div>
+      <div class="h-diag"></div>
       <div class="hero-content"><div class="hero-text">
-        <div class="hero-badge"><div class="hb-dot"></div><span>ISO 9001:2015 and CPRI Certified</span></div>
-        <h1 class="hero-h1"><span class="h1-line1">Quality</span><span class="h1-line2">Certified</span></h1>
-        <div class="hero-rule"></div>
-        <div class="hero-sub">16+ Years of Engineering Excellence</div>
-        <p class="hero-body">With a state-of-the-art manufacturing facility in Bengaluru, KES delivers certified, tested and compliant electrical panels to industries across India.</p>
-        <div class="hero-btns">
-          <button class="btn-blue" onclick="location.href='#inquiry'">Request Quote <span class="arr">&rarr;</span></button>
-          <button class="btn-ghost" onclick="location.href='#about'">About KES</button>
+        <div class="h-badge"><div class="hb-dot"></div><span>ISO 9001:2015 &amp; CPRI Certified</span></div>
+        <h1 class="h-h1"><span class="h1-line1">Quality</span><span class="h1-line2">Certified</span></h1>
+        <div class="h-rule"></div>
+        <div class="h-sub">16+ Years of Engineering Excellence</div>
+        <p class="h-body">With a state-of-the-art manufacturing facility in Bengaluru, KES delivers certified, tested and fully compliant electrical panels to industries across India.</p>
+        <div class="h-btns">
+          <button class="h-btn-red" onclick="location.href='#contact'">Request Quote <span class="arr">&rarr;</span></button>
+          <button class="h-btn-ghost" onclick="location.href='aboutus.html'">About KES</button>
         </div>
       </div></div>
     </div>
 
   </div><!-- /hc-track -->
+
+  <!-- Slide counter decoration -->
+  <div class="hc-counter" id="hcCounter">
+    <div class="hc-cur" id="hcCurNum">01</div>
+    <div class="hc-bar"></div>
+    <div class="hc-total">04</div>
+  </div>
 
   <button class="hc-arrow hc-prev" id="hcPrev" aria-label="Previous">
     <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
@@ -914,234 +1144,294 @@ footer{background:var(--navy);color:#fff;padding:72px 0 0}
     <button class="hc-dot" data-i="3"></button>
   </div>
 
+  <div class="hero-progress"><div class="hero-progress-fill" id="hcProgress"></div></div>
+
   <div class="hero-stats">
-    <div class="hs-item"><div class="hs-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 21h16M3 10h18M5 10v7m4-7v7m4-7v7m4-7v7M12 2l9 4H3l9-4z"/></svg></div><div><div class="hs-n">2011</div><div class="hs-l">Legacy Since</div></div></div>
-    <div class="hs-item"><div class="hs-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 8v6M23 11h-6"/></svg></div><div><div class="hs-n">25+</div><div class="hs-l">Engineers &amp; Technicians</div></div></div>
-    <div class="hs-item"><div class="hs-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg></div><div><div class="hs-n">16+</div><div class="hs-l">Years Experience</div></div></div>
-    <div class="hs-item"><div class="hs-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="3.27 6.96 12 12.01 20.73 6.96"/><line stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="12" y1="22.08" x2="12" y2="12"/></svg></div><div><div class="hs-n">20+</div><div class="hs-l">Products &amp; Services</div></div></div>
+    <div class="hs-item">
+      <div class="hs-ico"><svg viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" d="M4 21h16M3 10h18M5 10v7m4-7v7m4-7v7m4-7v7M12 2l9 4H3l9-4z"/></svg></div>
+      <div><div class="hs-n">2011</div><div class="hs-l">Legacy Since</div></div>
+    </div>
+    <div class="hs-item">
+      <div class="hs-ico"><svg viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" d="M20 8v6M23 11h-6"/></svg></div>
+      <div><div class="hs-n">25+</div><div class="hs-l">Engineers &amp; Technicians</div></div>
+    </div>
+    <div class="hs-item">
+      <div class="hs-ico"><svg viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.6 9a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 4.6a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.6V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg></div>
+      <div><div class="hs-n">16+</div><div class="hs-l">Years Experience</div></div>
+    </div>
+    <div class="hs-item">
+      <div class="hs-ico"><svg viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline stroke="currentColor" stroke-width="2" points="3.27 6.96 12 12.01 20.73 6.96"/><line stroke="currentColor" stroke-width="2" x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+      <div><div class="hs-n">20+</div><div class="hs-l">Products &amp; Services</div></div>
+    </div>
   </div>
 
-</section><!-- /hero -->
+</section>
 
-<!-- ══════════ TICKER ══════════ -->
+<!-- TICKER -->
 <div class="ticker"><div class="t-track">
-  <span class="t-item">Power Distribution <span class="t-sep">✦</span></span>
-  <span class="t-item">Control Systems <span class="t-sep">✦</span></span>
-  <span class="t-item">Panel Manufacturing <span class="t-sep">✦</span></span>
-  <span class="t-item">Turnkey Solutions <span class="t-sep">✦</span></span>
-  <span class="t-item">HT/LT Installations <span class="t-sep">✦</span></span>
-  <span class="t-item">Bus Duct Systems <span class="t-sep">✦</span></span>
-  <span class="t-item">CPRI Certified <span class="t-sep">✦</span></span>
-  <span class="t-item">ISO 9001:2015 <span class="t-sep">✦</span></span>
-  <span class="t-item">IEC 61439 Compliant <span class="t-sep">✦</span></span>
-  <span class="t-item">Power Distribution <span class="t-sep">✦</span></span>
-  <span class="t-item">Control Systems <span class="t-sep">✦</span></span>
-  <span class="t-item">Panel Manufacturing <span class="t-sep">✦</span></span>
-  <span class="t-item">Turnkey Solutions <span class="t-sep">✦</span></span>
-  <span class="t-item">HT/LT Installations <span class="t-sep">✦</span></span>
-  <span class="t-item">Bus Duct Systems <span class="t-sep">✦</span></span>
-  <span class="t-item">CPRI Certified <span class="t-sep">✦</span></span>
-  <span class="t-item">ISO 9001:2015 <span class="t-sep">✦</span></span>
-  <span class="t-item">IEC 61439 Compliant <span class="t-sep">✦</span></span>
+  <span class="t-item">Power Distribution<span class="t-sep">✦</span></span>
+  <span class="t-item">Control Systems<span class="t-sep">✦</span></span>
+  <span class="t-item">Panel Manufacturing<span class="t-sep">✦</span></span>
+  <span class="t-item">Turnkey Solutions<span class="t-sep">✦</span></span>
+  <span class="t-item">HT/LT Installations<span class="t-sep">✦</span></span>
+  <span class="t-item">Bus Duct Systems<span class="t-sep">✦</span></span>
+  <span class="t-item">CPRI Certified<span class="t-sep">✦</span></span>
+  <span class="t-item">ISO 9001:2015<span class="t-sep">✦</span></span>
+  <span class="t-item">IEC 61439 Compliant<span class="t-sep">✦</span></span>
+  <span class="t-item">Power Distribution<span class="t-sep">✦</span></span>
+  <span class="t-item">Control Systems<span class="t-sep">✦</span></span>
+  <span class="t-item">Panel Manufacturing<span class="t-sep">✦</span></span>
+  <span class="t-item">Turnkey Solutions<span class="t-sep">✦</span></span>
+  <span class="t-item">HT/LT Installations<span class="t-sep">✦</span></span>
+  <span class="t-item">Bus Duct Systems<span class="t-sep">✦</span></span>
+  <span class="t-item">CPRI Certified<span class="t-sep">✦</span></span>
+  <span class="t-item">ISO 9001:2015<span class="t-sep">✦</span></span>
+  <span class="t-item">IEC 61439 Compliant<span class="t-sep">✦</span></span>
 </div></div>
 
+<!-- ═══════════════════ ABOUT ═══════════════════ -->
+<section class="about-sec" id="about">
+  <div class="W about-inner">
 
+    <!-- Intro header -->
+    <div class="about-intro">
+      <div class="rl">
+        <div class="sec-label"><div class="sl-bar"></div><span class="sl-txt">About KES</span></div>
+        <h2 class="sec-title">The True Leader in<br><em>Power Distribution</em></h2>
+      </div>
+      <div class="rr d1">
+        <p class="about-intro-right">
+          <strong>Kumara Engineering Solutions Private Limited</strong> was formally incepted in 2023, inheriting the operational legacy and deep expertise of Sunrise Enterprises, established in 2011. Managed by <strong>Mr. Kumaraswamy B.R.</strong>, a professionally qualified Electrical Engineer with 16+ years of vast experience in Electrical Engineering and allied fields, operating from our state-of-the-art facility in Bengaluru.
+        </p>
+      </div>
+    </div>
+
+    <!-- Main two-panel grid -->
+    <div class="about-grid rv">
+
+      <!-- LEFT DARK PANEL -->
+      <div class="ag-left">
+
+        <!-- Director -->
+        <div class="director-card">
+          <div class="director-avatar">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="director-info">
+            <div class="director-name">Mr. Kumaraswamy B.R.</div>
+            <div class="director-title">Managing Director &amp; Chief Engineer</div>
+            <div class="director-bio">Professionally qualified Electrical Engineer with 16+ years of hands-on experience in power distribution, panel manufacturing and turnkey project delivery across Karnataka.</div>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="cert-row">
+          <span class="cert-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            ISO 9001:2015
+          </span>
+          <span class="cert-badge">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            CPRI Certified
+          </span>
+          <span class="cert-badge">
+            <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            IEC 61439
+          </span>
+          <span class="cert-badge">
+            <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            IS:8623
+          </span>
+        </div>
+
+        <!-- Operations -->
+        <div class="ops-sec-title">Operational Details</div>
+        <div class="ops-rows">
+          <div class="ops-row">
+            <div class="ops-row-ico">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="ops-row-label">Location</div>
+              <div class="ops-row-val">Bengaluru, Karnataka, India</div>
+            </div>
+          </div>
+          <div class="ops-row">
+            <div class="ops-row-ico">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            </div>
+            <div>
+              <div class="ops-row-label">Service Area</div>
+              <div class="ops-row-val">Pan-Karnataka coverage &amp; beyond</div>
+            </div>
+          </div>
+          <div class="ops-row">
+            <div class="ops-row-ico">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div>
+              <div class="ops-row-label">Team Strength</div>
+              <div class="ops-row-val">25 permanent staff + 15+ trained technicians</div>
+            </div>
+          </div>
+          <div class="ops-row">
+            <div class="ops-row-ico">
+              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+            </div>
+            <div>
+              <div class="ops-row-label">Established</div>
+              <div class="ops-row-val">KES Pvt. Ltd. 2023 · Legacy since 2011</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <div class="ag-right">
+        <div class="ag-right-img">
+          <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1000&q=90" alt="KES Manufacturing Facility"/>
+          <div class="ag-img-caption">State-of-the-Art Manufacturing Facility, Bengaluru</div>
+        </div>
+
+        <div class="ag-stats">
+          <div class="ag-stat">
+            <div class="ag-stat-val">16+</div>
+            <div class="ag-stat-lbl">Years Experience</div>
+            <div class="ag-stat-sub">Engineering since 2011</div>
+          </div>
+          <div class="ag-stat">
+            <div class="ag-stat-val">25+</div>
+            <div class="ag-stat-lbl">Team Members</div>
+            <div class="ag-stat-sub">Permanent &amp; skilled staff</div>
+          </div>
+          <div class="ag-stat">
+            <div class="ag-stat-val">20+</div>
+            <div class="ag-stat-lbl">Products</div>
+            <div class="ag-stat-sub">IEC &amp; IS certified range</div>
+          </div>
+          <div class="ag-stat">
+            <div class="ag-stat-val">18+</div>
+            <div class="ag-stat-lbl">Major Clients</div>
+            <div class="ag-stat-sub">Across Karnataka industries</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /about-grid -->
+
+    <!-- Expertise strip -->
+    <div class="expert-strip rv d2">
+      <div class="exp-item">
+        <div class="exp-ico"><svg viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <div class="exp-lbl">Power Distribution Solutions</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-ico"><svg viewBox="0 0 24 24"><rect stroke="currentColor" stroke-width="2" x="2" y="7" width="20" height="14" rx="2"/><path stroke="currentColor" stroke-width="2" d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
+        <div class="exp-lbl">Control Systems Design</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-ico"><svg viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16"/><path stroke="currentColor" stroke-width="2" d="M9 7h6M9 11h6M9 15h6M9 19h6"/></svg></div>
+        <div class="exp-lbl">Turnkey Installations</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-ico"><svg viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" d="M22 11.08V12a10 10 0 11-5.93-9.14M22 4L12 14.01l-3-3"/></svg></div>
+        <div class="exp-lbl">HT &amp; LT Panel Mfg.</div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-ico"><svg viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="exp-lbl">Custom Engineering</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<!-- WHAT WE DO -->
 <section class="wwd-sec" id="expertise">
-  <!-- Concentric Circular Background -->
   <div class="wwd-circles">
     <div class="wwd-circle wwd-c1"></div>
     <div class="wwd-circle wwd-c2"></div>
     <div class="wwd-circle wwd-c3"></div>
   </div>
-  
   <div class="wwd-wrap rv">
-    
-    <!-- Center Text & CTA -->
     <div class="wwd-center rv d1">
       <span class="wwd-sup">What We Do</span>
-      <h2 class="wwd-h2">Engineering Excellence that<br><em>Powers Your Vision</em></h2>
-      <a href="#contact" class="wwd-btn">
+      <h2 class="wwd-h2">Engineering Excellence that <em>Powers Your Vision</em></h2>
+      <a href="contactus.html" class="wwd-btn">
         Consult Our Experts
         <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
       </a>
     </div>
-
-    <!-- Floating Item Wrapper -->
     <div class="wwd-items">
-      
-      <!-- Item 1: Top Left -->
-      <div class="wwd-item wwd-1" onclick="location.href='#products'">
+      <div class="wwd-item wwd-1" onclick="location.href='products.html'">
         <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80" alt="Power Distribution">
         <div class="wwd-item-info">
           <div class="wwd-item-title">Power Distribution</div>
           <div class="wwd-item-desc">Custom LT, MCC, PCC panels &amp; HT/LT substations — IEC 61439 certified.</div>
         </div>
       </div>
-
-      <!-- Item 2: Top Right -->
-      <div class="wwd-item wwd-2" onclick="location.href='#products'">
-        <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=600&q=80" alt="Control & Automation">
+      <div class="wwd-item wwd-2" onclick="location.href='products.html'">
+        <img src="https://www.swartzengineering.com/sites/default/files/inline-images/electrical%20destribution.jpg" alt="Control Automation">
         <div class="wwd-item-info">
           <div class="wwd-item-title">Control &amp; Automation</div>
           <div class="wwd-item-desc">PLC, VFD, APFC, HVAC — intelligent control for every industrial application.</div>
         </div>
       </div>
-
-      <!-- Item 3: Bottom Left -->
-      <div class="wwd-item wwd-3" onclick="location.href='#services'">
-        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80" alt="Turnkey Projects">
+      <div class="wwd-item wwd-3" onclick="location.href='services.html'">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsCLlAQA0l9VnGhcDyTy0MWIG3OcmOwVIJTg&s" alt="Turnkey Projects">
         <div class="wwd-item-info">
           <div class="wwd-item-title">Turnkey Projects</div>
-          <div class="wwd-item-desc">End-to-end project delivery — Design, Supply, Erection, Testing, Commissioning &amp; O&amp;M.</div>
+          <div class="wwd-item-desc">End-to-end delivery — Design, Supply, Erection, Testing, Commissioning &amp; O&amp;M.</div>
         </div>
       </div>
-
-      <!-- Item 4: Bottom Right -->
-      <div class="wwd-item wwd-4" onclick="location.href='#products'">
-        <img src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b6?w=600&q=80" alt="Bus Ducts">
+      <div class="wwd-item wwd-4" onclick="location.href='products.html'">
+        <img src="https://lh6.googleusercontent.com/proxy/qmiIQeY_h3nl6a6Wwmfn5v9dq7BZWPoPGohjt-3t32vOJ-4iFvKo6U91JZWVdEqaq0_guntxGSE7QdxZk66rU7Qi7jYi0t1F_5e6nGAkWy_4ZTtsko1eHw" alt="Bus Ducts">
         <div class="wwd-item-info">
           <div class="wwd-item-title">Bus Ducts &amp; Rising Mains</div>
-          <div class="wwd-item-desc">Robust and efficient power transmission solutions for high-current applications.</div>
+          <div class="wwd-item-desc">Robust power transmission for high-current industrial applications.</div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══════════ ABOUT — DARK REDESIGN ══════════ -->
-<section class="sec" id="about">
-  <div class="W">
-    <div class="about-grid">
-      
-      <!-- Left Column: Text & Stats -->
-      <div class="about-left rl">
-        <div class="sec-label">
-          <div class="sl-bar"></div>
-          <span class="sl-txt ">About Us</span>
-        </div>
-        <h2 class="sec-title">The True Leader in<br><em>Power Distribution</em></h2>
-        
-        <p class="sec-body" style="margin-top:24px;">
-          <strong>Kumara Engineering Solutions Private Limited</strong> was formally incepted in <strong>2023</strong>, inheriting the operational legacy and deep expertise of <strong>Sunrise Enterprises, established in 2011</strong>.
-        </p>
-        <p class="sec-body" style="margin-top:16px; opacity:0.6;">
-          Managed by <strong>Mr. Kumaraswamy B.R.</strong>, a professionally qualified Electrical Engineer with <strong>16+ years of vast experience</strong> in Electrical Engineering and allied fields.
-        </p>
-
-        <!-- Operations Details Box -->
-        <div class="ops-box">
-          <div class="ops-title">
-            <span class="ops-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/></svg></span> Operations
-          </div>
-          <div class="ops-list">
-            <div class="ops-item">
-              <span class="ops-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 21v-4a2 2 0 012-2h2a2 2 0 012 2v4M9 7h6M9 11h6M9 15h6"/></svg></span>
-              <strong>Location:</strong> Bengaluru, Karnataka, India
-            </div>
-            <div class="ops-item">
-              <span class="ops-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></span>
-              <strong>Service Area:</strong> Regional coverage across Karnataka
-            </div>
-            <div class="ops-item">
-              <span class="ops-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></span>
-              <strong>Team:</strong> 25 permanent staff + 15+ trained technicians
-            </div>
-          </div>
-        </div>
-
-        <!-- 4 Stat Boxes Row -->
-        <div class="stat-grid">
-          <div class="stat-box">
-            <div class="stat-val">2023</div>
-            <div class="stat-lbl">Established</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-val">15+</div>
-            <div class="stat-lbl">Technicians</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-val">16+</div>
-            <div class="stat-lbl">Years Exp.</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-val">20+</div>
-            <div class="stat-lbl">Products</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Column: Image & Expertise -->
-      <div class="about-right rr">
-        <div class="about-img">
-          <img src="https://images.unsplash.com/photo-1581093804475-577d72e35330?w=1000&q=90" alt="KES Manufacturing Facility">
-        </div>
-
-        <!-- Expertise Checklist Box -->
-        <div class="expert-box">
-          <div class="expert-title">
-            <span class="ops-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg></span> Our Expertise
-          </div>
-          <div class="expert-list">
-            <div class="expert-item">
-              <span class="expert-check">✓</span> End-to-End Power Distribution Solutions
-            </div>
-            <div class="expert-item">
-              <span class="expert-check">✓</span> Control Systems Design & Manufacturing
-            </div>
-            <div class="expert-item">
-              <span class="expert-check">✓</span> Turnkey Electrical Installations
-            </div>
-            <div class="expert-item">
-              <span class="expert-check">✓</span> HT & LT Panel Manufacturing
-            </div>
-            <div class="expert-item">
-              <span class="expert-check">✓</span> Custom Engineering Solutions
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ PRODUCTS ══════════ -->
 <section class="sec" id="products">
   <div class="W">
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:44px;flex-wrap:wrap;gap:20px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;flex-wrap:wrap;gap:20px">
       <div class="rv">
         <div class="sec-label"><div class="sl-bar"></div><span class="sl-txt">Our Products</span></div>
         <h2 class="sec-title">Featured <em>Products</em></h2>
-        <p class="sec-body" style="max-width:460px">IEC 61439 & IS:8623 certified panels — custom built for every industrial requirement.</p>
+        <p class="sec-body" style="max-width:460px">IEC 61439 &amp; IS:8623 certified panels — custom built for every industrial requirement.</p>
       </div>
-      <button class="btn-blue rv" onclick="location.href='#products'">View All Products <span class="arr">→</span></button>
+      <button class="btn-red rv" onclick="location.href='products.html'">View All Products <span class="arr">→</span></button>
     </div>
     <div class="prod-mosaic rv">
       <div class="prod-card tall">
         <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=85" alt="LT Panel"/>
-        <div class="prod-over"><div class="prod-cat">LV Switchgear</div><div class="prod-name">LT & MCC Power Panels</div></div>
-        <div class="prod-hover"><p>Low-tension distribution and Motor Control Centres — built to IS & IEC 61439-2 for all industrial applications.</p><button class="ph-btn">Explore →</button></div>
+        <div class="prod-over"><div class="prod-cat">LV Switchgear</div><div class="prod-name">LT &amp; MCC Power Panels</div></div>
+        <div class="prod-hover"><p>Low-tension distribution and Motor Control Centres — built to IS &amp; IEC 61439-2 for all industrial applications.</p><button class="ph-btn" onclick="location.href='products.html'">Explore →</button></div>
       </div>
       <div class="prod-card">
         <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=85" alt="PLC Panel"/>
-        <div class="prod-over"><div class="prod-cat">Automation</div><div class="prod-name">PLC & VFD Control</div></div>
-        <div class="prod-hover"><p>Programmable Logic Control and Variable Frequency Drive panels for automated production lines.</p><button class="ph-btn">Explore →</button></div>
+        <div class="prod-over"><div class="prod-cat">Automation</div><div class="prod-name">PLC &amp; VFD Control</div></div>
+        <div class="prod-hover"><p>Programmable Logic Control and Variable Frequency Drive panels for automated production lines.</p><button class="ph-btn" onclick="location.href='products.html'">Explore →</button></div>
       </div>
       <div class="prod-card">
         <img src="https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=600&q=85" alt="APFC Panel"/>
         <div class="prod-over"><div class="prod-cat">Power Factor</div><div class="prod-name">APFC Panels</div></div>
-        <div class="prod-hover"><p>Automatic power factor correction to reduce electricity bills and eliminate penalty charges.</p><button class="ph-btn">Explore →</button></div>
+        <div class="prod-hover"><p>Automatic power factor correction to reduce electricity bills and eliminate penalty charges.</p><button class="ph-btn" onclick="location.href='products.html'">Explore →</button></div>
       </div>
       <div class="prod-card">
         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=85" alt="ATS Panel"/>
-        <div class="prod-over"><div class="prod-cat">Emergency</div><div class="prod-name">ATS & DG Sync</div></div>
-        <div class="prod-hover"><p>Auto transfer switch panels with automatic mains-to-generator changeover for uninterrupted power.</p><button class="ph-btn">Explore →</button></div>
+        <div class="prod-over"><div class="prod-cat">Emergency</div><div class="prod-name">ATS &amp; DG Sync</div></div>
+        <div class="prod-hover"><p>Auto transfer switch panels with automatic mains-to-generator changeover for uninterrupted power.</p><button class="ph-btn" onclick="location.href='products.html'">Explore →</button></div>
       </div>
       <div class="prod-card">
         <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=85" alt="Bus Duct"/>
         <div class="prod-over"><div class="prod-cat">630A–6300A</div><div class="prod-name">HV/LV Bus Duct</div></div>
-        <div class="prod-hover"><p>99.97% copper purity, silver-plated conductors. IP54–IP66. Fire resistance certified.</p><button class="ph-btn">Explore →</button></div>
+        <div class="prod-hover"><p>99.97% copper purity, silver-plated conductors. IP54–IP66. Fire resistance certified.</p><button class="ph-btn" onclick="location.href='products.html'">Explore →</button></div>
       </div>
     </div>
     <div class="prod-tags rv">
@@ -1150,21 +1440,21 @@ footer{background:var(--navy);color:#fff;padding:72px 0 0}
       <span class="ptag">DG Sync Panel</span><span class="ptag">HVAC Panel</span><span class="ptag">Star Delta Panel</span>
       <span class="ptag">Fire Pump Panel</span><span class="ptag">Aviation Lighting</span><span class="ptag">Street Light Panel</span>
       <span class="ptag">Cable Tray</span><span class="ptag">Lift Control Panel</span><span class="ptag">Raw Power Panel</span>
-      <span class="ptag accent" onclick="location.href='#products'">+ View All →</span>
+      <span class="ptag accent" onclick="location.href='products.html'">+ View All →</span>
     </div>
   </div>
 </section>
 
-<!-- ══════════ SERVICES — WITH IMAGES ══════════ -->
+<!-- SERVICES -->
 <section class="sec sec-alt" id="services">
   <div class="W">
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;flex-wrap:wrap;gap:20px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;flex-wrap:wrap;gap:20px">
       <div class="rv">
         <div class="sec-label"><div class="sl-bar"></div><span class="sl-txt">Our Services</span></div>
         <h2 class="sec-title">End-to-End Electrical<br><em>&amp; Allied Services</em></h2>
         <p class="sec-body" style="max-width:460px">Your single point of accountability — from HT panel maintenance to full turnkey project delivery across Karnataka.</p>
       </div>
-      <button class="btn-blue rv" onclick="location.href='#services'">All Services <span class="arr">→</span></button>
+      <button class="btn-red rv" onclick="location.href='services.html'">All Services <span class="arr">→</span></button>
     </div>
     <div class="svc-grid rv">
       <div class="svc-card">
@@ -1174,17 +1464,17 @@ footer{background:var(--navy);color:#fff;padding:72px 0 0}
           <span class="svc-tag">HT Systems</span>
           <div class="svc-name">HT Panel Services</div>
           <p class="svc-text">Installation, testing and commissioning of HT systems — VCB, Ring Main Unit, Transformer, with advanced techniques and full flexibility.</p>
-          <div class="svc-more">Learn More →</div>
+          <div class="svc-more" onclick="location.href='services.html'" style="cursor:pointer">Learn More →</div>
         </div>
       </div>
       <div class="svc-card">
-        <img class="svc-img" src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=700&q=85" alt="Transformer Maintenance"/>
+        <img class="svc-img" src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=700&q=85" alt="Transformer"/>
         <div class="svc-ov"></div>
         <div class="svc-body">
           <span class="svc-tag">Maintenance</span>
           <div class="svc-name">Transformer Maintenance</div>
           <p class="svc-text">Complete repairing, servicing and refurbishing — megger tests, oil testing, ratio checks. Annual Maintenance Contracts available.</p>
-          <div class="svc-more">Learn More →</div>
+          <div class="svc-more" onclick="location.href='services.html'" style="cursor:pointer">Learn More →</div>
         </div>
       </div>
       <div class="svc-card">
@@ -1193,18 +1483,18 @@ footer{background:var(--navy);color:#fff;padding:72px 0 0}
         <div class="svc-body">
           <span class="svc-tag">Installation</span>
           <div class="svc-name">HT &amp; LT Cable Work</div>
-          <p class="svc-text">Premium copper & aluminium cables — supply, laying, termination and commissioning. Full substation erection capability.</p>
-          <div class="svc-more">Learn More →</div>
+          <p class="svc-text">Premium copper &amp; aluminium cables — supply, laying, termination and commissioning. Full substation erection capability.</p>
+          <div class="svc-more" onclick="location.href='services.html'" style="cursor:pointer">Learn More →</div>
         </div>
       </div>
       <div class="svc-card">
-        <img class="svc-img" src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=700&q=85" alt="Sub Station Erection"/>
+        <img class="svc-img" src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=700&q=85" alt="Substation"/>
         <div class="svc-ov"></div>
         <div class="svc-body">
           <span class="svc-tag">Sub Station</span>
           <div class="svc-name">Sub Station Erection</div>
           <p class="svc-text">Complete erection of HT/LT substations, including VCB, Ring Main Unit setup, transformer installation with CEIG clearances.</p>
-          <div class="svc-more">Learn More →</div>
+          <div class="svc-more" onclick="location.href='services.html'" style="cursor:pointer">Learn More →</div>
         </div>
       </div>
       <div class="svc-card">
@@ -1214,28 +1504,27 @@ footer{background:var(--navy);color:#fff;padding:72px 0 0}
           <span class="svc-tag">Servicing</span>
           <div class="svc-name">Panel &amp; Drive Servicing</div>
           <p class="svc-text">Preventive and corrective maintenance for all types of LT/HT panels, VFDs and AC drives — scheduled or emergency basis.</p>
-          <div class="svc-more">Learn More →</div>
+          <div class="svc-more" onclick="location.href='services.html'" style="cursor:pointer">Learn More →</div>
         </div>
       </div>
       <div class="svc-card">
-        <img class="svc-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=85" alt="O&M Contracts"/>
+        <img class="svc-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=85" alt="O&M"/>
         <div class="svc-ov"></div>
         <div class="svc-body">
-          <span class="svc-tag">O&M</span>
+          <span class="svc-tag">O&amp;M</span>
           <div class="svc-name">O&amp;M Contracts</div>
-          <p class="svc-text">Long-term Operation & Maintenance contracts for entire electrical infrastructure — trained team, SLA-driven, 24/7 emergency response.</p>
-          <div class="svc-more">Learn More →</div>
+          <p class="svc-text">Long-term Operation &amp; Maintenance contracts for entire electrical infrastructure — trained team, SLA-driven, 24/7 emergency response.</p>
+          <div class="svc-more" onclick="location.href='services.html'" style="cursor:pointer">Learn More →</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════ WHY KES ══════════ -->
-<section class="sec sec-alt" id="why-kes" style="background:var(--off);padding:92px 0">
+<!-- WHY KES -->
+<section class="sec sec-alt" id="why-kes" style="background:var(--off);padding:96px 0">
   <div class="W">
     <div class="why-wrap rv">
-      <!-- LEFT PANEL -->
       <div class="why-left">
         <div class="why-lbl"><div class="why-lbl-bar"></div><span class="why-lbl-txt">The KES Advantage</span></div>
         <h2 class="why-h2">Why Choose <em>KES?</em></h2>
@@ -1257,12 +1546,12 @@ footer{background:var(--navy);color:#fff;padding:72px 0 0}
           </li>
           <li class="why-row">
             <span class="why-row-num">04</span>
-            <div class="why-row-ico"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
+            <div class="why-row-ico"><svg viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></div>
             <div class="why-row-body"><div class="why-row-title">Competitive Pricing</div><p class="why-row-desc">Excellence and quality paired with a highly transparent and competitive pricing structure.</p></div>
           </li>
           <li class="why-row">
             <span class="why-row-num">05</span>
-            <div class="why-row-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6-8 10-8 10z"/></svg></div>
+            <div class="why-row-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
             <div class="why-row-body"><div class="why-row-title">Standardized Brands</div><p class="why-row-desc">Only premium, standardized branded switchgears &amp; accessories in compliance with IEC &amp; IS standards.</p></div>
           </li>
           <li class="why-row">
@@ -1272,7 +1561,7 @@ footer{background:var(--navy);color:#fff;padding:72px 0 0}
           </li>
           <li class="why-row">
             <span class="why-row-num">07</span>
-            <div class="why-row-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.997.35 1.98.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.83.35 1.813.576 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div class="why-row-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.12.997.35 1.98.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.83.35 1.813.576 2.81.7A2 2 0 0122 16.92z"/></svg></div>
             <div class="why-row-body"><div class="why-row-title">Quick Action Support</div><p class="why-row-desc">Rapid response for site calls by our dedicated, experienced technical support team.</p></div>
           </li>
           <li class="why-row">
@@ -1282,17 +1571,16 @@ footer{background:var(--navy);color:#fff;padding:72px 0 0}
           </li>
           <li class="why-row">
             <span class="why-row-num">09</span>
-            <div class="why-row-ico"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4M9 7h6M9 11h6M9 15h6"/></svg></div>
+            <div class="why-row-ico"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 21v-4a2 2 0 012-2h2a2 2 0 012 2v4"/></svg></div>
             <div class="why-row-body"><div class="why-row-title">Advanced Infrastructure</div><p class="why-row-desc">State-of-the-art facility with trained technicians, automated machinery, and in-house testing.</p></div>
           </li>
           <li class="why-row">
             <span class="why-row-num">10</span>
-            <div class="why-row-ico"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3"/></svg></div>
-            <div class="why-row-body"><div class="why-row-title">Comprehensive Warranty</div><p class="why-row-desc">Full peace of mind — all manufactured and traded electrical goods are covered by robust warranty.</p></div>
+            <div class="why-row-ico"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14M22 4L12 14.01l-3-3"/></svg></div>
+            <div class="why-row-body"><div class="why-row-title">Comprehensive Warranty</div><p class="why-row-desc">Full peace of mind — all manufactured and traded electrical goods covered by robust warranty.</p></div>
           </li>
         </ul>
       </div>
-      <!-- RIGHT PANEL — pinned bg image -->
       <div class="why-right">
         <div class="why-right-badge">
           <strong>25+</strong>
@@ -1303,27 +1591,27 @@ footer{background:var(--navy);color:#fff;padding:72px 0 0}
   </div>
 </section>
 
-<!-- ══════════ PROCESS ══════════ -->
-<section class="sec sec-alt" id="process">
+<!-- PROCESS -->
+<section class="process-sec" id="process">
   <div class="W">
-    <div class="rv" style="text-align:center;max-width:580px;margin:0 auto">
+    <div class="rv" style="text-align:center;max-width:600px;margin:0 auto">
       <div class="sec-label" style="justify-content:center"><div class="sl-bar"></div><span class="sl-txt">Manufacturing Process</span></div>
-      <h2 class="sec-title" style="text-align:center">From Concept to <em>Commissioning</em></h2>
-      <p class="sec-body" style="text-align:center">Our 7-stage process ensures every panel leaves our facility defect-free and fully documented.</p>
+      <h2 class="sec-title sec-title-w" style="text-align:center">From Concept to <em>Commissioning</em></h2>
+      <p class="sec-body" style="text-align:center;color:rgba(255,255,255,.35)">Our 7-stage process ensures every panel leaves our facility defect-free and fully documented.</p>
     </div>
     <div class="process-track rv">
-      <div class="pstep"><div class="pstep-num">01</div><h4>Planning &<br>Evaluation</h4><p>Site survey, load study & cost report in 2 working days</p></div>
-      <div class="pstep"><div class="pstep-num">02</div><h4>Panel<br>Design</h4><p>SLD, layout drawings, BOQ & engineering submittal</p></div>
-      <div class="pstep"><div class="pstep-num">03</div><h4>Material<br>Procurement</h4><p>OEM-sourced with FAT and quality verification</p></div>
-      <div class="pstep"><div class="pstep-num">04</div><h4>Fabrication &<br>Assembly</h4><p>Precision cutting, DIN rail, wiring & labelling</p></div>
-      <div class="pstep"><div class="pstep-num">05</div><h4>QA &<br>Testing</h4><p>HV, insulation, temp-rise, torque & function tests</p></div>
-      <div class="pstep"><div class="pstep-num">06</div><h4>Packaging &<br>Delivery</h4><p>Protected shipment with Drop N' Tell indicators</p></div>
-      <div class="pstep"><div class="pstep-num">07</div><h4>On-Site<br>Service</h4><p>Installation, trial run, handover & documentation</p></div>
+      <div class="pstep d1"><div class="pstep-num">01</div><h4>Planning &amp;<br>Evaluation</h4><p>Site survey, load study &amp; cost report in 2 working days</p></div>
+      <div class="pstep d2"><div class="pstep-num">02</div><h4>Panel<br>Design</h4><p>SLD, layout drawings, BOQ &amp; engineering submittal</p></div>
+      <div class="pstep d3"><div class="pstep-num">03</div><h4>Material<br>Procurement</h4><p>OEM-sourced with FAT and quality verification</p></div>
+      <div class="pstep d4"><div class="pstep-num">04</div><h4>Fabrication &amp;<br>Assembly</h4><p>Precision cutting, DIN rail, wiring &amp; labelling</p></div>
+      <div class="pstep d5"><div class="pstep-num">05</div><h4>QA &amp;<br>Testing</h4><p>HV, insulation, temp-rise, torque &amp; function tests</p></div>
+      <div class="pstep d1"><div class="pstep-num">06</div><h4>Packaging &amp;<br>Delivery</h4><p>Protected shipment with Drop N' Tell indicators</p></div>
+      <div class="pstep d2"><div class="pstep-num">07</div><h4>On-Site<br>Service</h4><p>Installation, trial run, handover &amp; documentation</p></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════ INDUSTRIES ══════════ -->
+<!-- INDUSTRIES -->
 <section class="sec" id="industries">
   <div class="W">
     <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:20px" class="rv">
@@ -1334,118 +1622,151 @@ footer{background:var(--navy);color:#fff;padding:72px 0 0}
       <p class="sec-body" style="max-width:380px;margin:0">From pharma cleanrooms to IT parks — our solutions power every major sector in Karnataka.</p>
     </div>
     <div class="ind-grid rv">
-      <div class="ind-box d1"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&q=80" alt="Pharma"/><p>Pharma &<br>Healthcare</p></div>
+      <div class="ind-box d1"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&q=80" alt="Pharma"/><p>Pharma &amp;<br>Healthcare</p></div>
       <div class="ind-box d2"><img src="https://images.unsplash.com/photo-1565514020179-026b92b84bb6?w=400&q=80" alt="Manufacturing"/><p>Manufacturing<br>Plants</p></div>
-      <div class="ind-box d3"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&q=80" alt="IT Parks"/><p>IT Parks &<br>Data Centres</p></div>
+      <div class="ind-box d3"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&q=80" alt="IT Parks"/><p>IT Parks &amp;<br>Data Centres</p></div>
       <div class="ind-box d4"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&q=80" alt="Commercial"/><p>Commercial<br>Buildings</p></div>
       <div class="ind-box d5"><img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?w=400&q=80" alt="Residential"/><p>Residential<br>Apartments</p></div>
-      <div class="ind-box d1"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&q=80" alt="Hospitality"/><p>Hospitality<br>& Hotels</p></div>
+      <div class="ind-box d1"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&q=80" alt="Hospitality"/><p>Hospitality<br>&amp; Hotels</p></div>
       <div class="ind-box d2"><img src="https://images.unsplash.com/photo-1620288627223-53302f4e8c74?w=400&q=80" alt="Automobile"/><p>Automobile<br>Industry</p></div>
-      <div class="ind-box d3"><img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&q=80" alt="Airports"/><p>Airports &<br>Infrastructure</p></div>
-      <div class="ind-box d4"><img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=400&q=80" alt="Banks"/><p>Banks &<br>Corporate</p></div>
+      <div class="ind-box d3"><img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&q=80" alt="Airports"/><p>Airports &amp;<br>Infrastructure</p></div>
+      <div class="ind-box d4"><img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=400&q=80" alt="Banks"/><p>Banks &amp;<br>Corporate</p></div>
       <div class="ind-box d5"><img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&q=80" alt="Educational"/><p>Educational<br>Institutions</p></div>
-      <div class="ind-box d1"><img src="https://images.unsplash.com/photo-1586771107445-d3afeb0dc820?w=400&q=80" alt="Food"/><p>Food &<br>Agriculture</p></div>
-      <div class="ind-box d2"><img src="https://images.unsplash.com/photo-1605280263929-1c42c62ef169?w=400&q=80" alt="Textile"/><p>Textile &<br>Garment</p></div>
+      <div class="ind-box d1"><img src="https://images.unsplash.com/photo-1586771107445-d3afeb0dc820?w=400&q=80" alt="Food"/><p>Food &amp;<br>Agriculture</p></div>
+      <div class="ind-box d2"><img src="https://images.unsplash.com/photo-1605280263929-1c42c62ef169?w=400&q=80" alt="Textile"/><p>Textile &amp;<br>Garment</p></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════ CLIENTS ══════════ -->
+<!-- CLIENTS -->
 <section class="sec" id="clients">
   <div class="W">
-    <div style="text-align:center;margin-bottom:48px" class="rv">
-      <div class="sec-label" style="justify-content:center"><div class="sl-bar"></div><span class="sl-txt ">Our Valued Clients</span></div>
+    <div style="text-align:center;margin-bottom:52px" class="rv">
+      <div class="sec-label" style="justify-content:center"><div class="sl-bar"></div><span class="sl-txt">Our Valued Clients</span></div>
       <h2 class="sec-title" style="text-align:center">Trusted by <em>Industry Leaders</em></h2>
-      <p class="sec-body" style="text-align:center;max-width:460px;margin:0 auto">Leading organisations across technology, manufacturing and infrastructure sectors trust KES.</p>
+      <p class="sec-body" style="text-align:center;max-width:460px;margin:0 auto">Leading organisations across technology, manufacturing and infrastructure sectors trust KES for critical electrical infrastructure.</p>
     </div>
-    <!-- MARQUEE WRAPPER -->
     <div class="clients-wrap rv">
       <div class="clients-track">
-        <!-- FIRST SET OF 12 -->
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 21v-4a2 2 0 012-2h2a2 2 0 012 2v4M9 7h6M9 11h6M9 15h6"/></svg></div><div class="cli-n">Wipro Limited</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M6 21v-7m4 7v-7m4 7V8m4 13V8M2 3l10 5 10-5M12 8v13"/></svg></div><div class="cli-n">Wipro Enterprises</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg></div><div class="cli-n">JSW Group</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 21h16M3 11h18M5 11v6m4-6v6m4-6v6m4-6v6M12 2l9 5H3l9-5z"/></svg></div><div class="cli-n">Wells Fargo</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 10v6M2 10l10-5 10 5-10 5z"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div class="cli-n">Azim Premji<br>University</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 21h16M3 10h18M5 10v7m4-7v7m4-7v7m4-7v7M12 2l9 4H3l9-4z"/></svg></div><div class="cli-n">CBRE</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 10v12M18 10a4 4 0 00-8 0v12M18 10H6M6 4h12l-1 6H7z"/></svg></div><div class="cli-n">MTR Foods</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 18h6M10 22h4m-2-12a4 4 0 10-4 4v2h8v-2a4 4 0 10-4-4z"/></svg></div><div class="cli-n">Krypton India<br>Solutions</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 2v4l-4 8v8h14v-8l-4-8V2M9 2h6"/></svg></div><div class="cli-n">LSI India R&D</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 2v4l-4 8v8h14v-8l-4-8V2M9 2h6M6 14h12"/></svg></div><div class="cli-n">Raman Thermosets</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V9l10-5 4 2v15M9 21v-4a2 2 0 012-2h2a2 2 0 012 2v4"/></svg></div><div class="cli-n">South India<br>Agencies</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="cli-n">Perfect Day India</div></div>
-        
-        <!-- SECOND SET OF 12 (DUPLICATED FOR SEAMLESS MARQUEE) -->
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 21v-4a2 2 0 012-2h2a2 2 0 012 2v4M9 7h6M9 11h6M9 15h6"/></svg></div><div class="cli-n">Wipro Limited</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M6 21v-7m4 7v-7m4 7V8m4 13V8M2 3l10 5 10-5M12 8v13"/></svg></div><div class="cli-n">Wipro Enterprises</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg></div><div class="cli-n">JSW Group</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 21h16M3 11h18M5 11v6m4-6v6m4-6v6m4-6v6M12 2l9 5H3l9-5z"/></svg></div><div class="cli-n">Wells Fargo</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 10v6M2 10l10-5 10 5-10 5z"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div class="cli-n">Azim Premji<br>University</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 21h16M3 10h18M5 10v7m4-7v7m4-7v7m4-7v7M12 2l9 4H3l9-4z"/></svg></div><div class="cli-n">CBRE</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 10v12M18 10a4 4 0 00-8 0v12M18 10H6M6 4h12l-1 6H7z"/></svg></div><div class="cli-n">MTR Foods</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 18h6M10 22h4m-2-12a4 4 0 10-4 4v2h8v-2a4 4 0 10-4-4z"/></svg></div><div class="cli-n">Krypton India<br>Solutions</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 2v4l-4 8v8h14v-8l-4-8V2M9 2h6"/></svg></div><div class="cli-n">LSI India R&D</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 2v4l-4 8v8h14v-8l-4-8V2M9 2h6M6 14h12"/></svg></div><div class="cli-n">Raman Thermosets</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V9l10-5 4 2v15M9 21v-4a2 2 0 012-2h2a2 2 0 012 2v4"/></svg></div><div class="cli-n">South India<br>Agencies</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="cli-n">Perfect Day India</div></div>
+        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 21v-4a2 2 0 012-2h2a2 2 0 012 2v4M9 7h6M9 11h6M9 15h6"/></svg></div><div class="cli-n">Wipro Limited</div></div>
+        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M6 21v-7m4 7v-7m4 7V8m4 13V8M2 3l10 5 10-5M12 8v13"/></svg></div><div class="cli-n">Wipro Enterprises</div></div>
+        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.6 9a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 4.6a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.6V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg></div><div class="cli-n">JSW Group</div></div>
+        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 21h16M3 11h18M5 11v6m4-6v6m4-6v6m4-6v6M12 2l9 5H3l9-5z"/></svg></div><div class="cli-n">Wells Fargo</div></div>
+        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 10v6M2 10l10-5 10 5-10 5z"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div class="cli-n">Azim Premji University</div></div>
+        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 21h16M3 10h18M5 10v7m4-7v7m4-7v7m4-7v7M12 2l9 4H3l9-4z"/></svg></div><div class="cli-n">CBRE</div></div>
+        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 10v12M18 10a4 4 0 00-8 0v12M18 10H6M6 4h12l-1 6H7z"/></svg></div><div class="cli-n">MTR Foods</div></div>
+        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 18h6M10 22h4m-2-12a4 4 0 10-4 4v2h8v-2a4 4 0 10-4-4z"/></svg></div><div class="cli-n">Krypton India Solutions</div></div>
+        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 2v4l-4 8v8h14v-8l-4-8V2M9 2h6"/></svg></div><div class="cli-n">LSI India R&amp;D</div></div>
+        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 2v4l-4 8v8h14v-8l-4-8V2M9 2h6M6 14h12"/></svg></div><div class="cli-n">Raman Thermosets</div></div>
+        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V9l10-5 4 2v15M9 21v-4a2 2 0 012-2h2a2 2 0 012 2v4"/></svg></div><div class="cli-n">South India Agencies</div></div>
+        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="cli-n">Perfect Day India</div></div>
+        <!-- Duplicate for infinite scroll -->
+        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 21v-4a2 2 0 012-2h2a2 2 0 012 2v4M9 7h6M9 11h6M9 15h6"/></svg></div><div class="cli-n">Wipro Limited</div></div>
+        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M6 21v-7m4 7v-7m4 7V8m4 13V8M2 3l10 5 10-5M12 8v13"/></svg></div><div class="cli-n">Wipro Enterprises</div></div>
+        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 21h16M3 11h18M5 11v6m4-6v6m4-6v6m4-6v6M12 2l9 5H3l9-5z"/></svg></div><div class="cli-n">Wells Fargo</div></div>
+        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 21h16M3 10h18M5 10v7m4-7v7m4-7v7m4-7v7M12 2l9 4H3l9-4z"/></svg></div><div class="cli-n">CBRE</div></div>
+        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 10v12M18 10a4 4 0 00-8 0v12M18 10H6M6 4h12l-1 6H7z"/></svg></div><div class="cli-n">MTR Foods</div></div>
+        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V9l10-5 4 2v15M9 21v-4a2 2 0 012-2h2a2 2 0 012 2v4"/></svg></div><div class="cli-n">South India Agencies</div></div>
+        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="cli-n">Perfect Day India</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════ CTA ══════════ -->
+<!-- CTA -->
 <div class="cta-band" id="contact">
   <div class="cta-bg-img"></div>
   <div class="cta-ov"></div>
+  <div class="cta-dot1"></div>
+  <div class="cta-dot2"></div>
   <div class="cta-inner W rv">
     <div class="cta-title">Ready to Power Your<br><em>Next Project?</em></div>
     <p class="cta-sub">Get a detailed engineering quote from our team within 2 working days. We consult, design, manufacture and deliver — completely end to end.</p>
     <div class="cta-btns">
-      <button class="btn-blue" onclick="location.href='mailto:info@kespl.co.in'">Request a Quote <span class="arr">→</span></button>
-      <button class="btn-border-w" onclick="location.href='#services'">Our Services</button>
+      <button class="btn-red" onclick="location.href='mailto:info@kespl.co.in'">Request a Quote <span class="arr">→</span></button>
+      <button class="btn-ghost-w" onclick="location.href='services.html'">Our Services</button>
     </div>
   </div>
 </div>
 
-<!-- Shared footer loaded by site.js -->
-<div id="site-footer"></div>
 
-<!-- ══════════ SCRIPTS ══════════ -->
-<script src="site.js"></script>
 
 <script>
-/* ── Hero Carousel ── */
-
+/* ──────────────── HERO CAROUSEL ──────────────── */
 (function(){
-  const slides = document.querySelectorAll('.hc-slide');
-  const dots   = document.querySelectorAll('.hc-dot');
-  let cur = 0, timer;
+  const slides   = document.querySelectorAll('.hc-slide');
+  const dots     = document.querySelectorAll('.hc-dot');
+  const curEl    = document.getElementById('hcCurNum');
+  const progressEl = document.getElementById('hcProgress');
+  let cur = 0, timer, progTimer;
 
-  function goTo(n) {
+  function pad(n){ return n < 10 ? '0'+n : ''+n; }
+
+  function startProgress(){
+    progressEl.style.transition = 'none';
+    progressEl.style.width = '0%';
+    requestAnimationFrame(()=>{
+      requestAnimationFrame(()=>{
+        progressEl.style.transition = 'width 5s linear';
+        progressEl.style.width = '100%';
+      });
+    });
+  }
+
+  function goTo(n){
     slides[cur].classList.remove('active');
     dots[cur].classList.remove('active');
     cur = (n + slides.length) % slides.length;
     slides[cur].classList.add('active');
     dots[cur].classList.add('active');
+    if(curEl) curEl.textContent = pad(cur+1);
+    startProgress();
   }
 
-  function startAuto() {
+  function startAuto(){
     clearInterval(timer);
-    timer = setInterval(() => goTo(cur + 1), 5000);
+    timer = setInterval(()=> goTo(cur+1), 5000);
   }
 
-  // Arrow buttons
-  document.getElementById('hcPrev').addEventListener('click', () => { goTo(cur - 1); startAuto(); });
-  document.getElementById('hcNext').addEventListener('click', () => { goTo(cur + 1); startAuto(); });
+  document.getElementById('hcPrev').addEventListener('click',()=>{ goTo(cur-1); startAuto(); });
+  document.getElementById('hcNext').addEventListener('click',()=>{ goTo(cur+1); startAuto(); });
+  dots.forEach((dot,i)=> dot.addEventListener('click',()=>{ goTo(i); startAuto(); }));
 
-  // Dot buttons
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => { goTo(i); startAuto(); });
-  });
+  // Touch swipe
+  let tx=0;
+  const hero = document.querySelector('.hero');
+  hero.addEventListener('touchstart',e=>{ tx=e.touches[0].clientX; },{passive:true});
+  hero.addEventListener('touchend',e=>{
+    const dx = e.changedTouches[0].clientX - tx;
+    if(Math.abs(dx)>50){ goTo(dx<0 ? cur+1 : cur-1); startAuto(); }
+  },{passive:true});
 
-  // Kick off
   startAuto();
+  startProgress();
+})();
+
+/* ──────────────── SCROLL REVEAL ──────────────── */
+(function(){
+  const els = document.querySelectorAll('.rv,.rl,.rr');
+  const io  = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{ threshold:0.1, rootMargin:'0px 0px -60px 0px' });
+  els.forEach(el=> io.observe(el));
+})();
+
+/* ──────────────── BACK TO TOP ──────────────── */
+(function(){
+  const btn = document.getElementById('btt');
+  window.addEventListener('scroll',()=>{
+    btn.classList.toggle('on', window.scrollY > 500);
+  });
 })();
 </script>
+
+<!-- FOOTER -->
+<div id="site-footer"></div>
+
+<!-- ══════════ SCRIPTS ══════════ -->
+<script src="site.js"></script>
 </body>
 </html>
