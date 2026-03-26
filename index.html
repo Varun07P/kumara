@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -146,21 +146,17 @@ h2.sec-title-w em { color:var(--red); }
 .h-ov2 { position:absolute; inset:0; background:linear-gradient(180deg,transparent 40%,rgba(5,11,24,.88) 100%); z-index:2; }
 .h-ov3 { position:absolute; inset:0; background:radial-gradient(ellipse at 70% 50%,rgba(18,81,163,.2) 0%,transparent 60%); z-index:3; }
 
-/* Hero Content — fixed padding using W container */
+/* Hero Content — perfectly aligned with W */
 .hero-content {
   position:absolute; inset:0; z-index:10;
-  display:flex; align-items:center;
-  padding:0 calc((100vw - 1280px)/2 + 48px);
-  /* push content up so stats bar never overlaps buttons */
-  padding-bottom:130px;
+  display:flex; align-items:center; width:100%;
+  padding-bottom:120px;
 }
-@media(max-width:1280px){ .hero-content{ padding:0 48px 130px; } }
-@media(max-width:1100px){ .hero-content{ padding:0 48px 120px; } }
-@media(max-width:900px)  { .hero-content{ padding:0 28px 110px; } }
-@media(max-width:768px)  { .hero-content{ padding:0 28px 60px;  } }
-@media(max-width:480px)  { .hero-content{ padding:0 18px 56px;  } }
+@media(max-width:1100px){ .hero-content{ padding-bottom:110px; } }
+@media(max-width:768px) { .hero-content{ padding-bottom:80px;  } }
+@media(max-width:480px) { .hero-content{ padding-bottom:56px;  } }
 
-.hero-text { max-width:700px; }
+.hero-text { max-width:720px; }
 
 /* Slide text animations */
 .hc-slide .h-badge,
@@ -200,37 +196,34 @@ h2.sec-title-w em { color:var(--red); }
 /* Headline */
 .h-h1 {
   font-family:'Barlow Condensed',sans-serif;
-  font-weight:900; line-height:.95; text-transform:uppercase;
+  font-weight:900; line-height:0.92; text-transform:uppercase;
+  margin-bottom:20px;
 }
 .h1-line1 {
   display:block;
-  font-size:clamp(52px,8vw,100px);
-  color:#fff; letter-spacing:.01em;
+  font-size:clamp(48px, 6.5vw, 92px);
+  color:#fff; letter-spacing:0.02em;
 }
 .h1-line2 {
   display:block;
-  font-size:clamp(56px,8.5vw,108px);
-  color:var(--red); letter-spacing:.01em;
-  text-shadow:0 0 60px rgba(204,39,0,.25);
+  font-size:clamp(52px, 7vw, 100px);
+  color:var(--red); letter-spacing:0.02em;
+  text-shadow:0 0 60px rgba(204,39,0,0.3);
 }
 
-.h-rule {
-  width:64px; height:3px;
-  background:linear-gradient(90deg,var(--red),transparent);
-  margin:22px 0;
-}
+.h-rule { display:none; }
 
 .h-sub {
   font-family:'Barlow Condensed',sans-serif;
-  font-size:clamp(13px,1.6vw,18px); font-weight:600;
-  color:rgba(255,255,255,.5); letter-spacing:.12em; text-transform:uppercase;
-  margin-bottom:14px;
+  font-size:clamp(14px, 1.6vw, 19px); font-weight:600;
+  color:rgba(255,255,255,0.6); letter-spacing:0.15em; text-transform:uppercase;
+  margin-bottom:16px;
 }
 
 .h-body {
-  font-size:clamp(14px,1.4vw,16px); line-height:1.82;
-  color:rgba(255,255,255,.45); font-weight:300;
-  max-width:500px; margin-bottom:36px;
+  font-size:clamp(14px, 1.4vw, 16.5px); line-height:1.8;
+  color:rgba(255,255,255,0.45); font-weight:300;
+  max-width:540px; margin-bottom:38px;
 }
 
 .h-btns { display:flex; gap:12px; flex-wrap:wrap; }
@@ -279,45 +272,51 @@ h2.sec-title-w em { color:var(--red); }
 
 /* Dots */
 .hc-dots {
-  position:absolute; bottom:72px; left:50%; transform:translateX(-50%);
-  z-index:30; display:flex; gap:8px;
+  position:absolute; bottom:130px; left:50%; transform:translateX(-50%);
+  z-index:30; display:flex; gap:10px;
 }
 .hc-dot {
   width:8px; height:8px; border-radius:50%;
-  background:rgba(255,255,255,.25); border:none; cursor:pointer;
+  background:rgba(255,255,255,.2); border:none; cursor:pointer;
   transition:all .3s; padding:0;
 }
-.hc-dot.active { background:var(--red); width:26px; border-radius:4px; }
+.hc-dot:hover { background:rgba(255,255,255,.5); }
+.hc-dot.active { background:var(--red); width:32px; border-radius:4px; }
 
-/* Stats bar */
+/* Stats bar - Ultra Premium Floating Pill */
 .hero-stats {
-  position:absolute; bottom:10px; left:50%; transform:translateX(-50%); z-index:20;
-  display:flex; gap:0; align-items:stretch;
-  background:rgba(8,17,31,0.72); backdrop-filter:blur(24px);
-  border:1px solid rgba(255,255,255,0.08); border-radius:8px;
-  box-shadow:0 16px 48px rgba(0,0,0,.5); overflow:hidden;
-  white-space:nowrap;
+  position:absolute; bottom:32px; left:50%; transform:translateX(-50%); z-index:20;
+  display:flex; align-items:stretch;
+  background:rgba(6, 13, 26, 0.65); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
+  border:1px solid rgba(255,255,255,0.06); border-radius:100px;
+  box-shadow:0 24px 64px rgba(0,0,0,0.5); overflow:hidden;
+  white-space:nowrap; padding:6px;
 }
 .hs-item {
-  padding:16px 28px; display:flex; align-items:center; gap:14px;
-  cursor:default; transition:background .3s;
-  border-right:1px solid rgba(255,255,255,.07);
+  padding:14px 36px; display:flex; align-items:center; gap:16px;
+  cursor:default; transition:background 0.3s;
+  border-radius:100px; position:relative;
+}
+.hs-item:not(:last-child)::after {
+  content:''; position:absolute; right:0; top:20%; bottom:20%; width:1px;
+  background:rgba(255,255,255,0.06);
 }
 .hs-item:last-child { border-right:none; }
-.hs-item:hover { background:rgba(204,39,0,.1); }
+.hs-item:hover { background:rgba(204,39,0,0.08); }
 .hs-ico {
-  width:36px; height:36px;
-  background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07);
-  border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  width:44px; height:44px;
+  background:rgba(204,39,0,0.1); border:1px solid rgba(204,39,0,0.25);
+  border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;
 }
-.hs-ico svg { width:18px; height:18px; stroke:var(--red); fill:none; stroke-width:2; }
+.hs-ico svg { width:20px; height:20px; stroke:var(--red); fill:none; stroke-width:2; }
+.hs-text { display:flex; flex-direction:column; justify-content:center; }
 .hs-n {
   font-family:'Barlow Condensed',sans-serif;
-  font-size:30px; font-weight:900; color:#fff;
-  line-height:.9; letter-spacing:-.03em;
+  font-size:34px; font-weight:900; color:#fff;
+  line-height:0.9; letter-spacing:-0.02em; display:flex; align-items:baseline;
 }
-.hs-n span { color:var(--red); }
-.hs-l { font-size:10px; color:rgba(255,255,255,.35); margin-top:3px; letter-spacing:.08em; text-transform:uppercase; font-weight:700; }
+.hs-n span { color:var(--red); font-size:24px; margin-left:2px; }
+.hs-l { font-size:10px; color:rgba(255,255,255,0.4); margin-top:5px; letter-spacing:0.1em; text-transform:uppercase; font-weight:700; }
 
 /* Slide counter */
 .hc-counter {
@@ -339,12 +338,14 @@ h2.sec-title-w em { color:var(--red); }
 /* Hero responsive */
 @media(max-width:1100px){
   .hc-counter { display:none; }
-  .hs-item { padding:12px 18px; gap:10px; }
-  .hs-n { font-size:24px; }
+  .hs-item { padding:12px 20px; gap:12px; }
+  .hs-n { font-size:26px; }
+}
+@media(max-width:800px){
+  .hc-dots { bottom:32px; }
+  .hero-stats { display:none; }
 }
 @media(max-width:768px){
-  .hero-stats { display:none; }
-  .hc-dots { bottom:16px; }
   .hc-arrow { width:40px; height:40px; }
   .hc-prev { left:12px; }
   .hc-next { right:12px; }
@@ -352,7 +353,6 @@ h2.sec-title-w em { color:var(--red); }
 @media(max-width:480px){
   .hc-arrow { display:none; }
   .h-badge { margin-bottom:14px; }
-  .h-rule { margin:14px 0; }
   .h-body { margin-bottom:22px; }
   .h-btn-red,.h-btn-ghost { padding:12px 22px; font-size:13px; }
 }
@@ -931,7 +931,7 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
     <div class="hc-slide active">
       <div class="h-bg"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1920&q=90" alt="Panel"/></div>
       <div class="h-ov1"></div><div class="h-ov2"></div><div class="h-ov3"></div>
-      <div class="hero-content"><div class="hero-text">
+      <div class="hero-content"><div class="W" style="width:100%"><div class="hero-text">
         <div class="h-badge"><div class="hb-dot"></div><span>Turnkey Electrical Solutions — Karnataka</span></div>
         <h1 class="h-h1"><span class="h1-line1">Powering</span><span class="h1-line2">Your Success</span></h1>
         <div class="h-rule"></div>
@@ -941,14 +941,14 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
           <a href="#contact" class="h-btn-red">Get a Quote <span class="arr">&rarr;</span></a>
           <a href="aboutus.html" class="h-btn-ghost">Learn More</a>
         </div>
-      </div></div>
+      </div></div></div>
     </div>
 
     <!-- SLIDE 2 -->
     <div class="hc-slide">
       <div class="h-bg"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=90" alt="Automation"/></div>
       <div class="h-ov1"></div><div class="h-ov2"></div><div class="h-ov3"></div>
-      <div class="hero-content"><div class="hero-text">
+      <div class="hero-content"><div class="W" style="width:100%"><div class="hero-text">
         <div class="h-badge"><div class="hb-dot"></div><span>Advanced Control &amp; Automation</span></div>
         <h1 class="h-h1"><span class="h1-line1">Smart</span><span class="h1-line2">Automation</span></h1>
         <div class="h-rule"></div>
@@ -958,14 +958,14 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
           <a href="products.html" class="h-btn-red">View Products <span class="arr">&rarr;</span></a>
           <a href="services.html" class="h-btn-ghost">Our Services</a>
         </div>
-      </div></div>
+      </div></div></div>
     </div>
 
     <!-- SLIDE 3 -->
     <div class="hc-slide">
       <div class="h-bg"><img src="https://lecoinc.com/wp-content/uploads/2023/05/man-electrical-technician-working-switchboard-with-fuses.jpg" alt="Substation"/></div>
       <div class="h-ov1"></div><div class="h-ov2"></div><div class="h-ov3"></div>
-      <div class="hero-content"><div class="hero-text">
+      <div class="hero-content"><div class="W" style="width:100%"><div class="hero-text">
         <div class="h-badge"><div class="hb-dot"></div><span>HT/LT Substation Specialists</span></div>
         <h1 class="h-h1"><span class="h1-line1">Built to</span><span class="h1-line2">Last</span></h1>
         <div class="h-rule"></div>
@@ -975,14 +975,14 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
           <a href="services.html" class="h-btn-red">Explore Services <span class="arr">&rarr;</span></a>
           <a href="process.html" class="h-btn-ghost">Our Process</a>
         </div>
-      </div></div>
+      </div></div></div>
     </div>
 
     <!-- SLIDE 4 -->
     <div class="hc-slide">
       <div class="h-bg"><img src="https://images.unsplash.com/photo-1467533003447-e295ff1b0435?w=1920&q=90" alt="Facility"/></div>
       <div class="h-ov1"></div><div class="h-ov2"></div><div class="h-ov3"></div>
-      <div class="hero-content"><div class="hero-text">
+      <div class="hero-content"><div class="W" style="width:100%"><div class="hero-text">
         <div class="h-badge"><div class="hb-dot"></div><span>ISO 9001:2015 &amp; CPRI Certified</span></div>
         <h1 class="h-h1"><span class="h1-line1">Quality</span><span class="h1-line2">Certified</span></h1>
         <div class="h-rule"></div>
@@ -992,7 +992,7 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
           <a href="#contact" class="h-btn-red">Request Quote <span class="arr">&rarr;</span></a>
           <a href="aboutus.html" class="h-btn-ghost">About KES</a>
         </div>
-      </div></div>
+      </div></div></div>
     </div>
 
   </div>
