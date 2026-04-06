@@ -11,7 +11,7 @@
   --bg:#0b0d0f; --bg2:#111418; --bg3:#181c22; --bg4:#1e2328;
   --line:rgba(255,255,255,0.07); --line2:rgba(255,255,255,0.13);
   --red:#e03210; --red2:#ff4520; --red-dim:rgba(224,50,16,0.13); --red-glow:rgba(224,50,16,0.4);
-  --t1:rgba(255,255,255,0.93); --t2:rgba(255,255,255,0.56); --t3:rgba(255,255,255,0.28); --t4:rgba(255,255,255,0.09);
+  --t1:rgba(255,255,255,0.98); --t2:rgba(255,255,255,0.85); --t3:rgba(255,255,255,0.5); --t4:rgba(255,255,255,0.15);
   --display:'Bebas Neue',cursive; --body:'Instrument Sans',sans-serif; --mono:'JetBrains Mono',monospace;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -107,28 +107,25 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
   background:rgba(11,13,15,0.96);backdrop-filter:blur(24px);
   border-bottom:1px solid var(--line);
 }
-.filter-inner{display:flex;align-items:stretch;overflow-x:auto;scrollbar-width:none}
-.filter-inner::-webkit-scrollbar{display:none}
-.f-btn{
-  display:flex;align-items:center;gap:7px;padding:0 20px;height:52px;
-  font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;
-  color:var(--t3);border-bottom:2px solid transparent;white-space:nowrap;
-  transition:color 0.18s,border-color 0.18s;flex-shrink:0;border-top:none;border-left:none;border-right:none;
-}
-.f-btn:hover{color:var(--t2)}
-.f-btn.active{color:var(--red2);border-bottom-color:var(--red)}
-.f-cnt{font-size:9px;padding:1px 6px;border-radius:10px;background:var(--t4);color:var(--t3);transition:all 0.2s}
-.f-btn.active .f-cnt{background:var(--red-dim);color:var(--red2)}
-.f-div{width:1px;background:var(--line);margin:12px 0;flex-shrink:0}
-.f-grp-lbl{padding:0 4px 0 20px;height:52px;display:flex;align-items:center;font-family:var(--mono);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.18);white-space:nowrap;flex-shrink:0}
-.f-search-wrap{margin-left:auto;display:flex;align-items:center;padding:0 16px;gap:0;flex-shrink:0;position:relative}
-.f-search-wrap svg{position:absolute;left:24px;width:13px;height:13px;fill:none;stroke:var(--t3);stroke-width:1.7;pointer-events:none}
-.f-search{background:var(--bg3);border:1px solid var(--line);border-radius:3px;padding:7px 12px 7px 32px;font-family:var(--mono);font-size:10px;color:var(--t2);letter-spacing:0.04em;width:190px;transition:all 0.2s}
+/* ─── SIDEBAR & STOREFRONT ─── */
+.storefront{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start;padding:40px 0 80px}
+.sidebar-nav{position:sticky;top:100px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:8px;max-height:calc(100vh - 120px);overflow-y:auto;overflow-x:hidden;scrollbar-width:thin}
+.sn-title{font-family:var(--display);font-size:14px;font-weight:800;color:var(--t1);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.f-btn{display:flex;align-items:center;justify-content:space-between;width:100%;text-align:left;background:transparent;border:1px solid transparent;padding:10px 14px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--t1);cursor:pointer;border-radius:4px;transition:all 0.2s}
+.f-btn:hover{background:var(--bg2);color:var(--t1)}
+.f-btn.active{background:var(--red-dim);color:var(--red2);border-color:rgba(224,50,16,0.3)}
+.f-cnt{background:var(--t4);color:var(--t3);font-size:9px;padding:2px 8px;border-radius:100px;transition:all 0.2s}
+.f-btn.active .f-cnt{background:var(--red);color:#fff}
+.f-div{min-height:1px;background:var(--line);margin:8px 0;flex-shrink:0}
+.f-grp-lbl{font-family:var(--mono);font-size:9px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.15em;padding:4px 14px;margin-top:4px}
+.f-search-wrap{position:relative;margin-top:0;margin-bottom:8px;}
+.f-search{width:100%;background:var(--bg3);border:1px solid var(--line);border-radius:4px;padding:12px 14px 12px 38px;font-family:var(--mono);font-size:10px;color:var(--t2);transition:all 0.2s}
 .f-search::placeholder{color:var(--t3)}
 .f-search:focus{outline:none;border-color:var(--red);background:var(--bg2);color:var(--t1)}
+.f-search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:14px;height:14px;stroke:var(--t3);fill:none;stroke-width:2}
 
 /* ─── RESULTS META ─── */
-.results-meta{display:flex;align-items:center;justify-content:space-between;padding:22px 0 20px}
+.results-meta{display:flex;align-items:center;justify-content:space-between;padding:0 0 20px}
 .rm-c{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:0.06em}
 .rm-c strong{color:var(--t2)}
 .rm-lbl{font-family:var(--mono);font-size:9px;color:var(--t3);letter-spacing:0.12em;text-transform:uppercase}
@@ -255,8 +252,16 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
 
 /* Responsive */
 @media(max-width:1200px){.products-grid{grid-template-columns:repeat(2,1fr)}.pcard.half{grid-column:span 1}.W{padding:0 36px}}
-@media(max-width:768px){.products-grid{grid-template-columns:1fr}.pcard.feat{flex-direction:column}.pcard.feat .pc-img{width:100%;height:240px}.pcard.feat .pc-body{padding:28px}.W{padding:0 20px}.hero-title{font-size:64px}.hero-stats{display:none}.cta-block{padding:36px 24px}}
-@media(max-width:480px){.W{padding:0 16px}.f-grp-lbl{display:none}}
+@media(max-width:900px){
+  .storefront{grid-template-columns:1fr;gap:24px;padding:20px 0 60px}
+  .sidebar-nav{position:relative;top:0;display:flex;flex-direction:row;overflow-x:auto;padding:12px;white-space:nowrap;scrollbar-width:none}
+  .sidebar-nav::-webkit-scrollbar{display:none}
+  .f-btn{width:auto;flex-shrink:0;margin-right:8px}
+  .sn-title,.f-div,.f-grp-lbl{display:none}
+  .f-search-wrap{position: absolute; right: 12px; top: 18px; margin-top: 0; width: 140px;}
+}
+@media(max-width:768px){.products-grid{grid-template-columns:1fr}.pcard.feat{flex-direction:column}.pcard.feat .pc-img{width:100%;height:240px}.pcard.feat .pc-body{padding:28px}.W{padding:0 20px}.phero-h1{font-size:64px}.cta-block{padding:36px 24px}}
+@media(max-width:480px){.W{padding:0 16px}}
 </style>
 </head>
 <body>
@@ -309,33 +314,34 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
   </div>
 </section>
 
-<!-- FILTER BAR -->
-<div class="filter-bar">
-  <div class="W">
-    <div class="filter-inner">
-      <button class="f-btn active" data-f="all">All <span class="f-cnt" id="cntAll">28</span></button>
+<!-- STOREFRONT SECTION -->
+<div class="W storefront">
+  
+  <!-- SIDEBAR NAV -->
+  <aside class="sidebar-nav">
+      <h3 class="sn-title">Product Categories</h3>
+      
+      <div class="f-search-wrap">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input class="f-search" type="text" id="srch" placeholder="Search product..."/>
+      </div>
+
+      <button class="f-btn active" data-f="all">All Products <span class="f-cnt" id="cntAll">28</span></button>
       <div class="f-div"></div>
-      <span class="f-grp-lbl">LV/MV</span>
+      <span class="f-grp-lbl">LV/MV Switchgear</span>
       <button class="f-btn" data-f="distribution">Distribution <span class="f-cnt">10</span></button>
       <button class="f-btn" data-f="control">Control & Sync <span class="f-cnt">6</span></button>
       <div class="f-div"></div>
-      <span class="f-grp-lbl">Building</span>
+      <span class="f-grp-lbl">Application</span>
       <button class="f-btn" data-f="building">HVAC & Building <span class="f-cnt">4</span></button>
       <button class="f-btn" data-f="special">Specialty <span class="f-cnt">6</span></button>
       <div class="f-div"></div>
-      <span class="f-grp-lbl">Infra</span>
-      <button class="f-btn" data-f="infra">Infrastructure <span class="f-cnt">2</span></button>
-      <div class="f-search-wrap">
-        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <input class="f-search" type="text" id="srch" placeholder="Search products…"/>
-      </div>
-    </div>
-  </div>
-</div>
+      <span class="f-grp-lbl">Infrastructure</span>
+      <button class="f-btn" data-f="infra">Pathways & Busways <span class="f-cnt">2</span></button>
+  </aside>
 
-<!-- PRODUCTS SECTION -->
-<div style="padding:0 0 80px">
-  <div class="W">
+  <!-- PRODUCTS MAIN -->
+  <div class="storefront-main">
     <div class="results-meta rv">
       <span class="rm-c">Showing <strong id="visCnt">28</strong> of 28 products</span>
       <span class="rm-lbl" id="activeLbl">All Categories</span>
@@ -894,6 +900,9 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
       fBtns.forEach(x => x.classList.remove('active'));
       b.classList.add('active');
       filter();
+      if(window.scrollY > 300) {
+        window.scrollTo({ top: 300, behavior: 'smooth' });
+      }
     });
   });
 

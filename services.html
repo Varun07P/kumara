@@ -182,6 +182,17 @@ h2.sec-title.w{color:#fff}
 /* ── DEEP DIVE SERVICES ── */
 .ddv-section{padding:60px 0}
 .ddv-section:nth-child(even){background:var(--off)}
+
+/* ── SERVICE TABS ── */
+.svc-tab-layout{display:grid;grid-template-columns:280px 1fr;gap:0;background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 10px 40px rgba(8,17,31,0.03)}
+.svc-sidebar{background:var(--off);padding:24px 0;border-right:1px solid var(--border);display:flex;flex-direction:column}
+.st-btn{background:transparent;border:none;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;color:var(--grey);text-transform:uppercase;letter-spacing:0.05em;padding:16px 32px;text-align:left;cursor:pointer;border-left:3px solid transparent;transition:all 0.2s}
+.st-btn:hover{background:rgba(0,0,0,0.02);color:var(--navy)}
+.st-btn.active{background:#fff;color:var(--red);border-left-color:var(--red);box-shadow:0 4px 12px rgba(0,0,0,0.02)}
+.svc-content{padding:48px}
+.st-pane{display:none;animation:fadeIn 0.4s}
+.st-pane.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .ddv-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .ddv-inner.flip{direction:rtl}
 .ddv-inner.flip > *{direction:ltr}
@@ -281,6 +292,12 @@ h2.sec-title.w{color:#fff}
   .cta-inner{flex-direction:column;text-align:center}
   .svc-bento,.svc-bento .sb-wide{grid-template-columns:1fr;grid-column:span 1}
   .ddv-steps{grid-template-columns:repeat(2,1fr);gap:12px}
+  .svc-tab-layout{grid-template-columns:1fr;gap:0}
+  .svc-sidebar{flex-direction:row;overflow-x:auto;padding:0;border-right:none;border-bottom:1px solid var(--border);white-space:nowrap;scrollbar-width:none}
+  .svc-sidebar::-webkit-scrollbar{display:none}
+  .st-btn{padding:16px 20px;border-left:none;border-bottom:3px solid transparent}
+  .st-btn.active{border-bottom-color:var(--red)}
+  .svc-content{padding:32px 24px}
 }
 @media(max-width:640px){
   .sec{padding:64px 0}
@@ -563,152 +580,166 @@ h2.sec-title.w{color:#fff}
   </div>
 </section>
 
-<!-- ═══ DETAILED: HT PANEL SERVICE ═══ -->
-<section class="ddv-section" id="ht-services">
+<!-- ═══ DEEP DIVE SERVICES TABS ═══ -->
+<section class="sec sec-alt" id="detailed-services">
   <div class="W">
-    <div class="ddv-inner">
-      <div class="ddv-img rr">
-        <img src="https://nakshatraelectricals.com/wp-content/uploads/2025/05/product-jpeg-1024x768.jpg" alt="HT Panel Maintenance"/>
-        <div class="ddv-img-badge">Class I <span>Certified</span> Engineers</div>
-      </div>
-      <div class="ddv-content rl">
-        <div class="sec-lbl">Service Detail</div>
-        <h3>HT Panel <em>Services</em></h3>
-        <p class="lead">We render HT Panel Maintenance services with advanced techniques and precision equipment. Our experts understand your requirements through site consultation, prepare thoroughly, execute with surgical accuracy, and always close with a documented inspection.</p>
-        <ul class="ddv-list">
-          <li>Gasket Replacement & General Modifications</li>
-          <li>Fitting Protective Devices</li>
-          <li>Oven Drying of Windings</li>
-          <li>Oil Testing, Vacuum & Pressure Testing, Oil Filtering</li>
-          <li>Megger Test & Insulation Resistance Testing</li>
-          <li>Polarity Testing, Ratio Check & Phase Sequence Verification</li>
-        </ul>
-        <div class="ddv-work">
-          <h4>Working Process</h4>
-          <div class="ddv-steps">
-            <div class="ddv-step"><div class="sn">01</div><div class="sl">Requirement<br>Analysis</div></div>
-            <div class="ddv-step"><div class="sn">02</div><div class="sl">Pre-<br>Preparation</div></div>
-            <div class="ddv-step"><div class="sn">03</div><div class="sl">On-Site<br>Execution</div></div>
-            <div class="ddv-step"><div class="sn">04</div><div class="sl">Inspection &<br>Handover</div></div>
+    <div class="sec-hd rv">
+      <div class="sec-lbl">Specialised Solutions</div>
+      <h2 class="sec-title">Deep Dive <em>Capabilities</em></h2>
+      <p class="sec-body">Select a service category below to view our comprehensive capability matrix and scope of work.</p>
+    </div>
+    
+    <div class="svc-tab-layout rv d1">
+      <aside class="svc-sidebar">
+        <button class="st-btn active" data-t="pane-ht-services">HT Panel Services</button>
+        <button class="st-btn" data-t="pane-transformer">Transformer Maintenance</button>
+        <button class="st-btn" data-t="pane-cable">HT & LT Cable Work</button>
+        <button class="st-btn" data-t="pane-substation">Sub Station Erection</button>
+        <button class="st-btn" data-t="pane-oam">O&M Contracts</button>
+      </aside>
+      
+      <div class="svc-content">
+        <!-- ══ PANE: HT PANEL ══ -->
+        <div class="st-pane active" id="pane-ht-services">
+          <div class="ddv-inner">
+            <div class="ddv-img rr">
+              <img src="https://nakshatraelectricals.com/wp-content/uploads/2025/05/product-jpeg-1024x768.jpg" alt="HT Panel Maintenance"/>
+              <div class="ddv-img-badge">Class I <span>Certified</span> Engineers</div>
+            </div>
+            <div class="ddv-content rl">
+              <div class="sec-lbl">Service Detail</div>
+              <h3>HT Panel <em>Services</em></h3>
+              <p class="lead">We render HT Panel Maintenance services with advanced techniques and precision equipment. Our experts understand your requirements through site consultation, prepare thoroughly, execute with surgical accuracy, and always close with a documented inspection.</p>
+              <ul class="ddv-list">
+                <li>Gasket Replacement & General Modifications</li>
+                <li>Fitting Protective Devices</li>
+                <li>Oven Drying of Windings</li>
+                <li>Oil Testing, Vacuum & Pressure Testing, Oil Filtering</li>
+                <li>Megger Test & Insulation Resistance Testing</li>
+                <li>Polarity Testing, Ratio Check & Phase Sequence Verification</li>
+              </ul>
+              <div class="ddv-work">
+                <h4>Working Process</h4>
+                <div class="ddv-steps">
+                  <div class="ddv-step"><div class="sn">01</div><div class="sl">Requirement<br>Analysis</div></div>
+                  <div class="ddv-step"><div class="sn">02</div><div class="sl">Pre-<br>Preparation</div></div>
+                  <div class="ddv-step"><div class="sn">03</div><div class="sl">On-Site<br>Execution</div></div>
+                  <div class="ddv-step"><div class="sn">04</div><div class="sl">Inspection &<br>Handover</div></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ DETAILED: TRANSFORMER ═══ -->
-<section class="ddv-section sec-alt" id="transformer">
-  <div class="W">
-    <div class="ddv-inner flip">
-      <div class="ddv-img rl">
-        <img src="https://www.ukelectric.in/wp-content/uploads/2025/05/transformer-repair-service.jpg" alt="Transformer Maintenance"/>
-        <div class="ddv-img-badge">AMC <span>Contracts Available</span></div>
-      </div>
-      <div class="ddv-content rr">
-        <div class="sec-lbl">Service Detail</div>
-        <h3>Transformer <em>Maintenance</em></h3>
-        <p class="lead">We have marked a distinct position in the market providing Transformer Repairing and Servicing to our clients. Our trained engineers use optimum grade techniques and tools installed in our testing lab to handle repairing, servicing and refurbishing work — at nominal price.</p>
-        <ul class="ddv-list">
-          <li>Transformer Oil Testing (BDV & Moisture Content)</li>
-          <li>Winding Insulation Resistance (Megger) Testing</li>
-          <li>Ratio Check, Polarity & Vector Group Verification</li>
-          <li>Vacuum & Pressure Testing</li>
-          <li>Oven Drying of Windings (if required)</li>
-          <li>HT RMU & VCB Functional Testing</li>
-          <li>Lightning Arrester Checking</li>
-          <li>Annual Maintenance Contracts (AMC) available</li>
-        </ul>
-        <a href="contactus.html" class="btn-red" style="display:inline-flex;align-items:center;gap:8px">Get AMC Quote →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ DETAILED: CABLES & BUSWAYS ═══ -->
-<section class="ddv-section" id="cable-work">
-  <div class="W">
-    <div class="ddv-inner">
-      <div class="ddv-img rr">
-        <img src="https://5.imimg.com/data5/SELLER/Default/2024/3/401908020/PI/YL/SS/28954157/cable-installation-services-500x500.jpg" alt="HT LT Cables"/>
-        <div class="ddv-img-badge">Copper & <span>Aluminium</span> Conductors</div>
-      </div>
-      <div class="ddv-content rl">
-        <div class="sec-lbl">Service Detail</div>
-        <h3>HT & LT Cable <em>Work</em></h3>
-        <p class="lead">KES is among the foremost suppliers and installers of HT/LT cables. We supply High Temperature, LT, and HT Power Cables — durable, dimensionally precise, and resistant to wear & tear — then execute professional laying, termination, and commissioning.</p>
-        <ul class="ddv-list">
-          <li>XLPE & PVC Insulated HT Power Cables (Al & Cu Conductors)</li>
-          <li>LT Cable Laying, Joining & Termination</li>
-          <li>High Continuous Current Rating & Higher Short Circuit Rating</li>
-          <li>Cable Tray & Raceway Supply and Installation</li>
-          <li>Underground HT Cable Trenching</li>
-          <li>Full Substation Cabling Capability</li>
-        </ul>
-        <div style="background:var(--off);border-radius:10px;padding:20px;margin-top:8px">
-          <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;color:var(--red);letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px">MV & LV Busway Highlights</div>
-          <ul class="ddv-list" style="margin-bottom:0">
-            <li>Copper Busways: 630A–6300A, 99.97% purity, silver-plated conductors</li>
-            <li>Al+Cu Contact Busways: 800A–6300A, max 1000V rated</li>
-            <li>Fire Resistance Certified to AS1530.4:2014 & AS4072.1-2005</li>
-            <li>Protection: IP54 to IP66 grades available</li>
-          </ul>
+        
+        <!-- ══ PANE: TRANSFORMER ══ -->
+        <div class="st-pane" id="pane-transformer">
+          <div class="ddv-inner">
+            <div class="ddv-img rl">
+              <img src="https://www.ukelectric.in/wp-content/uploads/2025/05/transformer-repair-service.jpg" alt="Transformer Maintenance"/>
+              <div class="ddv-img-badge">AMC <span>Contracts Available</span></div>
+            </div>
+            <div class="ddv-content rr">
+              <div class="sec-lbl">Service Detail</div>
+              <h3>Transformer <em>Maintenance</em></h3>
+              <p class="lead">We have marked a distinct position in the market providing Transformer Repairing and Servicing to our clients. Our trained engineers use optimum grade techniques and tools installed in our testing lab to handle repairing, servicing and refurbishing work — at nominal price.</p>
+              <ul class="ddv-list">
+                <li>Transformer Oil Testing (BDV & Moisture Content)</li>
+                <li>Winding Insulation Resistance (Megger) Testing</li>
+                <li>Ratio Check, Polarity & Vector Group Verification</li>
+                <li>Vacuum & Pressure Testing</li>
+                <li>Oven Drying of Windings (if required)</li>
+                <li>HT RMU & VCB Functional Testing</li>
+                <li>Lightning Arrester Checking</li>
+                <li>Annual Maintenance Contracts (AMC) available</li>
+              </ul>
+              <a href="contactus.html" class="btn-red" style="display:inline-flex;align-items:center;gap:8px">Get AMC Quote →</a>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ═══ DETAILED: SUBSTATION ═══ -->
-<section class="ddv-section sec-alt" id="substation">
-  <div class="W">
-    <div class="ddv-inner flip">
-      <div class="ddv-img rl">
-        <img src="https://5.imimg.com/data5/SELLER/Default/2023/2/ZI/LF/CV/2887104/765kv-electrical-substation-erection-service.jpeg" alt="Substation Erection"/>
-        <div class="ddv-img-badge">Up to <span>33KV</span> HT Systems</div>
-      </div>
-      <div class="ddv-content rr">
-        <div class="sec-lbl">Service Detail</div>
-        <h3>Sub Station <em>Erection</em></h3>
-        <p class="lead">We design, supply, and erect indoor and outdoor HT/LT substations for large-scale industrial and commercial loads. Our team handles the complete HT side — from cable trenching to transformer oil testing — with CEIG clearances.</p>
-        <ul class="ddv-list">
-          <li>11KV RMU, Transformer & VCB Installation</li>
-          <li>Metering Cubicle & HT Distribution System Setup</li>
-          <li>Earth Pit & Earth Grid Design and Laying</li>
-          <li>HT Cable Trenching & Termination</li>
-          <li>Megger, Ratio Check & Polarity Testing</li>
-          <li>CEIG Approval Filing & Safety Certificate</li>
-          <li>NOC & Statutory Authority Coordination</li>
-        </ul>
-        <a href="contactus.html" class="btn-red" style="display:inline-flex;align-items:center;gap:8px">Enquire for Substation Project →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ DETAILED: O&M / AMC ═══ -->
-<section class="ddv-section" id="oam">
-  <div class="W">
-    <div class="ddv-inner">
-      <div class="ddv-img rr">
-        <img src="https://nakshatraelectricals.com/wp-content/uploads/2025/05/product-jpeg-1024x768.jpg" alt="O&M AMC"/>
-        <div class="ddv-img-badge">24/7 <span>Emergency Response</span></div>
-      </div>
-      <div class="ddv-content rl">
-        <div class="sec-lbl">Service Detail</div>
-        <h3>O&M <em>Contracts</em></h3>
-        <p class="lead">Long-term Operation & Maintenance contracts for your entire electrical infrastructure. Our SLA-driven service model is built on proactive inspection schedules, thermographic audits, and a dedicated trained team — ensuring zero unplanned downtime.</p>
-        <ul class="ddv-list">
-          <li>Preventive Maintenance for HT/LT Panels, VFDs & AC Drives</li>
-          <li>Transformer Oil Testing & Winding Insulation Checks</li>
-          <li>Switchgear Functional Checks & Calibration</li>
-          <li>Busbar Torque Inspection & Thermal Imaging (Thermography)</li>
-          <li>Earth Continuity Testing & Cable Termination Re-tightening</li>
-          <li>24/7 Emergency Breakdown Response Teams</li>
-        </ul>
-        <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <a href="contactus.html" class="btn-red" style="display:inline-flex;align-items:center;gap:8px">Get AMC Quote →</a>
+        <!-- ══ PANE: CABLE WORK ══ -->
+        <div class="st-pane" id="pane-cable">
+          <div class="ddv-inner">
+            <div class="ddv-img rr">
+              <img src="https://5.imimg.com/data5/SELLER/Default/2024/3/401908020/PI/YL/SS/28954157/cable-installation-services-500x500.jpg" alt="HT LT Cables"/>
+              <div class="ddv-img-badge">Copper & <span>Aluminium</span> Conductors</div>
+            </div>
+            <div class="ddv-content rl">
+              <div class="sec-lbl">Service Detail</div>
+              <h3>HT & LT Cable <em>Work</em></h3>
+              <p class="lead">KES is among the foremost suppliers and installers of HT/LT cables. We supply High Temperature, LT, and HT Power Cables — durable, dimensionally precise, and resistant to wear & tear — then execute professional laying, termination, and commissioning.</p>
+              <ul class="ddv-list">
+                <li>XLPE & PVC Insulated HT Power Cables (Al & Cu Conductors)</li>
+                <li>LT Cable Laying, Joining & Termination</li>
+                <li>High Continuous Current Rating & Higher Short Circuit Rating</li>
+                <li>Cable Tray & Raceway Supply and Installation</li>
+                <li>Underground HT Cable Trenching</li>
+                <li>Full Substation Cabling Capability</li>
+              </ul>
+              <div style="background:var(--off);border-radius:10px;padding:20px;margin-top:8px">
+                <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;color:var(--red);letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px">MV & LV Busway Highlights</div>
+                <ul class="ddv-list" style="margin-bottom:0">
+                  <li>Copper Busways: 630A–6300A, 99.97% purity, silver-plated conductors</li>
+                  <li>Al+Cu Contact Busways: 800A–6300A, max 1000V rated</li>
+                  <li>Fire Resistance Certified to AS1530.4:2014 & AS4072.1-2005</li>
+                  <li>Protection: IP54 to IP66 grades available</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- ══ PANE: SUBSTATION ══ -->
+        <div class="st-pane" id="pane-substation">
+          <div class="ddv-inner">
+            <div class="ddv-img rl">
+              <img src="https://5.imimg.com/data5/SELLER/Default/2023/2/ZI/LF/CV/2887104/765kv-electrical-substation-erection-service.jpeg" alt="Substation Erection"/>
+              <div class="ddv-img-badge">Up to <span>33KV</span> HT Systems</div>
+            </div>
+            <div class="ddv-content rr">
+              <div class="sec-lbl">Service Detail</div>
+              <h3>Sub Station <em>Erection</em></h3>
+              <p class="lead">We design, supply, and erect indoor and outdoor HT/LT substations for large-scale industrial and commercial loads. Our team handles the complete HT side — from cable trenching to transformer oil testing — with CEIG clearances.</p>
+              <ul class="ddv-list">
+                <li>11KV RMU, Transformer & VCB Installation</li>
+                <li>Metering Cubicle & HT Distribution System Setup</li>
+                <li>Earth Pit & Earth Grid Design and Laying</li>
+                <li>HT Cable Trenching & Termination</li>
+                <li>Megger, Ratio Check & Polarity Testing</li>
+                <li>CEIG Approval Filing & Safety Certificate</li>
+                <li>NOC & Statutory Authority Coordination</li>
+              </ul>
+              <a href="contactus.html" class="btn-red" style="display:inline-flex;align-items:center;gap:8px">Enquire for Substation Project →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══ PANE: O&M ══ -->
+        <div class="st-pane" id="pane-oam">
+          <div class="ddv-inner">
+            <div class="ddv-img rr">
+              <img src="https://nakshatraelectricals.com/wp-content/uploads/2025/05/product-jpeg-1024x768.jpg" alt="O&M AMC"/>
+              <div class="ddv-img-badge">24/7 <span>Emergency Response</span></div>
+            </div>
+            <div class="ddv-content rl">
+              <div class="sec-lbl">Service Detail</div>
+              <h3>O&M <em>Contracts</em></h3>
+              <p class="lead">Long-term Operation & Maintenance contracts for your entire electrical infrastructure. Our SLA-driven service model is built on proactive inspection schedules, thermographic audits, and a dedicated trained team — ensuring zero unplanned downtime.</p>
+              <ul class="ddv-list">
+                <li>Preventive Maintenance for HT/LT Panels, VFDs & AC Drives</li>
+                <li>Transformer Oil Testing & Winding Insulation Checks</li>
+                <li>Switchgear Functional Checks & Calibration</li>
+                <li>Busbar Torque Inspection & Thermal Imaging (Thermography)</li>
+                <li>Earth Continuity Testing & Cable Termination Re-tightening</li>
+                <li>24/7 Emergency Breakdown Response Teams</li>
+              </ul>
+              <div style="display:flex;gap:12px;flex-wrap:wrap">
+                <a href="contactus.html" class="btn-red" style="display:inline-flex;align-items:center;gap:8px">Get AMC Quote →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -907,6 +938,19 @@ h2.sec-title.w{color:#fff}
 <div id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
 
 <script>
+/* Service Tabs */
+(function(){
+  const btns = document.querySelectorAll('.st-btn');
+  const panes = document.querySelectorAll('.st-pane');
+  btns.forEach(b => {
+    b.addEventListener('click', () => {
+      btns.forEach(x => x.classList.remove('active'));
+      panes.forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      document.getElementById(b.dataset.t).classList.add('active');
+    });
+  });
+})();
 /* Scroll Reveal */
 (function(){
   const els = document.querySelectorAll('.rv,.rl,.rr');
