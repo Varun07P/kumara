@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Gallery — Kumara Engineering Solutions Pvt. Ltd.</title>
+<meta name="description" content="Explore our gallery of premium electrical panels, manufacturing facility, and completed projects. LT Panels, MCC, PCC, APFC, PLC and more."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+.svg-ic{width:1.25em;height:1.25em;display:inline-block;vertical-align:middle;flex-shrink:0}
+:root{
+  --navy:#08111f;--navy2:#0c1a30;--navy3:#0f2040;
+  --blue:#1251a3;--blue2:#1565c8;--blue3:#1a7ae8;
+  --blue-pale:#fbeae6;--blue-alt:#cc2700;--blue-alt2:#a81e00;--blue-alt3:#8a1800;
+  --white:#ffffff;--off:#f9f5f4;--grey:#64748b;--grey2:#94a3b8;
+  --border:#dde6f5;--text:#0f1f35;
+  --s1:0 2px 16px rgba(8,17,31,.08);--s2:0 8px 36px rgba(8,17,31,.14);--s3:0 24px 64px rgba(8,17,31,.22);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;color:var(--text);background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;outline:none;background:none}
+img{display:block;max-width:100%}
+.W{max-width:1300px;margin:0 auto;padding:0 48px}
+@media(max-width:900px){.W{padding:0 28px}}
+@media(max-width:480px){.W{padding:0 18px}}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
+.rl{opacity:0;transform:translateX(-32px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
+.rr{opacity:0;transform:translateX(32px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
+.rv.in,.rl.in,.rr.in{opacity:1;transform:none}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}
+
+/* ═══ GALLERY HERO ═══ */
+.gal-hero{position:relative;min-height:520px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--navy)}
+.gal-hero-bg{position:absolute;inset:0}
+.gal-hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.3) saturate(.6);transform:scale(1.04);animation:heroZoom 20s ease-in-out infinite alternate}
+@keyframes heroZoom{from{transform:scale(1.04)}to{transform:scale(1.12)}}
+.gal-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,17,31,.7) 0%,rgba(8,17,31,.4) 40%,rgba(8,17,31,.85) 100%);z-index:1}
+.gal-hero-content{position:relative;z-index:10;text-align:center;padding:120px 20px 80px}
+.gal-hero-path{display:flex;justify-content:center;gap:12px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:24px}
+.gal-hero-path .active{color:var(--blue-alt)}
+.gal-hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(204,39,0,.1);border:1px solid rgba(204,39,0,.3);padding:7px 18px;border-radius:100px;margin-bottom:24px}
+.gal-hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--blue-alt);animation:blink 2.4s infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.2;transform:scale(1.8)}}
+.gal-hero-badge span{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,.55);letter-spacing:.14em;text-transform:uppercase}
+.gal-hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(52px,9vw,120px);font-weight:900;color:#fff;text-transform:uppercase;line-height:.9;letter-spacing:-.03em;margin-bottom:20px}
+.gal-hero h1 em{font-style:normal;color:var(--blue-alt);text-shadow:0 0 60px rgba(204,39,0,.3)}
+.gal-hero-sub{font-size:clamp(14px,1.4vw,17px);line-height:1.7;color:rgba(255,255,255,.45);font-weight:300;max-width:560px;margin:0 auto 32px}
+.gal-hero-stats{display:flex;justify-content:center;gap:48px;margin-top:20px}
+.ghs-item{text-align:center}
+.ghs-num{font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:900;color:#fff;line-height:1}
+.ghs-num span{color:var(--blue-alt);font-size:28px}
+.ghs-lbl{font-size:10px;color:rgba(255,255,255,.35);letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-top:4px}
+.gal-hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:10;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.25);font-size:9px;letter-spacing:.15em;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;font-weight:600;animation:scrollPulse 2s ease-in-out infinite}
+.gal-hero-scroll .line{width:1px;height:36px;background:linear-gradient(180deg,rgba(204,39,0,.6),transparent)}
+@keyframes scrollPulse{0%,100%{opacity:.4;transform:translateX(-50%) translateY(0)}50%{opacity:1;transform:translateX(-50%) translateY(6px)}}
+
+/* ═══ FILTER BAR ═══ */
+.filter-bar{background:var(--navy2);border-bottom:1px solid rgba(255,255,255,.04);position:sticky;top:68px;z-index:100}
+.filter-inner{display:flex;align-items:center;gap:6px;padding:14px 0;overflow-x:auto;scrollbar-width:none}
+.filter-inner::-webkit-scrollbar{display:none}
+.fbtn-filter{padding:9px 20px;border-radius:100px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.08);background:transparent;cursor:pointer;transition:all .25s;white-space:nowrap;flex-shrink:0}
+.fbtn-filter:hover{color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.2)}
+.fbtn-filter.active{background:var(--blue-alt);color:#fff;border-color:var(--blue-alt);box-shadow:0 4px 18px rgba(204,39,0,.35)}
+
+/* ═══ GALLERY GRID ═══ */
+.gal-sec{padding:72px 0 100px;background:var(--off)}
+.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gal-item{position:relative;overflow:hidden;border-radius:12px;cursor:pointer;background:var(--navy);box-shadow:var(--s1);transition:all .4s cubic-bezier(.16,1,.3,1)}
+.gal-item.tall{grid-row:span 2}
+.gal-item.wide{grid-column:span 2}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.16,1,.3,1),filter .4s;filter:brightness(.85) saturate(.9)}
+.gal-item:hover img{transform:scale(1.08);filter:brightness(1) saturate(1.1)}
+.gal-item::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,17,31,.85) 0%,rgba(8,17,31,.1) 45%,transparent 100%);opacity:.7;transition:opacity .35s}
+.gal-item:hover::after{opacity:.9}
+.gal-item-info{position:absolute;bottom:0;left:0;right:0;padding:24px 20px;z-index:2;transform:translateY(8px);transition:transform .35s cubic-bezier(.16,1,.3,1);opacity:.85}
+.gal-item:hover .gal-item-info{transform:translateY(0);opacity:1}
+.gal-item-cat{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;color:var(--blue-alt);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.gal-item-title{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:.02em;line-height:1.15}
+.gal-item .gal-zoom{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.5);width:56px;height:56px;border-radius:50%;background:rgba(204,39,0,.85);display:flex;align-items:center;justify-content:center;opacity:0;transition:all .35s cubic-bezier(.16,1,.3,1);z-index:3;backdrop-filter:blur(10px)}
+.gal-item:hover .gal-zoom{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.gal-zoom svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.gal-item:hover{transform:translateY(-4px);box-shadow:var(--s3)}
+
+/* Row heights */
+.gal-item:not(.tall){min-height:280px}
+.gal-item.tall{min-height:576px}
+
+@media(max-width:900px){
+  .gal-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .gal-item.wide{grid-column:span 1}
+  .gal-item:not(.tall){min-height:240px}
+  .gal-item.tall{min-height:400px}
+  .gal-hero-stats{gap:28px}
+  .ghs-num{font-size:32px}
+}
+@media(max-width:560px){
+  .gal-grid{grid-template-columns:1fr}
+  .gal-item.tall{grid-row:span 1;min-height:300px}
+  .gal-item:not(.tall){min-height:260px}
+  .gal-hero-stats{flex-wrap:wrap;gap:20px}
+}
+
+/* ═══ LIGHTBOX ═══ */
+.lightbox{position:fixed;inset:0;z-index:9999;background:rgba(4,8,18,.95);backdrop-filter:blur(20px);display:none;align-items:center;justify-content:center;opacity:0;transition:opacity .35s}
+.lightbox.open{display:flex;opacity:1}
+.lb-close{position:absolute;top:24px;right:28px;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:10}
+.lb-close:hover{background:var(--blue-alt);border-color:var(--blue-alt)}
+.lb-close svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2}
+.lb-img-wrap{max-width:85vw;max-height:80vh;position:relative}
+.lb-img-wrap img{max-width:85vw;max-height:80vh;object-fit:contain;border-radius:10px;box-shadow:0 32px 80px rgba(0,0,0,.6)}
+.lb-caption{position:absolute;bottom:-48px;left:0;right:0;text-align:center}
+.lb-caption-cat{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;color:var(--blue-alt);letter-spacing:.14em;text-transform:uppercase}
+.lb-caption-title{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#fff;text-transform:uppercase;margin-top:4px}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:10}
+.lb-nav:hover{background:var(--blue-alt);border-color:var(--blue-alt)}
+.lb-nav svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.lb-prev{left:24px}
+.lb-next{right:24px}
+.lb-counter{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,.3);letter-spacing:.1em}
+
+/* ═══ CTA BANNER ═══ */
+.gal-cta{background:var(--navy);padding:80px 0;text-align:center;position:relative;overflow:hidden}
+.gal-cta::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(204,39,0,.4),transparent)}
+.gal-cta-inner{position:relative;z-index:2}
+.gal-cta h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(30px,4vw,54px);font-weight:900;color:#fff;text-transform:uppercase;line-height:1;margin-bottom:16px}
+.gal-cta h2 em{font-style:normal;color:var(--blue-alt)}
+.gal-cta p{font-size:15px;color:rgba(255,255,255,.4);max-width:500px;margin:0 auto 32px;line-height:1.7;font-weight:300}
+.gal-cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--blue-alt);color:#fff;padding:16px 38px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;transition:all .25s;box-shadow:0 6px 28px rgba(204,39,0,.32)}
+.gal-cta-btn:hover{background:var(--blue-alt2);transform:translateY(-2px);box-shadow:0 12px 36px rgba(204,39,0,.45)}
+</style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<!-- ══════════ GALLERY HERO ══════════ -->
+<header class="gal-hero">
+  <div class="gal-hero-bg"><img src="images/gallery/hero.png" alt="KES Manufacturing Facility"/></div>
+  <div class="gal-hero-content">
+    <div class="gal-hero-path rv">Home / <span class="active">Gallery</span></div>
+    <div class="gal-hero-badge rv d1"><span class="dot"></span><span>Our Portfolio</span></div>
+    <h1 class="rv d2">Project <em>Gallery</em></h1>
+    <p class="gal-hero-sub rv d3">Explore our portfolio of precision-engineered electrical panels, state-of-the-art manufacturing facility, and successfully delivered industrial projects across Karnataka.</p>
+    <div class="gal-hero-stats rv d4">
+      <div class="ghs-item"><div class="ghs-num">200<span>+</span></div><div class="ghs-lbl">Projects</div></div>
+      <div class="ghs-item"><div class="ghs-num">25<span>+</span></div><div class="ghs-lbl">Products</div></div>
+      <div class="ghs-item"><div class="ghs-num">16<span>yr</span></div><div class="ghs-lbl">Experience</div></div>
+    </div>
+  </div>
+  <div class="gal-hero-scroll"><div class="line"></div>Scroll</div>
+</header>
+
+<!-- ══════════ FILTER BAR ══════════ -->
+<div class="filter-bar">
+  <div class="W">
+    <div class="filter-inner">
+      <button class="fbtn-filter active" data-filter="all">All Projects</button>
+      <button class="fbtn-filter" data-filter="panels">Panels</button>
+      <button class="fbtn-filter" data-filter="facility">Facility</button>
+      <button class="fbtn-filter" data-filter="infrastructure">Infrastructure</button>
+      <button class="fbtn-filter" data-filter="testing">Testing & QA</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ GALLERY GRID ══════════ -->
+<section class="gal-sec">
+  <div class="W">
+    <div class="gal-grid" id="galGrid">
+
+      <div class="gal-item tall rv" data-cat="panels">
+        <img src="images/gallery/panel1.png" alt="LT Distribution Panel"/>
+        <div class="gal-item-info"><div class="gal-item-cat">Distribution</div><div class="gal-item-title">LT Panel Board</div></div>
+        <div class="gal-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+
+      <div class="gal-item rv d1" data-cat="panels">
+        <img src="images/gallery/panel2.png" alt="MCC Panel"/>
+        <div class="gal-item-info"><div class="gal-item-cat">Control</div><div class="gal-item-title">MCC Panel</div></div>
+        <div class="gal-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+
+      <div class="gal-item rv d2" data-cat="facility">
+        <img src="images/gallery/factory.png" alt="Manufacturing Facility"/>
+        <div class="gal-item-info"><div class="gal-item-cat">Facility</div><div class="gal-item-title">Manufacturing Floor</div></div>
+        <div class="gal-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+
+      <div class="gal-item wide rv" data-cat="panels">
+        <img src="images/gallery/panel3.png" alt="PCC Panel"/>
+        <div class="gal-item-info"><div class="gal-item-cat">Power</div><div class="gal-item-title">Power Control Center</div></div>
+        <div class="gal-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+
+      <div class="gal-item rv d1" data-cat="testing">
+        <img src="images/gallery/testing.png" alt="Quality Testing"/>
+        <div class="gal-item-info"><div class="gal-item-cat">QA</div><div class="gal-item-title">Panel Testing & Inspection</div></div>
+        <div class="gal-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+
+      <div class="gal-item rv" data-cat="panels">
+        <img src="images/gallery/panel4.png" alt="APFC Panel"/>
+        <div class="gal-item-info"><div class="gal-item-cat">Correction</div><div class="gal-item-title">APFC Panel</div></div>
+        <div class="gal-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+
+      <div class="gal-item rv d1" data-cat="infrastructure">
+        <img src="images/gallery/busduct.png" alt="Bus Duct System"/>
+        <div class="gal-item-info"><div class="gal-item-cat">Infrastructure</div><div class="gal-item-title">HV & LV Bus Duct</div></div>
+        <div class="gal-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+
+      <div class="gal-item tall rv d2" data-cat="panels">
+        <img src="images/gallery/panel5.png" alt="PLC Control Panel"/>
+        <div class="gal-item-info"><div class="gal-item-cat">Automation</div><div class="gal-item-title">PLC Control Panel</div></div>
+        <div class="gal-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+
+      <div class="gal-item wide rv" data-cat="facility">
+        <img src="images/gallery/hero.png" alt="Assembly Line"/>
+        <div class="gal-item-info"><div class="gal-item-cat">Facility</div><div class="gal-item-title">Panel Assembly Line</div></div>
+        <div class="gal-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CTA BANNER ══════════ -->
+<section class="gal-cta">
+  <div class="W gal-cta-inner rv">
+    <h2>Ready to <em>Power</em> Your Project?</h2>
+    <p>From concept to commissioning — let our engineering expertise bring your electrical infrastructure to life.</p>
+    <a href="contactus.html" class="gal-cta-btn">Get a Quote <span>&#8594;</span></a>
+  </div>
+</section>
+
+<!-- ══════════ LIGHTBOX ══════════ -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  <button class="lb-nav lb-prev" id="lbPrev"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+  <button class="lb-nav lb-next" id="lbNext"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
+  <div class="lb-img-wrap">
+    <img id="lbImg" src="" alt=""/>
+    <div class="lb-caption"><div class="lb-caption-cat" id="lbCat"></div><div class="lb-caption-title" id="lbTitle"></div></div>
+  </div>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
+<!-- ══════════ FOOTER ══════════ -->
+<div id="site-footer"></div>
+
+<!-- ══════════ SCRIPTS ══════════ -->
+<script src="site.js"></script>
+<script>
+(function(){
+  // Filter
+  const btns = document.querySelectorAll('.fbtn-filter');
+  const items = document.querySelectorAll('.gal-item');
+  btns.forEach(b => b.addEventListener('click', () => {
+    btns.forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    const f = b.dataset.filter;
+    items.forEach(item => {
+      if (f === 'all' || item.dataset.cat === f) {
+        item.style.display = '';
+        setTimeout(() => item.classList.add('in'), 50);
+      } else {
+        item.style.display = 'none';
+        item.classList.remove('in');
+      }
+    });
+  }));
+
+  // Lightbox
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbCat = document.getElementById('lbCat');
+  const lbTitle = document.getElementById('lbTitle');
+  const lbCounter = document.getElementById('lbCounter');
+  let current = 0, visible = [];
+
+  function getVisible() {
+    return [...document.querySelectorAll('.gal-item')].filter(i => i.style.display !== 'none');
+  }
+  function openLB(idx) {
+    visible = getVisible();
+    current = idx;
+    showSlide();
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function showSlide() {
+    const el = visible[current];
+    lbImg.src = el.querySelector('img').src;
+    lbCat.textContent = el.querySelector('.gal-item-cat').textContent;
+    lbTitle.textContent = el.querySelector('.gal-item-title').textContent;
+    lbCounter.textContent = (current + 1) + ' / ' + visible.length;
+  }
+  function closeLB() { lb.classList.remove('open'); document.body.style.overflow = ''; }
+
+  items.forEach((item, i) => item.addEventListener('click', () => {
+    const vis = getVisible();
+    openLB(vis.indexOf(item));
+  }));
+  document.getElementById('lbClose').addEventListener('click', closeLB);
+  document.getElementById('lbPrev').addEventListener('click', () => { current = (current - 1 + visible.length) % visible.length; showSlide(); });
+  document.getElementById('lbNext').addEventListener('click', () => { current = (current + 1) % visible.length; showSlide(); });
+  lb.addEventListener('click', e => { if (e.target === lb) closeLB(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLB();
+    if (e.key === 'ArrowLeft') { current = (current - 1 + visible.length) % visible.length; showSlide(); }
+    if (e.key === 'ArrowRight') { current = (current + 1) % visible.length; showSlide(); }
+  });
+})();
+</script>
+</body>
+</html>

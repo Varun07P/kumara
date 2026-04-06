@@ -247,6 +247,9 @@
       <a href="process.html" class="nav-link">Process</a>
     </div>
     <div class="nav-item">
+      <a href="gallery.html" class="nav-link">Gallery</a>
+    </div>
+    <div class="nav-item">
       <a href="contactus.html" class="nav-link">Contact</a>
     </div>
   </div>
@@ -293,22 +296,24 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
 .fl-mk svg { width: 20px; height: 20px; }
 .fl-nm { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 15px; color: #fff; letter-spacing: .01em; line-height: 1.2; }
 .fl-sub { font-size: 10px; color: var(--blue-alt); letter-spacing: .05em; text-transform: uppercase; margin-top: 1px; }
-.ft-desc { font-size: 13.5px; line-height: 1.82; color: rgba(255,255,255,.3); font-weight: 300; margin-bottom: 24px; max-width: 320px; }
+.ft-desc { font-size: 13.5px; line-height: 1.82; color: rgba(255,255,255,.7); font-weight: 300; margin-bottom: 24px; max-width: 320px; }
 .ft-soc { display: flex; gap: 8px; }
-.fsoc { width: 36px; height: 36px; border-radius: 6px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); display: grid; place-items: center; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; color: rgba(255,255,255,.38); transition: all .2s; text-decoration: none; }
+.fsoc { width: 36px; height: 36px; border-radius: 6px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); display: grid; place-items: center; transition: all .2s; text-decoration: none; }
+.fsoc svg { width: 16px; height: 16px; fill: rgba(255,255,255,.7); transition: fill .2s; }
+.fsoc:hover svg { fill: #fff; }
 .fsoc:hover { background: var(--blue-alt); color: #fff; border-color: var(--blue-alt); }
-.ft-col h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 9.5px; font-weight: 700; color: rgba(255,255,255,.2); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,.06); letter-spacing: .14em; text-transform: uppercase; }
+.ft-col h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 9.5px; font-weight: 700; color: rgba(255,255,255,.6); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,.1); letter-spacing: .14em; text-transform: uppercase; }
 .ft-links { display: flex; flex-direction: column; gap: 10px; }
-.ft-links a { font-size: 13.5px; color: rgba(255,255,255,.36); font-weight: 300; cursor: pointer; transition: color .2s; display: flex; align-items: center; gap: 7px; text-decoration: none; }
-.ft-links a:hover { color: rgba(255,255,255,.78); }
+.ft-links a { font-size: 13.5px; color: rgba(255,255,255,.75); font-weight: 400; cursor: pointer; transition: color .2s; display: flex; align-items: center; gap: 7px; text-decoration: none; }
+.ft-links a:hover { color: #fff; }
 .ft-links a::before { content: ''; width: 6px; height: 2px; background: var(--blue-alt); opacity: .4; flex-shrink: 0; transition: width .2s, opacity .2s; }
 .ft-links a:hover::before { width: 12px; opacity: 1; }
 .ft-contact { display: flex; flex-direction: column; gap: 11px; }
-.fc-i { display: flex; align-items: flex-start; gap: 9px; font-size: 12.5px; color: rgba(255,255,255,.34); line-height: 1.6; font-weight: 300; }
+.fc-i { display: flex; align-items: flex-start; gap: 9px; font-size: 12.5px; color: rgba(255,255,255,.75); line-height: 1.6; font-weight: 400; }
 .svg-ic { width: 16px; height: 16px; display: inline-block; flex-shrink: 0; margin-top: 2px; color: var(--blue-alt); }
 .fc-i svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; stroke: var(--blue-alt); }
 .ft-bottom { padding: 22px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
-.ft-bottom p { font-size: 11.5px; color: rgba(255,255,255,.2); }
+.ft-bottom p { font-size: 11.5px; color: rgba(255,255,255,.6); }
 .ft-badges { display: flex; gap: 6px; flex-wrap: wrap; }
 .ftb { padding: 3px 9px; border: 1px solid rgba(204,39,0,.22); border-radius: 2px; font-family: 'Barlow Condensed', sans-serif; font-size: 9.5px; font-weight: 700; color: var(--blue-alt); letter-spacing: .09em; text-transform: uppercase; }
 
@@ -343,9 +348,9 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
         </div>
         <p class="ft-desc">The True Leader in End-to-End Power Distribution, Control Systems and Turnkey Electrical Solutions. Serving Karnataka and beyond &mdash; built on 16+ years of inherited excellence.</p>
         <div class="ft-soc">
-          <a href="#" class="fsoc">in</a>
-          <a href="#" class="fsoc">fb</a>
-          <a href="#" class="fsoc">yt</a>
+          <a href="#" class="fsoc" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></svg></a>
+          <a href="#" class="fsoc" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" class="fsoc" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><path d="M9.75 15.02l5.75-3.27-5.75-3.27v6.54z" fill="var(--navy)"/></svg></a>
         </div>
       </div>
       <div class="ft-col">
@@ -356,6 +361,7 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
           <a href="products.html">Products</a>
           <a href="services.html">Services</a>
           <a href="process.html">Manufacturing Process</a>
+          <a href="gallery.html">Gallery</a>
           <a href="contactus.html">Contact</a>
         </div>
       </div>
