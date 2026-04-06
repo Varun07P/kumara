@@ -23,8 +23,8 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
 
 /* ─── SITE-MATCHING HERO ─── */
 .page-hero{
-  position:relative;height:100vh;min-height:100vh;display:flex;align-items:center;
-  background:var(--bg);overflow:hidden;
+  position:relative;min-height:520px;display:flex;align-items:center;
+  background:var(--bg);overflow:hidden;padding:100px 0 60px;
 }
 .phero-bg{
   position:absolute;inset:0;
@@ -103,7 +103,7 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
 
 /* ─── FILTER BAR ─── */
 .filter-bar{
-  position:sticky;top:0;z-index:500;
+  position:sticky;top:71px;z-index:500;
   background:rgba(11,13,15,0.96);backdrop-filter:blur(24px);
   border-bottom:1px solid var(--line);
 }
@@ -313,10 +313,10 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
 <div class="filter-bar">
   <div class="W">
     <div class="filter-inner">
-      <button class="f-btn active" data-f="all">All <span class="f-cnt" id="cntAll">25</span></button>
+      <button class="f-btn active" data-f="all">All <span class="f-cnt" id="cntAll">28</span></button>
       <div class="f-div"></div>
       <span class="f-grp-lbl">LV/MV</span>
-      <button class="f-btn" data-f="distribution">Distribution <span class="f-cnt">7</span></button>
+      <button class="f-btn" data-f="distribution">Distribution <span class="f-cnt">10</span></button>
       <button class="f-btn" data-f="control">Control & Sync <span class="f-cnt">6</span></button>
       <div class="f-div"></div>
       <span class="f-grp-lbl">Building</span>
@@ -337,7 +337,7 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
 <div style="padding:0 0 80px">
   <div class="W">
     <div class="results-meta rv">
-      <span class="rm-c">Showing <strong id="visCnt">25</strong> of 25 products</span>
+      <span class="rm-c">Showing <strong id="visCnt">28</strong> of 28 products</span>
       <span class="rm-lbl" id="activeLbl">All Categories</span>
     </div>
 
@@ -348,36 +348,74 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
         <span class="cat-hdr-n">01</span>
         <span class="cat-hdr-t">Distribution <em>Panels</em></span>
         <div class="cat-hdr-line"></div>
-        <span class="cat-hdr-sub">LV &amp; MV Switchgears · 7 Products</span>
+        <span class="cat-hdr-sub">LV &amp; MV Switchgears · 10 Products</span>
       </div>
 
-      <!-- LT PANEL — FULL WIDTH -->
-      <article class="pcard feat" data-cat="distribution" style="animation-delay:0ms" id="lt-panel">
+      <!-- LV SWITCHGEAR — FULL WIDTH -->
+      <article class="pcard feat" data-cat="distribution" style="animation-delay:0ms" id="lv-switchgear">
         <div class="pc-img">
           <span class="pc-cat-badge">LV Switchgear · Featured</span>
           <div class="pc-stds"><span class="pc-std">IEC 61439</span><span class="pc-std">IS:8623</span><span class="pc-std">CPRI</span></div>
-          <img src="https://image.made-in-china.com/202f0j00LCnbwlagCpkz/Low-Voltage-Panels-Electrical-LV-Panel-Low-Voltage-Switchgear.webp" alt="LT Panel"/>
+          <img src="https://image.made-in-china.com/202f0j00LCnbwlagCpkz/Low-Voltage-Panels-Electrical-LV-Panel-Low-Voltage-Switchgear.webp" alt="LV Switchgear Panels"/>
         </div>
         <div class="pc-body">
           <div class="pc-idx">01 — Flagship Product</div>
-          <h3 class="pc-title">LT Panel</h3>
+          <h3 class="pc-title">LV Switchgear Panels</h3>
           <p class="pc-desc">Our flagship Low Tension panels manufactured to stringent national and international standards. Used for centralised control and monitoring of mains supply using protective switchgears and for distributing power to load centers and sub-distribution boards. Wall-mount and floor-mount types with full customisation per client requirements.</p>
           <table class="pc-tbl">
-            <tr><td>Supply</td><td>415V · 3-Phase · 4-Wire · 50Hz</td></tr>
+            <tr><td>Supply</td><td>430V · 3-Phase · 4-Wire · 50Hz</td></tr>
             <tr><td>Rated Current</td><td>Up to 6300 Amps</td></tr>
-            <tr><td>Short Time</td><td>50 kA / 1 sec · 105 kA Peak</td></tr>
-            <tr><td>Rated Insulation</td><td>1000V · Service Voltage 690V AC</td></tr>
-            <tr><td>IP Protection</td><td>IP42 / IP54 / IP55 / IP65 (custom)</td></tr>
-            <tr><td>Construction</td><td>1.6mm sheet · 75×40×6mm angular channel</td></tr>
-            <tr><td>Paint Finish</td><td>Siemens Grey powder coat, RAL 7032</td></tr>
-            <tr><td>Busbar</td><td>Aluminium or Copper · Draw-out or Fixed Extendable</td></tr>
+            <tr><td>Rated Voltage</td><td>Up to 690V AC / 1500V DC</td></tr>
+            <tr><td>Short Time</td><td>Up to 100 kA / 1 sec (CPRI Certified)</td></tr>
+            <tr><td>Design Form</td><td>Form-1 to Form-4</td></tr>
+            <tr><td>IP Protection</td><td>IP42 to IP55 / IP65 (custom)</td></tr>
+            <tr><td>Construction</td><td>14/16 Gauge CRCA sheet fabricated</td></tr>
+            <tr><td>Busbar</td><td>Cu/Al · Interleaved design above 2500A</td></tr>
           </table>
           <div class="pc-foot">
-            <a href="contactus.html?prod=LT_Panel" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a href="contactus.html?prod=LV_Switchgear" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
             <span class="pc-std-lbl">IEC 61439-1&amp;2 · IS:8623 · CPRI Certified</span>
           </div>
         </div>
       </article>
+
+      <!-- MV SWITCHGEAR -->
+      <article class="pcard" data-cat="distribution" style="animation-delay:40ms" id="mv-switchgear">
+        <div class="pc-img"><span class="pc-cat-badge">MV Switchgear</span><img src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b6?w=800&q=80" alt="MV Switchgear Panels"/></div>
+        <div class="pc-body">
+          <div class="pc-idx">01b — Medium Voltage</div>
+          <h3 class="pc-title">MV Switchgear Panels</h3>
+          <p class="pc-desc">Medium voltage switchgear systems up to 33kV for primary and secondary distribution. Type-tested to International Standard IEC 62271-200 and CPRI certified up to 5000A. Highly robust construction featuring VCB or SF6 gas-insulated breakers, providing exceptional safety and reliability for substations, utilities, and heavy industries.</p>
+          <div class="chips"><span class="chip hi">Up to 33kV</span><span class="chip">VCB / SF6</span><span class="chip">Arc Resistant</span><span class="chip">Indoor / Outdoor</span></div>
+          <div class="pc-foot"><a href="contactus.html?prod=MV_Switchgear" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="pc-std-lbl">IEC 62271-200</span></div>
+        </div>
+      </article>
+
+      <!-- CSS -->
+      <article class="pcard" data-cat="distribution" style="animation-delay:80ms" id="css">
+        <div class="pc-img"><span class="pc-cat-badge">Substation</span><div class="pc-stds"><span class="pc-std">IP43/IP54</span></div><img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=85" alt="Compact Substation"/></div>
+        <div class="pc-body">
+          <div class="pc-idx">01c — Infrastructure</div>
+          <h3 class="pc-title">Compact Substation (CSS)</h3>
+          <p class="pc-desc">Prefabricated Packaged/Compact Substations completely assembled, wired, and tested at the factory. Integrating MV switchgear, transformer, and LV switchboards into a single, weather-proof, highly secure steel or aluminium enclosure. Dramatic reduction in site execution time.</p>
+          <div class="chips"><span class="chip hi">Prefabricated</span><span class="chip">Space Saving</span><span class="chip">Weather-proof</span><span class="chip">Plug-and-Play</span></div>
+          <div class="pc-foot"><a href="contactus.html?prod=CSS" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+
+      <!-- Transformers -->
+      <article class="pcard" data-cat="distribution" style="animation-delay:120ms" id="transformer">
+        <div class="pc-img"><span class="pc-cat-badge">Power Conversion</span><div class="pc-stds"><span class="pc-std">IS:1180</span></div><img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=85" alt="Transformers"/></div>
+        <div class="pc-body">
+          <div class="pc-idx">01d — Core Power</div>
+          <h3 class="pc-title">Transformers</h3>
+          <p class="pc-desc">High-efficiency Distribution and Power Transformers, available in oil-cooled or dry-type configurations. Built for minimum losses, high overload capability, and exceptional durability. We provide complete sourcing, installation, and O&M for all transformer capacities.</p>
+          <div class="chips"><span class="chip hi">Oil-Cooled</span><span class="chip">Dry-Type</span><span class="chip">Low Loss</span><span class="chip">Energy Efficient</span></div>
+          <div class="pc-foot"><a href="contactus.html?prod=Transformer" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        </div>
+      </article>
+
+
 
       <!-- MCC -->
       <article class="pcard" data-cat="distribution" style="animation-delay:40ms" id="mcc-panel">
@@ -784,7 +822,7 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
       </div>
       <div class="cta-btns">
         <a href="contactus.html" class="btn-r">Request a Quote →</a>
-        <a href="tel:+910000000000" class="btn-o">Call Directly</a>
+        <a href="tel:+919900604365" class="btn-o">Call Directly</a>
       </div>
     </div>
   </div>

@@ -4,6 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Manufacturing Process — Kumara Engineering Solutions</title>
+<meta name="description" content="Explore the 6-step precision manufacturing process at KES — from CAD design to CEIG-certified commissioning. IEC 61439 compliant panel production in Bengaluru."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
@@ -251,6 +252,15 @@ img{display:block;max-width:100%}
 <div id="site-footer"></div>
 
 <!-- ══════════ SCRIPTS ══════════ -->
+<script>
+(function(){
+  const els = document.querySelectorAll('.rv,.rl,.rr');
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);} });
+  },{threshold:0.1,rootMargin:'0px 0px -60px 0px'});
+  els.forEach(el=>io.observe(el));
+})();
+</script>
 <script src="site.js"></script>
 </body>
 </html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Engineering Consultancy — Kumara Engineering Solutions Pvt. Ltd.</title>
+<meta name="description" content="Full MEPF engineering consultancy — Electrical, HVAC, Plumbing, Fire Safety, Structured Network Cabling design services by KES."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+.svg-ic{width:1.25em;height:1.25em;display:inline-block;vertical-align:middle;flex-shrink:0}
+:root{
+  --navy:#08111f;--navy2:#0c1a30;--navy3:#0f2040;
+  --blue:#1251a3;--blue2:#1565c8;--blue3:#1a7ae8;
+  --blue-pale:#fbeae6;--blue-alt:#cc2700;--blue-alt2:#a81e00;--blue-alt3:#8a1800;
+  --white:#fff;--off:#f9f5f4;--grey:#64748b;--grey2:#94a3b8;
+  --border:#dde6f5;--text:#0f1f35;
+  --s1:0 2px 16px rgba(8,17,31,.08);--s2:0 8px 36px rgba(8,17,31,.14);--s3:0 24px 64px rgba(8,17,31,.22);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;color:var(--text);background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;outline:none;background:none}
+img{display:block;max-width:100%}
+.W{max-width:1300px;margin:0 auto;padding:0 48px}
+@media(max-width:900px){.W{padding:0 28px}}
+@media(max-width:480px){.W{padding:0 18px}}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
+.rl{opacity:0;transform:translateX(-32px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
+.rr{opacity:0;transform:translateX(32px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
+.rv.in,.rl.in,.rr.in{opacity:1;transform:none}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}.d5{transition-delay:.35s}
+
+/* Hero */
+.con-hero{position:relative;min-height:480px;display:flex;align-items:center;overflow:hidden;background:var(--navy)}
+.con-hero-bg{position:absolute;inset:0}
+.con-hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.25) saturate(.5)}
+.con-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(110deg,rgba(8,17,31,.95) 0%,rgba(8,17,31,.7) 50%,rgba(8,17,31,.4) 100%);z-index:1}
+.con-hero-content{position:relative;z-index:10;padding:120px 0 80px}
+.hero-path{display:flex;gap:12px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:20px}
+.hero-path .active{color:var(--blue-alt)}
+.con-hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(42px,7vw,82px);font-weight:900;color:#fff;text-transform:uppercase;line-height:.92;letter-spacing:-.02em;margin-bottom:18px}
+.con-hero h1 em{font-style:normal;color:var(--blue-alt)}
+.con-hero-sub{font-size:clamp(14px,1.3vw,16px);line-height:1.75;color:rgba(255,255,255,.5);font-weight:300;max-width:520px;margin-bottom:28px}
+.con-hero-pills{display:flex;flex-wrap:wrap;gap:8px}
+.chp{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:100px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.06em;text-transform:uppercase}
+.chp-dot{width:5px;height:5px;border-radius:50%;background:var(--blue-alt)}
+
+/* Philosophy */
+.phil-sec{padding:88px 0;background:var(--off)}
+.phil-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.phil-left h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,3vw,46px);font-weight:900;color:var(--navy);text-transform:uppercase;line-height:1.05;margin-bottom:20px}
+.phil-left h2 em{font-style:normal;color:var(--blue-alt)}
+.phil-left p{font-size:15px;line-height:1.8;color:var(--grey);font-weight:300;margin-bottom:24px}
+.phil-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.pillar{padding:20px 16px;border-radius:10px;background:#fff;border:1px solid var(--border);text-align:center;transition:all .25s}
+.pillar:hover{border-color:var(--blue-alt);transform:translateY(-4px);box-shadow:var(--s1)}
+.pillar-ico{width:42px;height:42px;border-radius:8px;background:rgba(204,39,0,.08);display:grid;place-items:center;margin:0 auto 10px}
+.pillar-ico svg{width:20px;height:20px;stroke:var(--blue-alt);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pillar h4{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.03em}
+.phil-right{position:relative;border-radius:16px;overflow:hidden;min-height:400px;box-shadow:var(--s3)}
+.phil-right img{width:100%;height:100%;object-fit:cover;min-height:400px}
+.phil-right::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(8,17,31,.6) 100%)}
+.phil-badge{position:absolute;bottom:24px;left:24px;z-index:2;display:flex;align-items:center;gap:10px;background:rgba(8,17,31,.7);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);padding:10px 18px;border-radius:10px}
+.phil-badge-n{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:900;color:#fff;line-height:1}
+.phil-badge-n span{color:var(--blue-alt);font-size:20px}
+.phil-badge-l{font-size:10px;color:rgba(255,255,255,.5);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:900px){.phil-grid{grid-template-columns:1fr;gap:36px}.phil-pillars{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:480px){.phil-pillars{grid-template-columns:1fr}}
+
+/* Services */
+.csvc-sec{padding:88px 0;background:#fff}
+.csvc-head{text-align:center;margin-bottom:56px}
+.sec-label{display:inline-flex;align-items:center;gap:9px;margin-bottom:14px}
+.sl-bar{width:32px;height:3px;background:var(--blue-alt);border-radius:1px;flex-shrink:0}
+.sl-txt{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;color:var(--blue-alt);letter-spacing:.15em;text-transform:uppercase}
+h2.sec-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(30px,3.4vw,54px);font-weight:900;line-height:1.02;color:var(--navy);letter-spacing:-.01em;text-transform:uppercase}
+h2.sec-title em{font-style:normal;color:var(--blue-alt)}
+.sec-body{font-size:15px;line-height:1.8;color:var(--grey);font-weight:300;margin-top:12px}
+.csvc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.csvc-card{border-radius:14px;border:1px solid var(--border);background:#fff;padding:36px 28px;transition:all .3s;position:relative;overflow:hidden}
+.csvc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--blue-alt);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.csvc-card:hover::before{transform:scaleX(1)}
+.csvc-card:hover{border-color:transparent;box-shadow:var(--s2);transform:translateY(-6px)}
+.csvc-ico{width:52px;height:52px;border-radius:10px;background:rgba(204,39,0,.06);border:1px solid rgba(204,39,0,.12);display:grid;place-items:center;margin-bottom:20px;transition:all .3s}
+.csvc-card:hover .csvc-ico{background:var(--blue-alt);border-color:var(--blue-alt)}
+.csvc-ico svg{width:24px;height:24px;stroke:var(--blue-alt);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s}
+.csvc-card:hover .csvc-ico svg{stroke:#fff}
+.csvc-card h3{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;color:var(--navy);text-transform:uppercase;letter-spacing:.02em;margin-bottom:10px;line-height:1.15}
+.csvc-card p{font-size:13px;line-height:1.7;color:var(--grey);font-weight:400;margin-bottom:16px}
+.csvc-features{display:flex;flex-direction:column;gap:6px}
+.csvc-feat{display:flex;align-items:center;gap:7px;font-size:11.5px;color:var(--grey);font-weight:500}
+.csvc-feat::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--blue-alt);flex-shrink:0;opacity:.5}
+@media(max-width:900px){.csvc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.csvc-grid{grid-template-columns:1fr}}
+
+/* Sectors */
+.sect-sec{padding:80px 0;background:var(--navy)}
+.sect-head{text-align:center;margin-bottom:48px}
+h2.sec-title-w{font-family:'Barlow Condensed',sans-serif;font-size:clamp(30px,3.4vw,54px);font-weight:900;line-height:1.02;color:#fff;letter-spacing:-.01em;text-transform:uppercase}
+h2.sec-title-w em{color:var(--blue-alt)}
+.sect-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.sect-card{border-radius:12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);padding:32px 20px;text-align:center;transition:all .3s;cursor:default}
+.sect-card:hover{background:rgba(204,39,0,.08);border-color:rgba(204,39,0,.25);transform:translateY(-4px)}
+.sect-card-ico{font-size:28px;margin-bottom:12px}
+.sect-card h4{font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:.03em;line-height:1.2;margin-bottom:6px}
+.sect-card p{font-size:11px;color:rgba(255,255,255,.4);font-weight:300;line-height:1.5}
+@media(max-width:900px){.sect-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.sect-grid{grid-template-columns:1fr}}
+
+/* CTA */
+.con-cta{padding:80px 0;background:var(--off);text-align:center}
+.con-cta h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(30px,4vw,54px);font-weight:900;color:var(--navy);text-transform:uppercase;line-height:1;margin-bottom:16px}
+.con-cta h2 em{font-style:normal;color:var(--blue-alt)}
+.con-cta p{font-size:15px;color:var(--grey);max-width:480px;margin:0 auto 32px;line-height:1.7;font-weight:300}
+.con-cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--blue-alt);color:#fff;padding:16px 38px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;transition:all .25s;box-shadow:0 6px 28px rgba(204,39,0,.32)}
+.con-cta-btn:hover{background:var(--blue-alt2);transform:translateY(-2px)}
+</style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<!-- HERO -->
+<header class="con-hero">
+  <div class="con-hero-bg"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&q=80" alt="Engineering Consultancy"/></div>
+  <div class="W con-hero-content">
+    <div class="hero-path rv">Home / <span class="active">Engineering Consultancy</span></div>
+    <h1 class="rv d1">Engineering <em>Consultancy</em></h1>
+    <p class="con-hero-sub rv d2">Full MEPF design integration — a single point of accountability for Electrical, HVAC, Plumbing, Fire Safety and Structured Cabling. Engineering precision, delivering excellence since 2011.</p>
+    <div class="con-hero-pills rv d3">
+      <span class="chp"><span class="chp-dot"></span>Electrical</span>
+      <span class="chp"><span class="chp-dot"></span>HVAC</span>
+      <span class="chp"><span class="chp-dot"></span>Fire Safety</span>
+      <span class="chp"><span class="chp-dot"></span>PHE</span>
+      <span class="chp"><span class="chp-dot"></span>Structured Network Cabling</span>
+    </div>
+  </div>
+</header>
+
+<!-- PHILOSOPHY -->
+<section class="phil-sec">
+  <div class="W">
+    <div class="phil-grid">
+      <div class="phil-left rl">
+        <h2>The Three Pillars of <em>KES Consultancy</em></h2>
+        <p>We don't just design systems — we build the invisible backbone of modern infrastructure. Our approach integrates all engineering disciplines into a seamless, synchronized machine that powers your building from day one.</p>
+        <div class="phil-pillars">
+          <div class="pillar">
+            <div class="pillar-ico"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <h4>Healthy Systems</h4>
+          </div>
+          <div class="pillar">
+            <div class="pillar-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <h4>Uncompromising Quality</h4>
+          </div>
+          <div class="pillar">
+            <div class="pillar-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <h4>Time-Bound Delivery</h4>
+          </div>
+        </div>
+      </div>
+      <div class="phil-right rr">
+        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80" alt="Engineering Design"/>
+        <div class="phil-badge">
+          <div>
+            <div class="phil-badge-n">24<span>+</span></div>
+            <div class="phil-badge-l">Years of Expertise</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN SERVICES -->
+<section class="csvc-sec">
+  <div class="W">
+    <div class="csvc-head rv">
+      <div class="sec-label" style="justify-content:center"><span class="sl-bar"></span><span class="sl-txt">Our Design Services</span></div>
+      <h2 class="sec-title" style="text-align:center">Comprehensive <em>MEPF</em> Design</h2>
+      <p class="sec-body" style="text-align:center;max-width:520px;margin:12px auto 0">A single point of accountability for all engineering disciplines — ensuring every pipe, wire and duct works as one synchronized system.</p>
+    </div>
+    <div class="csvc-grid">
+
+      <div class="csvc-card rv">
+        <div class="csvc-ico"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h3>Electrical Design</h3>
+        <p>Complete power distribution system design from HV/LV load calculations to emergency backup planning.</p>
+        <div class="csvc-features">
+          <span class="csvc-feat">Single Line Diagrams (SLD)</span>
+          <span class="csvc-feat">Lighting & lux level calculations</span>
+          <span class="csvc-feat">Earthing & lightning protection</span>
+          <span class="csvc-feat">Emergency power (DG, UPS, Solar)</span>
+        </div>
+      </div>
+
+      <div class="csvc-card rv d1">
+        <div class="csvc-ico"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg></div>
+        <h3>Structured Network Cabling</h3>
+        <p>High-performance data infrastructure design — fiber optic, Cat6/7 cabling and server room architecture.</p>
+        <div class="csvc-features">
+          <span class="csvc-feat">Fiber & copper cable routing</span>
+          <span class="csvc-feat">Server room & rack design</span>
+          <span class="csvc-feat">Wi-Fi coverage planning</span>
+        </div>
+      </div>
+
+      <div class="csvc-card rv d2">
+        <div class="csvc-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Fire Safety & Security</h3>
+        <p>Integrated life-safety design — fire detection, suppression, CCTV, access control and PA systems.</p>
+        <div class="csvc-features">
+          <span class="csvc-feat">Fire alarm & sprinkler design</span>
+          <span class="csvc-feat">CCTV & access control</span>
+          <span class="csvc-feat">Gas suppression systems</span>
+        </div>
+      </div>
+
+      <div class="csvc-card rv d3">
+        <div class="csvc-ico"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M9 11l3 3L22 4"/></svg></div>
+        <h3>HVAC Design</h3>
+        <p>Thermal comfort and indoor air quality — chilled water, VRF, ventilation and filtration system design.</p>
+        <div class="csvc-features">
+          <span class="csvc-feat">VRF & chilled water systems</span>
+          <span class="csvc-feat">Ventilation & air quality</span>
+          <span class="csvc-feat">HEPA & carbon filtration</span>
+        </div>
+      </div>
+
+      <div class="csvc-card rv d4">
+        <div class="csvc-ico"><svg viewBox="0 0 24 24"><path d="M12 2v6m0 8v6M4.93 4.93l4.24 4.24m5.66 5.66l4.24 4.24M2 12h6m8 0h6M4.93 19.07l4.24-4.24m5.66-5.66l4.24-4.24"/></svg></div>
+        <h3>PHE</h3>
+        <p>Comprehensive water management — supply, sanitation, stormwater drainage and treatment plant design.</p>
+        <div class="csvc-features">
+          <span class="csvc-feat">Water supply & treatment</span>
+          <span class="csvc-feat">Sewage disposal design</span>
+          <span class="csvc-feat">Stormwater management</span>
+        </div>
+      </div>
+
+      <div class="csvc-card rv d5">
+        <div class="csvc-ico"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <h3>Integrated MEPF</h3>
+        <p>Full coordination across Mechanical, Electrical, Plumbing and Fire Safety — BIM modelling and clash-free design.</p>
+        <div class="csvc-features">
+          <span class="csvc-feat">BIM / 3D coordination</span>
+          <span class="csvc-feat">Space optimization</span>
+          <span class="csvc-feat">MEP clash detection</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTORS -->
+<section class="sect-sec">
+  <div class="W">
+    <div class="sect-head rv">
+      <div class="sec-label" style="justify-content:center"><span class="sl-bar"></span><span class="sl-txt">Project Sectors</span></div>
+      <h2 class="sec-title-w" style="text-align:center">Industries We <em>Design For</em></h2>
+    </div>
+    <div class="sect-grid">
+      <div class="sect-card rv"><div class="sect-card-ico">🏫</div><h4>Universities & Schools</h4><p>Campus-wide MEPF systems</p></div>
+      <div class="sect-card rv d1"><div class="sect-card-ico">🏢</div><h4>Office Buildings</h4><p>IT parks & corporate offices</p></div>
+      <div class="sect-card rv d2"><div class="sect-card-ico">🏥</div><h4>Hospitals</h4><p>Multi-specialty healthcare</p></div>
+      <div class="sect-card rv d3"><div class="sect-card-ico">🏬</div><h4>Commercial</h4><p>Malls, showrooms, auditoriums</p></div>
+      <div class="sect-card rv d4"><div class="sect-card-ico">🏭</div><h4>Industrial</h4><p>Factories & process plants</p></div>
+      <div class="sect-card rv d5"><div class="sect-card-ico">🏠</div><h4>Residential</h4><p>Apartments & townships</p></div>
+      <div class="sect-card rv"><div class="sect-card-ico">🏨</div><h4>Hotels & Resorts</h4><p>Hospitality infrastructure</p></div>
+      <div class="sect-card rv d1"><div class="sect-card-ico">🖥️</div><h4>Data Centers</h4><p>Mission-critical facilities</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="con-cta">
+  <div class="W rv">
+    <h2>Need Expert <em>Engineering Design</em>?</h2>
+    <p>From feasibility studies to detailed MEPF drawings — get a consultation from our experienced engineering team.</p>
+    <a href="contactus.html" class="con-cta-btn">Request Consultation <span>&#8594;</span></a>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+<script>
+(function(){
+  const els = document.querySelectorAll('.rv,.rl,.rr');
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);} });
+  },{threshold:0.1,rootMargin:'0px 0px -60px 0px'});
+  els.forEach(el=>io.observe(el));
+})();
+</script>
+<script src="site.js"></script>
+</body>
+</html>

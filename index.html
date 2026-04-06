@@ -917,6 +917,78 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
 #btt:hover { background:var(--red2); transform:translateY(-2px); }
 #btt.on { display:flex; }
 
+/* ═══ 3-DIVISION SECTION ═══ */
+.div3-sec { padding:100px 0; background:#fff; position:relative; overflow:hidden; }
+.div3-sec::before {
+  content:''; position:absolute; inset:0;
+  background-image:radial-gradient(rgba(204,39,0,.04) 1px,transparent 1px);
+  background-size:24px 24px; pointer-events:none;
+}
+.div3-head { text-align:center; margin-bottom:64px; position:relative; z-index:2; }
+.div3-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+  position:relative; z-index:2;
+}
+.div3-card {
+  position:relative; border-radius:16px; overflow:hidden;
+  background:var(--navy); min-height:480px;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  box-shadow:var(--s3); transition:all .4s cubic-bezier(.16,1,.3,1);
+  cursor:pointer; text-decoration:none;
+}
+.div3-card:hover { transform:translateY(-8px); box-shadow:0 32px 80px rgba(8,17,31,.35); }
+.div3-card-bg {
+  position:absolute; inset:0;
+}
+.div3-card-bg img { width:100%; height:100%; object-fit:cover; filter:brightness(.35) saturate(.7); transition:transform .7s, filter .5s; }
+.div3-card:hover .div3-card-bg img { transform:scale(1.06); filter:brightness(.2) saturate(.5); }
+.div3-card::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg,rgba(8,17,31,.15) 0%,rgba(8,17,31,.4) 40%,rgba(8,17,31,.95) 100%);
+  z-index:1; transition:opacity .4s;
+}
+.div3-card-content { position:relative; z-index:2; padding:36px 32px; }
+.div3-num {
+  font-family:'Barlow Condensed',sans-serif; font-size:80px; font-weight:900;
+  color:rgba(204,39,0,.12); line-height:.85; letter-spacing:-.04em; margin-bottom:8px;
+}
+.div3-badge {
+  display:inline-flex; align-items:center; gap:7px;
+  background:rgba(204,39,0,.15); border:1px solid rgba(204,39,0,.3);
+  padding:5px 14px; border-radius:100px; margin-bottom:14px;
+}
+.div3-badge span {
+  font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:700;
+  color:var(--red); letter-spacing:.12em; text-transform:uppercase;
+}
+.div3-title {
+  font-family:'Barlow Condensed',sans-serif; font-size:28px; font-weight:900;
+  color:#fff; text-transform:uppercase; letter-spacing:.01em; line-height:1.1;
+  margin-bottom:10px;
+}
+.div3-desc {
+  font-size:13.5px; line-height:1.7; color:rgba(255,255,255,.5); font-weight:300;
+  margin-bottom:18px; max-height:0; overflow:hidden; transition:max-height .5s cubic-bezier(.16,1,.3,1);
+}
+.div3-card:hover .div3-desc { max-height:120px; }
+.div3-tags { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:16px; }
+.div3-tag {
+  font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:700;
+  color:rgba(255,255,255,.35); letter-spacing:.06em; text-transform:uppercase;
+  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08);
+  padding:4px 10px; border-radius:100px;
+}
+.div3-link {
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:800;
+  color:var(--red); letter-spacing:.06em; text-transform:uppercase;
+  opacity:0; transform:translateY(8px); transition:all .35s;
+}
+.div3-card:hover .div3-link { opacity:1; transform:translateY(0); }
+.div3-link svg { width:14px; height:14px; fill:currentColor; transition:transform .2s; }
+.div3-card:hover .div3-link svg { transform:translateX(4px); }
+@media(max-width:900px){ .div3-grid { grid-template-columns:1fr; } .div3-card { min-height:380px; } }
+
 </style>
 </head>
 <body>
@@ -986,7 +1058,7 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
         <div class="h-badge"><div class="hb-dot"></div><span>ISO 9001:2015 &amp; CPRI Certified</span></div>
         <h1 class="h-h1"><span class="h1-line1">Quality</span><span class="h1-line2">Certified</span></h1>
         <div class="h-rule"></div>
-        <div class="h-sub">16+ Years of Engineering Excellence</div>
+        <div class="h-sub">24+ Years of Engineering Excellence</div>
         <p class="h-body">With a state-of-the-art manufacturing facility in Bengaluru, KES delivers certified, tested and fully compliant electrical panels to industries across India.</p>
         <div class="h-btns">
           <a href="#contact" class="h-btn-red">Request Quote <span class="arr">&rarr;</span></a>
@@ -1039,7 +1111,7 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
     <div class="hs-item">
       <div class="hs-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
       <div>
-        <div class="hs-n">16<span>+</span></div>
+        <div class="hs-n">24<span>+</span></div>
         <div class="hs-l">Years Exp.</div>
       </div>
     </div>
@@ -1087,7 +1159,7 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
       </div>
       <div class="rr d1">
         <p class="about-intro-right">
-          <strong>Kumara Engineering Solutions Private Limited</strong> was formally incepted in 2023, inheriting the operational legacy of Sunrise Enterprises, established in 2011. Managed by <strong>Mr. Kumaraswamy B.R.</strong>, a professionally qualified Electrical Engineer with 16+ years of vast experience in Electrical Engineering and allied fields, operating from our state-of-the-art facility in Bengaluru.
+          <strong>Kumara Engineering Solutions Private Limited</strong> was formally incepted in 2025, inheriting the operational legacy of Sunrise Enterprises, established in 2011. Managed by <strong>Mr. Kumaraswamy B.R.</strong>, a professionally qualified Electrical Engineer with 24+ years of vast experience in Electrical Engineering and allied fields, operating from our 5,000 Sq. ft. state-of-the-art CNC manufacturing facility in Bengaluru.
         </p>
       </div>
     </div>
@@ -1102,13 +1174,13 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
           <div class="director-info">
             <div class="director-name">Mr. Kumaraswamy B.R.</div>
             <div class="director-title">Managing Director &amp; Chief Engineer</div>
-            <div class="director-bio">Professionally qualified Electrical Engineer with 16+ years of hands-on experience in power distribution, panel manufacturing and turnkey project delivery across Karnataka.</div>
+            <div class="director-bio">Professionally qualified Electrical Engineer with 24+ years of hands-on experience in power distribution, panel manufacturing and turnkey project delivery across Karnataka.</div>
           </div>
         </div>
 
         <div class="cert-row">
-          <span class="cert-badge"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>ISO 9001:2015</span>
-          <span class="cert-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>CPRI Certified</span>
+          <span class="cert-badge"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>ABB ArTuk Partner</span>
+          <span class="cert-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>CPRI Certified (100kA)</span>
           <span class="cert-badge"><svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>IEC 61439</span>
           <span class="cert-badge"><svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>IS:8623</span>
         </div>
@@ -1137,10 +1209,10 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
       <div class="ag-right">
         <div class="ag-right-img">
           <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1000&q=90" alt="KES Manufacturing Facility"/>
-          <div class="ag-img-caption">State-of-the-Art Manufacturing Facility, Bengaluru</div>
+          <div class="ag-img-caption">State-of-the-Art 5,000 Sq. ft. Manufacturing Facility, Bengaluru</div>
         </div>
         <div class="ag-stats">
-          <div class="ag-stat"><div class="ag-stat-val">16+</div><div class="ag-stat-lbl">Years Experience</div><div class="ag-stat-sub">Engineering since 2011</div></div>
+          <div class="ag-stat"><div class="ag-stat-val">24+</div><div class="ag-stat-lbl">Years Experience</div><div class="ag-stat-sub">Engineering since 2011</div></div>
           <div class="ag-stat"><div class="ag-stat-val">25+</div><div class="ag-stat-lbl">Team Members</div><div class="ag-stat-sub">Permanent &amp; skilled staff</div></div>
           <div class="ag-stat"><div class="ag-stat-val">20+</div><div class="ag-stat-lbl">Products</div><div class="ag-stat-sub">IEC &amp; IS certified range</div></div>
           <div class="ag-stat"><div class="ag-stat-val">18+</div><div class="ag-stat-lbl">Major Clients</div><div class="ag-stat-sub">Across Karnataka industries</div></div>
@@ -1185,10 +1257,76 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsCLlAQA0l9VnGhcDyTy0MWIG3OcmOwVIJTg&s" alt="Turnkey Projects">
         <div class="wwd-item-info"><div class="wwd-item-title">Turnkey Projects</div><div class="wwd-item-desc">End-to-end delivery — Design, Supply, Erection, Testing, Commissioning &amp; O&amp;M.</div></div>
       </div>
-      <div class="wwd-item wwd-4" onclick="location.href='products.html'">
+      <div class="wwd-item wwd-4" onclick="location.href='products.html#busduct'">
         <img src="https://lh6.googleusercontent.com/proxy/qmiIQeY_h3nl6a6Wwmfn5v9dq7BZWPoPGohjt-3t32vOJ-4iFvKo6U91JZWVdEqaq0_guntxGSE7QdxZk66rU7Qi7jYi0t1F_5e6nGAkWy_4ZTtsko1eHw" alt="Bus Ducts">
         <div class="wwd-item-info"><div class="wwd-item-title">Bus Ducts &amp; Rising Mains</div><div class="wwd-item-desc">Robust power transmission for high-current industrial applications.</div></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 3 DIVISIONS ═══ -->
+<section class="div3-sec" id="divisions">
+  <div class="W">
+    <div class="div3-head rv">
+      <div class="sec-label" style="justify-content:center"><div class="sl-bar"></div><span class="sl-txt">Three Verticals, One Powerhouse</span></div>
+      <h2 class="sec-title" style="text-align:center">Our <em>Business Divisions</em></h2>
+      <p class="sec-body" style="text-align:center;max-width:520px;margin:12px auto 0">Three specialized divisions working under one roof — from design consultation to manufacturing and on-site execution.</p>
+    </div>
+    <div class="div3-grid">
+
+      <a href="products.html" class="div3-card rv">
+        <div class="div3-card-bg"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80" alt="Manufacturing"/></div>
+        <div class="div3-card-content">
+          <div class="div3-num">01</div>
+          <div class="div3-badge"><span>⚡ Manufacturing</span></div>
+          <div class="div3-title">Panel Manufacturing &amp; Products</div>
+          <div class="div3-desc">25+ precision-engineered products — LT/MV panels, MCC, PCC, bus ducts, cable trays. ISO 9001 &amp; CPRI certified, rated up to 6300A.</div>
+          <div class="div3-tags">
+            <span class="div3-tag">LT Panels</span>
+            <span class="div3-tag">MCC/PCC</span>
+            <span class="div3-tag">Bus Duct</span>
+            <span class="div3-tag">APFC</span>
+            <span class="div3-tag">PLC</span>
+          </div>
+          <div class="div3-link">Explore Products <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div>
+        </div>
+      </a>
+
+      <a href="services.html" class="div3-card rv d1">
+        <div class="div3-card-bg"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80" alt="Works Contract"/></div>
+        <div class="div3-card-content">
+          <div class="div3-num">02</div>
+          <div class="div3-badge"><span>🔧 Works Contract</span></div>
+          <div class="div3-title">Installation, Services &amp; AMC</div>
+          <div class="div3-desc">End-to-end HT/LT installations, sub-station erection, transformer maintenance, O&amp;M contracts and 24/7 breakdown support.</div>
+          <div class="div3-tags">
+            <span class="div3-tag">HT/LT Install</span>
+            <span class="div3-tag">Substation</span>
+            <span class="div3-tag">AMC</span>
+            <span class="div3-tag">Cable Works</span>
+          </div>
+          <div class="div3-link">View Services <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div>
+        </div>
+      </a>
+
+      <a href="consultancy.html" class="div3-card rv d2">
+        <div class="div3-card-bg"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80" alt="Consultancy"/></div>
+        <div class="div3-card-content">
+          <div class="div3-num">03</div>
+          <div class="div3-badge"><span>📐 Consultancy</span></div>
+          <div class="div3-title">Engineering &amp; MEPF Design</div>
+          <div class="div3-desc">Full MEPF integration — Electrical, HVAC, Plumbing, Fire Safety and Structured Cabling design services for complex infrastructure projects.</div>
+          <div class="div3-tags">
+            <span class="div3-tag">Electrical</span>
+            <span class="div3-tag">HVAC</span>
+            <span class="div3-tag">Fire Safety</span>
+            <span class="div3-tag">MEPF</span>
+          </div>
+          <div class="div3-link">Learn More <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div>
+        </div>
+      </a>
+
     </div>
   </div>
 </section>
@@ -1205,38 +1343,37 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
       <a href="products.html" class="btn-red rv">View All Products <span class="arr">→</span></a>
     </div>
     <div class="prod-mosaic rv">
-      <div class="prod-card tall">
-        <img src="https://image.made-in-china.com/202f0j00LCnbwlagCpkz/Low-Voltage-Panels-Electrical-LV-Panel-Low-Voltage-Switchgear.webp" alt="LT Panel"/>
-        <div class="prod-over"><div class="prod-cat">LV Switchgear</div><div class="prod-name">LT &amp; MCC Power Panels</div></div>
-        <div class="prod-hover"><p>Low-tension distribution and Motor Control Centres — built to IS &amp; IEC 61439-2.</p><button class="ph-btn" onclick="location.href='products.html'">Explore →</button></div>
+      <div class="prod-card tall" onclick="location.href='products.html#lv-switchgear'">
+        <img src="https://image.made-in-china.com/202f0j00LCnbwlagCpkz/Low-Voltage-Panels-Electrical-LV-Panel-Low-Voltage-Switchgear.webp" alt="LV Switchgear Panels"/>
+        <div class="prod-over"><div class="prod-cat">Distribution</div><div class="prod-name">LV Switchgear Panels</div></div>
+        <div class="prod-hover"><p>Low-tension distribution and Motor Control Centres — built to IS &amp; IEC 61439-2.</p><button class="ph-btn" onclick="event.stopPropagation();location.href='products.html#lv-switchgear'">Explore →</button></div>
       </div>
-      <div class="prod-card">
-        <img src="https://esswin.com/wp-content/uploads/2024/08/vfdplc-n2.jpeg" alt="PLC Panel"/>
-        <div class="prod-over"><div class="prod-cat">Automation</div><div class="prod-name">PLC &amp; VFD Control</div></div>
-        <div class="prod-hover"><p>PLC and VFD panels for automated production lines.</p><button class="ph-btn" onclick="location.href='products.html'">Explore →</button></div>
+      <div class="prod-card" onclick="location.href='products.html#mv-switchgear'">
+        <img src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b6?w=800&q=80" alt="MV Switchgear"/>
+        <div class="prod-over"><div class="prod-cat">Medium Voltage</div><div class="prod-name">MV Switchgear</div></div>
+        <div class="prod-hover"><p>Systems up to 33kV featuring VCB or SF6 breakers for robust primary distribution.</p><button class="ph-btn" onclick="event.stopPropagation();location.href='products.html#mv-switchgear'">Explore →</button></div>
       </div>
-      <div class="prod-card">
-        <img src="https://cpimg.tistatic.com/07702569/b/4/HT-APFC-Panel.jpg" alt="APFC Panel"/>
-        <div class="prod-over"><div class="prod-cat">Power Factor</div><div class="prod-name">APFC Panels</div></div>
-        <div class="prod-hover"><p>Automatic power factor correction to reduce bills and eliminate penalty charges.</p><button class="ph-btn" onclick="location.href='products.html'">Explore →</button></div>
+      <div class="prod-card" onclick="location.href='products.html#transformer'">
+        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=85" alt="Transformer"/>
+        <div class="prod-over"><div class="prod-cat">Power</div><div class="prod-name">Transformers</div></div>
+        <div class="prod-hover"><p>High-efficiency distribution & power transformers; oil-cooled and dry-type available.</p><button class="ph-btn" onclick="event.stopPropagation();location.href='products.html#transformer'">Explore →</button></div>
       </div>
-      <div class="prod-card">
-        <img src="https://brothersengineering.co.in/nm/DG%20SYNCHRONIZING%20PANEL.jpeg" alt="ATS Panel"/>
-        <div class="prod-over"><div class="prod-cat">Emergency</div><div class="prod-name">ATS &amp; DG Sync</div></div>
-        <div class="prod-hover"><p>Auto transfer switch panels with mains-to-generator changeover for uninterrupted power.</p><button class="ph-btn" onclick="location.href='products.html'">Explore →</button></div>
+      <div class="prod-card" onclick="location.href='products.html#css'">
+        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=85" alt="Compact Substation"/>
+        <div class="prod-over"><div class="prod-cat">Infrastructure</div><div class="prod-name">Compact Substation</div></div>
+        <div class="prod-hover"><p>Prefabricated packaged substations (CSS) for dramatic reduction in execution time.</p><button class="ph-btn" onclick="event.stopPropagation();location.href='products.html#css'">Explore →</button></div>
       </div>
-      <div class="prod-card">
+      <div class="prod-card" onclick="location.href='products.html#busduct'">
         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Bus Duct"/>
         <div class="prod-over"><div class="prod-cat">630A–6300A</div><div class="prod-name">HV/LV Bus Duct</div></div>
-        <div class="prod-hover"><p>99.97% copper purity, silver-plated conductors. IP54–IP66. Fire resistance certified.</p><button class="ph-btn" onclick="location.href='products.html'">Explore →</button></div>
+        <div class="prod-hover"><p>99.97% copper purity, silver-plated conductors. IP54–IP66. Fire resistance certified.</p><button class="ph-btn" onclick="event.stopPropagation();location.href='products.html#busduct'">Explore →</button></div>
       </div>
     </div>
     <div class="prod-tags rv">
-      <span class="ptag">MCC Panel</span><span class="ptag">PCC Panel</span><span class="ptag">PMCC Panel</span>
-      <span class="ptag">APFC Panel</span><span class="ptag">ATS Panel</span><span class="ptag">VFD Panel</span>
-      <span class="ptag">DG Sync Panel</span><span class="ptag">HVAC Panel</span><span class="ptag">Star Delta Panel</span>
-      <span class="ptag">Fire Pump Panel</span><span class="ptag">Aviation Lighting</span><span class="ptag">Street Light Panel</span>
-      <span class="ptag">Cable Tray</span><span class="ptag">Lift Control Panel</span><span class="ptag">Raw Power Panel</span>
+      <span class="ptag" onclick="location.href='products.html#lv-switchgear'" style="cursor:pointer">LV Switchgear</span><span class="ptag" onclick="location.href='products.html#mv-switchgear'" style="cursor:pointer">MV Switchgear</span><span class="ptag" onclick="location.href='products.html#css'" style="cursor:pointer">CSS</span>
+      <span class="ptag" onclick="location.href='products.html#transformer'" style="cursor:pointer">Transformers</span><span class="ptag" onclick="location.href='products.html#mcc-panel'" style="cursor:pointer">MCC Panel</span><span class="ptag" onclick="location.href='products.html#pcc-panel'" style="cursor:pointer">PCC Panel</span>
+      <span class="ptag" onclick="location.href='products.html#apfc-panel'" style="cursor:pointer">APFC Panel</span><span class="ptag" onclick="location.href='products.html#plc-panel'" style="cursor:pointer">PLC Panel</span><span class="ptag" onclick="location.href='products.html#hvac-panel'" style="cursor:pointer">HVAC Panel</span>
+      <span class="ptag" onclick="location.href='products.html#busduct'" style="cursor:pointer">Bus Duct</span><span class="ptag" onclick="location.href='products.html#aviation-panel'" style="cursor:pointer">Aviation Lighting</span>
       <span class="ptag accent" onclick="location.href='products.html'">+ View All →</span>
     </div>
   </div>
@@ -1254,7 +1391,7 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
       <a href="services.html" class="btn-red rv">All Services <span class="arr">→</span></a>
     </div>
     <div class="svc-grid rv">
-      <div class="svc-card">
+      <div class="svc-card" onclick="location.href='services.html#ht-services'">
         <img class="svc-img" src="https://nakshatraelectricals.com/wp-content/uploads/2025/05/product-jpeg-1024x768.jpg" alt="HT Panel"/>
         <div class="svc-ov"></div>
         <div class="svc-body">
@@ -1264,7 +1401,7 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
           <div class="svc-more">Learn More →</div>
         </div>
       </div>
-      <div class="svc-card">
+      <div class="svc-card" onclick="location.href='services.html#transformer'">
         <img class="svc-img" src="https://www.ukelectric.in/wp-content/uploads/2025/05/transformer-repair-service.jpg" alt="Transformer"/>
         <div class="svc-ov"></div>
         <div class="svc-body">
@@ -1274,7 +1411,7 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
           <div class="svc-more">Learn More →</div>
         </div>
       </div>
-      <div class="svc-card">
+      <div class="svc-card" onclick="location.href='services.html#cable-work'">
         <img class="svc-img" src="https://5.imimg.com/data5/SELLER/Default/2024/3/401908020/PI/YL/SS/28954157/cable-installation-services-500x500.jpg" alt="Cable Work"/>
         <div class="svc-ov"></div>
         <div class="svc-body">
@@ -1284,7 +1421,7 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
           <div class="svc-more">Learn More →</div>
         </div>
       </div>
-      <div class="svc-card">
+      <div class="svc-card" onclick="location.href='services.html#substation'">
         <img class="svc-img" src="https://5.imimg.com/data5/SELLER/Default/2023/2/ZI/LF/CV/2887104/765kv-electrical-substation-erection-service.jpeg" alt="Substation"/>
         <div class="svc-ov"></div>
         <div class="svc-body">
@@ -1294,7 +1431,7 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
           <div class="svc-more">Learn More →</div>
         </div>
       </div>
-      <div class="svc-card">
+      <div class="svc-card" onclick="location.href='services.html#servicing'">
         <img class="svc-img" src="https://www.powercontrolsystems.in/innovtouch/uploads/2021/08/pcs-oem-drive-panels-1.jpg" alt="Panel Servicing"/>
         <div class="svc-ov"></div>
         <div class="svc-body">
@@ -1304,7 +1441,7 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
           <div class="svc-more">Learn More →</div>
         </div>
       </div>
-      <div class="svc-card">
+      <div class="svc-card" onclick="location.href='services.html#oam'">
         <img class="svc-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=85" alt="O&M"/>
         <div class="svc-ov"></div>
         <div class="svc-body">

@@ -31,7 +31,7 @@
 .topbar { background: var(--navy); padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.05); }
 .tb-inner { display: flex; justify-content: space-between; align-items: center; }
 .tb-left { display: flex; gap: 24px; }
-.tb-item { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: rgba(255,255,255,.45); font-weight: 400; }
+.tb-item { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: rgba(255,255,255,.9); font-weight: 400; }
 .tb-item svg { width: 13px; height: 13px; fill: var(--blue-alt); flex-shrink: 0; opacity: .8; }
 .tb-right { display: flex; gap: 7px; }
 .tb-cert { padding: 2px 9px; border: 1px solid rgba(204,39,0,.3); border-radius: 2px; font-family: 'Barlow Condensed', sans-serif; font-size: 9.5px; font-weight: 700; color: var(--blue-alt); letter-spacing: .08em; text-transform: uppercase; }
@@ -61,30 +61,35 @@
 .mega-dropdown { position: fixed; left: 50%; top: 94px; transform: translateX(-50%) translateY(-10px); background: #fff; border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 28px 72px rgba(8,17,31,.22); opacity: 0; visibility: hidden; transition: all .28s cubic-bezier(.16,1,.3,1); z-index: 9999; }
 .mega-parent:hover .mega-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
 /* Services dropdown */
-.svc-drop { min-width: 560px; padding: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-.svc-drop-hd { grid-column: 1/-1; font-family: 'Barlow Condensed', sans-serif; font-size: 9.5px; font-weight: 800; color: var(--blue-alt); letter-spacing: .16em; text-transform: uppercase; padding: 0 4px 10px; border-bottom: 1px solid var(--border); margin-bottom: 4px; }
-.svc-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border-radius: 8px; cursor: pointer; transition: all .18s; text-decoration: none; }
-.svc-item:hover { background: var(--off); }
-.svc-item .si-ico { width: 34px; height: 34px; background: rgba(204,39,0,.06); border-radius: 7px; display: grid; place-items: center; flex-shrink: 0; transition: background .18s; }
-.svc-item:hover .si-ico { background: var(--blue-alt); }
-.svc-item .si-ico svg { width: 16px; height: 16px; stroke: var(--blue-alt); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: stroke .18s; }
+.svc-drop { min-width: 620px; padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.svc-drop-hd { grid-column: 1/-1; display:flex; align-items:center; justify-content:space-between; font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 800; color: var(--blue-alt); letter-spacing: .16em; text-transform: uppercase; padding: 0 4px 12px; border-bottom: 2px solid rgba(204,39,0,.1); margin-bottom: 8px; }
+.svc-drop-hd a { font-size:11px; font-weight:700; color:var(--grey); letter-spacing:.06em; text-decoration:none; transition:color .2s; }
+.svc-drop-hd a:hover { color:var(--blue-alt); }
+.svc-item { display: flex; align-items: flex-start; gap: 12px; padding: 11px 14px; border-radius: 10px; cursor: pointer; transition: all .2s; text-decoration: none; }
+.svc-item:hover { background: rgba(204,39,0,.04); transform:translateX(2px); }
+.svc-item .si-ico { width: 38px; height: 38px; background: rgba(204,39,0,.06); border:1px solid rgba(204,39,0,.1); border-radius: 9px; display: grid; place-items: center; flex-shrink: 0; transition: all .2s; }
+.svc-item:hover .si-ico { background: var(--blue-alt); border-color:var(--blue-alt); }
+.svc-item .si-ico svg { width: 17px; height: 17px; stroke: var(--blue-alt); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: stroke .2s; }
 .svc-item:hover .si-ico svg { stroke: #fff; }
-.svc-item .si-text .si-name { font-family: 'Barlow Condensed', sans-serif; font-size: 13.5px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: .02em; line-height: 1; margin-bottom: 3px; }
-.svc-item .si-text .si-desc { font-size: 11px; color: var(--grey); line-height: 1.45; }
+.svc-item .si-text .si-name { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: .02em; line-height: 1.1; margin-bottom: 3px; }
+.svc-item .si-text .si-desc { font-size: 11.5px; color: var(--grey); line-height: 1.45; }
+.svc-item .si-text .si-tag { display:inline-block; margin-top:4px; font-family:'Barlow Condensed',sans-serif; font-size:9px; font-weight:700; color:var(--blue-alt); letter-spacing:.1em; text-transform:uppercase; background:rgba(204,39,0,.06); border:1px solid rgba(204,39,0,.12); padding:2px 8px; border-radius:3px; }
+.svc-item:hover .si-text .si-tag { background:rgba(204,39,0,.12); }
 /* Products mega */
-.mega { width: 1080px; max-width: 95vw; padding: 24px 28px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; }
-.mega-col { padding: 0 16px; border-right: 1px solid var(--border); }
+.mega { width: 1120px; max-width: 95vw; padding: 28px 32px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; }
+.mega-col { padding: 0 18px; border-right: 1px solid var(--border); }
 .mega-col:first-child { padding-left: 0; }
 .mega-col:last-child { border-right: none; padding-right: 0; }
-.mega-hd { font-family: 'Barlow Condensed', sans-serif; font-size: 9px; font-weight: 800; color: var(--blue-alt); letter-spacing: .16em; text-transform: uppercase; padding-bottom: 8px; margin-bottom: 8px; border-bottom: 2px solid rgba(204,39,0,.12); white-space: nowrap; }
-.mega-item { display: flex; align-items: center; gap: 7px; padding: 6px 0; font-size: 12.5px; color: var(--grey); cursor: pointer; transition: all .15s; font-weight: 500; text-decoration: none; border-radius: 4px; line-height: 1.3; }
-.mega-item:hover { color: var(--blue-alt); padding-left: 4px; }
-.mega-item::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--blue-alt); flex-shrink: 0; opacity: .35; transition: opacity .15s; }
-.mega-item:hover::before { opacity: 1; }
-.mega-drop-footer { grid-column: 1/-1; border-top: 1px solid var(--border); margin-top: 12px; padding-top: 12px; display: flex; align-items: center; justify-content: space-between; }
-.mega-drop-footer span { font-size: 11px; color: var(--grey2); }
-.mega-drop-footer a { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; color: var(--blue-alt); text-transform: uppercase; letter-spacing: .06em; text-decoration: none; display: flex; align-items: center; gap: 5px; transition: gap .2s; }
-.mega-drop-footer a:hover { gap: 10px; }
+.mega-hd { display:flex; align-items:center; gap:6px; font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 800; color: var(--blue-alt); letter-spacing: .14em; text-transform: uppercase; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 2px solid rgba(204,39,0,.12); white-space: nowrap; }
+.mega-hd .mh-cnt { font-size:9px; font-weight:600; color:var(--grey2); background:var(--off); padding:1px 6px; border-radius:8px; letter-spacing:.05em; }
+.mega-item { display: flex; align-items: center; gap: 8px; padding: 7px 6px; font-size: 12.5px; color: var(--grey); cursor: pointer; transition: all .18s; font-weight: 500; text-decoration: none; border-radius: 6px; line-height: 1.3; margin:0 -6px; }
+.mega-item:hover { color: var(--blue-alt); background:rgba(204,39,0,.04); padding-left: 10px; }
+.mega-item::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--blue-alt); flex-shrink: 0; opacity: .2; transition: opacity .15s, transform .15s; }
+.mega-item:hover::before { opacity: 1; transform:scale(1.3); }
+.mega-drop-footer { grid-column: 1/-1; border-top: 1px solid var(--border); margin-top: 16px; padding-top: 14px; display: flex; align-items: center; justify-content: space-between; }
+.mega-drop-footer span { font-size: 11.5px; color: var(--grey2); }
+.mega-drop-footer a { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; color: var(--blue-alt); text-transform: uppercase; letter-spacing: .06em; text-decoration: none; display: flex; align-items: center; gap: 6px; transition: gap .2s; }
+.mega-drop-footer a:hover { gap: 12px; }
 
 /* CTA + Actions */
 .nav-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
@@ -106,7 +111,12 @@
   .nav-link { height: 56px; width: 100%; padding: 0 28px; justify-content: space-between; font-size: 15px; border-bottom: none; }
   .dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; border-radius: 0; max-height: 0; overflow: hidden; transition: max-height .35s ease; background: var(--off); min-width: 100%; }
   .nav-item.open .dropdown { max-height: 1500px; }
-  .mega { grid-template-columns: 1fr; padding: 8px 28px; min-width: 100%; }
+  .mega-dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; border-radius: 0; max-height: 0; overflow: hidden; transition: max-height .35s ease; background: var(--off); width: 100%; }
+  .nav-item.open .mega-dropdown { max-height: 2000px; }
+  .mega { grid-template-columns: 1fr !important; padding: 8px 28px; min-width: 100%; width: 100% !important; }
+  .mega-col { border-right: none; border-bottom: 1px solid var(--border); padding: 10px 0; }
+  .mega-col:last-child { border-bottom: none; }
+  .mega-drop-footer { flex-direction: column; gap: 8px; text-align: center; }
 }
 </style>
 
@@ -114,7 +124,7 @@
   <div class="tb-left">
     <span class="tb-item">
       <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-      No.1538/O, 1F, 12th Cross, 4th stage, 2nd Block, BTM Layout, Hulimavu, Bengaluru &ndash; 560 076
+      No.1538/O, 1F, 12th Cross, 4th Stage, 2nd Block, BTM Layout, Hulimavu, Bengaluru - 560 076, Karnataka, India.
     </span>
     <span class="tb-item">
       <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
@@ -142,7 +152,7 @@
     </div>
     <div class="logo-text">
       <div class="name">Kumara Engineering Solutions</div>
-      <div class="sub">Pvt. Ltd. &middot; Est. 2023 &middot; Bengaluru</div>
+      <div class="sub">Pvt. Ltd. &middot; Est. 2025 &middot; Bengaluru</div>
     </div>
   </div>
 
@@ -158,8 +168,11 @@
       <div class="mega-dropdown">
         <div class="mega">
           <div class="mega-col">
-            <div class="mega-hd">Distribution</div>
-            <a class="mega-item" href="products.html#lt-panel">LT Panel</a>
+            <div class="mega-hd">Distribution <span class="mh-cnt">10</span></div>
+            <a class="mega-item" href="products.html#mv-switchgear">MV Switchgear Panels</a>
+            <a class="mega-item" href="products.html#lv-switchgear">LV Switchgear Panels</a>
+            <a class="mega-item" href="products.html#css">Compact Substation (CSS)</a>
+            <a class="mega-item" href="products.html#transformer">Transformers</a>
             <a class="mega-item" href="products.html#mcc-panel">MCC Panel</a>
             <a class="mega-item" href="products.html#pcc-panel">PCC Panel</a>
             <a class="mega-item" href="products.html#pmcc-panel">PMCC Panel</a>
@@ -168,7 +181,7 @@
             <a class="mega-item" href="products.html#star-delta">Star Delta Panel</a>
           </div>
           <div class="mega-col">
-            <div class="mega-hd">Control &amp; Sync</div>
+            <div class="mega-hd">Control &amp; Sync <span class="mh-cnt">6</span></div>
             <a class="mega-item" href="products.html#dg-sync">DG Sync Panel</a>
             <a class="mega-item" href="products.html#apfc-panel">APFC Panel</a>
             <a class="mega-item" href="products.html#ats-panel">ATS Panel</a>
@@ -177,7 +190,7 @@
             <a class="mega-item" href="products.html#meter-panel">Meter Panel</a>
           </div>
           <div class="mega-col">
-            <div class="mega-hd">Building &amp; HVAC</div>
+            <div class="mega-hd">Building &amp; HVAC <span class="mh-cnt">6</span></div>
             <a class="mega-item" href="products.html#hvac-panel">HVAC Panel</a>
             <a class="mega-item" href="products.html#ahu-panel">AHU Control Panel</a>
             <a class="mega-item" href="products.html#lift-panel">Lift Control Panel</a>
@@ -186,14 +199,14 @@
             <a class="mega-item" href="products.html#kitchen-panel">Kitchen Panel</a>
           </div>
           <div class="mega-col">
-            <div class="mega-hd">Specialty</div>
+            <div class="mega-hd">Specialty <span class="mh-cnt">4</span></div>
             <a class="mega-item" href="products.html#aviation-panel">Aviation Lighting</a>
             <a class="mega-item" href="products.html#street-panel">Street Light Panel</a>
             <a class="mega-item" href="products.html#solar-panel">Solar Panel</a>
             <a class="mega-item" href="products.html#ups-panel">UPS Panel</a>
           </div>
           <div class="mega-col">
-            <div class="mega-hd">Infrastructure</div>
+            <div class="mega-hd">Infrastructure <span class="mh-cnt">2</span></div>
             <a class="mega-item" href="products.html#busduct">HV &amp; LV Bus Duct</a>
             <a class="mega-item" href="products.html#cable-tray">Ladder Type Tray</a>
             <a class="mega-item" href="products.html#cable-tray">Perforated Tray</a>
@@ -201,47 +214,52 @@
             <a class="mega-item" href="products.html#cable-tray">Cable Raceway</a>
           </div>
           <div class="mega-drop-footer">
-            <span>25+ Products &middot; IEC 61439 &middot; IS:8623 &middot; CPRI Certified</span>
+            <span>28+ Products &middot; IEC 61439 &middot; IS:8623 &middot; CPRI Certified</span>
             <a href="products.html">View All Products &rarr;</a>
           </div>
         </div>
       </div>
     </div>
-    <div class="nav-item">
+    <div class="nav-item mega-parent">
       <div class="nav-link">Services <svg class="chev" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
-      <div class="dropdown">
-        <div class="svc-drop">
-          <div class="svc-drop-hd">Electrical Engineering Services</div>
-          <a class="svc-item" href="services.html#ht-services">
-            <div class="si-ico"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-            <div class="si-text"><div class="si-name">HT Panel Services</div><div class="si-desc">On-site &amp; workshop HT panel maintenance, relay &amp; Megger tests</div></div>
-          </a>
-          <a class="svc-item" href="services.html#transformer">
-            <div class="si-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg></div>
-            <div class="si-text"><div class="si-name">Transformer Maintenance</div><div class="si-desc">BDV, winding insulation, ratio check &amp; AMC contracts</div></div>
-          </a>
-          <a class="svc-item" href="services.html#substation">
-            <div class="si-ico"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
-            <div class="si-text"><div class="si-name">Sub Station Erection</div><div class="si-desc">11KV RMU, VCB, transformer install &amp; CEIG approvals up to 33KV</div></div>
-          </a>
-          <a class="svc-item" href="services.html#cable-work">
-            <div class="si-ico"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-            <div class="si-text"><div class="si-name">HT &amp; LT Cable Work</div><div class="si-desc">XLPE/PVC laying, termination &amp; busways 630A-6300A</div></div>
-          </a>
-          <a class="svc-item" href="services.html#servicing">
-            <div class="si-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M6.3 6.3a8 8 0 000 11.4M17.7 17.7a8 8 0 000-11.4"/></svg></div>
-            <div class="si-text"><div class="si-name">Panel &amp; Drive Servicing</div><div class="si-desc">Preventive &amp; corrective maintenance for panels &amp; VFDs</div></div>
-          </a>
-          <a class="svc-item" href="services.html#oam">
-            <div class="si-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-            <div class="si-text"><div class="si-name">O&amp;M Contracts</div><div class="si-desc">SLA-driven 24/7 Annual Maintenance with emergency response</div></div>
-          </a>
-          <a class="svc-item" href="services.html" style="grid-column:1/-1;background:rgba(204,39,0,.05);border:1px solid rgba(204,39,0,.12);border-radius:8px;">
-            <div class="si-ico" style="background:rgba(204,39,0,.1)"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
-            <div class="si-text"><div class="si-name" style="color:var(--blue-alt)">View All Services</div><div class="si-desc">Full catalogue with scope of work &amp; process</div></div>
-          </a>
+      <div class="mega-dropdown">
+        <div class="mega" style="width:920px;grid-template-columns:1fr 1fr 1fr">
+          <div class="mega-col">
+            <div class="mega-hd">Installation &amp; Civil <span class="mh-cnt">6</span></div>
+            <a class="mega-item" href="services.html#core-services">Turnkey Electrical Projects</a>
+            <a class="mega-item" href="services.html#substation">Sub Station Erection</a>
+            <a class="mega-item" href="services.html#cable-work">HT &amp; LT Cable Work</a>
+            <a class="mega-item" href="services.html#civil-works">Civil Works</a>
+            <a class="mega-item" href="services.html#interior">Interior Furnishing</a>
+            <a class="mega-item" href="services.html#cable-work">MV &amp; LV Busway Systems</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-hd">Maintenance &amp; Servicing <span class="mh-cnt">4</span></div>
+            <a class="mega-item" href="services.html#ht-services">HT Panel Services</a>
+            <a class="mega-item" href="services.html#transformer">Transformer Maintenance</a>
+            <a class="mega-item" href="services.html#servicing">Panel &amp; AC Drive Servicing</a>
+            <a class="mega-item" href="services.html#statutory">Statutory Works (CEIG)</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-hd">Contracts &amp; Support <span class="mh-cnt">2</span></div>
+            <a class="mega-item" href="services.html#oam">Facility Operation &amp; Maintenance</a>
+            <a class="mega-item" href="services.html#oam">24/7 Breakdown Response</a>
+            <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border)">
+              <div class="mega-hd" style="border-bottom:none;padding-bottom:0;margin-bottom:8px;color:var(--blue)">Consultancy</div>
+              <a class="mega-item" href="consultancy.html" style="color:var(--blue)">MEPF Design Services</a>
+              <a class="mega-item" href="consultancy.html" style="color:var(--blue)">Fire Safety &amp; HVAC</a>
+              <a class="mega-item" href="consultancy.html" style="color:var(--blue)">Structured Cabling</a>
+            </div>
+          </div>
+          <div class="mega-drop-footer">
+            <span>Class I Govt. Licensed Contractor &middot; ISO 9001 &middot; CPRI</span>
+            <a href="services.html">View All Services &rarr;</a>
+          </div>
         </div>
       </div>
+    </div>
+    <div class="nav-item">
+      <a href="consultancy.html" class="nav-link">Consultancy</a>
     </div>
     <div class="nav-item">
       <a href="process.html" class="nav-link">Process</a>
@@ -343,10 +361,10 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
           </div>
           <div>
             <div class="fl-nm">Kumara Engineering Solutions</div>
-            <div class="fl-sub">Private Limited &middot; Est. 2023</div>
+            <div class="fl-sub">Private Limited &middot; Est. 2025</div>
           </div>
         </div>
-        <p class="ft-desc">The True Leader in End-to-End Power Distribution, Control Systems and Turnkey Electrical Solutions. Serving Karnataka and beyond &mdash; built on 16+ years of inherited excellence.</p>
+        <p class="ft-desc">The True Leader in End-to-End Power Distribution, Control Systems and Turnkey Electrical Solutions. Serving Karnataka and beyond &mdash; built on 24+ years of inherited excellence.</p>
         <div class="ft-soc">
           <a href="#" class="fsoc" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></svg></a>
           <a href="#" class="fsoc" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
@@ -360,6 +378,7 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
           <a href="aboutus.html">About Us</a>
           <a href="products.html">Products</a>
           <a href="services.html">Services</a>
+          <a href="consultancy.html">Consultancy</a>
           <a href="process.html">Manufacturing Process</a>
           <a href="gallery.html">Gallery</a>
           <a href="contactus.html">Contact</a>
@@ -381,7 +400,7 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
       <div class="ft-col">
         <h4>Contact Us</h4>
         <div class="ft-contact">
-          <div class="fc-i"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/></svg> No.1538/O, 1F, 12th Cross, 4th stage, 2nd Block, BTM Layout, Hulimavu, Bengaluru &ndash; 560 076</div>
+          <div class="fc-i"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/></svg> No.1538/O, 1F, 12th Cross, 4th Stage, 2nd Block, BTM Layout, Hulimavu, Bengaluru - 560 076, Karnataka, India.</div>
           <div class="fc-i"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg> +91 99006 04365</div>
           <div class="fc-i"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 6l-10 7L2 6"/></svg> info@kumarasolutions.in</div>
           <div class="fc-i"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/></svg> Mon&ndash;Sat &middot; 9 AM &ndash; 6 PM IST</div>
@@ -439,7 +458,7 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
 
     navItems.forEach(function (item) {
       const link = item.querySelector(':scope > .nav-link');
-      const dropdown = item.querySelector(':scope > .dropdown');
+      const dropdown = item.querySelector(':scope > .dropdown') || item.querySelector(':scope > .mega-dropdown');
       if (!link || !dropdown) return;
       link.addEventListener('click', function (e) {
         if (window.innerWidth > 1024) return;
