@@ -54,7 +54,7 @@ img { display:block; max-width:100%; }
 .d4{transition-delay:.24s}.d5{transition-delay:.30s}.d6{transition-delay:.36s}
 
 /* ═══ SECTION COMMONS ═══ */
-.sec     { padding:80px 0; }
+.sec     { padding:64px 0; }
 .sec-alt { background:var(--off); }
 .sec-dark{ background:var(--navy); }
 
@@ -156,7 +156,7 @@ h2.sec-title-w em { color:var(--red); }
 @media(max-width:768px) { .hero-content{ padding-bottom:80px;  } }
 @media(max-width:480px) { .hero-content{ padding-bottom:56px;  } }
 
-.hero-text { max-width:720px; }
+.hero-text { max-width:720px; padding-left: 48px; }
 
 /* Slide text animations */
 .hc-slide .h-badge,
@@ -337,6 +337,7 @@ h2.sec-title-w em { color:var(--red); }
 
 /* Hero responsive */
 @media(max-width:1100px){
+  .hero-text { padding-left: 24px; }
   .hc-counter { display:none; }
   .hs-item { padding:12px 20px; gap:12px; }
   .hs-n { font-size:26px; }
@@ -351,6 +352,7 @@ h2.sec-title-w em { color:var(--red); }
   .hc-next { right:12px; }
 }
 @media(max-width:480px){
+  .hero-text { padding-left: 0; }
   .hc-arrow { display:none; }
   .h-badge { margin-bottom:14px; }
   .h-body { margin-bottom:22px; }
@@ -373,7 +375,7 @@ h2.sec-title-w em { color:var(--red); }
 @keyframes tickAnim { to{ transform:translateX(-50%); } }
 
 /* ═══ ABOUT ═══ */
-.about-sec { padding:100px 0; background:#fff; overflow:hidden; position:relative; }
+.about-sec { padding:64px 0; background:#fff; overflow:hidden; position:relative; }
 .about-sec::before {
   content:''; position:absolute; inset:0;
   background-image:linear-gradient(rgba(204,39,0,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(204,39,0,.02) 1px,transparent 1px);
@@ -511,7 +513,7 @@ h2.sec-title-w em { color:var(--red); }
   .exp-item:nth-child(3n){ border-right:none; }
 }
 @media(max-width:600px){
-  .about-sec { padding:72px 0; }
+  .about-sec { padding:40px 0; }
   .ag-left { padding:32px 24px; }
   .expert-strip { grid-template-columns:repeat(2,1fr); }
   .exp-item:nth-child(2n){ border-right:none; }
@@ -520,13 +522,15 @@ h2.sec-title-w em { color:var(--red); }
 
 /* ═══ WHAT WE DO ═══ */
 .wwd-sec {
-  background:#0c0d0f; position:relative; overflow:hidden; padding:100px 0;
+  background:#0c0d0f; position:relative; overflow:hidden; padding:64px 0;
 }
+@keyframes spinCw { from { transform:translate(-50%,-50%) rotate(0deg); } to { transform:translate(-50%,-50%) rotate(360deg); } }
+@keyframes spinCcw { from { transform:translate(-50%,-50%) rotate(360deg); } to { transform:translate(-50%,-50%) rotate(0deg); } }
 .wwd-circles { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none; }
 .wwd-circle  { position:absolute; border-radius:50%; transform:translate(-50%,-50%); top:50%; left:50%; }
-.wwd-c1 { width:420px; height:420px; border:1px solid rgba(204,39,0,.15); }
-.wwd-c2 { width:740px; height:740px; border:1px solid rgba(204,39,0,.07); }
-.wwd-c3 { width:1060px; height:1060px; border:1px solid rgba(204,39,0,.035); }
+.wwd-c1 { width:420px; height:420px; border:1px solid rgba(204,39,0,.15); border-top:2px solid rgba(204,39,0,.6); animation:spinCw 24s linear infinite; }
+.wwd-c2 { width:740px; height:740px; border:1px solid rgba(204,39,0,.07); border-bottom:2px solid rgba(204,39,0,.4); animation:spinCcw 32s linear infinite; }
+.wwd-c3 { width:1060px; height:1060px; border:1px solid rgba(204,39,0,.035); border-left:2px solid rgba(204,39,0,.25); animation:spinCw 45s linear infinite; }
 
 .wwd-wrap {
   position:relative; z-index:2;
@@ -600,7 +604,7 @@ h2.sec-title-w em { color:var(--red); }
 .wwd-4 { bottom:2%; right:1%; width:220px; height:154px; animation:floatY 8s ease-in-out infinite 1.5s; }
 
 @media(max-width:900px){
-  .wwd-sec { padding:64px 0; }
+  .wwd-sec { padding:40px 0; }
   .wwd-circles { display:none; }
   .wwd-wrap { flex-direction:column; gap:36px; min-height:auto; }
   .wwd-center { padding:0; }
@@ -737,7 +741,7 @@ h2.sec-title-w em { color:var(--red); }
 @media(max-width:580px){ .why-left { padding:40px 22px; } }
 
 /* ═══ PROCESS ═══ */
-.process-sec { padding:96px 0; background:var(--navy); position:relative; overflow:hidden; }
+.process-sec { padding:64px 0; background:var(--navy); position:relative; overflow:hidden; }
 .process-sec::before {
   content:''; position:absolute; top:0; left:0; right:0; height:1px;
   background:linear-gradient(90deg,transparent,rgba(204,39,0,.4),transparent);
@@ -836,7 +840,7 @@ h2.sec-title-w em { color:var(--red); }
   filter:brightness(.3);
 }
 .cta-ov { position:absolute; inset:0; background:linear-gradient(108deg,rgba(4,12,28,.96) 0%,rgba(18,81,163,.8) 100%); }
-.cta-inner { position:relative; z-index:2; padding:96px 0; text-align:center; }
+.cta-inner { position:relative; z-index:2; padding:64px 0; text-align:center; }
 .cta-title {
   font-family:'Barlow Condensed',sans-serif;
   font-size:clamp(34px,5vw,68px); font-weight:900; color:#fff;
@@ -847,7 +851,7 @@ h2.sec-title-w em { color:var(--red); }
 .cta-btns { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
 
 /* ═══ FOOTER ═══ */
-footer { background:var(--navy); color:#fff; padding:72px 0 0; }
+footer { background:var(--navy); color:#fff; padding:56px 0 0; }
 .ft-grid {
   display:grid; grid-template-columns:2.2fr 1fr 1fr 1.3fr; gap:48px;
   padding-bottom:52px; border-bottom:1px solid rgba(255,255,255,.06);
@@ -918,7 +922,7 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
 #btt.on { display:flex; }
 
 /* ═══ 3-DIVISION SECTION ═══ */
-.div3-sec { padding:100px 0; background:#fff; position:relative; overflow:hidden; }
+.div3-sec { padding:64px 0; background:#fff; position:relative; overflow:hidden; }
 .div3-sec::before {
   content:''; position:absolute; inset:0;
   background-image:radial-gradient(rgba(204,39,0,.04) 1px,transparent 1px);
@@ -1429,7 +1433,7 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
 </section>
 
 <!-- ═══ WHY KES ═══ -->
-<section class="sec" style="background:var(--off);padding:88px 0" id="why-kes">
+<section class="sec" style="background:var(--off);padding:64px 0" id="why-kes">
   <div class="W">
     <div class="why-wrap rv">
       <div class="why-left">
