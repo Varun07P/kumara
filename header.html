@@ -1,7 +1,15 @@
+<!--
+  header.html — DEV REFERENCE ONLY
+  ══════════════════════════════════════════════════════════════════════
+  This file is NOT linked by any page. It exists as a preview/reference.
+  The live header is injected by site.js into <div id="site-header">.
+  Keep this file in sync with the `headerHTML` constant in site.js.
+  ══════════════════════════════════════════════════════════════════════
+-->
 <style>
 /* ─────────────────────────────────────────────
-   GLOBAL DESIGN TOKENS (Self-contained)
-───────────────────────────────────────────── */
+   GLOBAL DESIGN TOKENS
+   ───────────────────────────────────────────── */
 :root {
   --navy:      #08111f;
   --navy2:     #0c1a30;
@@ -52,19 +60,42 @@
 .nav-item:hover .nav-link .chev { transform: rotate(180deg); }
 
 /* Dropdown */
-.dropdown { position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid var(--border); border-radius: 0 0 10px 10px; box-shadow: 0 16px 48px rgba(8,17,31,.16); min-width: 240px; opacity: 0; visibility: hidden; transform: translateY(-6px); transition: all .22s cubic-bezier(.16, 1, .3, 1); z-index: 500; }
+.dropdown { position: absolute; top: calc(100% + 3px); left: 0; background: #fff; border: 1px solid var(--border); border-radius: 0 12px 12px 12px; box-shadow: 0 24px 64px rgba(8,17,31,.18); opacity: 0; visibility: hidden; transform: translateY(-8px); transition: all .25s cubic-bezier(.16, 1, .3, 1); z-index: 500; }
 .nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: none; }
-.dd-item { display: flex; align-items: center; gap: 10px; padding: 12px 18px; font-size: 13px; color: var(--grey); font-weight: 500; cursor: pointer; border-bottom: 1px solid rgba(221,230,245,.5); transition: all .18s; text-decoration: none; }
-.dd-item:hover { background: var(--off); color: var(--navy); padding-left: 24px; }
-.dd-item .ic { width: 28px; height: 28px; background: var(--off); border-radius: 5px; display: grid; place-items: center; flex-shrink: 0; transition: background .18s; }
-.dd-item:hover .ic { background: var(--blue-alt); }
+.mega-dropdown { position: fixed; left: 50%; top: 94px; transform: translateX(-50%) translateY(-10px); background: #fff; border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 28px 72px rgba(8,17,31,.22); opacity: 0; visibility: hidden; transition: all .28s cubic-bezier(.16,1,.3,1); z-index: 9999; }
+.mega-parent:hover .mega-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
 
-/* Mega */
-.mega { min-width: 540px; padding: 16px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-.mega-hd { font-family: 'Barlow Condensed', sans-serif; font-size: 9.5px; font-weight: 800; color: var(--blue-alt); letter-spacing: .15em; text-transform: uppercase; padding: 8px 6px 5px; grid-column: 1/-1; border-bottom: 1px solid var(--border); margin-bottom: 3px; }
-.mega-item { display: flex; align-items: center; gap: 7px; padding: 7px 10px; font-size: 12.5px; color: var(--grey); border-radius: 5px; cursor: pointer; transition: all .15s; font-weight: 500; text-decoration: none; }
-.mega-item:hover { background: var(--blue-pale); color: var(--blue2); }
-.mega-item::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--blue-alt); flex-shrink: 0; }
+/* Services dropdown */
+.svc-drop { min-width: 620px; padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.svc-drop-hd { grid-column: 1/-1; display:flex; align-items:center; justify-content:space-between; font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 800; color: var(--blue-alt); letter-spacing: .16em; text-transform: uppercase; padding: 0 4px 12px; border-bottom: 2px solid rgba(204,39,0,.1); margin-bottom: 8px; }
+.svc-drop-hd a { font-size:11px; font-weight:700; color:var(--grey); letter-spacing:.06em; text-decoration:none; transition:color .2s; }
+.svc-drop-hd a:hover { color:var(--blue-alt); }
+.svc-item { display: flex; align-items: flex-start; gap: 12px; padding: 11px 14px; border-radius: 10px; cursor: pointer; transition: all .2s; text-decoration: none; }
+.svc-item:hover { background: rgba(204,39,0,.04); transform:translateX(2px); }
+.svc-item .si-ico { width: 38px; height: 38px; background: rgba(204,39,0,.06); border:1px solid rgba(204,39,0,.1); border-radius: 9px; display: grid; place-items: center; flex-shrink: 0; transition: all .2s; }
+.svc-item:hover .si-ico { background: var(--blue-alt); border-color:var(--blue-alt); }
+.svc-item .si-ico svg { width: 17px; height: 17px; stroke: var(--blue-alt); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: stroke .2s; }
+.svc-item:hover .si-ico svg { stroke: #fff; }
+.svc-item .si-text .si-name { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: .02em; line-height: 1.1; margin-bottom: 3px; }
+.svc-item .si-text .si-desc { font-size: 11.5px; color: var(--grey); line-height: 1.45; }
+.svc-item .si-text .si-tag { display:inline-block; margin-top:4px; font-family:'Barlow Condensed',sans-serif; font-size:9px; font-weight:700; color:var(--blue-alt); letter-spacing:.1em; text-transform:uppercase; background:rgba(204,39,0,.06); border:1px solid rgba(204,39,0,.12); padding:2px 8px; border-radius:3px; }
+.svc-item:hover .si-text .si-tag { background:rgba(204,39,0,.12); }
+
+/* Products mega */
+.mega { width: 1120px; max-width: 95vw; padding: 28px 32px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; }
+.mega-col { padding: 0 18px; border-right: 1px solid var(--border); }
+.mega-col:first-child { padding-left: 0; }
+.mega-col:last-child { border-right: none; padding-right: 0; }
+.mega-hd { display:flex; align-items:center; gap:6px; font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 800; color: var(--blue-alt); letter-spacing: .14em; text-transform: uppercase; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 2px solid rgba(204,39,0,.12); white-space: nowrap; }
+.mega-hd .mh-cnt { font-size:9px; font-weight:600; color:var(--grey2); background:var(--off); padding:1px 6px; border-radius:8px; letter-spacing:.05em; }
+.mega-item { display: flex; align-items: center; gap: 8px; padding: 7px 6px; font-size: 12.5px; color: var(--grey); cursor: pointer; transition: all .18s; font-weight: 500; text-decoration: none; border-radius: 6px; line-height: 1.3; margin:0 -6px; }
+.mega-item:hover { color: var(--blue-alt); background:rgba(204,39,0,.04); padding-left: 10px; }
+.mega-item::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--blue-alt); flex-shrink: 0; opacity: .2; transition: opacity .15s, transform .15s; }
+.mega-item:hover::before { opacity: 1; transform:scale(1.3); }
+.mega-drop-footer { grid-column: 1/-1; border-top: 1px solid var(--border); margin-top: 16px; padding-top: 14px; display: flex; align-items: center; justify-content: space-between; }
+.mega-drop-footer span { font-size: 11.5px; color: var(--grey2); }
+.mega-drop-footer a { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; color: var(--blue-alt); text-transform: uppercase; letter-spacing: .06em; text-decoration: none; display: flex; align-items: center; gap: 6px; transition: gap .2s; }
+.mega-drop-footer a:hover { gap: 12px; }
 
 /* CTA + Actions */
 .nav-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
@@ -86,10 +117,18 @@
   .nav-link { height: 56px; width: 100%; padding: 0 28px; justify-content: space-between; font-size: 15px; border-bottom: none; }
   .dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; border-radius: 0; max-height: 0; overflow: hidden; transition: max-height .35s ease; background: var(--off); min-width: 100%; }
   .nav-item.open .dropdown { max-height: 1500px; }
-  .mega { grid-template-columns: 1fr; padding: 8px 28px; min-width: 100%; }
+  .mega-dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; border-radius: 0; max-height: 0; overflow: hidden; transition: max-height .35s ease; background: var(--off); width: 100%; }
+  .nav-item.open .mega-dropdown { max-height: 2000px; }
+  .mega { grid-template-columns: 1fr !important; padding: 8px 28px; min-width: 100%; width: 100% !important; }
+  .mega-col { border-right: none; border-bottom: 1px solid var(--border); padding: 10px 0; }
+  .mega-col:last-child { border-bottom: none; }
+  .mega-drop-footer { flex-direction: column; gap: 8px; text-align: center; }
 }
 </style>
 
+<!-- ══════════════════════════════════════════════
+     TOPBAR
+     ══════════════════════════════════════════════ -->
 <div class="topbar"><div class="W"><div class="tb-inner">
   <div class="tb-left">
     <span class="tb-item">
@@ -112,7 +151,9 @@
   </div>
 </div></div></div>
 
-
+<!-- ══════════════════════════════════════════════
+     NAVBAR
+     ══════════════════════════════════════════════ -->
 <nav class="navbar"><div class="W nav-inner">
   <div class="logo" onclick="location.href='index.html'">
     <div class="logo-mark">
@@ -133,52 +174,114 @@
     <div class="nav-item">
       <a href="aboutus.html" class="nav-link">About</a>
     </div>
-    <div class="nav-item">
+
+    <!-- Products mega-menu -->
+    <div class="nav-item mega-parent">
       <div class="nav-link">Products <svg class="chev" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
-            <div class="dropdown mega">
-        <div class="mega-col">
-          <div class="mega-hd">Distribution Panels</div>
-          <div class="mega-item" onclick="location.href='products.html#lt-panel'">LT Panel</div>
-          <div class="mega-item" onclick="location.href='products.html#mcc-panel'">MCC Panel</div>
-          <div class="mega-item" onclick="location.href='products.html#pcc-panel'">PCC Panel</div>
-          <div class="mega-item" onclick="location.href='products.html#pmcc-panel'">PMCC Panel</div>
-          <div class="mega-item" onclick="location.href='products.html#power-dist'">Power Distribution</div>
-          <div class="mega-item" onclick="location.href='products.html#raw-power'">Raw Power Panel</div>
-        </div>
-        <div class="mega-col">
-          <div class="mega-hd">Control & Sync</div>
-          <div class="mega-item" onclick="location.href='products.html#dg-sync'">DG Synch Panel</div>
-          <div class="mega-item" onclick="location.href='products.html#apfc-panel'">APFC Panel</div>
-          <div class="mega-item" onclick="location.href='products.html#ats-panel'">ATS Panel</div>
-          <div class="mega-item" onclick="location.href='products.html#plc-panel'">PLC Control Panel</div>
-          <div class="mega-item" onclick="location.href='products.html#vfd-panel'">VFD Panel</div>
-          <div class="mega-item" onclick="location.href='products.html#meter-panel'">Meter Panel</div>
-        </div>
-        <div class="mega-col">
-          <div class="mega-hd">Building & HVAC</div>
-          <div class="mega-item" onclick="location.href='products.html#hvac-panel'">HVAC Panel</div>
-          <div class="mega-item" onclick="location.href='products.html#ahu-panel'">AHU Control Panel</div>
-          <div class="mega-item" onclick="location.href='products.html#lift-panel'">Lift Control Panel</div>
-          <div class="mega-item" onclick="location.href='products.html#lighting-panel'">Street/Aviation Light</div>
-        </div>
-        <div class="mega-col">
-          <div class="mega-hd">Infrastructure</div>
-          <div class="mega-item" onclick="location.href='products.html#busduct'">HV & LV Bus Duct</div>
-          <div class="mega-item" onclick="location.href='products.html#cable-tray'">Cable Tray & Raceway</div>
+      <div class="mega-dropdown">
+        <div class="mega">
+          <div class="mega-col">
+            <div class="mega-hd">Distribution <span class="mh-cnt">10</span></div>
+            <a class="mega-item" href="products.html#mv-switchgear">MV Switchgear Panels</a>
+            <a class="mega-item" href="products.html#lv-switchgear">LV Switchgear Panels</a>
+            <a class="mega-item" href="products.html#css">Compact Substation (CSS)</a>
+            <a class="mega-item" href="products.html#transformer">Transformers</a>
+            <a class="mega-item" href="products.html#mcc-panel">MCC Panel</a>
+            <a class="mega-item" href="products.html#pcc-panel">PCC Panel</a>
+            <a class="mega-item" href="products.html#pmcc-panel">PMCC Panel</a>
+            <a class="mega-item" href="products.html#power-dist">Power Distribution</a>
+            <a class="mega-item" href="products.html#raw-power">Raw Power Panel</a>
+            <a class="mega-item" href="products.html#star-delta">Star Delta Panel</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-hd">Control &amp; Sync <span class="mh-cnt">6</span></div>
+            <a class="mega-item" href="products.html#dg-sync">DG Sync Panel</a>
+            <a class="mega-item" href="products.html#apfc-panel">APFC Panel</a>
+            <a class="mega-item" href="products.html#ats-panel">ATS Panel</a>
+            <a class="mega-item" href="products.html#plc-panel">PLC Control Panel</a>
+            <a class="mega-item" href="products.html#vfd-panel">VFD Panel</a>
+            <a class="mega-item" href="products.html#meter-panel">Meter Panel</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-hd">Building &amp; HVAC <span class="mh-cnt">6</span></div>
+            <a class="mega-item" href="products.html#hvac-panel">HVAC Panel</a>
+            <a class="mega-item" href="products.html#ahu-panel">AHU Control Panel</a>
+            <a class="mega-item" href="products.html#lift-panel">Lift Control Panel</a>
+            <a class="mega-item" href="products.html#fire-pump">Fire Pump Panel</a>
+            <a class="mega-item" href="products.html#water-pump">Water Pump Panel</a>
+            <a class="mega-item" href="products.html#kitchen-panel">Kitchen Panel</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-hd">Specialty <span class="mh-cnt">4</span></div>
+            <a class="mega-item" href="products.html#aviation-panel">Aviation Lighting</a>
+            <a class="mega-item" href="products.html#street-panel">Street Light Panel</a>
+            <a class="mega-item" href="products.html#solar-panel">Solar Panel</a>
+            <a class="mega-item" href="products.html#ups-panel">UPS Panel</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-hd">Infrastructure <span class="mh-cnt">2</span></div>
+            <a class="mega-item" href="products.html#busduct">HV &amp; LV Bus Duct</a>
+            <a class="mega-item" href="products.html#cable-tray">Ladder Type Tray</a>
+            <a class="mega-item" href="products.html#cable-tray">Perforated Tray</a>
+            <a class="mega-item" href="products.html#cable-tray">Wire Mesh Tray</a>
+            <a class="mega-item" href="products.html#cable-tray">Cable Raceway</a>
+          </div>
+          <div class="mega-drop-footer">
+            <span>28+ Products &middot; IEC 61439 &middot; IS:8623 &middot; CPRI Certified</span>
+            <a href="products.html">View All Products &rarr;</a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="nav-item">
+
+    <!-- Services mega-menu -->
+    <div class="nav-item mega-parent">
       <div class="nav-link">Services <svg class="chev" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
-            <div class="dropdown">
-        <div class="dd-item" onclick="location.href='services.html#consultancy'"><div class="ic"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div> Engineering Consultancy</div>
-        <div class="dd-item" onclick="location.href='services.html#design'"><div class="ic"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div> Design & MEPF Services</div>
-        <div class="dd-item" onclick="location.href='services.html#works'"><div class="ic"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div> Works Contracts & PM</div>
-        <div class="dd-item" onclick="location.href='services.html#manufacturing'"><div class="ic"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="22 4 12 14.01 9 11.01"/></svg></div> Manufacturing & AMC</div>
+      <div class="mega-dropdown">
+        <div class="mega" style="width:920px;grid-template-columns:1fr 1fr 1fr">
+          <div class="mega-col">
+            <div class="mega-hd">Installation &amp; Civil <span class="mh-cnt">6</span></div>
+            <a class="mega-item" href="services.html#core-services">Turnkey Electrical Projects</a>
+            <a class="mega-item" href="services.html#substation">Sub Station Erection</a>
+            <a class="mega-item" href="services.html#cable-work">HT &amp; LT Cable Work</a>
+            <a class="mega-item" href="services.html#civil-works">Civil Works</a>
+            <a class="mega-item" href="services.html#interior">Interior Furnishing</a>
+            <a class="mega-item" href="services.html#cable-work">MV &amp; LV Busway Systems</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-hd">Maintenance &amp; Servicing <span class="mh-cnt">4</span></div>
+            <a class="mega-item" href="services.html#ht-services">HT Panel Services</a>
+            <a class="mega-item" href="services.html#transformer">Transformer Maintenance</a>
+            <a class="mega-item" href="services.html#servicing">Panel &amp; AC Drive Servicing</a>
+            <a class="mega-item" href="services.html#statutory">Statutory Works (CEIG)</a>
+          </div>
+          <div class="mega-col">
+            <div class="mega-hd">Contracts &amp; Support <span class="mh-cnt">2</span></div>
+            <a class="mega-item" href="services.html#oam">Facility Operation &amp; Maintenance</a>
+            <a class="mega-item" href="services.html#oam">24/7 Breakdown Response</a>
+            <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border)">
+              <div class="mega-hd" style="border-bottom:none;padding-bottom:0;margin-bottom:8px;color:var(--blue)">Consultancy</div>
+              <a class="mega-item" href="consultancy.html" style="color:var(--blue)">MEPF Design Services</a>
+              <a class="mega-item" href="consultancy.html" style="color:var(--blue)">Fire Safety &amp; HVAC</a>
+              <a class="mega-item" href="consultancy.html" style="color:var(--blue)">Structured Cabling</a>
+            </div>
+          </div>
+          <div class="mega-drop-footer">
+            <span>Class I Govt. Licensed Contractor &middot; ISO 9001 &middot; CPRI</span>
+            <a href="services.html">View All Services &rarr;</a>
+          </div>
+        </div>
       </div>
+    </div>
+
+    <div class="nav-item">
+      <a href="consultancy.html" class="nav-link">Consultancy</a>
     </div>
     <div class="nav-item">
       <a href="process.html" class="nav-link">Process</a>
+    </div>
+    <div class="nav-item">
+      <a href="gallery.html" class="nav-link">Gallery</a>
     </div>
     <div class="nav-item">
       <a href="contactus.html" class="nav-link">Contact</a>

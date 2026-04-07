@@ -216,13 +216,13 @@ h2.sec-title-w em { color:var(--red); }
 .h-sub {
   font-family:'Barlow Condensed',sans-serif;
   font-size:clamp(14px, 1.6vw, 19px); font-weight:600;
-  color:rgba(255,255,255,0.6); letter-spacing:0.15em; text-transform:uppercase;
+  color:rgba(255,255,255,0.85); letter-spacing:0.15em; text-transform:uppercase;
   margin-bottom:16px;
 }
 
 .h-body {
   font-size:clamp(14px, 1.4vw, 16.5px); line-height:1.8;
-  color:rgba(255,255,255,0.45); font-weight:300;
+  color:rgba(255,255,255,0.8); font-weight:300;
   max-width:540px; margin-bottom:38px;
 }
 
@@ -367,7 +367,7 @@ h2.sec-title-w em { color:var(--red); }
   display:inline-flex; align-items:center; gap:14px; padding:0 28px;
   font-family:'Barlow Condensed',sans-serif;
   font-size:11.5px; font-weight:700;
-  color:rgba(255,255,255,.28); letter-spacing:.14em; text-transform:uppercase;
+  color:rgba(255,255,255,.65); letter-spacing:.14em; text-transform:uppercase;
 }
 .t-sep { color:var(--red); opacity:.45; font-size:7px; }
 @keyframes tickAnim { to{ transform:translateX(-50%); } }
@@ -416,7 +416,7 @@ h2.sec-title-w em { color:var(--red); }
   text-transform:uppercase; letter-spacing:.02em; margin-bottom:3px;
 }
 .director-title { font-size:11px; color:var(--red); font-weight:600; letter-spacing:.1em; text-transform:uppercase; margin-bottom:8px; }
-.director-bio { font-size:13px; line-height:1.7; color:rgba(255,255,255,.4); font-weight:300; }
+.director-bio { font-size:13px; line-height:1.7; color:rgba(255,255,255,.88); font-weight:300; }
 
 .cert-row { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:36px; }
 .cert-badge {
@@ -424,7 +424,7 @@ h2.sec-title-w em { color:var(--red); }
   background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.09);
   border-radius:100px; padding:6px 12px;
   font-family:'Barlow Condensed',sans-serif;
-  font-size:11px; font-weight:700; color:rgba(255,255,255,.5);
+  font-size:11px; font-weight:700; color:rgba(255,255,255,.85);
   letter-spacing:.06em; text-transform:uppercase; cursor:default; transition:all .22s;
 }
 .cert-badge:hover { border-color:rgba(204,39,0,.5); color:var(--red); background:rgba(204,39,0,.07); }
@@ -432,7 +432,7 @@ h2.sec-title-w em { color:var(--red); }
 
 .ops-sec-title {
   font-family:'Barlow Condensed',sans-serif;
-  font-size:10px; font-weight:700; color:rgba(255,255,255,.22);
+  font-size:10px; font-weight:700; color:rgba(255,255,255,.65);
   letter-spacing:.18em; text-transform:uppercase; margin-bottom:16px;
 }
 .ops-rows { display:flex; flex-direction:column; }
@@ -447,8 +447,8 @@ h2.sec-title-w em { color:var(--red); }
   display:grid; place-items:center; flex-shrink:0;
 }
 .ops-row-ico svg { width:17px; height:17px; fill:none; stroke:var(--red); stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; }
-.ops-row-label { font-size:10px; font-weight:700; color:rgba(255,255,255,.28); letter-spacing:.08em; text-transform:uppercase; margin-bottom:1px; }
-.ops-row-val { font-size:13.5px; font-weight:400; color:rgba(255,255,255,.65); }
+.ops-row-label { font-size:10px; font-weight:700; color:rgba(255,255,255,.7); letter-spacing:.08em; text-transform:uppercase; margin-bottom:1px; }
+.ops-row-val { font-size:13.5px; font-weight:400; color:#fff; }
 
 .ag-right { display:grid; grid-template-rows:1fr auto; }
 .ag-right-img { position:relative; overflow:hidden; min-height:300px; }
@@ -460,7 +460,7 @@ h2.sec-title-w em { color:var(--red); }
 .ag-img-caption {
   position:absolute; bottom:20px; left:24px; right:24px; z-index:2;
   font-family:'Barlow Condensed',sans-serif;
-  font-size:13px; font-weight:600; color:rgba(255,255,255,.65);
+  font-size:13px; font-weight:600; color:rgba(255,255,255,.9);
   letter-spacing:.06em; text-transform:uppercase;
 }
 
@@ -584,7 +584,7 @@ h2.sec-title-w em { color:var(--red); }
   width:6px; height:6px; border-radius:50%; background:var(--red); flex-shrink:0;
 }
 .wwd-item-desc {
-  font-size:11px; color:rgba(255,255,255,.5); line-height:1.5; font-weight:300;
+  font-size:11px; color:rgba(255,255,255,.85); line-height:1.5; font-weight:300;
   display:-webkit-box; -webkit-line-clamp:2; line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
   transition:color .22s;
 }
@@ -696,7 +696,7 @@ h2.sec-title-w em { color:var(--red); }
   padding:3px 10px; border-radius:3px; letter-spacing:.1em; text-transform:uppercase; margin-bottom:8px;
 }
 .svc-name { font-family:'Barlow Condensed',sans-serif; font-size:20px; font-weight:900; color:#fff; margin-bottom:6px; letter-spacing:.02em; text-transform:uppercase; line-height:1.15; }
-.svc-text { font-size:12px; line-height:1.65; color:rgba(255,255,255,.45); font-weight:300; max-height:0; overflow:hidden; transition:max-height .4s ease; }
+.svc-text { font-size:12px; line-height:1.65; color:rgba(255,255,255,.85); font-weight:300; max-height:0; overflow:hidden; transition:max-height .4s ease; }
 .svc-card:hover .svc-text { max-height:90px; }
 .svc-more { display:inline-flex; align-items:center; gap:5px; margin-top:10px; font-family:'Barlow Condensed',sans-serif; font-size:11.5px; font-weight:700; color:var(--red); letter-spacing:.08em; text-transform:uppercase; opacity:0; transition:opacity .3s; }
 .svc-card:hover .svc-more { opacity:1; }
@@ -717,7 +717,7 @@ h2.sec-title-w em { color:var(--red); }
 .why-right::before { content:''; position:absolute; inset:0; background:linear-gradient(270deg,rgba(4,12,28,.1) 0%,rgba(4,12,28,.75) 100%); }
 .why-right-badge { position:absolute; bottom:44px; left:50%; transform:translateX(-50%); text-align:center; white-space:nowrap; }
 .why-right-badge strong { font-family:'Barlow Condensed',sans-serif; font-size:72px; font-weight:900; color:rgba(204,39,0,.16); line-height:1; display:block; letter-spacing:-.04em; }
-.why-right-badge span { font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:700; color:rgba(255,255,255,.25); letter-spacing:.2em; text-transform:uppercase; }
+.why-right-badge span { font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:700; color:rgba(255,255,255,.65); letter-spacing:.2em; text-transform:uppercase; }
 .why-lbl { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
 .why-lbl-bar { width:26px; height:3px; background:var(--red); border-radius:2px; flex-shrink:0; }
 .why-lbl-txt { font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:700; color:var(--red); letter-spacing:.18em; text-transform:uppercase; }
@@ -727,11 +727,11 @@ h2.sec-title-w em { color:var(--red); }
 .why-row { display:flex; align-items:flex-start; gap:18px; padding:18px 0; border-bottom:1px solid rgba(255,255,255,.06); transition:all .25s; cursor:default; }
 .why-row:hover .why-row-ico { color:#fff; background:var(--red); }
 .why-row:hover .why-row-title { color:#fff; }
-.why-row-num { font-family:'Barlow Condensed',sans-serif; font-size:11.5px; font-weight:700; color:rgba(255,255,255,.18); letter-spacing:.06em; min-width:24px; padding-top:4px; }
+.why-row-num { font-family:'Barlow Condensed',sans-serif; font-size:11.5px; font-weight:700; color:rgba(255,255,255,.55); letter-spacing:.06em; min-width:24px; padding-top:4px; }
 .why-row-ico { width:38px; height:38px; background:rgba(255,255,255,.05); border-radius:7px; display:grid; place-items:center; flex-shrink:0; color:var(--red); transition:all .25s; }
 .why-row-ico svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; }
-.why-row-title { font-family:'Barlow Condensed',sans-serif; font-size:16px; font-weight:800; color:rgba(255,255,255,.8); text-transform:uppercase; letter-spacing:.03em; margin-bottom:2px; transition:color .25s; }
-.why-row-desc { font-size:12.5px; line-height:1.62; color:rgba(255,255,255,.3); font-weight:300; }
+.why-row-title { font-family:'Barlow Condensed',sans-serif; font-size:16px; font-weight:800; color:#fff; text-transform:uppercase; letter-spacing:.03em; margin-bottom:2px; transition:color .25s; }
+.why-row-desc { font-size:12.5px; line-height:1.62; color:rgba(255,255,255,.8); font-weight:300; }
 
 @media(max-width:1024px){ .why-wrap { grid-template-columns:1fr; } .why-right { display:none; } .why-left { padding:52px 36px; } }
 @media(max-width:580px){ .why-left { padding:40px 22px; } }
@@ -761,16 +761,16 @@ h2.sec-title-w em { color:var(--red); }
   background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1);
   border-radius:50%; display:flex; align-items:center; justify-content:center;
   font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:800;
-  color:rgba(255,255,255,.35); transition:all .25s;
+  color:rgba(255,255,255,.75); transition:all .25s;
 }
 .pstep:hover .pstep-num { background:var(--red); border-color:var(--red2); color:#fff; box-shadow:0 6px 24px rgba(204,39,0,.38); }
 .pstep h4 {
   font-family:'Barlow Condensed',sans-serif; font-size:12px; font-weight:800;
-  color:rgba(255,255,255,.68); margin-bottom:5px; letter-spacing:.03em; text-transform:uppercase;
+  color:#fff; margin-bottom:5px; letter-spacing:.03em; text-transform:uppercase;
   transition:color .25s;
 }
 .pstep:hover h4 { color:#fff; }
-.pstep p { font-size:10.5px; color:rgba(255,255,255,.28); line-height:1.6; font-weight:300; }
+.pstep p { font-size:10.5px; color:rgba(255,255,255,.75); line-height:1.6; font-weight:300; }
 
 @media(max-width:900px){ .process-track { grid-template-columns:repeat(4,1fr); gap:22px; } .process-track::before { display:none; } }
 @media(max-width:540px){ .process-track { grid-template-columns:repeat(2,1fr); gap:20px; } }
@@ -1189,7 +1189,7 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
         <div class="ops-rows">
           <div class="ops-row">
             <div class="ops-row-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-            <div><div class="ops-row-label">Location</div><div class="ops-row-val">Bengaluru, Karnataka, India</div></div>
+            <div><div class="ops-row-label">Registered Office</div><div class="ops-row-val">No.1538/O, 1F, 12th Cross, 4th Stage, 2nd Block, BTM Layout, Hulimavu, Bengaluru &ndash; 560 076, Karnataka, India</div></div>
           </div>
           <div class="ops-row">
             <div class="ops-row-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
@@ -1275,7 +1275,7 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
     </div>
     <div class="div3-grid">
 
-      <a href="products.html" class="div3-card rv">
+      <a href="manufacturing.html" class="div3-card rv">
         <div class="div3-card-bg"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80" alt="Manufacturing"/></div>
         <div class="div3-card-content">
           <div class="div3-num">01</div>
@@ -1289,11 +1289,11 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
             <span class="div3-tag">APFC</span>
             <span class="div3-tag">PLC</span>
           </div>
-          <div class="div3-link">Explore Products <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div>
+          <div class="div3-link">Explore Manufacturing Excellence <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div>
         </div>
       </a>
 
-      <a href="services.html" class="div3-card rv d1">
+      <a href="workscontract.html" class="div3-card rv d1">
         <div class="div3-card-bg"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80" alt="Works Contract"/></div>
         <div class="div3-card-content">
           <div class="div3-num">02</div>
@@ -1306,11 +1306,11 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
             <span class="div3-tag">AMC</span>
             <span class="div3-tag">Cable Works</span>
           </div>
-          <div class="div3-link">View Services <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div>
+          <div class="div3-link">Industrial Project Execution <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div>
         </div>
       </a>
 
-      <a href="consultancy.html" class="div3-card rv d2">
+      <a href="engineeringcounsultancy.html" class="div3-card rv d2">
         <div class="div3-card-bg"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80" alt="Consultancy"/></div>
         <div class="div3-card-content">
           <div class="div3-num">03</div>
@@ -1323,7 +1323,7 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
             <span class="div3-tag">Fire Safety</span>
             <span class="div3-tag">MEPF</span>
           </div>
-          <div class="div3-link">Learn More <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div>
+          <div class="div3-link">Expert MEPF Solutions <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div>
         </div>
       </a>
 
@@ -1384,71 +1384,44 @@ footer { background:var(--navy); color:#fff; padding:72px 0 0; }
   <div class="W">
     <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;flex-wrap:wrap;gap:20px">
       <div class="rv">
-        <div class="sec-label"><div class="sl-bar"></div><span class="sl-txt">Our Services</span></div>
+        <div class="sec-label"><div class="sl-bar"></div><span class="sl-txt">Our Divisions</span></div>
         <h2 class="sec-title">End-to-End Electrical<br><em>&amp; Allied Services</em></h2>
-        <p class="sec-body" style="max-width:440px">Your single point of accountability — from HT panel maintenance to full turnkey project delivery across Karnataka.</p>
+        <p class="sec-body" style="max-width:440px">Your single point of accountability — from initial consultancy and design to manufacturing and turnkey execution.</p>
       </div>
-      <a href="services.html" class="btn-red rv">All Services <span class="arr">→</span></a>
+      <a href="services.html" class="btn-red rv">All Divisions <span class="arr">→</span></a>
     </div>
-    <div class="svc-grid rv">
-      <div class="svc-card" onclick="location.href='services.html#ht-services'">
-        <img class="svc-img" src="https://nakshatraelectricals.com/wp-content/uploads/2025/05/product-jpeg-1024x768.jpg" alt="HT Panel"/>
+    
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px" class="rv">
+      <div class="svc-card" onclick="location.href='services.html#consultancy'" style="cursor:pointer">
+        <img class="svc-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=85" alt="Consultancy"/>
         <div class="svc-ov"></div>
         <div class="svc-body">
-          <span class="svc-tag">HT Systems</span>
-          <div class="svc-name">HT Panel Services</div>
-          <p class="svc-text">Installation, testing and commissioning of HT systems — VCB, Ring Main Unit, Transformer, with advanced techniques and full flexibility.</p>
-          <div class="svc-more">Learn More →</div>
+          <span class="svc-tag">Design & MEPF</span>
+          <div class="svc-name">Engineering Consultancy</div>
+          <p class="svc-text">Comprehensive electrical, HVAC, structured cabling and overall MEPF engineering design and planning.</p>
+          <div class="svc-more">View Subservices →</div>
         </div>
       </div>
-      <div class="svc-card" onclick="location.href='services.html#transformer'">
-        <img class="svc-img" src="https://www.ukelectric.in/wp-content/uploads/2025/05/transformer-repair-service.jpg" alt="Transformer"/>
+
+      <div class="svc-card" onclick="location.href='services.html#works'" style="cursor:pointer">
+        <img class="svc-img" src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?w=800&q=85" alt="Works Contract"/>
         <div class="svc-ov"></div>
         <div class="svc-body">
-          <span class="svc-tag">Maintenance</span>
-          <div class="svc-name">Transformer Maintenance</div>
-          <p class="svc-text">Complete repairing, servicing and refurbishing — megger tests, oil testing, ratio checks. AMC contracts available.</p>
-          <div class="svc-more">Learn More →</div>
+          <span class="svc-tag">Execution</span>
+          <div class="svc-name">Works Contract</div>
+          <p class="svc-text">Complete Civil, MEPF, statutory execution, and AMC maintenance contracts for your large-scale infrastructure.</p>
+          <div class="svc-more">View Subservices →</div>
         </div>
       </div>
-      <div class="svc-card" onclick="location.href='services.html#cable-work'">
-        <img class="svc-img" src="https://5.imimg.com/data5/SELLER/Default/2024/3/401908020/PI/YL/SS/28954157/cable-installation-services-500x500.jpg" alt="Cable Work"/>
+
+      <div class="svc-card" onclick="location.href='services.html#manufacturing'" style="cursor:pointer">
+        <img class="svc-img" src="https://nakshatraelectricals.com/wp-content/uploads/2025/05/product-jpeg-1024x768.jpg" alt="Manufacturing"/>
         <div class="svc-ov"></div>
         <div class="svc-body">
-          <span class="svc-tag">Installation</span>
-          <div class="svc-name">HT &amp; LT Cable Work</div>
-          <p class="svc-text">Premium copper &amp; aluminium cables — supply, laying, termination and commissioning. Full substation erection capability.</p>
-          <div class="svc-more">Learn More →</div>
-        </div>
-      </div>
-      <div class="svc-card" onclick="location.href='services.html#substation'">
-        <img class="svc-img" src="https://5.imimg.com/data5/SELLER/Default/2023/2/ZI/LF/CV/2887104/765kv-electrical-substation-erection-service.jpeg" alt="Substation"/>
-        <div class="svc-ov"></div>
-        <div class="svc-body">
-          <span class="svc-tag">Sub Station</span>
-          <div class="svc-name">Sub Station Erection</div>
-          <p class="svc-text">Complete erection of HT/LT substations, VCB, Ring Main Unit setup, transformer installation with CEIG clearances.</p>
-          <div class="svc-more">Learn More →</div>
-        </div>
-      </div>
-      <div class="svc-card" onclick="location.href='services.html#servicing'">
-        <img class="svc-img" src="https://www.powercontrolsystems.in/innovtouch/uploads/2021/08/pcs-oem-drive-panels-1.jpg" alt="Panel Servicing"/>
-        <div class="svc-ov"></div>
-        <div class="svc-body">
-          <span class="svc-tag">Servicing</span>
-          <div class="svc-name">Panel &amp; Drive Servicing</div>
-          <p class="svc-text">Preventive and corrective maintenance for all LT/HT panels, VFDs and AC drives — scheduled or emergency basis.</p>
-          <div class="svc-more">Learn More →</div>
-        </div>
-      </div>
-      <div class="svc-card" onclick="location.href='services.html#oam'">
-        <img class="svc-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=85" alt="O&M"/>
-        <div class="svc-ov"></div>
-        <div class="svc-body">
-          <span class="svc-tag">O&amp;M</span>
-          <div class="svc-name">O&amp;M Contracts</div>
-          <p class="svc-text">Long-term Operation &amp; Maintenance contracts for entire electrical infrastructure — SLA-driven, 24/7 emergency response.</p>
-          <div class="svc-more">Learn More →</div>
+          <span class="svc-tag">Fabrication</span>
+          <div class="svc-name">Manufacturing</div>
+          <p class="svc-text">In-house fabrication of Switchgears, MCC, PCC panels, transformers, busducts and full compact substations.</p>
+          <div class="svc-more">View Subservices →</div>
         </div>
       </div>
     </div>

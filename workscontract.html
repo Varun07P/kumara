@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Works Contract & Services — KES Pvt. Ltd.</title>
+<meta name="description" content="KES Works Contract Services — turnkey electrical projects, HT/LT installation, HVAC, civil, facility maintenance and AMC across Karnataka.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:  #08111f;
+    --navy2: #0c1a30;
+    --navy3: #0f2040;
+    --red:   #cc2700;
+    --red2:  #a81e00;
+    --red3:  #8a1800;
+    --off:   #f9f5f4;
+    --white: #ffffff;
+    --grey:  #64748b;
+    --grey2: #94a3b8;
+    --border:#e2eaf5;
+    --text:  #0f1f35;
+    --s1: 0 2px 16px rgba(8,17,31,.07);
+    --s2: 0 8px 36px rgba(8,17,31,.13);
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html  { scroll-behavior: smooth; }
+  body  { font-family: 'Barlow', sans-serif; color: var(--text); background: #fff; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+  a     { text-decoration: none; color: inherit; }
+  img   { display: block; max-width: 100%; object-fit: cover; }
+  ul    { list-style: none; }
+  .W    { max-width: 1300px; margin: 0 auto; padding: 0 52px; }
+
+  .rv  { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+  .rl  { opacity: 0; transform: translateX(-32px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+  .rr  { opacity: 0; transform: translateX(32px);  transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+  .rv.in,.rl.in,.rr.in { opacity: 1; transform: none; }
+  .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.40s}
+
+  /* ── HERO ── */
+  .hero {
+    position: relative; min-height: 82vh; display: flex; align-items: center;
+    background: var(--navy); overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1920&q=80') center/cover no-repeat;
+    opacity: .14;
+  }
+  .hero-grad { position: absolute; inset: 0; background: linear-gradient(110deg, var(--navy) 45%, rgba(8,17,31,.5) 100%); }
+  .hero-ring {
+    position: absolute; right: -80px; top: 50%; transform: translateY(-50%);
+    width: 560px; height: 560px; border-radius: 50%;
+    border: 1px solid rgba(204,39,0,.1); pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 2; width: 100%; padding: 100px 0 70px; }
+
+  .breadcrumb {
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700;
+    color: rgba(255,255,255,.28); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 28px;
+  }
+  .breadcrumb a:hover { color: var(--red); }
+  .breadcrumb .sep { color: rgba(255,255,255,.12); }
+  .breadcrumb .cur { color: var(--red); }
+
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(204,39,0,.13); border: 1px solid rgba(204,39,0,.28);
+    color: var(--red); font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 2px; margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(48px, 6.5vw, 90px); font-weight: 900;
+    color: #fff; text-transform: uppercase; line-height: .92; letter-spacing: -.025em; margin-bottom: 24px;
+  }
+  .hero h1 em { font-style: normal; color: var(--red); }
+  .hero-sub { font-size: clamp(15px, 1.4vw, 18px); color: rgba(255,255,255,.52); max-width: 600px; line-height: 1.72; margin-bottom: 44px; font-weight: 300; }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .btn-red { display: inline-flex; align-items: center; gap: 10px; background: var(--red); color: #fff; padding: 16px 36px; border-radius: 4px; font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; transition: all .25s; box-shadow: 0 6px 28px rgba(204,39,0,.35); }
+  .btn-red:hover { background: var(--red2); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(204,39,0,.45); }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 10px; border: 1.5px solid rgba(255,255,255,.22); color: rgba(255,255,255,.72); padding: 14px 32px; border-radius: 4px; font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; backdrop-filter: blur(8px); transition: all .25s; }
+  .btn-ghost:hover { border-color: rgba(255,255,255,.5); color: #fff; }
+
+  /* ── SHARED ── */
+  .sec     { padding: 80px 0; }
+  .sec-alt { background: var(--off); }
+  .sec-dark{ background: var(--navy); }
+
+  .sec-lbl { display: inline-flex; align-items: center; gap: 10px; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: .18em; margin-bottom: 14px; }
+  .sec-lbl::before { content: ''; width: 28px; height: 2px; background: var(--red); border-radius: 1px; }
+
+  h2.sec-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(32px, 3.8vw, 52px); font-weight: 900; color: var(--navy); letter-spacing: -.01em; text-transform: uppercase; line-height: 1.05; margin-bottom: 16px; }
+  h2.sec-title em  { font-style: normal; color: var(--red); }
+  h2.sec-title.inv { color: #fff; }
+  .sec-body { font-size: 15.5px; line-height: 1.78; color: var(--grey); font-weight: 300; }
+  .sec-header { text-align: center; max-width: 640px; margin: 0 auto 52px; }
+
+  /* ── INTRO SPLIT ── */
+  .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .intro-img { border-radius: 16px; overflow: hidden; position: relative; height: 460px; }
+  .intro-img img { width: 100%; height: 100%; }
+  .intro-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(204,39,0,.1) 0%, transparent 55%); pointer-events: none; }
+  .intro-badge { position: absolute; bottom: 24px; left: 24px; z-index: 2; background: rgba(8,17,31,.92); border: 1px solid rgba(204,39,0,.3); color: #fff; padding: 14px 20px; border-radius: 8px; }
+  .intro-badge .big  { font-family: 'Barlow Condensed', sans-serif; font-size: 30px; font-weight: 900; color: var(--red); line-height: 1; }
+  .intro-badge .smol { font-size: 11px; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .1em; margin-top: 4px; }
+  .intro-lead { font-size: 16px; line-height: 1.78; color: var(--grey); font-weight: 300; margin-bottom: 24px; }
+  .intro-lead strong { color: var(--navy); font-weight: 600; }
+
+  /* ── SERVICE AREAS ── */
+  .svc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .svc-card {
+    display: flex; gap: 20px; align-items: flex-start; padding: 28px;
+    background: #fff; border: 1px solid var(--border); border-radius: 12px; transition: all .3s;
+  }
+  .svc-card:hover { box-shadow: var(--s2); transform: translateY(-4px); border-color: rgba(204,39,0,.2); }
+  .svc-ico {
+    width: 52px; height: 52px; background: rgba(204,39,0,.07); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background .3s;
+  }
+  .svc-card:hover .svc-ico { background: var(--red); }
+  .svc-ico svg { width: 24px; height: 24px; stroke: var(--red); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: stroke .3s; }
+  .svc-card:hover .svc-ico svg { stroke: #fff; }
+  .svc-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; color: var(--navy); text-transform: uppercase; margin-bottom: 8px; }
+  .svc-card p  { font-size: 13.5px; color: var(--grey); line-height: 1.65; }
+  .svc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .svc-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; color: var(--grey); text-transform: uppercase; letter-spacing: .1em; background: var(--off); padding: 3px 9px; border-radius: 2px; border: 1px solid var(--border); }
+
+  /* ── STATUTORY APPROVAL BAND ── */
+  .approvals-band {
+    background: var(--navy); padding: 60px 0;
+  }
+  .approvals-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .approvals-list { display: flex; flex-direction: column; gap: 16px; }
+  .approval-item { display: flex; align-items: center; gap: 14px; }
+  .approval-tick {
+    width: 32px; height: 32px; background: rgba(204,39,0,.15); border: 1px solid rgba(204,39,0,.3);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .approval-tick svg { width: 14px; height: 14px; stroke: var(--red); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .approval-item p { font-size: 14px; color: rgba(255,255,255,.65); line-height: 1.5; }
+  .approvals-text .sec-lbl { color: var(--red); }
+
+  /* ── PROJECT EXECUTION (7 steps) ── */
+  .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .step-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 28px 22px;
+    position: relative; overflow: hidden; transition: all .3s;
+  }
+  .step-card:hover { box-shadow: var(--s2); transform: translateY(-4px); }
+  .step-card::before {
+    content: attr(data-n); position: absolute; right: 12px; top: 12px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 52px; font-weight: 900;
+    color: rgba(8,17,31,.04); line-height: 1; pointer-events: none;
+  }
+  .step-card h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800; color: var(--navy); text-transform: uppercase; margin-bottom: 10px; }
+  .step-card p  { font-size: 13px; color: var(--grey); line-height: 1.6; }
+  .step-badge { display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 800; color: var(--red); text-transform: uppercase; letter-spacing: .15em; background: rgba(204,39,0,.07); padding: 3px 10px; border-radius: 2px; margin-bottom: 14px; }
+
+  /* ── AMC HIGHLIGHT ── */
+  .amc-band {
+    background: linear-gradient(135deg, var(--navy2), var(--navy3));
+    border-radius: 20px; padding: 48px; margin: 0;
+    display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center;
+  }
+  .amc-band h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 32px; font-weight: 900; color: #fff; text-transform: uppercase; margin-bottom: 12px; line-height: 1.1; }
+  .amc-band h3 em { font-style: normal; color: var(--red); }
+  .amc-band p  { font-size: 15px; color: rgba(255,255,255,.55); line-height: 1.72; max-width: 640px; }
+  .amc-features { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .amc-pill { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; color: rgba(255,255,255,.7); text-transform: uppercase; letter-spacing: .08em; border: 1px solid rgba(255,255,255,.12); padding: 6px 14px; border-radius: 20px; }
+  .amc-cta { flex-shrink: 0; }
+
+  /* ── CLIENTS ── */
+  .clients-marquee { overflow: hidden; position: relative; padding: 8px 0; }
+  .clients-marquee::before,.clients-marquee::after { content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; }
+  .clients-marquee::before { left: 0;  background: linear-gradient(90deg, var(--off), transparent); }
+  .clients-marquee::after  { right: 0; background: linear-gradient(270deg, var(--off), transparent); }
+  .clients-track { display: flex; gap: 16px; width: max-content; animation: marquee 30s linear infinite; }
+  @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  .clients-marquee:hover .clients-track { animation-play-state: paused; }
+  .cli-pill { flex-shrink: 0; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 14px 24px; font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; transition: border-color .25s, color .25s; }
+  .cli-pill:hover { border-color: var(--red); color: var(--red); }
+
+  /* ── CTA BAND ── */
+  .cta-band { background: linear-gradient(135deg, var(--red) 0%, var(--red3) 100%); padding: 64px 0; position: relative; overflow: hidden; }
+  .cta-band::before { content: ''; position: absolute; top: -80px; right: -80px; width: 380px; height: 380px; border-radius: 50%; background: rgba(255,255,255,.04); pointer-events: none; }
+  .cta-inner { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 60px; }
+  .cta-inner h2 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(28px, 4vw, 50px); font-weight: 900; color: #fff; text-transform: uppercase; line-height: 1.05; margin-bottom: 12px; }
+  .cta-inner h2 em { font-style: normal; color: rgba(255,255,255,.6); }
+  .cta-inner p { font-size: 16px; color: rgba(255,255,255,.7); max-width: 560px; line-height: 1.68; }
+  .btn-white { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: var(--red); padding: 17px 40px; border-radius: 4px; font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; white-space: nowrap; flex-shrink: 0; transition: all .25s; box-shadow: 0 8px 28px rgba(0,0,0,.2); }
+  .btn-white:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,.3); }
+
+  #btt { position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px; background: var(--red); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .3s, transform .3s; box-shadow: 0 4px 16px rgba(204,39,0,.4); z-index: 999; }
+  #btt.on { opacity: 1; pointer-events: auto; }
+  #btt:hover { transform: translateY(-3px); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1100px) {
+    .svc-grid { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: repeat(2, 1fr); }
+    .intro-grid { grid-template-columns: 1fr; gap: 40px; }
+    .intro-img  { height: 300px; }
+    .approvals-inner { grid-template-columns: 1fr; gap: 40px; }
+    .amc-band { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 900px) {
+    .W { padding: 0 28px; }
+    .cta-inner { flex-direction: column; text-align: center; }
+    .cta-inner p { margin: 0 auto; }
+  }
+  @media (max-width: 640px) {
+    .sec { padding: 52px 0; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .hero-btns  { flex-direction: column; }
+    .amc-band   { padding: 32px 24px; }
+  }
+  @media (max-width: 420px) { .W { padding: 0 20px; } }
+</style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grad"></div>
+  <div class="hero-ring"></div>
+
+  <div class="W hero-inner">
+    <div class="breadcrumb rv">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <a href="services.html">Services</a>
+      <span class="sep">/</span>
+      <span class="cur">Works Contract & Services</span>
+    </div>
+
+    <div class="hero-tag rv d1">⚡ Service 02 of 03</div>
+
+    <h1 class="rv d1">
+      Works Contract<br>
+      &amp; <em>Services</em>
+    </h1>
+
+    <p class="hero-sub rv d2">
+      Turnkey electrical projects, HVAC, civil, fire safety and facility maintenance —
+      executed from site survey to handover by our Class I licensed engineers and
+      experienced on-site workforce across Karnataka.
+    </p>
+
+    <div class="hero-btns rv d3">
+      <a href="contactus.html" class="btn-red">Get a Quote →</a>
+      <a href="#services" class="btn-ghost">Our Services</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ INTRO ═══ -->
+<section class="sec" id="about-service">
+  <div class="W">
+    <div class="intro-grid">
+
+      <div class="rr" style="order:2">
+        <div class="sec-lbl">What We Do</div>
+        <h2 class="sec-title">From Site Survey to<br><em>Keys in Hand</em></h2>
+
+        <p class="intro-lead">
+          Our Works Contract service is where design becomes reality. KES takes full responsibility for
+          <strong>planning, procurement, installation, testing, commissioning,</strong> and statutory approvals —
+          providing clients a genuine turnkey experience with a single point of accountability.
+        </p>
+        <p class="intro-lead">
+          We handle electrical HT/LT installations, HVAC, structured cabling, fire safety, plumbing, civil works,
+          interior furnishing and ongoing facility maintenance. Whether it's a data centre fit-out for a Fortune 500
+          company or a residential apartment block, <strong>our 25+ skilled permanent staff</strong> and network of
+          experienced subcontractors get it done — on time, to code.
+        </p>
+        <p class="intro-lead">
+          All work is executed as a <strong>Govt. Licensed Class I Electrical Contractor</strong> under the Chief
+          Electrical Inspectorate, Government of Karnataka.
+        </p>
+      </div>
+
+      <div class="intro-img rl" style="order:1">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=85" alt="KES Works Contract Execution">
+        <div class="intro-badge">
+          <div class="big">Class I</div>
+          <div class="smol">Licensed Contractor</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ SERVICE AREAS ═══ -->
+<section class="sec sec-alt" id="services">
+  <div class="W">
+    <div class="sec-header">
+      <div class="sec-lbl rv" style="justify-content:center">Scope of Work</div>
+      <h2 class="sec-title rv">Everything We <em>Execute</em></h2>
+      <p class="sec-body rv">A complete works contract capability — one vendor, zero gaps.</p>
+    </div>
+
+    <div class="svc-grid">
+
+      <div class="svc-card rv d1">
+        <div class="svc-ico">
+          <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div>
+          <h3>Electrical Projects (HT & LT)</h3>
+          <p>Full supply, installation, testing and commissioning of 11kV HT panels, transformers, DG sets, LT distribution boards, UPS, sub-main and circuit wiring, lighting, earthing and lightning protection — across all project types.</p>
+          <div class="svc-tags">
+            <span class="svc-tag">HT Installation</span>
+            <span class="svc-tag">LT Panels</span>
+            <span class="svc-tag">DG Sets</span>
+            <span class="svc-tag">UPS Systems</span>
+            <span class="svc-tag">Solar Power</span>
+            <span class="svc-tag">EV Charging</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-card rv d2">
+        <div class="svc-ico">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+        </div>
+        <div>
+          <h3>Structured Network Cabling</h3>
+          <p>End-to-end physical IT infrastructure installation — fiber optic and copper cable laying, termination, rack dressing, and server room build-out for data centres, IT parks, and commercial offices.</p>
+          <div class="svc-tags">
+            <span class="svc-tag">Fiber Optic</span>
+            <span class="svc-tag">Cat6/6A</span>
+            <span class="svc-tag">Server Rooms</span>
+            <span class="svc-tag">Patch Panels</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-card rv d3">
+        <div class="svc-ico">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <h3>Fire Safety & Security Systems</h3>
+          <p>Full active and passive fire protection installation — fire alarm panels, sprinklers, hydrants, gas suppression, CCTV, access control, public address systems, and intrusion alarms — all tested and commissioned.</p>
+          <div class="svc-tags">
+            <span class="svc-tag">Fire Alarms</span>
+            <span class="svc-tag">Sprinklers</span>
+            <span class="svc-tag">CCTV</span>
+            <span class="svc-tag">Access Control</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-card rv d4">
+        <div class="svc-ico">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 0v20M2 12h20"/></svg>
+        </div>
+        <div>
+          <h3>HVAC Installation</h3>
+          <p>Mechanical installation of complete HVAC systems — chillers, AHUs, outdoor units, VRF/VRV systems, GI ducting, refrigerant piping — and final balancing to ensure uniform temperature across every zone.</p>
+          <div class="svc-tags">
+            <span class="svc-tag">Chillers</span>
+            <span class="svc-tag">AHU & Ducting</span>
+            <span class="svc-tag">VRF/VRV</span>
+            <span class="svc-tag">Split Units</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-card rv d1">
+        <div class="svc-ico">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div>
+          <h3>Plumbing / PHE Works</h3>
+          <p>Water supply and drainage installation — sanitary fixtures, hydro-pneumatic pumping systems, sewage treatment, stormwater management and RO/water treatment plants for commercial and industrial sites.</p>
+          <div class="svc-tags">
+            <span class="svc-tag">Sanitary Works</span>
+            <span class="svc-tag">Pump Systems</span>
+            <span class="svc-tag">Water Treatment</span>
+            <span class="svc-tag">Drainage</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="svc-card rv d2">
+        <div class="svc-ico">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div>
+          <h3>Civil & Interior Works</h3>
+          <p>Structural works, RCC framing, façade installation, waterproofing — and interior fit-out including custom carpentry, flooring, false ceilings, partitions and painting to deliver a fully finished space.</p>
+          <div class="svc-tags">
+            <span class="svc-tag">Structural Works</span>
+            <span class="svc-tag">Waterproofing</span>
+            <span class="svc-tag">Interior Fit-out</span>
+            <span class="svc-tag">False Ceilings</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ STATUTORY APPROVALS ═══ -->
+<div class="approvals-band">
+  <div class="W">
+    <div class="approvals-inner">
+      <div class="approvals-text rl">
+        <div class="sec-lbl">Statutory Works</div>
+        <h2 class="sec-title inv">We Handle All Your<br><em>Legal Approvals</em></h2>
+        <p class="sec-body" style="color:rgba(255,255,255,.5); margin-top:12px">
+          One of the most time-consuming parts of any project is obtaining statutory clearances.
+          Our team manages every approval on your behalf — so your project never stalls on paperwork.
+        </p>
+      </div>
+      <div class="approvals-list rr">
+        <div class="approval-item">
+          <div class="approval-tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <p>CEIG (Chief Electrical Inspectorate to Government) Approvals</p>
+        </div>
+        <div class="approval-item">
+          <div class="approval-tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <p>No Objection Certificates (NOC) from relevant authorities</p>
+        </div>
+        <div class="approval-item">
+          <div class="approval-tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <p>Safety Certificates and Service Clearances for power supply</p>
+        </div>
+        <div class="approval-item">
+          <div class="approval-tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <p>Fire Authority approvals for emergency and life safety systems</p>
+        </div>
+        <div class="approval-item">
+          <div class="approval-tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <p>Utility Authority coordination for power, water and sewage connections</p>
+        </div>
+        <div class="approval-item">
+          <div class="approval-tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <p>All IEC, IEEE, IS and local regulatory compliance documentation</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ PROJECT EXECUTION PROCESS ═══ -->
+<section class="sec sec-alt">
+  <div class="W">
+    <div class="sec-header">
+      <div class="sec-lbl rv" style="justify-content:center">How We Work</div>
+      <h2 class="sec-title rv">Our Project Execution <em>Process</em></h2>
+      <p class="sec-body rv">A rigorous 7-step methodology that keeps quality, safety and schedule in check on every site.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card rv d1" data-n="01">
+        <div class="step-badge">Step 01</div>
+        <h4>Feasibility & Planning</h4>
+        <p>Site survey, existing infrastructure assessment, load estimation, risk analysis and a complete Project Execution Plan with BOQ within 2 working days.</p>
+      </div>
+      <div class="step-card rv d2" data-n="02">
+        <div class="step-badge">Step 02</div>
+        <h4>Design Management</h4>
+        <p>SLDs, lighting layouts, power distribution drawings, BIM coordination and authority submission packages — all clash-detected and approval-ready.</p>
+      </div>
+      <div class="step-card rv d3" data-n="03">
+        <div class="step-badge">Step 03</div>
+        <h4>Statutory Approvals</h4>
+        <p>CEIG, NOC, fire authority and utility authority approvals — fully managed by our licensed team. You focus on your project; we handle the paperwork.</p>
+      </div>
+      <div class="step-card rv d4" data-n="04">
+        <div class="step-badge">Step 04</div>
+        <h4>Procurement</h4>
+        <p>Technical submittals, vendor evaluation, Factory Acceptance Tests (FAT) for panels and transformers, and tight logistics management to avoid site delays.</p>
+      </div>
+      <div class="step-card rv d1" data-n="05">
+        <div class="step-badge">Step 05</div>
+        <h4>Construction & Installation</h4>
+        <p>On-site mobilisation, supervised installation of all electrical, HVAC, fire, plumbing and civil systems — with daily progress reports (DPR) issued to the client.</p>
+      </div>
+      <div class="step-card rv d2" data-n="06">
+        <div class="step-badge">Step 06</div>
+        <h4>Testing & Commissioning</h4>
+        <p>Insulation tests, earth resistance verification, functional panel tests, load trials and full performance validation — with written commissioning reports for every system.</p>
+      </div>
+      <div class="step-card rv d3" data-n="07">
+        <div class="step-badge">Step 07</div>
+        <h4>Handover & Documentation</h4>
+        <p>As-built drawings, O&M manuals, warranty documents, staff training records and a complete digital + hardcopy handover dossier. Project closed cleanly.</p>
+      </div>
+      <div class="step-card rv d4" data-n="↺">
+        <div class="step-badge">Ongoing</div>
+        <h4>AMC & Breakdown Support</h4>
+        <p>After handover, we stay with you — with Annual Maintenance Contracts (preventive) and 24/7 breakdown response to minimise costly downtime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ AMC HIGHLIGHT ═══ -->
+<section class="sec">
+  <div class="W">
+    <div class="amc-band rv">
+      <div>
+        <h3>Annual Maintenance Contracts<br><em>&amp; Breakdown Works</em></h3>
+        <p>
+          Long-term reliability depends on regular, expert maintenance. Our AMC service covers scheduled preventive
+          visits — filter cleaning, oil checks, safety trigger tests — and reactive 24/7 emergency response for
+          sudden failures. We also stock critical spares to minimise your downtime.
+        </p>
+        <div class="amc-features">
+          <span class="amc-pill">Preventive Maintenance</span>
+          <span class="amc-pill">24/7 Emergency Response</span>
+          <span class="amc-pill">Spares Management</span>
+          <span class="amc-pill">Panel Maintenance</span>
+          <span class="amc-pill">Transformer Servicing</span>
+          <span class="amc-pill">AC Drive Repair</span>
+          <span class="amc-pill">MV Panel Service</span>
+          <span class="amc-pill">Facility Management</span>
+        </div>
+      </div>
+      <div class="amc-cta">
+        <a href="contactus.html" class="btn-red">Get AMC Quote →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ CLIENTS MARQUEE ═══ -->
+<section class="sec sec-alt">
+  <div class="W">
+    <div class="sec-header">
+      <div class="sec-lbl rv" style="justify-content:center">Trusted By</div>
+      <h2 class="sec-title rv">Clients Who Trust <em>Our Work</em></h2>
+      <p class="sec-body rv">Leading organisations across technology, manufacturing and infrastructure in Karnataka.</p>
+    </div>
+  </div>
+  <div class="clients-marquee">
+    <div class="clients-track">
+      <div class="cli-pill">Wipro Limited</div>
+      <div class="cli-pill">Wipro Enterprises</div>
+      <div class="cli-pill">JSW Group</div>
+      <div class="cli-pill">Wells Fargo</div>
+      <div class="cli-pill">Azim Premji University</div>
+      <div class="cli-pill">CBRE</div>
+      <div class="cli-pill">MTR Foods</div>
+      <div class="cli-pill">Krypton India Solutions</div>
+      <div class="cli-pill">LSI India R&D</div>
+      <div class="cli-pill">Raman Thermosets</div>
+      <div class="cli-pill">South India Agencies</div>
+      <div class="cli-pill">Perfect Day India</div>
+      <div class="cli-pill">Raun Infra</div>
+      <div class="cli-pill">IMG Eco-Build</div>
+      <div class="cli-pill">Sparsh Hospital</div>
+      <div class="cli-pill">Dr. Pack India</div>
+      <!-- duplicate -->
+      <div class="cli-pill">Wipro Limited</div>
+      <div class="cli-pill">Wipro Enterprises</div>
+      <div class="cli-pill">JSW Group</div>
+      <div class="cli-pill">Wells Fargo</div>
+      <div class="cli-pill">Azim Premji University</div>
+      <div class="cli-pill">CBRE</div>
+      <div class="cli-pill">MTR Foods</div>
+      <div class="cli-pill">Krypton India Solutions</div>
+      <div class="cli-pill">LSI India R&D</div>
+      <div class="cli-pill">Raman Thermosets</div>
+      <div class="cli-pill">South India Agencies</div>
+      <div class="cli-pill">Perfect Day India</div>
+      <div class="cli-pill">Raun Infra</div>
+      <div class="cli-pill">IMG Eco-Build</div>
+      <div class="cli-pill">Sparsh Hospital</div>
+      <div class="cli-pill">Dr. Pack India</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ CTA ═══ -->
+<div class="cta-band">
+  <div class="W cta-inner">
+    <div class="rv">
+      <h2>Ready to Start Your <em>Project?</em></h2>
+      <p>Tell us about your project. Our licensed engineers will review your requirement and get back within 2 working days with a detailed BOQ and timeline.</p>
+    </div>
+    <a href="contactus.html" class="btn-white rv d1">Request a Quote →</a>
+  </div>
+</div>
+
+<div id="site-footer"></div>
+<button id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.rv,.rl,.rr').forEach(el => observer.observe(el));
+
+  const btt = document.getElementById('btt');
+  window.addEventListener('scroll', () => btt.classList.toggle('on', window.scrollY > 500));
+</script>
+<script src="site.js"></script>
+</body>
+</html>

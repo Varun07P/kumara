@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engineering Consultancy Services — KES Pvt. Ltd.</title>
+<meta name="description" content="KES Engineering Consultancy Services — MEPF design, electrical consultancy, fire safety, HVAC, structured cabling and PHE for commercial, industrial and residential projects in Karnataka.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:  #08111f;
+    --navy2: #0c1a30;
+    --navy3: #0f2040;
+    --red:   #cc2700;
+    --red2:  #a81e00;
+    --red3:  #8a1800;
+    --off:   #f9f5f4;
+    --white: #ffffff;
+    --grey:  #64748b;
+    --grey2: #94a3b8;
+    --border:#e2eaf5;
+    --text:  #0f1f35;
+    --s1: 0 2px 16px rgba(8,17,31,.07);
+    --s2: 0 8px 36px rgba(8,17,31,.13);
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html  { scroll-behavior: smooth; }
+  body  { font-family: 'Barlow', sans-serif; color: var(--text); background: #fff; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+  a     { text-decoration: none; color: inherit; }
+  img   { display: block; max-width: 100%; object-fit: cover; }
+  ul    { list-style: none; }
+  .W    { max-width: 1300px; margin: 0 auto; padding: 0 52px; }
+
+  /* Reveal */
+  .rv  { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+  .rl  { opacity: 0; transform: translateX(-32px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+  .rr  { opacity: 0; transform: translateX(32px);  transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+  .rv.in,.rl.in,.rr.in { opacity: 1; transform: none; }
+  .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.40s}
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 82vh;
+    display: flex;
+    align-items: center;
+    background: var(--navy);
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('https://images.unsplash.com/photo-1581093458791-9d58bf2c2c22?w=1920&q=80') center/cover no-repeat;
+    opacity: .14;
+  }
+  .hero-grad {
+    position: absolute; inset: 0;
+    background: linear-gradient(110deg, var(--navy) 45%, rgba(8,17,31,.5) 100%);
+  }
+  .hero-ring {
+    position: absolute; right: -80px; top: 50%; transform: translateY(-50%);
+    width: 560px; height: 560px; border-radius: 50%;
+    border: 1px solid rgba(204,39,0,.1); pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 2; width: 100%; padding: 100px 0 70px; }
+
+  .breadcrumb {
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700;
+    color: rgba(255,255,255,.28); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 28px;
+  }
+  .breadcrumb a:hover { color: var(--red); }
+  .breadcrumb .sep { color: rgba(255,255,255,.12); }
+  .breadcrumb .cur { color: var(--red); }
+
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(204,39,0,.13); border: 1px solid rgba(204,39,0,.28);
+    color: var(--red); font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 2px; margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(48px, 6.5vw, 90px); font-weight: 900;
+    color: #fff; text-transform: uppercase; line-height: .92; letter-spacing: -.025em; margin-bottom: 24px;
+  }
+  .hero h1 em { font-style: normal; color: var(--red); }
+  .hero-sub {
+    font-size: clamp(15px, 1.4vw, 18px); color: rgba(255,255,255,.52);
+    max-width: 600px; line-height: 1.72; margin-bottom: 44px; font-weight: 300;
+  }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .btn-red {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--red); color: #fff; padding: 16px 36px; border-radius: 4px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: .07em;
+    transition: all .25s; box-shadow: 0 6px 28px rgba(204,39,0,.35);
+  }
+  .btn-red:hover { background: var(--red2); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(204,39,0,.45); }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 1.5px solid rgba(255,255,255,.22); color: rgba(255,255,255,.72); padding: 14px 32px;
+    border-radius: 4px; font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+    backdrop-filter: blur(8px); transition: all .25s;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,.5); color: #fff; }
+
+  /* ── SHARED SECTION STYLES ── */
+  .sec     { padding: 80px 0; }
+  .sec-alt { background: var(--off); }
+  .sec-dark{ background: var(--navy); }
+
+  .sec-lbl {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700;
+    color: var(--red); text-transform: uppercase; letter-spacing: .18em; margin-bottom: 14px;
+  }
+  .sec-lbl::before { content: ''; width: 28px; height: 2px; background: var(--red); border-radius: 1px; }
+
+  h2.sec-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(32px, 3.8vw, 52px); font-weight: 900; color: var(--navy);
+    letter-spacing: -.01em; text-transform: uppercase; line-height: 1.05; margin-bottom: 16px;
+  }
+  h2.sec-title em  { font-style: normal; color: var(--red); }
+  h2.sec-title.inv { color: #fff; }
+  .sec-body { font-size: 15.5px; line-height: 1.78; color: var(--grey); font-weight: 300; }
+  .sec-header { text-align: center; max-width: 640px; margin: 0 auto 52px; }
+
+  /* ── INTRO SPLIT ── */
+  .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .intro-img { border-radius: 16px; overflow: hidden; position: relative; height: 460px; }
+  .intro-img img { width: 100%; height: 100%; }
+  .intro-img::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(204,39,0,.1) 0%, transparent 55%); pointer-events: none;
+  }
+  .intro-badge {
+    position: absolute; bottom: 24px; left: 24px; z-index: 2;
+    background: rgba(8,17,31,.92); border: 1px solid rgba(204,39,0,.3);
+    color: #fff; padding: 14px 20px; border-radius: 8px;
+  }
+  .intro-badge .big  { font-family: 'Barlow Condensed', sans-serif; font-size: 30px; font-weight: 900; color: var(--red); line-height: 1; }
+  .intro-badge .smol { font-size: 11px; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .1em; margin-top: 4px; }
+  .intro-lead { font-size: 16px; line-height: 1.78; color: var(--grey); font-weight: 300; margin-bottom: 24px; }
+  .intro-lead strong { color: var(--navy); font-weight: 600; }
+
+  /* ── PILLARS (3 cards) ── */
+  .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .pillar-card {
+    background: var(--navy); border-radius: 14px; padding: 36px 28px;
+    position: relative; overflow: hidden; transition: transform .3s, box-shadow .3s;
+  }
+  .pillar-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(8,17,31,.3); }
+  .pillar-card::before {
+    content: attr(data-n); position: absolute; right: -8px; top: -10px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 80px; font-weight: 900;
+    color: rgba(255,255,255,.05); line-height: 1; pointer-events: none;
+  }
+  .pillar-ico {
+    width: 52px; height: 52px; background: rgba(204,39,0,.15); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
+    border: 1px solid rgba(204,39,0,.25);
+  }
+  .pillar-ico svg { width: 24px; height: 24px; stroke: var(--red); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .pillar-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 800; color: #fff; text-transform: uppercase; margin-bottom: 12px; line-height: 1.1; }
+  .pillar-card p  { font-size: 14px; color: rgba(255,255,255,.52); line-height: 1.7; }
+
+  /* ── DISCIPLINES GRID ── */
+  .disc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .disc-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 12px;
+    padding: 28px 24px; transition: all .3s; position: relative; overflow: hidden;
+  }
+  .disc-card::after {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 4px; background: var(--red); transform: scaleY(0); transform-origin: bottom;
+    transition: transform .35s;
+  }
+  .disc-card:hover { box-shadow: var(--s2); transform: translateY(-4px); border-color: rgba(204,39,0,.15); }
+  .disc-card:hover::after { transform: scaleY(1); }
+  .disc-tag {
+    display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 10px;
+    font-weight: 800; color: var(--red); text-transform: uppercase; letter-spacing: .15em;
+    background: rgba(204,39,0,.07); padding: 3px 10px; border-radius: 2px; margin-bottom: 14px;
+  }
+  .disc-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; color: var(--navy); text-transform: uppercase; margin-bottom: 10px; }
+  .disc-card p  { font-size: 13.5px; color: var(--grey); line-height: 1.65; }
+  .disc-list { margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
+  .disc-list li { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--grey2); }
+  .disc-list li::before { content: '—'; color: var(--red); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+  /* ── PROJECT SECTORS ── */
+  .sectors-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .sector-card {
+    background: var(--navy2); border: 1px solid rgba(255,255,255,.06); border-radius: 10px;
+    padding: 24px 20px; text-align: center; transition: all .3s;
+  }
+  .sector-card:hover { background: var(--navy3); transform: translateY(-3px); border-color: rgba(204,39,0,.2); }
+  .sector-ico {
+    width: 44px; height: 44px; background: rgba(204,39,0,.15); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;
+  }
+  .sector-ico svg { width: 20px; height: 20px; stroke: var(--red); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .sector-card p { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.5; }
+
+  /* ── PROCESS STEPS ── */
+  .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+  .process-grid::before {
+    content: ''; position: absolute; top: 36px; left: 10%; right: 10%;
+    height: 1px; background: linear-gradient(90deg, transparent, var(--border) 20%, var(--border) 80%, transparent);
+    pointer-events: none;
+  }
+  .process-step { text-align: center; padding: 0 20px; }
+  .step-num {
+    width: 72px; height: 72px; border-radius: 50%; background: #fff;
+    border: 2px solid var(--border); display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px; font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px; font-weight: 900; color: var(--red); position: relative; z-index: 1;
+    transition: all .3s;
+  }
+  .process-step:hover .step-num { background: var(--red); color: #fff; border-color: var(--red); }
+  .process-step h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800; color: var(--navy); text-transform: uppercase; margin-bottom: 8px; }
+  .process-step p  { font-size: 13px; color: var(--grey); line-height: 1.6; }
+
+  /* ── WHY CHOOSE ── */
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .why-list { display: flex; flex-direction: column; gap: 0; }
+  .why-item {
+    display: flex; gap: 18px; padding: 22px 0; border-bottom: 1px solid var(--border);
+    transition: padding .3s;
+  }
+  .why-item:last-child { border-bottom: none; }
+  .why-item:hover { padding-left: 8px; }
+  .why-num {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 32px; font-weight: 900;
+    color: rgba(204,39,0,.18); line-height: 1; flex-shrink: 0; width: 44px; margin-top: 2px;
+    transition: color .3s;
+  }
+  .why-item:hover .why-num { color: var(--red); }
+  .why-item h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 800; color: var(--navy); text-transform: uppercase; margin-bottom: 5px; }
+  .why-item p  { font-size: 13.5px; color: var(--grey); line-height: 1.6; }
+  .why-img { border-radius: 16px; overflow: hidden; height: 500px; }
+  .why-img img { width: 100%; height: 100%; }
+
+  /* ── CTA BAND ── */
+  .cta-band {
+    background: linear-gradient(135deg, var(--red) 0%, var(--red3) 100%);
+    padding: 64px 0; position: relative; overflow: hidden;
+  }
+  .cta-band::before {
+    content: ''; position: absolute; top: -80px; right: -80px;
+    width: 380px; height: 380px; border-radius: 50%; background: rgba(255,255,255,.04);
+    pointer-events: none;
+  }
+  .cta-inner { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 60px; }
+  .cta-inner h2 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(28px, 4vw, 50px); font-weight: 900; color: #fff; text-transform: uppercase; line-height: 1.05; margin-bottom: 12px; }
+  .cta-inner h2 em { font-style: normal; color: rgba(255,255,255,.6); }
+  .cta-inner p { font-size: 16px; color: rgba(255,255,255,.7); max-width: 560px; line-height: 1.68; }
+  .btn-white {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #fff; color: var(--red); padding: 17px 40px; border-radius: 4px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: .07em; white-space: nowrap; flex-shrink: 0;
+    transition: all .25s; box-shadow: 0 8px 28px rgba(0,0,0,.2);
+  }
+  .btn-white:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,.3); }
+
+  /* ── BACK TO TOP ── */
+  #btt {
+    position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px;
+    background: var(--red); color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; cursor: pointer; opacity: 0; pointer-events: none;
+    transition: opacity .3s, transform .3s; box-shadow: 0 4px 16px rgba(204,39,0,.4); z-index: 999;
+  }
+  #btt.on { opacity: 1; pointer-events: auto; }
+  #btt:hover { transform: translateY(-3px); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1100px) {
+    .pillars-grid  { grid-template-columns: 1fr 1fr; }
+    .disc-grid     { grid-template-columns: 1fr 1fr; }
+    .sectors-grid  { grid-template-columns: repeat(2, 1fr); }
+    .intro-grid,
+    .why-grid      { grid-template-columns: 1fr; gap: 40px; }
+    .intro-img,
+    .why-img       { height: 300px; }
+    .process-grid  { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .process-grid::before { display: none; }
+  }
+  @media (max-width: 900px) {
+    .W { padding: 0 28px; }
+    .cta-inner { flex-direction: column; text-align: center; }
+    .cta-inner p { margin: 0 auto; }
+  }
+  @media (max-width: 640px) {
+    .sec { padding: 52px 0; }
+    .pillars-grid  { grid-template-columns: 1fr; }
+    .disc-grid     { grid-template-columns: 1fr; }
+    .sectors-grid  { grid-template-columns: 1fr 1fr; }
+    .process-grid  { grid-template-columns: 1fr; }
+    .hero-btns     { flex-direction: column; }
+  }
+  @media (max-width: 420px) {
+    .W { padding: 0 20px; }
+    .sectors-grid  { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grad"></div>
+  <div class="hero-ring"></div>
+
+  <div class="W hero-inner">
+    <div class="breadcrumb rv">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <a href="services.html">Services</a>
+      <span class="sep">/</span>
+      <span class="cur">Engineering Consultancy</span>
+    </div>
+
+    <div class="hero-tag rv d1">⚡ Service 01 of 03</div>
+
+    <h1 class="rv d1">
+      Engineering<br>
+      <em>Consultancy</em><br>
+      Services
+    </h1>
+
+    <p class="hero-sub rv d2">
+      End-to-end MEPF advisory and design for commercial, industrial and residential projects.
+      From feasibility and SLD drawings to statutory approvals — we are your single point of
+      accountability from concept to commissioning.
+    </p>
+
+    <div class="hero-btns rv d3">
+      <a href="contactus.html" class="btn-red">Request a Consultation →</a>
+      <a href="#disciplines" class="btn-ghost">Our Disciplines</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ INTRO ═══ -->
+<section class="sec" id="about-service">
+  <div class="W">
+    <div class="intro-grid">
+
+      <div class="intro-img rl">
+        <img src="https://images.unsplash.com/photo-1581093458791-9d58bf2c2c22?w=900&q=85" alt="KES Engineering Consultancy">
+        <div class="intro-badge">
+          <div class="big">MEPF</div>
+          <div class="smol">Integrated Consultancy</div>
+        </div>
+      </div>
+
+      <div class="rr">
+        <div class="sec-lbl">What We Do</div>
+        <h2 class="sec-title">The Brains Behind<br>Your <em>Infrastructure</em></h2>
+
+        <p class="intro-lead">
+          Engineering Consultancy is the high-level advisory and design phase of any project.
+          At KES, our consultants act as the <strong>technical backbone</strong> of your project — ensuring
+          that every pipe, wire, and duct is designed to co-exist efficiently before a single bolt is tightened.
+        </p>
+        <p class="intro-lead">
+          Our approach is defined by the <strong>"Three Pillars of KES"</strong>: Healthy Systems (sustainable
+          and efficient design), Uncompromising Quality (global standards compliance), and Time-Bound Delivery
+          (respecting the high-pressure deadlines of modern construction).
+        </p>
+        <p class="intro-lead">
+          We offer true <strong>MEPF integration</strong> — Mechanical, Electrical, Plumbing, and Fire Safety
+          — providing a single point of accountability across your entire project lifecycle.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ THREE PILLARS ═══ -->
+<section class="sec sec-alt">
+  <div class="W">
+    <div class="sec-header">
+      <div class="sec-lbl rv" style="justify-content:center">Our Approach</div>
+      <h2 class="sec-title rv">Three Pillars of <em>KES Consultancy</em></h2>
+      <p class="sec-body rv">Every project we advise on is built on these three non-negotiable commitments.</p>
+    </div>
+
+    <div class="pillars-grid">
+      <div class="pillar-card rv d1" data-n="01">
+        <div class="pillar-ico">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Healthy Systems</h3>
+        <p>Sustainable, energy-conscious engineering that reduces long-term operational costs. We integrate renewable energy, water-saving technologies, and energy-efficient designs from the ground up.</p>
+      </div>
+
+      <div class="pillar-card rv d2" data-n="02">
+        <div class="pillar-ico">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+        </div>
+        <h3>Uncompromising Quality</h3>
+        <p>Strict adherence to IEC, IS, NEC, IEEE, and local regulatory codes. Every design is robust, compliant, and future-proof — whether for a government project or a private development.</p>
+      </div>
+
+      <div class="pillar-card rv d3" data-n="03">
+        <div class="pillar-ico">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Time-Bound Delivery</h3>
+        <p>We understand construction deadlines are non-negotiable. Our project planning and BIM coordination processes ensure design deliverables are always on schedule and clash-free.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ DISCIPLINES ═══ -->
+<section class="sec" id="disciplines">
+  <div class="W">
+    <div class="sec-header">
+      <div class="sec-lbl rv" style="justify-content:center">What We Cover</div>
+      <h2 class="sec-title rv">Our Consultancy <em>Disciplines</em></h2>
+      <p class="sec-body rv">From electrical design to HVAC and fire safety — we handle every MEP discipline under one roof.</p>
+    </div>
+
+    <div class="disc-grid">
+
+      <div class="disc-card rv d1">
+        <div class="disc-tag">Electrical</div>
+        <h3>Electrical Design</h3>
+        <p>Complete power distribution design — from the utility entry point down to individual circuits, with full SLD preparation and protection coordination.</p>
+        <ul class="disc-list">
+          <li>LV & HV system design, SLDs, panel schedules</li>
+          <li>Emergency power: DG, UPS, Solar integration</li>
+          <li>Lighting design and lux level calculations</li>
+          <li>Earthing and lightning protection systems</li>
+        </ul>
+      </div>
+
+      <div class="disc-card rv d2">
+        <div class="disc-tag">Data & Comms</div>
+        <h3>Structured Network Cabling</h3>
+        <p>The nervous system of your building — high-performance data infrastructure design for connectivity, scalability, and future-readiness.</p>
+        <ul class="disc-list">
+          <li>Fiber optic and Cat6/6A cabling layouts</li>
+          <li>Server room and data centre design</li>
+          <li>Wi-Fi coverage and telecom infrastructure</li>
+          <li>Rack, patch panel and cable management design</li>
+        </ul>
+      </div>
+
+      <div class="disc-card rv d3">
+        <div class="disc-tag">Life Safety</div>
+        <h3>Fire Safety & Security</h3>
+        <p>Integrated life-safety design that meets all statutory requirements and protects people, assets and operations around the clock.</p>
+        <ul class="disc-list">
+          <li>Fire detection and alarm system design</li>
+          <li>Sprinkler, hydrant and gas suppression systems</li>
+          <li>CCTV, access control and intrusion alarms</li>
+          <li>Public address and emergency communication</li>
+        </ul>
+      </div>
+
+      <div class="disc-card rv d1">
+        <div class="disc-tag">HVAC</div>
+        <h3>Heating, Ventilation & AC</h3>
+        <p>Thermal comfort and indoor air quality design — from small split units to large chilled water plant systems, designed for efficiency and occupant wellness.</p>
+        <ul class="disc-list">
+          <li>Chilled water, VRF/VRV and split system design</li>
+          <li>Air handling unit (AHU) and ducting layouts</li>
+          <li>Ventilation and air quality engineering</li>
+          <li>Energy-efficient climate control strategies</li>
+        </ul>
+      </div>
+
+      <div class="disc-card rv d2">
+        <div class="disc-tag">Plumbing</div>
+        <h3>Public Health Engineering</h3>
+        <p>Comprehensive water supply, sanitation, and drainage design that meets IS standards and keeps your facility hygienic and compliant.</p>
+        <ul class="disc-list">
+          <li>Potable water supply and distribution design</li>
+          <li>Sewage, drainage and stormwater management</li>
+          <li>Hydro-pneumatic pump system design</li>
+          <li>RO and water treatment plant integration</li>
+        </ul>
+      </div>
+
+      <div class="disc-card rv d3">
+        <div class="disc-tag">Integrated</div>
+        <h3>MEPF Integration</h3>
+        <p>The holistic approach — ensuring all mechanical, electrical, plumbing and fire systems work together as a single synchronized machine with zero clashes.</p>
+        <ul class="disc-list">
+          <li>BIM 3D modelling and clash detection</li>
+          <li>MEP coordination with structural and architectural</li>
+          <li>Space optimisation within ceiling and wall cavities</li>
+          <li>Single-point accountability for all MEP disciplines</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ PROJECT SECTORS ═══ -->
+<section class="sec sec-dark">
+  <div class="W">
+    <div class="sec-header">
+      <div class="sec-lbl rv" style="justify-content:center">Project Footprint</div>
+      <h2 class="sec-title inv rv">Sectors We <em>Design For</em></h2>
+      <p class="sec-body rv" style="color:rgba(255,255,255,.45)">Our consultancy expertise spans a wide range of public and private sector project types.</p>
+    </div>
+
+    <div class="sectors-grid">
+      <div class="sector-card rv d1">
+        <div class="sector-ico">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <p>University Campuses, Schools & Colleges</p>
+      </div>
+      <div class="sector-card rv d2">
+        <div class="sector-ico">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+        </div>
+        <p>IT Parks & Office Buildings</p>
+      </div>
+      <div class="sector-card rv d3">
+        <div class="sector-ico">
+          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <p>Multi-Specialty Hospitals & Healthcare</p>
+      </div>
+      <div class="sector-card rv d4">
+        <div class="sector-ico">
+          <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+        </div>
+        <p>Shopping Malls, Showrooms & Commercial</p>
+      </div>
+      <div class="sector-card rv d1">
+        <div class="sector-ico">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <p>Industrial Factories & Manufacturing Plants</p>
+      </div>
+      <div class="sector-card rv d2">
+        <div class="sector-ico">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+        </div>
+        <p>Residential Apartments & Townships</p>
+      </div>
+      <div class="sector-card rv d3">
+        <div class="sector-ico">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        </div>
+        <p>Hotels, Resorts & Hospitality</p>
+      </div>
+      <div class="sector-card rv d4">
+        <div class="sector-ico">
+          <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <p>Data Centres & Mission-Critical Facilities</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ HOW WE WORK ═══ -->
+<section class="sec sec-alt">
+  <div class="W">
+    <div class="sec-header">
+      <div class="sec-lbl rv" style="justify-content:center">Our Process</div>
+      <h2 class="sec-title rv">How a KES Consultancy <em>Engagement Works</em></h2>
+      <p class="sec-body rv">A transparent, structured process from your first call to the final handover dossier.</p>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-step rv d1">
+        <div class="step-num">01</div>
+        <h4>Feasibility & Brief</h4>
+        <p>Site survey, load study, budget evaluation, and a complete Project Execution Plan prepared in under 2 working days.</p>
+      </div>
+      <div class="process-step rv d2">
+        <div class="step-num">02</div>
+        <h4>Design & Drawings</h4>
+        <p>SLDs, lighting layouts, BOQ, specifications and BIM-coordinated MEP drawings — clash-detected and ready for approval.</p>
+      </div>
+      <div class="process-step rv d3">
+        <div class="step-num">03</div>
+        <h4>Statutory Approvals</h4>
+        <p>We manage CEIG, NOC, fire authority and utility authority approvals — keeping your project legally compliant from day one.</p>
+      </div>
+      <div class="process-step rv d4">
+        <div class="step-num">04</div>
+        <h4>Handover & O&M</h4>
+        <p>As-built drawings, O&M manuals, training records and a complete hardcopy + digital handover dossier for your team.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ WHY CHOOSE KES ═══ -->
+<section class="sec">
+  <div class="W">
+    <div class="why-grid">
+
+      <div class="rl">
+        <div class="sec-lbl">Why KES</div>
+        <h2 class="sec-title">Why Clients Choose <em>Our Consultancy</em></h2>
+        <p class="sec-body" style="margin-bottom:32px">Our reputation is anchored in two non-negotiables: safety and standards. We deliver excellence on time, every time.</p>
+
+        <div class="why-list">
+          <div class="why-item">
+            <div class="why-num">01</div>
+            <div>
+              <h4>Licensed & Certified Engineers</h4>
+              <p>Govt. Licensed Class I Electrical Contractors with ISO 9001:2015 certification. Our MD holds a B.E. in Electrical & Electronics with 24+ years in the field.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">02</div>
+            <div>
+              <h4>Strong Compliance Culture</h4>
+              <p>We strictly follow IEC, IS, NEC and IEEE standards on every project. Statutory approvals — CEIG, NOC, safety certificates — are handled end-to-end by our team.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">03</div>
+            <div>
+              <h4>Proven Track Record</h4>
+              <p>Trusted by Wipro, JSW, Azim Premji University, Wells Fargo, CBRE and 18+ major clients across Karnataka. Delivering since 2011.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-num">04</div>
+            <div>
+              <h4>Transparent Reporting</h4>
+              <p>Detailed feasibility reports within 2 working days. Clients get DPR/WPR updates, NCR logs, and complete documentation at every stage.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-img rr">
+        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=900&q=85" alt="KES Engineering Team">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ CTA ═══ -->
+<div class="cta-band">
+  <div class="W cta-inner">
+    <div class="rv">
+      <h2>Need an Engineering <em>Consultant?</em></h2>
+      <p>Get a detailed feasibility report and consultation from our licensed engineers within 2 working days — no obligation.</p>
+    </div>
+    <a href="contactus.html" class="btn-white rv d1">Request a Consultation →</a>
+  </div>
+</div>
+
+<div id="site-footer"></div>
+<button id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.rv,.rl,.rr').forEach(el => observer.observe(el));
+
+  const btt = document.getElementById('btt');
+  window.addEventListener('scroll', () => btt.classList.toggle('on', window.scrollY > 500));
+</script>
+<script src="site.js"></script>
+</body>
+</html>

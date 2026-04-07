@@ -283,28 +283,6 @@
 </div></nav>`;
   const footerHTML = `<style>
 /* ─────────────────────────────────────────────
-   GLOBAL DESIGN TOKENS (Self-contained)
-───────────────────────────────────────────── */
-:root {
-  --navy:      #08111f;
-  --navy2:     #0c1a30;
-  --navy3:     #0f2040;
-  --blue:      #1251a3;
-  --blue2:     #1565c8;
-  --blue3:     #1a7ae8;
-  --blue-pale: #fbeae6;
-  --blue-alt:  #cc2700;
-  --blue-alt2: #a81e00;
-  --blue-alt3: #8a1800;
-  --white:     #ffffff;
-  --off:       #f9f5f4;
-  --grey:      #64748b;
-  --grey2:     #94a3b8;
-  --border:    #dde6f5;
-  --text:      #0f1f35;
-}
-
-/* ─────────────────────────────────────────────
    FOOTER
    ───────────────────────────────────────────── */
 footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
