@@ -344,9 +344,7 @@
         </div>
       </div>
     </div>
-    <div class="nav-item">
-      <a href="consultancy.html" class="nav-link">Consultancy</a>
-    </div>
+
     <div class="nav-item">
       <a href="process.html" class="nav-link">Process</a>
     </div>
