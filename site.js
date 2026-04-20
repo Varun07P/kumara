@@ -38,45 +38,33 @@
 
 /* ─────────────────────────────────────────────
    NAVBAR
-   ───────────────────────────────────────────── */
-.navbar { border-bottom: 3px solid var(--blue-alt); background: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 24px rgba(8,17,31,.1); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+───────────────────────────────────────────── */
+.navbar { border-bottom: 3px solid var(--blue-alt); background: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 24px rgba(8,17,31,.1); width: 100%; }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; position: relative; z-index: 10; }
 .logo { display: flex; align-items: center; gap: 13px; cursor: pointer; flex-shrink: 0; text-decoration: none; }
-.logo-mark { width: 46px; height: 46px; background: var(--navy); border-radius: 7px; display: grid; place-items: center; flex-shrink: 0; }
-.logo-mark svg { width: 22px; height: 22px; }
-.logo-text .name { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 16px; color: var(--navy); letter-spacing: .01em; line-height: 1.2; }
+.logo-mark { width: 44px; height: 44px; background: var(--navy); border-radius: 7px; display: grid; place-items: center; flex-shrink: 0; }
+.logo-mark svg { width: 20px; height: 20px; }
+.logo-text .name { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 15px; color: var(--navy); letter-spacing: .01em; line-height: 1.2; transition: all .2s; }
 .logo-text .sub { font-size: 10px; color: var(--blue-alt); font-weight: 500; letter-spacing: .03em; margin-top: 1px; }
 
 /* Desktop Nav */
 .nav-menu { display: flex; align-items: center; height: 68px; gap: 0; }
 .nav-item { position: relative; height: 100%; display: flex; align-items: center; }
-.nav-link { display: flex; align-items: center; gap: 5px; height: 68px; padding: 0 14px; font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; color: var(--text); letter-spacing: .03em; text-transform: uppercase; cursor: pointer; border-bottom: 3px solid transparent; transition: color .2s, border-color .2s; white-space: nowrap; }
+.nav-link { display: flex; align-items: center; gap: 5px; height: 68px; padding: 0 14px; font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; color: var(--text); letter-spacing: .03em; text-transform: uppercase; cursor: pointer; border-bottom: 3px solid transparent; transition: color .2s, border-color .2s; white-space: nowrap; text-decoration: none; }
 .nav-link:hover, .nav-item.active .nav-link { color: var(--blue-alt); border-bottom-color: var(--blue-alt); }
 .nav-link .chev { width: 11px; height: 11px; fill: currentColor; transition: transform .22s; flex-shrink: 0; }
-.nav-item:hover .nav-link .chev { transform: rotate(180deg); }
+.nav-item:hover .nav-link .chev, .nav-item.open .nav-link .chev { transform: rotate(180deg); }
 
-/* Dropdown */
+/* Dropdown (Desktop Default) */
 .dropdown { position: absolute; top: calc(100% + 3px); left: 0; background: #fff; border: 1px solid var(--border); border-radius: 0 12px 12px 12px; box-shadow: 0 24px 64px rgba(8,17,31,.18); opacity: 0; visibility: hidden; transform: translateY(-8px); transition: all .25s cubic-bezier(.16, 1, .3, 1); z-index: 500; }
 .nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: none; }
-.mega-dropdown { position: fixed; left: 50%; top: 94px; transform: translateX(-50%) translateY(-10px); background: #fff; border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 28px 72px rgba(8,17,31,.22); opacity: 0; visibility: hidden; transition: all .28s cubic-bezier(.16,1,.3,1); z-index: 9999; }
+.mega-dropdown { position: fixed; left: 50%; transform: translateX(-50%) translateY(-10px); background: #fff; border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 28px 72px rgba(8,17,31,.22); opacity: 0; visibility: hidden; transition: all .28s cubic-bezier(.16,1,.3,1); z-index: 9999; }
 .mega-parent:hover .mega-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-/* Services dropdown */
-.svc-drop { min-width: 620px; padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-.svc-drop-hd { grid-column: 1/-1; display:flex; align-items:center; justify-content:space-between; font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 800; color: var(--blue-alt); letter-spacing: .16em; text-transform: uppercase; padding: 0 4px 12px; border-bottom: 2px solid rgba(204,39,0,.1); margin-bottom: 8px; }
-.svc-drop-hd a { font-size:11px; font-weight:700; color:var(--grey); letter-spacing:.06em; text-decoration:none; transition:color .2s; }
-.svc-drop-hd a:hover { color:var(--blue-alt); }
-.svc-item { display: flex; align-items: flex-start; gap: 12px; padding: 11px 14px; border-radius: 10px; cursor: pointer; transition: all .2s; text-decoration: none; }
-.svc-item:hover { background: rgba(204,39,0,.04); transform:translateX(2px); }
-.svc-item .si-ico { width: 38px; height: 38px; background: rgba(204,39,0,.06); border:1px solid rgba(204,39,0,.1); border-radius: 9px; display: grid; place-items: center; flex-shrink: 0; transition: all .2s; }
-.svc-item:hover .si-ico { background: var(--blue-alt); border-color:var(--blue-alt); }
-.svc-item .si-ico svg { width: 17px; height: 17px; stroke: var(--blue-alt); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: stroke .2s; }
-.svc-item:hover .si-ico svg { stroke: #fff; }
-.svc-item .si-text .si-name { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: .02em; line-height: 1.1; margin-bottom: 3px; }
-.svc-item .si-text .si-desc { font-size: 11.5px; color: var(--grey); line-height: 1.45; }
-.svc-item .si-text .si-tag { display:inline-block; margin-top:4px; font-family:'Barlow Condensed',sans-serif; font-size:9px; font-weight:700; color:var(--blue-alt); letter-spacing:.1em; text-transform:uppercase; background:rgba(204,39,0,.06); border:1px solid rgba(204,39,0,.12); padding:2px 8px; border-radius:3px; }
-.svc-item:hover .si-text .si-tag { background:rgba(204,39,0,.12); }
-/* Products mega */
-.mega { width: 1120px; max-width: 95vw; padding: 28px 32px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; }
+
+/* Mega Content Classes */
+.mega-products { width: 1120px; max-width: 94vw; padding: 28px 32px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; }
+.mega-services { width: 720px; max-width: 94vw; padding: 24px; display: block; }
+
 .mega-col { padding: 0 18px; border-right: 1px solid var(--border); }
 .mega-col:first-child { padding-left: 0; }
 .mega-col:last-child { border-right: none; padding-right: 0; }
@@ -86,48 +74,138 @@
 .mega-item:hover { color: var(--blue-alt); background:rgba(204,39,0,.04); padding-left: 10px; }
 .mega-item::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--blue-alt); flex-shrink: 0; opacity: .2; transition: opacity .15s, transform .15s; }
 .mega-item:hover::before { opacity: 1; transform:scale(1.3); }
-.mega-drop-footer { grid-column: 1/-1; border-top: 1px solid var(--border); margin-top: 16px; padding-top: 14px; display: flex; align-items: center; justify-content: space-between; }
-.mega-drop-footer span { font-size: 11.5px; color: var(--grey2); }
-.mega-drop-footer a { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; color: var(--blue-alt); text-transform: uppercase; letter-spacing: .06em; text-decoration: none; display: flex; align-items: center; gap: 6px; transition: gap .2s; }
-.mega-drop-footer a:hover { gap: 12px; }
 
-/* CTA + Actions */
+/* Services Specific (Restore Desktop) */
+.svc-grid-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 10px 0; }
+.svc-drop-hd { display:flex; align-items:center; justify-content:space-between; font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 800; color: var(--blue-alt); letter-spacing: .16em; text-transform: uppercase; padding: 0 4px 12px; border-bottom: 2px solid rgba(204,39,0,.1); margin-bottom: 8px; }
+.svc-item { display: flex; align-items: flex-start; gap: 12px; padding: 11px 14px; border-radius: 10px; cursor: pointer; transition: all .2s; text-decoration: none; }
+.svc-item:hover { background: rgba(204,39,0,.04); transform:translateX(2px); }
+.svc-item .si-ico { width: 38px; height: 38px; background: rgba(204,39,0,.06); border:1px solid rgba(204,39,0,.1); border-radius: 9px; display: grid; place-items: center; flex-shrink: 0; transition: all .2s; }
+.svc-item:hover .si-ico { background: var(--blue-alt); border-color:var(--blue-alt); }
+.svc-item .si-ico svg { width: 17px; height: 17px; stroke: var(--blue-alt); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: stroke .2s; }
+.svc-item:hover .si-ico svg { stroke: #fff; }
+.svc-item .si-text .si-name { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: .02em; line-height: 1.1; margin-bottom: 3px; }
+.svc-item .si-text .si-desc { font-size: 11.5px; color: var(--grey); line-height: 1.45; }
+.svc-item .si-text .si-tag { display:inline-block; margin-top:4px; font-family:'Barlow Condensed',sans-serif; font-size: 9px; font-weight: 700; color: var(--blue-alt); letter-spacing: .1em; text-transform: uppercase; background: rgba(204,39,0,.06); border: 1px solid rgba(204,39,0,.12); padding: 2px 8px; border-radius: 3px; }
+
+.mega-products .mega-drop-footer { grid-column: 1 / -1; }
+.mega-drop-footer { margin-top: 24px; padding: 18px 24px; background: rgba(204,39,0,.03); border-radius: 10px; display: flex; align-items: center; justify-content: space-between; border: 1px solid rgba(204,39,0,.08); }
+.mega-drop-footer span { font-size: 12.5px; color: var(--grey); font-weight: 500; }
+.mega-drop-footer a { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; color: #fff; background: var(--blue-alt); text-transform: uppercase; letter-spacing: .08em; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 6px; transition: all .25s; }
+.mega-drop-footer a:hover { background: var(--blue-alt2); transform: translateY(-1px); gap: 12px; box-shadow: 0 4px 12px rgba(204,39,0,.15); }
+
+/* Actions — z-index keeps hamburger/close visible above mobile menu */
 .nav-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
 .nav-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--blue-alt); color: #fff; padding: 10px 22px; border-radius: 3px; font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; transition: all .22s; text-decoration: none; }
 .nav-cta:hover { background: var(--blue-alt2); transform: translateY(-1px); }
 
-/* Hamburger / Mobile */
-.menu-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; cursor: pointer; background: none; border: none; padding: 4px; flex-shrink: 0; }
-.menu-toggle .bar { display: block; width: 22px; height: 2px; background: var(--navy); border-radius: 2px; transition: all .3s ease; }
-.nav-open .menu-toggle .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav-open .menu-toggle .bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.nav-open .menu-toggle .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+/* Hamburger / Mobile Toggle */
+.menu-toggle { display: none; align-items: center; justify-content: center; width: 44px; height: 44px; cursor: pointer; background: none; border: none; padding: 0; flex-shrink: 0; }
+.menu-toggle .bar-box { width: 24px; height: 18px; position: relative; }
+.menu-toggle .bar { position: absolute; left: 0; top: 50%; display: block; width: 24px; height: 2.5px; background: var(--navy); border-radius: 2px; margin-top: -1px; transition: all .32s cubic-bezier(0.4, 0, 0.2, 1); }
+.menu-toggle .bar:nth-child(1) { transform: translateY(-8px); }
+.menu-toggle .bar:nth-child(2) { opacity: 1; }
+.menu-toggle .bar:nth-child(3) { transform: translateY(8px); }
 
-@media (max-width: 900px) {
-  .tb-left .tb-item:first-child { display: none; }
-  .tb-right { display: none; }
+.nav-open .menu-toggle .bar:nth-child(1) { transform: translateY(0) rotate(45deg); background: var(--blue-alt); }
+.nav-open .menu-toggle .bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-open .menu-toggle .bar:nth-child(3) { transform: translateY(0) rotate(-45deg); background: var(--blue-alt); }
+
+/* ── Intermediate: nav items get tight on medium desktops ── */
+@media (max-width: 1200px) {
+  .nav-link { padding: 0 10px; font-size: 13px; }
+  .mega-products { width: 960px; }
+  .mega-services { width: 640px; }
+  .mega-col { padding: 0 12px; }
 }
+
+/* ── Tablet & Mobile: hamburger menu ── */
+@media (max-width: 1024px) {
+  .menu-toggle { display: flex; }
+
+  .nav-menu {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    /* top is set dynamically by JS — fallback: */
+    top: 71px;
+    height: auto;
+    background: #fff;
+    flex-direction: column;
+    align-items: stretch;
+    transform: translateX(100%);
+    transition: transform .42s cubic-bezier(.16,1,.3,1);
+    z-index: 5;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: -4px 0 24px rgba(8,17,31,.12);
+    pointer-events: none;
+    padding: 0;
+  }
+  .navbar.nav-open .nav-menu { transform: translateX(0); pointer-events: auto; }
+
+  /* Dim overlay behind menu — z-index:1 keeps it BELOW nav-inner(10) and nav-menu(5) */
+  .navbar.nav-open::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(8,17,31,.35);
+    z-index: 1;
+  }
+
+  .nav-item { width: 100%; height: auto; border-bottom: 1px solid var(--border); display: block; }
+  .nav-link { height: 56px; width: 100%; padding: 0 24px; justify-content: space-between; font-size: 15px; border-bottom: none; }
+
+  /* Dropdowns: static accordion, expand on .open */
+  .dropdown, .mega-dropdown {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .4s ease;
+    background: var(--off);
+    width: 100%;
+    margin-top: 0;
+  }
+  .nav-item.open .dropdown,
+  .nav-item.open .mega-dropdown {
+    max-height: 5000px;
+    overflow-y: auto;
+  }
+
+  /* Single-column mega content */
+  .mega-products { width: 100% !important; max-width: 100% !important; padding: 12px 20px !important; display: flex !important; flex-direction: column !important; }
+  .mega-services { width: 100% !important; max-width: 100% !important; padding: 12px 20px !important; display: block !important; }
+  .svc-grid-inner { display: flex !important; flex-direction: column !important; gap: 8px; width: 100%; }
+  .mega-col { border-right: none; border-bottom: 1px solid var(--border); padding: 14px 0; width: 100%; }
+  .mega-col:first-child { padding-left: 0; }
+  .mega-col:last-child { border-bottom: none; padding-right: 0; }
+  .mega-drop-footer { flex-direction: column; gap: 14px; text-align: center; padding: 18px 16px; margin: 12px 0 0 0; }
+  .mega-hd { font-size: 11px; }
+  .mega-item { font-size: 13px; padding: 9px 6px; }
+  .svc-item { padding: 10px 8px; }
+}
+
+/* ── Small screens: hide topbar, shrink CTA ── */
 @media (max-width: 600px) {
   .topbar { display: none; }
   .logo-text .sub { display: none; }
-  .nav-cta { padding: 8px 14px; font-size: 13px; }
+  .nav-cta { padding: 9px 14px; }
+  .nav-actions { gap: 8px; }
+}
+@media (max-width: 480px) {
+  .logo-text .name { font-size: 13px; }
+  .nav-cta span:not(.arr) { display: none; }
+  .nav-cta { padding: 9px 12px; }
 }
 
-@media (max-width: 1024px) {
-  .menu-toggle { display: flex; }
-  .nav-menu { position: fixed; top: 71px; left: 0; right: 0; bottom: 0; background: #fff; flex-direction: column; align-items: stretch; height: auto; transform: translateX(100%); transition: transform .38s cubic-bezier(.16,1,.3,1); z-index: 999; overflow-y: auto; box-shadow: -4px 0 24px rgba(8,17,31,.12); }
-  .navbar.nav-open .nav-menu { transform: translateX(0); }
-  .nav-item { width: 100%; height: auto; border-bottom: 1px solid var(--border); display: block; }
-  .nav-link { height: 56px; width: 100%; padding: 0 28px; justify-content: space-between; font-size: 15px; border-bottom: none; }
-  .dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; border-radius: 0; max-height: 0; overflow: hidden; transition: max-height .35s ease; background: var(--off); min-width: 100%; }
-  .nav-item.open .dropdown { max-height: 1500px; }
-  .mega-dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; border-radius: 0; max-height: 0; overflow: hidden; transition: max-height .35s ease; background: var(--off); width: 100%; }
-  .nav-item.open .mega-dropdown { max-height: 2000px; }
-  .mega { grid-template-columns: 1fr !important; padding: 8px 28px; min-width: 100%; width: 100% !important; }
-  .mega-col { border-right: none; border-bottom: 1px solid var(--border); padding: 10px 0; }
-  .mega-col:last-child { border-bottom: none; }
-  .mega-drop-footer { flex-direction: column; gap: 8px; text-align: center; }
-}
+
 </style>
 
 <div class="topbar"><div class="W"><div class="tb-inner">
@@ -176,7 +254,7 @@
     <div class="nav-item mega-parent">
       <div class="nav-link">Products <svg class="chev" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
       <div class="mega-dropdown">
-        <div class="mega">
+        <div class="mega-products">
           <div class="mega-col">
             <div class="mega-hd">Distribution <span class="mh-cnt">10</span></div>
             <a class="mega-item" href="products.html#mv-switchgear">MV Switchgear Panels</a>
@@ -233,33 +311,42 @@
     <div class="nav-item mega-parent">
       <div class="nav-link">Services <svg class="chev" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
       <div class="mega-dropdown">
-        <div class="mega" style="width:920px;grid-template-columns:1fr 1fr 1fr">
-          <div class="mega-col">
-            <div class="mega-hd">Installation &amp; Civil <span class="mh-cnt">6</span></div>
-            <a class="mega-item" href="services.html#core-services">Turnkey Electrical Projects</a>
-            <a class="mega-item" href="services.html#substation">Sub Station Erection</a>
-            <a class="mega-item" href="services.html#cable-work">HT &amp; LT Cable Work</a>
-            <a class="mega-item" href="services.html#civil-works">Civil Works</a>
-            <a class="mega-item" href="services.html#interior">Interior Furnishing</a>
-            <a class="mega-item" href="services.html#cable-work">MV &amp; LV Busway Systems</a>
+        <div class="mega-services">
+          <div class="svc-drop-hd">
+            <span>Three Verticals, One Powerhouse</span>
+            <span style="color:var(--grey2); font-size:9px; letter-spacing:0">Our Business Divisions</span>
           </div>
-          <div class="mega-col">
-            <div class="mega-hd">Maintenance &amp; Servicing <span class="mh-cnt">4</span></div>
-            <a class="mega-item" href="services.html#ht-services">HT Panel Services</a>
-            <a class="mega-item" href="services.html#transformer">Transformer Maintenance</a>
-            <a class="mega-item" href="services.html#servicing">Panel &amp; AC Drive Servicing</a>
-            <a class="mega-item" href="services.html#statutory">Statutory Works (CEIG)</a>
-          </div>
-          <div class="mega-col">
-            <div class="mega-hd">Contracts &amp; Support <span class="mh-cnt">2</span></div>
-            <a class="mega-item" href="services.html#oam">Facility Operation &amp; Maintenance</a>
-            <a class="mega-item" href="services.html#oam">24/7 Breakdown Response</a>
-            <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--border)">
-              <div class="mega-hd" style="border-bottom:none;padding-bottom:0;margin-bottom:8px;color:var(--blue)">Consultancy</div>
-              <a class="mega-item" href="consultancy.html" style="color:var(--blue)">MEPF Design Services</a>
-              <a class="mega-item" href="consultancy.html" style="color:var(--blue)">Fire Safety &amp; HVAC</a>
-              <a class="mega-item" href="consultancy.html" style="color:var(--blue)">Structured Cabling</a>
-            </div>
+          <div class="svc-grid-inner">
+            <a href="manufacturing.html" class="svc-item">
+              <div class="si-ico">
+                <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              </div>
+              <div class="si-text">
+                <div class="si-name">Manufacturing</div>
+                <div class="si-desc">Panel Manufacturing & Products</div>
+                <div class="si-tag">Vertical 01</div>
+              </div>
+            </a>
+            <a href="workscontract.html" class="svc-item">
+              <div class="si-ico">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <div class="si-text">
+                <div class="si-name">Works Contract</div>
+                <div class="si-desc">Installation, Services & AMC</div>
+                <div class="si-tag">Vertical 02</div>
+              </div>
+            </a>
+            <a href="engineeringcounsultancy.html" class="svc-item">
+              <div class="si-ico">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 11 12 15 8 11"/><polyline points="16 5 12 9 8 5"/><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/></svg>
+              </div>
+              <div class="si-text">
+                <div class="si-name">Consultancy</div>
+                <div class="si-desc">Engineering & MEPF Design</div>
+                <div class="si-tag">Vertical 03</div>
+              </div>
+            </a>
           </div>
           <div class="mega-drop-footer">
             <span>Class I Govt. Licensed Contractor &middot; ISO 9001 &middot; CPRI</span>
@@ -282,14 +369,16 @@
     </div>
   </div>
 
-  <div class="nav-actions">
-    <a href="contactus.html" class="nav-cta">Get a Quote <span class="arr">&#8594;</span></a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
-  </div>
+    <div class="nav-actions">
+      <a href="contactus.html" class="nav-cta"><span>Get a Quote</span> <span class="arr">&#8594;</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+        <div class="bar-box">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </button>
+    </div>
 </div></nav>`;
   const footerHTML = `<style>
 /* ─────────────────────────────────────────────
@@ -434,52 +523,107 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
   }
 
   function initNav() {
-    const navbar = document.querySelector('.navbar');
-    const toggle = document.getElementById('menuToggle');
-    const navItems = document.querySelectorAll('.nav-item');
-    if (!navbar) return;
+    var navbar = document.querySelector('.navbar');
+    var toggle = document.getElementById('menuToggle');
+    var navMenu = document.getElementById('navMenu');
+    var navItems = document.querySelectorAll('.nav-item');
+    if (!navbar || !navMenu) return;
 
-    toggle && toggle.addEventListener('click', function () {
-      navbar.classList.toggle('nav-open');
-      document.body.style.overflow = navbar.classList.contains('nav-open') ? 'hidden' : '';
-    });
+    /* ── Position helpers ── */
+    function getNavbarBottom() {
+      return navbar.getBoundingClientRect().bottom;
+    }
 
-    navItems.forEach(function (item) {
-      const link = item.querySelector(':scope > .nav-link');
-      const dropdown = item.querySelector(':scope > .dropdown') || item.querySelector(':scope > .mega-dropdown');
-      if (!link || !dropdown) return;
-      link.addEventListener('click', function (e) {
-        if (window.innerWidth > 1024) return;
-        e.preventDefault();
-        const opening = !item.classList.contains('open');
-        navItems.forEach(function (i) { i.classList.remove('open'); });
-        if (opening) item.classList.add('open');
+    function positionMobileMenu() {
+      if (window.innerWidth > 1024) return;
+      navMenu.style.top = getNavbarBottom() + 'px';
+    }
+
+    function positionMegaDropdowns() {
+      if (window.innerWidth <= 1024) return;
+      var top = getNavbarBottom() + 'px';
+      document.querySelectorAll('.mega-dropdown').forEach(function (dd) {
+        dd.style.top = top;
       });
-    });
+    }
 
-    document.querySelectorAll('.nav-menu a.nav-link, .mega-item, .dd-item').forEach(function (el) {
-      el.addEventListener('click', function () {
-        navbar.classList.remove('nav-open');
-        document.body.style.overflow = '';
-        navItems.forEach(function (i) { i.classList.remove('open'); });
+    function clearPositions() {
+      navMenu.style.top = '';
+      document.querySelectorAll('.mega-dropdown').forEach(function (dd) {
+        dd.style.top = '';
       });
-    });
+    }
 
-    window.addEventListener('resize', function () {
-      if (window.innerWidth > 1024) {
-        navbar.classList.remove('nav-open');
-        document.body.style.overflow = '';
-        navItems.forEach(function (i) { i.classList.remove('open'); });
-      }
-    });
+    function closeMenu() {
+      navbar.classList.remove('nav-open');
+      document.body.style.overflow = '';
+      navItems.forEach(function (i) { i.classList.remove('open'); });
+    }
 
-    var btt = document.getElementById('btt');
+    /* ── Initial positioning ── */
+    positionMegaDropdowns();
+    positionMobileMenu();
+
+    /* ── Scroll: reposition dropdowns ── */
     window.addEventListener('scroll', function () {
+      positionMegaDropdowns();
+      positionMobileMenu();
+
+      var btt = document.getElementById('btt');
       navbar.style.boxShadow = scrollY > 10
         ? '0 2px 28px rgba(8,17,31,.14)'
         : '0 2px 24px rgba(8,17,31,.10)';
       if (btt) btt.classList.toggle('on', scrollY > 400);
     }, { passive: true });
+
+    /* ── Hamburger toggle ── */
+    toggle && toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpening = !navbar.classList.contains('nav-open');
+      if (isOpening) {
+        positionMobileMenu();
+        navbar.classList.add('nav-open');
+        document.body.style.overflow = 'hidden';
+      } else {
+        closeMenu();
+      }
+    });
+
+    /* ── Dropdown accordion on mobile ── */
+    navItems.forEach(function (item) {
+      var link = item.querySelector(':scope > .nav-link');
+      var dropdown = item.querySelector(':scope > .dropdown') || item.querySelector(':scope > .mega-dropdown');
+      if (!link || !dropdown) return;
+      link.addEventListener('click', function (e) {
+        if (window.innerWidth > 1024) return;
+        e.preventDefault();
+        e.stopPropagation();
+        var opening = !item.classList.contains('open');
+        navItems.forEach(function (i) { i.classList.remove('open'); });
+        if (opening) item.classList.add('open');
+      });
+    });
+
+    /* ── Close mobile menu on leaf-link click ── */
+    document.querySelectorAll('.nav-menu a.nav-link, .mega-item, .dd-item, .svc-item').forEach(function (el) {
+      el.addEventListener('click', function () {
+        if (window.innerWidth > 1024) return;
+        if (el.classList.contains('nav-link') && el.closest('.mega-parent')) return;
+        closeMenu();
+      });
+    });
+
+    /* ── Resize: clean up ── */
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 1024) {
+        closeMenu();
+        clearPositions();
+        positionMegaDropdowns();
+      } else {
+        clearPositions();
+        positionMobileMenu();
+      }
+    });
   }
 
   function initReveal() {
