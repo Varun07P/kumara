@@ -41,11 +41,8 @@
 ───────────────────────────────────────────── */
 .navbar { border-bottom: 3px solid var(--blue-alt); background: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 24px rgba(8,17,31,.1); width: 100%; }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; position: relative; z-index: 10; }
-.logo { display: flex; align-items: center; gap: 13px; cursor: pointer; flex-shrink: 0; text-decoration: none; }
-.logo-mark { width: 44px; height: 44px; background: var(--navy); border-radius: 7px; display: grid; place-items: center; flex-shrink: 0; }
-.logo-mark svg { width: 20px; height: 20px; }
-.logo-text .name { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 15px; color: var(--navy); letter-spacing: .01em; line-height: 1.2; transition: all .2s; }
-.logo-text .sub { font-size: 10px; color: var(--blue-alt); font-weight: 500; letter-spacing: .03em; margin-top: 1px; }
+.logo { display: flex; align-items: center; cursor: pointer; flex-shrink: 0; text-decoration: none; }
+.logo img { height: 46px; width: auto; display: block; }
 
 /* Desktop Nav */
 .nav-menu { display: flex; align-items: center; height: 68px; gap: 0; }
@@ -195,12 +192,12 @@
 /* ── Small screens: hide topbar, shrink CTA ── */
 @media (max-width: 600px) {
   .topbar { display: none; }
-  .logo-text .sub { display: none; }
+  .logo img { height: 42px; }
   .nav-cta { padding: 9px 14px; }
   .nav-actions { gap: 8px; }
 }
 @media (max-width: 480px) {
-  .logo-text .name { font-size: 13px; }
+  .logo img { height: 38px; }
   .nav-cta span:not(.arr) { display: none; }
   .nav-cta { padding: 9px 12px; }
 }
@@ -233,15 +230,7 @@
 
 <nav class="navbar"><div class="W nav-inner">
   <div class="logo" onclick="location.href='index.html'">
-    <div class="logo-mark">
-      <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue-alt)" stroke-width="1.8" stroke-linecap="round">
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-      </svg>
-    </div>
-    <div class="logo-text">
-      <div class="name">Kumara Engineering Solutions</div>
-      <div class="sub">Pvt. Ltd. &middot; Est. 2025 &middot; Bengaluru</div>
-    </div>
+    <img src="images/logo.png" alt="Kumara Engineering Solutions">
   </div>
 
   <div class="nav-menu" id="navMenu">
@@ -317,13 +306,13 @@
             <span style="color:var(--grey2); font-size:9px; letter-spacing:0">Our Business Divisions</span>
           </div>
           <div class="svc-grid-inner">
-            <a href="manufacturing.html" class="svc-item">
+            <a href="engineeringcounsultancy.html" class="svc-item">
               <div class="si-ico">
-                <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 11 12 15 8 11"/><polyline points="16 5 12 9 8 5"/><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/></svg>
               </div>
               <div class="si-text">
-                <div class="si-name">Manufacturing</div>
-                <div class="si-desc">Panel Manufacturing & Products</div>
+                <div class="si-name">Consultancy</div>
+                <div class="si-desc">Engineering & MEPF Design</div>
                 <div class="si-tag">Vertical 01</div>
               </div>
             </a>
@@ -337,13 +326,13 @@
                 <div class="si-tag">Vertical 02</div>
               </div>
             </a>
-            <a href="engineeringcounsultancy.html" class="svc-item">
+            <a href="manufacturing.html" class="svc-item">
               <div class="si-ico">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 11 12 15 8 11"/><polyline points="16 5 12 9 8 5"/><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
               </div>
               <div class="si-text">
-                <div class="si-name">Consultancy</div>
-                <div class="si-desc">Engineering & MEPF Design</div>
+                <div class="si-name">Manufacturing</div>
+                <div class="si-desc">Panel Manufacturing & Products</div>
                 <div class="si-tag">Vertical 03</div>
               </div>
             </a>
@@ -386,11 +375,8 @@
    ───────────────────────────────────────────── */
 footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
 .ft-grid { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1.35fr; gap: 56px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,.07); }
-.ft-logo { display: flex; align-items: center; gap: 13px; margin-bottom: 17px; }
-.fl-mk { width: 42px; height: 42px; border-radius: 6px; background: var(--blue); display: grid; place-items: center; flex-shrink: 0; }
-.fl-mk svg { width: 20px; height: 20px; }
-.fl-nm { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 15px; color: #fff; letter-spacing: .01em; line-height: 1.2; }
-.fl-sub { font-size: 10px; color: var(--blue-alt); letter-spacing: .05em; text-transform: uppercase; margin-top: 1px; }
+.ft-logo { margin-bottom: 17px; }
+.ft-logo img { height: 48px; width: auto; display: block; filter: brightness(100); }
 .ft-desc { font-size: 13.5px; line-height: 1.82; color: rgba(255,255,255,.7); font-weight: 300; margin-bottom: 24px; max-width: 320px; }
 .ft-soc { display: flex; gap: 8px; }
 .fsoc { width: 36px; height: 36px; border-radius: 6px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); display: grid; place-items: center; transition: all .2s; text-decoration: none; }
@@ -431,15 +417,7 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
     <div class="ft-grid">
       <div>
         <div class="ft-logo">
-          <div class="fl-mk">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue-alt)" stroke-width="1.8" stroke-linecap="round">
-              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-            </svg>
-          </div>
-          <div>
-            <div class="fl-nm">Kumara Engineering Solutions</div>
-            <div class="fl-sub">Private Limited &middot; Est. 2025</div>
-          </div>
+          <img src="images/logo.png" alt="Kumara Engineering Solutions">
         </div>
         <p class="ft-desc">The True Leader in End-to-End Power Distribution, Control Systems and Turnkey Electrical Solutions. Serving Karnataka and beyond &mdash; built on 24+ years of inherited excellence.</p>
         <div class="ft-soc">

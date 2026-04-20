@@ -26,11 +26,8 @@
    ───────────────────────────────────────────── */
 footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
 .ft-grid { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1.35fr; gap: 56px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,.07); }
-.ft-logo { display: flex; align-items: center; gap: 13px; margin-bottom: 17px; }
-.fl-mk { width: 42px; height: 42px; border-radius: 6px; background: var(--blue); display: grid; place-items: center; flex-shrink: 0; }
-.fl-mk svg { width: 20px; height: 20px; }
-.fl-nm { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 15px; color: #fff; letter-spacing: .01em; line-height: 1.2; }
-.fl-sub { font-size: 10px; color: var(--blue-alt); letter-spacing: .05em; text-transform: uppercase; margin-top: 1px; }
+.ft-logo { margin-bottom: 17px; }
+.ft-logo img { height: 48px; width: auto; display: block; filter: brightness(100); }
 .ft-desc { font-size: 13.5px; line-height: 1.82; color: rgba(255,255,255,.3); font-weight: 300; margin-bottom: 24px; max-width: 320px; }
 .ft-soc { display: flex; gap: 8px; }
 .fsoc { width: 36px; height: 36px; border-radius: 6px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); display: grid; place-items: center; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; color: rgba(255,255,255,.38); transition: all .2s; text-decoration: none; }
@@ -67,15 +64,7 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
     <div class="ft-grid">
       <div>
         <div class="ft-logo">
-          <div class="fl-mk">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue-alt)" stroke-width="1.8" stroke-linecap="round">
-              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-            </svg>
-          </div>
-          <div>
-            <div class="fl-nm">Kumara Engineering Solutions</div>
-            <div class="fl-sub">Private Limited &middot; Est. 2025</div>
-          </div>
+          <img src="images/logo.png" alt="Kumara Engineering Solutions">
         </div>
         <p class="ft-desc">The True Leader in End-to-End Power Distribution, Control Systems and Turnkey Electrical Solutions. Serving Karnataka and beyond &mdash; built on 24+ years of inherited excellence.</p>
         <div class="ft-soc">
