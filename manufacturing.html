@@ -148,7 +148,7 @@
   /* ── LIFECYCLE BAND ── */
   .lifecycle { display: flex; justify-content: space-between; align-items: center; gap: 0; }
   .lc-step { text-align: center; flex: 1; position: relative; }
-  .lc-step::after { content: '→'; position: absolute; right: -12px; top: 28px; font-size: 20px; color: rgba(255,255,255,.2); pointer-events: none; }
+  .lc-step::after { content: '\2192'; position: absolute; right: -12px; top: 28px; font-size: 20px; color: rgba(255,255,255,.2); pointer-events: none; }
   .lc-step:last-child::after { display: none; }
   .lc-num { width: 56px; height: 56px; border-radius: 50%; background: rgba(204,39,0,.15); border: 1px solid rgba(204,39,0,.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 900; color: var(--red); }
   .lc-step p { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; color: rgba(255,255,255,.6); text-transform: uppercase; letter-spacing: .08em; }
@@ -252,7 +252,7 @@
     </p>
 
     <div class="hero-btns rv d3">
-      <a href="contactus.html" class="btn-red">Request a Quote →</a>
+      <a href="contactus.html" class="btn-red">Request a Quote &rarr;</a>
       <a href="#products" class="btn-ghost">Our Products</a>
     </div>
 
@@ -294,8 +294,8 @@
           and final torque checks. We believe in "Doing Right the First Time."
         </p>
         <p class="intro-lead">
-          Our capability covers the complete product lifecycle: <strong>design → fabrication → powder coating
-          → assembly → in-house testing → on-site installation → after-sales servicing.</strong>
+          Our capability covers the complete product lifecycle: <strong>design &rarr; fabrication &rarr; powder coating
+          &rarr; assembly &rarr; in-house testing &rarr; on-site installation &rarr; after-sales servicing.</strong>
         </p>
       </div>
 
@@ -709,12 +709,12 @@
       <h2>Need a Custom <em>Panel?</em></h2>
       <p>Share your specifications with our team. We'll review your requirement, prepare a detailed engineering quote and get back to you within 2 working days.</p>
     </div>
-    <a href="contactus.html" class="btn-white rv d1">Request a Quote →</a>
+    <a href="contactus.html" class="btn-white rv d1">Request a Quote &rarr;</a>
   </div>
 </div>
 
 <div id="site-footer"></div>
-<button id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<button id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&uarr;</button>
 
 <script>
   const observer = new IntersectionObserver(entries => {

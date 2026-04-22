@@ -101,13 +101,34 @@ h2.sec-title em{font-style:normal;color:var(--blue2)}
 .rv.in,.rl.in,.rr.in{opacity:1;transform:none}
 .d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}
 
+/* ─────────────────────────────────────────────
+   CAREERS SECTION
+───────────────────────────────────────────── */
+.careers-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: start; }
+.job-list { display: flex; flex-direction: column; gap: 16px; }
+.job-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; transition: all 0.3s; position: relative; overflow: hidden; }
+.job-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--blue-alt); transform: scaleY(0); transition: transform 0.3s; }
+.job-card:hover { transform: translateY(-4px); box-shadow: var(--s2); border-color: rgba(204,39,0,0.3); }
+.job-card:hover::before { transform: scaleY(1); }
+.job-info h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; color: var(--navy); text-transform: uppercase; margin-bottom: 12px; }
+.job-meta { display: flex; gap: 16px; font-size: 13px; color: var(--grey); font-weight: 500; }
+.job-meta span { display: flex; align-items: center; gap: 6px; }
+.job-btn { background: var(--off); color: var(--blue-alt); padding: 12px 28px; border-radius: 6px; font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; transition: all 0.2s; border: 1px solid var(--border); }
+.job-card:hover .job-btn { background: var(--blue-alt); color: #fff; border-color: var(--blue-alt); box-shadow: 0 4px 12px rgba(204,39,0,0.25); }
+
 @media(max-width:1024px){
   .ccard { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; gap: 56px; }
+  .careers-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+@media(max-width:600px) {
+  .job-card { flex-direction: column; align-items: flex-start; gap: 20px; padding: 24px; }
+  .job-btn { width: 100%; text-align: center; }
 }
 @media(max-width:480px) {
   .contact-cards { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
+  .job-meta { flex-direction: column; gap: 8px; }
 }
 </style>
 </head>
@@ -201,12 +222,88 @@ h2.sec-title em{font-style:normal;color:var(--blue2)}
                 <label>Detailed Requirements</label>
                 <textarea class="finput ftextarea" placeholder="Tell us about your technical specifications..."></textarea>
               </div>
-              <button type="submit" class="fbtn">Submit Inquiry →</button>
+              <button type="submit" class="fbtn">Submit Inquiry &rarr;</button>
             </form>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ══════════ CAREERS SECTION ══════════ -->
+<section class="sec sec-alt" id="careers">
+  <div class="W">
+    <div style="text-align:center; margin-bottom:56px" class="rv">
+      <div class="sec-label" style="justify-content:center">
+        <span class="sl-bar"></span>
+        <span class="sl-txt">Careers</span>
+      </div>
+      <h2 class="sec-title">Opening <em>Positions</em></h2>
+    </div>
+
+    <div class="careers-grid">
+      <div class="rl" style="position: sticky; top: 120px;">
+        <p class="sec-body">We are constantly looking for talented engineers, technicians, and project managers to join our rapidly growing operations. Explore our open positions below and take the next step in your professional journey.</p>
+        <div style="margin-top:24px">
+          <p style="font-size:14px; color:var(--grey); font-weight:600; text-transform:uppercase; margin-bottom:8px">Don't see a fit?</p>
+          <a href="mailto:hr@kumarasolutions.in" style="color:var(--blue-alt); font-weight:700; font-size:15px; border-bottom:1px solid currentColor; padding-bottom:2px">Send your resume to HR &rarr;</a>
+        </div>
+      </div>
+      
+      <div class="job-list rr">
+      
+      <div class="job-card">
+        <div class="job-info">
+          <h4>Senior Electrical Design Engineer</h4>
+          <div class="job-meta">
+            <span>📍 Bengaluru</span>
+            <span>⏱️ Full-Time</span>
+            <span>💼 4-7 Yrs Exp.</span>
+          </div>
+        </div>
+        <a href="mailto:hr@kumarasolutions.in?subject=Application%20for%20Senior%20Electrical%20Design%20Engineer" class="job-btn">Apply Now</a>
+      </div>
+
+      <div class="job-card">
+        <div class="job-info">
+          <h4>Project Manager (Turnkey Infrastructure)</h4>
+          <div class="job-meta">
+            <span>📍 Karnataka (On-Site)</span>
+            <span>⏱️ Full-Time</span>
+            <span>💼 8+ Yrs Exp.</span>
+          </div>
+        </div>
+        <a href="mailto:hr@kumarasolutions.in?subject=Application%20for%20Project%20Manager" class="job-btn">Apply Now</a>
+      </div>
+
+      <div class="job-card">
+        <div class="job-info">
+          <h4>Panel Testing & QC Engineer</h4>
+          <div class="job-meta">
+            <span>📍 Bengaluru Facility</span>
+            <span>⏱️ Full-Time</span>
+            <span>💼 2-5 Yrs Exp.</span>
+          </div>
+        </div>
+        <a href="mailto:hr@kumarasolutions.in?subject=Application%20for%20Panel%20Testing%20Engineer" class="job-btn">Apply Now</a>
+      </div>
+
+      <div class="job-card">
+        <div class="job-info">
+          <h4>AutoCAD Draftsman (Electrical)</h4>
+          <div class="job-meta">
+            <span>📍 Bengaluru</span>
+            <span>⏱️ Full-Time</span>
+            <span>💼 1-3 Yrs Exp.</span>
+          </div>
+        </div>
+        <a href="mailto:hr@kumarasolutions.in?subject=Application%20for%20AutoCAD%20Draftsman" class="job-btn">Apply Now</a>
+      </div>
+
+      </div>
+    </div>        
+
   </div>
 </section>
 

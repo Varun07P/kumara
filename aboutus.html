@@ -53,22 +53,23 @@
   ════════════════════════════ */
   .hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     align-items: center;
+    justify-content: center;
     background: var(--navy);
     overflow: hidden;
   }
   .hero-bg {
     position: absolute;
     inset: 0;
-    background: url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=80') center/cover no-repeat;
-    opacity: .16;
+    background: url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&q=90') center/cover no-repeat;
+    opacity: .35;
   }
   .hero-grad {
     position: absolute;
     inset: 0;
-    background: linear-gradient(115deg, var(--navy) 42%, rgba(8,17,31,.55) 100%);
+    background: linear-gradient(to right, rgba(7,16,30,.98) 0%, rgba(7,16,30,.85) 45%, rgba(7,16,30,.6) 100%);
   }
   /* decorative ring — purely visual */
   .hero-ring {
@@ -87,8 +88,12 @@
     position: relative;
     z-index: 2;
     width: 100%;
-    padding-top: 80px;
-    padding-bottom: 60px;
+    padding-top: 100px;
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .breadcrumb {
@@ -137,15 +142,15 @@
   .hero h1 em { font-style: normal; color: var(--red); }
 
   .hero-sub {
-    font-size: clamp(15px, 1.4vw, 18px);
-    color: rgba(255,255,255,.52);
-    max-width: 620px;
+    font-size: clamp(16px, 1.4vw, 19px);
+    color: rgba(255,255,255,.65);
+    max-width: 680px;
     line-height: 1.72;
-    margin-bottom: 44px;
+    margin: 0 auto 44px;
     font-weight: 300;
   }
 
-  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
 
   .btn-red {
     display: inline-flex;
@@ -719,18 +724,16 @@
     <div class="hero-tag rv d1">⚡ ISO 9001:2015 · CPRI Certified · Est. 2011</div>
 
     <h1 class="rv d1">
-      The True Leader in<br>
-      <em>Power Distribution</em>
+      Empowering Karnataka's<br>
+      <em>Electrical Infrastructure</em>
     </h1>
 
     <p class="hero-sub rv d2">
-      Kumara Engineering Solutions Private Limited — an ISO-certified manufacturer and
-      supplier of custom electrical panels, HT/LT systems, and turnkey electrical solutions,
-      built on 24+ years of engineering excellence from Bengaluru, Karnataka.
+      At Kumara Engineering Solutions, we don't just build panels—we engineer reliability. Backed by 24+ years of expertise, our CPRI and ISO-certified facility in Bengaluru delivers precision-engineered power distribution systems, turnkey execution, and uncompromising quality for the industries of tomorrow.
     </p>
 
     <div class="hero-btns rv d3">
-      <a href="contactus.html" class="btn-red">Get in Touch →</a>
+      <a href="contactus.html" class="btn-red">Get in Touch &rarr;</a>
       <a href="#about-story" class="btn-ghost">Our Story</a>
     </div>
   </div>
@@ -1102,7 +1105,7 @@
 <div id="site-footer"></div>
 
 <!-- Back to top -->
-<button id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<button id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&uarr;</button>
 
 <script>
   // Scroll reveal

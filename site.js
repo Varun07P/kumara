@@ -373,8 +373,8 @@
    ───────────────────────────────────────────── */
 footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
 .ft-grid { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1.35fr; gap: 56px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,.07); }
-.ft-logo { margin-bottom: 17px; }
-.ft-logo img { height: 48px; width: auto; display: block; filter: brightness(100); }
+.ft-logo { margin-bottom: 17px; cursor: pointer; }
+.ft-logo img { height: 46px; width: auto; display: block; }
 .ft-desc { font-size: 13.5px; line-height: 1.82; color: rgba(255,255,255,.7); font-weight: 300; margin-bottom: 24px; max-width: 320px; }
 .ft-soc { display: flex; gap: 8px; }
 .fsoc { width: 36px; height: 36px; border-radius: 6px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); display: grid; place-items: center; transition: all .2s; text-decoration: none; }
@@ -414,7 +414,7 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
   <div class="W">
     <div class="ft-grid">
       <div>
-        <div class="ft-logo">
+        <div class="ft-logo" onclick="location.href='index.html'">
           <img src="images/logo.png" alt="Kumara Engineering Solutions">
         </div>
         <p class="ft-desc">The True Leader in End-to-End Power Distribution, Control Systems and Turnkey Electrical Solutions. Serving Karnataka and beyond &mdash; built on 24+ years of inherited excellence.</p>
