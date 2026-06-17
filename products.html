@@ -21,7 +21,7 @@ a{text-decoration:none;color:inherit}img{display:block;width:100%;height:100%;ob
 button{font-family:var(--body);cursor:pointer;border:none;background:none;outline:none}
 .W{max-width:1440px;margin:0 auto;padding:0 60px}
 
-/* ─── SITE-MATCHING HERO ─── */
+/* -------------------------------- SITE-MATCHING HERO -------------------------------- */
 .page-hero{
   position:relative;min-height:520px;display:flex;align-items:center;
   background:var(--bg);overflow:hidden;padding:100px 0 60px;
@@ -101,13 +101,13 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
   .phero-visual{grid-template-rows:120px 120px;}
 }
 
-/* ─── FILTER BAR ─── */
+/* -------------------------------- FILTER BAR -------------------------------- */
 .filter-bar{
   position:sticky;top:71px;z-index:500;
   background:rgba(11,13,15,0.96);backdrop-filter:blur(24px);
   border-bottom:1px solid var(--line);
 }
-/* ─── SIDEBAR & STOREFRONT ─── */
+/* -------------------------------- SIDEBAR & STOREFRONT -------------------------------- */
 .storefront{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start;padding:40px 0 80px}
 .sidebar-nav{position:sticky;top:100px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:8px;max-height:calc(100vh - 120px);overflow-y:auto;overflow-x:hidden;scrollbar-width:thin}
 .sn-title{font-family:var(--display);font-size:14px;font-weight:800;color:var(--t1);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;padding-bottom:12px;border-bottom:1px solid var(--line)}
@@ -124,20 +124,20 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
 .f-search:focus{outline:none;border-color:var(--red);background:var(--bg2);color:var(--t1)}
 .f-search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:14px;height:14px;stroke:var(--t3);fill:none;stroke-width:2}
 
-/* ─── RESULTS META ─── */
+/* -------------------------------- RESULTS META -------------------------------- */
 .results-meta{display:flex;align-items:center;justify-content:space-between;padding:0 0 20px}
 .rm-c{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:0.06em}
 .rm-c strong{color:var(--t2)}
 .rm-lbl{font-family:var(--mono);font-size:9px;color:var(--t3);letter-spacing:0.12em;text-transform:uppercase}
 
-/* ─── GRID ─── */
+/* -------------------------------- GRID -------------------------------- */
 .products-grid{
   display:grid;grid-template-columns:repeat(3,1fr);
   gap:1px;background:var(--line);
   border:1px solid var(--line);border-radius:2px;overflow:hidden;
 }
 
-/* ─── CAT HEADER ROWS ─── */
+/* -------------------------------- CAT HEADER ROWS -------------------------------- */
 .cat-hdr{
   grid-column:1/-1;
   display:flex;align-items:center;gap:16px;
@@ -150,7 +150,7 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
 .cat-hdr-line{flex:1;height:1px;background:linear-gradient(90deg,var(--line2),transparent)}
 .cat-hdr-sub{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,0.2);letter-spacing:0.12em;text-transform:uppercase;flex-shrink:0}
 
-/* ─── PCARD BASE ─── */
+/* -------------------------------- PCARD BASE -------------------------------- */
 .pcard{
   background:var(--bg);display:flex;flex-direction:column;
   position:relative;overflow:hidden;cursor:default;
@@ -349,7 +349,7 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
 
     <div class="products-grid" id="grid">
 
-      <!-- ══ CAT 1 ══ -->
+      <!-- -------------------------------- CAT 1 -------------------------------- -->
       <div class="cat-hdr" data-cat="distribution">
         <span class="cat-hdr-n">01</span>
         <span class="cat-hdr-t">Distribution <em>Panels</em></span>
@@ -499,7 +499,7 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
         </div>
       </article>
 
-      <!-- ══ CAT 2 ══ -->
+      <!-- -------------------------------- CAT 2 -------------------------------- -->
       <div class="cat-hdr" data-cat="control">
         <span class="cat-hdr-n">02</span>
         <span class="cat-hdr-t">Control &amp; <em>Sync</em></span>
@@ -593,7 +593,7 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
         </div>
       </article>
 
-      <!-- ══ CAT 3 ══ -->
+      <!-- -------------------------------- CAT 3 -------------------------------- -->
       <div class="cat-hdr" data-cat="building">
         <span class="cat-hdr-n">03</span>
         <span class="cat-hdr-t">Building &amp; <em>HVAC</em></span>
@@ -659,7 +659,7 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
         </div>
       </article>
 
-      <!-- ══ CAT 4 ══ -->
+      <!-- -------------------------------- CAT 4 -------------------------------- -->
       <div class="cat-hdr" data-cat="special">
         <span class="cat-hdr-n">04</span>
         <span class="cat-hdr-t">Specialty <em>Panels</em></span>
@@ -766,7 +766,7 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
         </div>
       </article>
 
-      <!-- ══ CAT 5 ══ -->
+      <!-- -------------------------------- CAT 5 -------------------------------- -->
       <div class="cat-hdr" data-cat="infra">
         <span class="cat-hdr-n">05</span>
         <span class="cat-hdr-t">Electrical <em>Infrastructure</em></span>
@@ -837,7 +837,7 @@ button{font-family:var(--body);cursor:pointer;border:none;background:none;outlin
 <!-- FOOTER -->
 <div id="site-footer"></div>
 
-<!-- ══════════ SCRIPTS ══════════ -->
+<!-- -------------------------------- SCRIPTS -------------------------------- -->
 <script src="site.js"></script>
 <script>
 /**

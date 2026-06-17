@@ -38,7 +38,7 @@
   .rv.in,.rl.in,.rr.in { opacity: 1; transform: none; }
   .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.40s}
 
-  /* ── HERO ── */
+  /* -------------------------------- HERO -------------------------------- */
   .hero {
     position: relative; min-height: 82vh; display: flex; align-items: center;
     background: var(--navy); overflow: hidden;
@@ -86,7 +86,7 @@
   .btn-ghost { display: inline-flex; align-items: center; gap: 10px; border: 1.5px solid rgba(255,255,255,.22); color: rgba(255,255,255,.72); padding: 14px 32px; border-radius: 4px; font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; backdrop-filter: blur(8px); transition: all .25s; }
   .btn-ghost:hover { border-color: rgba(255,255,255,.5); color: #fff; }
 
-  /* ── SHARED ── */
+  /* -------------------------------- SHARED -------------------------------- */
   .sec     { padding: 80px 0; }
   .sec-alt { background: var(--off); }
   .sec-dark{ background: var(--navy); }
@@ -100,7 +100,7 @@
   .sec-body { font-size: 15.5px; line-height: 1.78; color: var(--grey); font-weight: 300; }
   .sec-header { text-align: center; max-width: 640px; margin: 0 auto 52px; }
 
-  /* ── INTRO SPLIT ── */
+  /* -------------------------------- INTRO SPLIT -------------------------------- */
   .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
   .intro-img { border-radius: 16px; overflow: hidden; position: relative; height: 460px; }
   .intro-img img { width: 100%; height: 100%; }
@@ -111,7 +111,7 @@
   .intro-lead { font-size: 16px; line-height: 1.78; color: var(--grey); font-weight: 300; margin-bottom: 24px; }
   .intro-lead strong { color: var(--navy); font-weight: 600; }
 
-  /* ── SERVICE AREAS ── */
+  /* -------------------------------- SERVICE AREAS -------------------------------- */
   .svc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
   .svc-card {
     display: flex; gap: 20px; align-items: flex-start; padding: 28px;
@@ -130,7 +130,7 @@
   .svc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
   .svc-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; color: var(--grey); text-transform: uppercase; letter-spacing: .1em; background: var(--off); padding: 3px 9px; border-radius: 2px; border: 1px solid var(--border); }
 
-  /* ── STATUTORY APPROVAL BAND ── */
+  /* -------------------------------- STATUTORY APPROVAL BAND -------------------------------- */
   .approvals-band {
     background: var(--navy); padding: 60px 0;
   }
@@ -145,7 +145,7 @@
   .approval-item p { font-size: 14px; color: rgba(255,255,255,.65); line-height: 1.5; }
   .approvals-text .sec-lbl { color: var(--red); }
 
-  /* ── PROJECT EXECUTION (7 steps) ── */
+  /* -------------------------------- PROJECT EXECUTION (7 steps) -------------------------------- */
   .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
   .step-card {
     background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 28px 22px;
@@ -161,7 +161,7 @@
   .step-card p  { font-size: 13px; color: var(--grey); line-height: 1.6; }
   .step-badge { display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 800; color: var(--red); text-transform: uppercase; letter-spacing: .15em; background: rgba(204,39,0,.07); padding: 3px 10px; border-radius: 2px; margin-bottom: 14px; }
 
-  /* ── AMC HIGHLIGHT ── */
+  /* -------------------------------- AMC HIGHLIGHT -------------------------------- */
   .amc-band {
     background: linear-gradient(135deg, var(--navy2), var(--navy3));
     border-radius: 20px; padding: 48px; margin: 0;
@@ -174,7 +174,7 @@
   .amc-pill { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; color: rgba(255,255,255,.7); text-transform: uppercase; letter-spacing: .08em; border: 1px solid rgba(255,255,255,.12); padding: 6px 14px; border-radius: 20px; }
   .amc-cta { flex-shrink: 0; }
 
-  /* ── CLIENTS ── */
+  /* -------------------------------- CLIENTS -------------------------------- */
   .clients-marquee { overflow: hidden; position: relative; padding: 8px 0; }
   .clients-marquee::before,.clients-marquee::after { content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; }
   .clients-marquee::before { left: 0;  background: linear-gradient(90deg, var(--off), transparent); }
@@ -185,7 +185,7 @@
   .cli-pill { flex-shrink: 0; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 14px 24px; font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; transition: border-color .25s, color .25s; }
   .cli-pill:hover { border-color: var(--red); color: var(--red); }
 
-  /* ── CTA BAND ── */
+  /* -------------------------------- CTA BAND -------------------------------- */
   .cta-band { background: linear-gradient(135deg, var(--red) 0%, var(--red3) 100%); padding: 64px 0; position: relative; overflow: hidden; }
   .cta-band::before { content: ''; position: absolute; top: -80px; right: -80px; width: 380px; height: 380px; border-radius: 50%; background: rgba(255,255,255,.04); pointer-events: none; }
   .cta-inner { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 60px; }
@@ -199,7 +199,7 @@
   #btt.on { opacity: 1; pointer-events: auto; }
   #btt:hover { transform: translateY(-3px); }
 
-  /* ── RESPONSIVE ── */
+  /* -------------------------------- RESPONSIVE -------------------------------- */
   @media (max-width: 1100px) {
     .svc-grid { grid-template-columns: 1fr; }
     .steps-grid { grid-template-columns: repeat(2, 1fr); }
@@ -226,7 +226,7 @@
 
 <div id="site-header"></div>
 
-<!-- ═══ HERO ═══ -->
+<!-- -------------------------------- HERO -------------------------------- -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grad"></div>
@@ -262,7 +262,7 @@
 </section>
 
 
-<!-- ═══ INTRO ═══ -->
+<!-- -------------------------------- INTRO -------------------------------- -->
 <section class="sec" id="about-service">
   <div class="W">
     <div class="intro-grid">
@@ -301,7 +301,7 @@
 </section>
 
 
-<!-- ═══ SERVICE AREAS ═══ -->
+<!-- -------------------------------- SERVICE AREAS -------------------------------- -->
 <section class="sec sec-alt" id="services">
   <div class="W">
     <div class="sec-header">
@@ -415,7 +415,7 @@
 </section>
 
 
-<!-- ═══ STATUTORY APPROVALS ═══ -->
+<!-- -------------------------------- STATUTORY APPROVALS -------------------------------- -->
 <div class="approvals-band">
   <div class="W">
     <div class="approvals-inner">
@@ -458,7 +458,7 @@
 </div>
 
 
-<!-- ═══ PROJECT EXECUTION PROCESS ═══ -->
+<!-- -------------------------------- PROJECT EXECUTION PROCESS -------------------------------- -->
 <section class="sec sec-alt">
   <div class="W">
     <div class="sec-header">
@@ -513,7 +513,7 @@
 </section>
 
 
-<!-- ═══ AMC HIGHLIGHT ═══ -->
+<!-- -------------------------------- AMC HIGHLIGHT -------------------------------- -->
 <section class="sec">
   <div class="W">
     <div class="amc-band rv">
@@ -543,7 +543,7 @@
 </section>
 
 
-<!-- ═══ CLIENTS MARQUEE ═══ -->
+<!-- -------------------------------- CLIENTS MARQUEE -------------------------------- -->
 <section class="sec sec-alt">
   <div class="W">
     <div class="sec-header">
@@ -592,7 +592,7 @@
 </section>
 
 
-<!-- ═══ CTA ═══ -->
+<!-- -------------------------------- CTA -------------------------------- -->
 <div class="cta-band">
   <div class="W cta-inner">
     <div class="rv">

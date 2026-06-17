@@ -39,7 +39,7 @@
   .rv.in,.rl.in,.rr.in { opacity: 1; transform: none; }
   .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.40s}
 
-  /* ── HERO ── */
+  /* -------------------------------- HERO -------------------------------- */
   .hero {
     position: relative;
     min-height: 82vh;
@@ -110,7 +110,7 @@
   }
   .btn-ghost:hover { border-color: rgba(255,255,255,.5); color: #fff; }
 
-  /* ── SHARED SECTION STYLES ── */
+  /* -------------------------------- SHARED SECTION STYLES -------------------------------- */
   .sec     { padding: 80px 0; }
   .sec-alt { background: var(--off); }
   .sec-dark{ background: var(--navy); }
@@ -132,7 +132,7 @@
   .sec-body { font-size: 15.5px; line-height: 1.78; color: var(--grey); font-weight: 300; }
   .sec-header { text-align: center; max-width: 640px; margin: 0 auto 52px; }
 
-  /* ── INTRO SPLIT ── */
+  /* -------------------------------- INTRO SPLIT -------------------------------- */
   .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
   .intro-img { border-radius: 16px; overflow: hidden; position: relative; height: 460px; }
   .intro-img img { width: 100%; height: 100%; }
@@ -150,7 +150,7 @@
   .intro-lead { font-size: 16px; line-height: 1.78; color: var(--grey); font-weight: 300; margin-bottom: 24px; }
   .intro-lead strong { color: var(--navy); font-weight: 600; }
 
-  /* ── PILLARS (3 cards) ── */
+  /* -------------------------------- PILLARS (3 cards) -------------------------------- */
   .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .pillar-card {
     background: var(--navy); border-radius: 14px; padding: 36px 28px;
@@ -171,7 +171,7 @@
   .pillar-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 800; color: #fff; text-transform: uppercase; margin-bottom: 12px; line-height: 1.1; }
   .pillar-card p  { font-size: 14px; color: rgba(255,255,255,.52); line-height: 1.7; }
 
-  /* ── DISCIPLINES GRID ── */
+  /* -------------------------------- DISCIPLINES GRID -------------------------------- */
   .disc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .disc-card {
     background: #fff; border: 1px solid var(--border); border-radius: 12px;
@@ -195,7 +195,7 @@
   .disc-list li { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--grey2); }
   .disc-list li::before { content: '—'; color: var(--red); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
 
-  /* ── PROJECT SECTORS ── */
+  /* -------------------------------- PROJECT SECTORS -------------------------------- */
   .sectors-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
   .sector-card {
     background: var(--navy2); border: 1px solid rgba(255,255,255,.06); border-radius: 10px;
@@ -209,7 +209,7 @@
   .sector-ico svg { width: 20px; height: 20px; stroke: var(--red); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   .sector-card p { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.5; }
 
-  /* ── PROCESS STEPS ── */
+  /* -------------------------------- PROCESS STEPS -------------------------------- */
   .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
   .process-grid::before {
     content: ''; position: absolute; top: 36px; left: 10%; right: 10%;
@@ -228,7 +228,7 @@
   .process-step h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800; color: var(--navy); text-transform: uppercase; margin-bottom: 8px; }
   .process-step p  { font-size: 13px; color: var(--grey); line-height: 1.6; }
 
-  /* ── WHY CHOOSE ── */
+  /* -------------------------------- WHY CHOOSE -------------------------------- */
   .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
   .why-list { display: flex; flex-direction: column; gap: 0; }
   .why-item {
@@ -248,7 +248,7 @@
   .why-img { border-radius: 16px; overflow: hidden; height: 500px; }
   .why-img img { width: 100%; height: 100%; }
 
-  /* ── CTA BAND ── */
+  /* -------------------------------- CTA BAND -------------------------------- */
   .cta-band {
     background: linear-gradient(135deg, var(--red) 0%, var(--red3) 100%);
     padding: 64px 0; position: relative; overflow: hidden;
@@ -271,7 +271,7 @@
   }
   .btn-white:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,.3); }
 
-  /* ── BACK TO TOP ── */
+  /* -------------------------------- BACK TO TOP -------------------------------- */
   #btt {
     position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px;
     background: var(--red); color: #fff; border-radius: 50%;
@@ -282,7 +282,7 @@
   #btt.on { opacity: 1; pointer-events: auto; }
   #btt:hover { transform: translateY(-3px); }
 
-  /* ── RESPONSIVE ── */
+  /* -------------------------------- RESPONSIVE -------------------------------- */
   @media (max-width: 1100px) {
     .pillars-grid  { grid-template-columns: 1fr 1fr; }
     .disc-grid     { grid-template-columns: 1fr 1fr; }
@@ -317,7 +317,7 @@
 
 <div id="site-header"></div>
 
-<!-- ═══ HERO ═══ -->
+<!-- -------------------------------- HERO -------------------------------- -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grad"></div>
@@ -354,7 +354,7 @@
 </section>
 
 
-<!-- ═══ INTRO ═══ -->
+<!-- -------------------------------- INTRO -------------------------------- -->
 <section class="sec" id="about-service">
   <div class="W">
     <div class="intro-grid">
@@ -392,7 +392,7 @@
 </section>
 
 
-<!-- ═══ THREE PILLARS ═══ -->
+<!-- -------------------------------- THREE PILLARS -------------------------------- -->
 <section class="sec sec-alt">
   <div class="W">
     <div class="sec-header">
@@ -430,7 +430,7 @@
 </section>
 
 
-<!-- ═══ DISCIPLINES ═══ -->
+<!-- -------------------------------- DISCIPLINES -------------------------------- -->
 <section class="sec" id="disciplines">
   <div class="W">
     <div class="sec-header">
@@ -518,7 +518,7 @@
 </section>
 
 
-<!-- ═══ PROJECT SECTORS ═══ -->
+<!-- -------------------------------- PROJECT SECTORS -------------------------------- -->
 <section class="sec sec-dark">
   <div class="W">
     <div class="sec-header">
@@ -581,7 +581,7 @@
 </section>
 
 
-<!-- ═══ HOW WE WORK ═══ -->
+<!-- -------------------------------- HOW WE WORK -------------------------------- -->
 <section class="sec sec-alt">
   <div class="W">
     <div class="sec-header">
@@ -616,7 +616,7 @@
 </section>
 
 
-<!-- ═══ WHY CHOOSE KES ═══ -->
+<!-- -------------------------------- WHY CHOOSE KES -------------------------------- -->
 <section class="sec">
   <div class="W">
     <div class="why-grid">
@@ -667,7 +667,7 @@
 </section>
 
 
-<!-- ═══ CTA ═══ -->
+<!-- -------------------------------- CTA -------------------------------- -->
 <div class="cta-band">
   <div class="W cta-inner">
     <div class="rv">

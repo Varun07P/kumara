@@ -1,15 +1,15 @@
 <!--
   header.html — DEV REFERENCE ONLY
-  ══════════════════════════════════════════════════════════════════════
+  --------------------------------
   This file is NOT linked by any page. It exists as a preview/reference.
   The live header is injected by site.js into <div id="site-header">.
   Keep this file in sync with the `headerHTML` constant in site.js.
-  ══════════════════════════════════════════════════════════════════════
+  --------------------------------
 -->
 <style>
-/* ─────────────────────────────────────────────
+/* --------------------------------
    GLOBAL DESIGN TOKENS (Self-contained)
-───────────────────────────────────────────── */
+-------------------------------- */
 :root {
   --navy:      #08111f;
   --navy2:     #0c1a30;
@@ -29,9 +29,9 @@
   --text:      #0f1f35;
 }
 
-/* ─────────────────────────────────────────────
+/* --------------------------------
    TOPBAR
-   ───────────────────────────────────────────── */
+   -------------------------------- */
 .topbar { background: var(--navy); padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.05); }
 .tb-inner { display: flex; justify-content: space-between; align-items: center; }
 .tb-left { display: flex; gap: 24px; }
@@ -40,9 +40,9 @@
 .tb-right { display: flex; gap: 7px; }
 .tb-cert { padding: 2px 9px; border: 1px solid rgba(204,39,0,.3); border-radius: 2px; font-family: 'Barlow Condensed', sans-serif; font-size: 9.5px; font-weight: 700; color: var(--blue-alt); letter-spacing: .08em; text-transform: uppercase; }
 
-/* ─────────────────────────────────────────────
+/* --------------------------------
    NAVBAR
-───────────────────────────────────────────── */
+-------------------------------- */
 .navbar { border-bottom: 3px solid var(--blue-alt); background: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 24px rgba(8,17,31,.1); width: 100%; }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; position: relative; z-index: 10; }
 .logo { display: flex; align-items: center; cursor: pointer; flex-shrink: 0; text-decoration: none; }
@@ -112,7 +112,7 @@
 .nav-open .menu-toggle .bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav-open .menu-toggle .bar:nth-child(3) { transform: translateY(0) rotate(-45deg); background: var(--blue-alt); }
 
-/* ── Intermediate: nav items get tight on medium desktops ── */
+/* -------------------------------- Intermediate: nav items get tight on medium desktops -------------------------------- */
 @media (max-width: 1200px) {
   .nav-link { padding: 0 10px; font-size: 13px; }
   .mega-products { width: 960px; }
@@ -120,7 +120,7 @@
   .mega-col { padding: 0 12px; }
 }
 
-/* ── Tablet & Mobile: hamburger menu ── */
+/* -------------------------------- Tablet & Mobile: hamburger menu -------------------------------- */
 @media (max-width: 1024px) {
   .menu-toggle { display: flex; }
 
@@ -189,7 +189,7 @@
   .svc-item { padding: 10px 8px; }
 }
 
-/* ── Small screens: hide topbar, shrink CTA ── */
+/* -------------------------------- Small screens: hide topbar, shrink CTA -------------------------------- */
 @media (max-width: 600px) {
   .topbar { display: none; }
   .logo img { height: 42px; }
@@ -203,9 +203,9 @@
 }
 </style>
 
-<!-- ══════════════════════════════════════════════
+<!-- --------------------------------
      TOPBAR
-     ══════════════════════════════════════════════ -->
+     -------------------------------- -->
 <div class="topbar"><div class="W"><div class="tb-inner">
   <div class="tb-left">
     <span class="tb-item">
@@ -228,13 +228,13 @@
   </div>
 </div></div></div>
 
-<!-- ══════════════════════════════════════════════
+<!-- --------------------------------
      NAVBAR
-     ══════════════════════════════════════════════ -->
+     -------------------------------- -->
 <nav class="navbar"><div class="W nav-inner">
-  <div class="logo" onclick="location.href='index.html'">
+  <a class="logo" href="index.html">
     <img src="images/logo.png" alt="Kumara Engineering Solutions">
-  </div>
+  </a>
 
   <div class="nav-menu" id="navMenu">
     <div class="nav-item">
@@ -283,7 +283,7 @@
           <div class="mega-col">
             <div class="mega-hd">Specialty <span class="mh-cnt">4</span></div>
             <a class="mega-item" href="products.html#aviation-panel">Aviation Lighting</a>
-            <a class="mega-item" href="products.html#street-panel">Street Light Panel</a>
+            <a class="mega-item" href="products.html#street-light">Street Light Panel</a>
             <a class="mega-item" href="products.html#solar-panel">Solar Panel</a>
             <a class="mega-item" href="products.html#ups-panel">UPS Panel</a>
           </div>

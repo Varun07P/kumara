@@ -41,9 +41,9 @@ img{display:block;max-width:100%}
 
 
 
-/* ─────────────────────────────────────────────
+/* --------------------------------
    HERO SUBPAGE
-───────────────────────────────────────────── */
+-------------------------------- */
 .hero-subpage{position:relative;padding:120px 0 80px;background:var(--navy);overflow:hidden}
 .hero-subpage::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1600&q=80') center/cover no-repeat;opacity:0.25;filter:brightness(0.5)}
 .hero-subpage::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,var(--navy) 0%,transparent 100%)}
@@ -53,9 +53,9 @@ img{display:block;max-width:100%}
 .hero-path{display:flex;justify-content:center;gap:12px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em}
 .hero-path span.active{color:var(--blue-alt)}
 
-/* ─────────────────────────────────────────────
+/* --------------------------------
    CONTACT CONTENT
-───────────────────────────────────────────── */
+-------------------------------- */
 .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; margin-top: 40px; }
 .info-col { color: var(--text); }
 .sec-label{display:inline-flex;align-items:center;gap:9px;margin-bottom:14px}
@@ -89,9 +89,9 @@ h2.sec-title em{font-style:normal;color:var(--blue2)}
 .fbtn { width: 100%; background: var(--blue-alt); color: var(--navy); border: none; border-radius: 6px; padding: 18px; font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: all 0.2s; box-shadow: 0 6px 20px rgba(204,39,0,0.3); }
 .fbtn:hover { background: var(--blue-alt2); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(204,39,0,0.4); }
 
-/* ─────────────────────────────────────────────
+/* --------------------------------
    FOOTER (Identical)
-───────────────────────────────────────────── */
+-------------------------------- */
 
 
 /* Reveal */
@@ -101,9 +101,9 @@ h2.sec-title em{font-style:normal;color:var(--blue2)}
 .rv.in,.rl.in,.rr.in{opacity:1;transform:none}
 .d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}
 
-/* ─────────────────────────────────────────────
+/* --------------------------------
    CAREERS SECTION
-───────────────────────────────────────────── */
+-------------------------------- */
 .careers-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: start; }
 .job-list { display: flex; flex-direction: column; gap: 16px; }
 .job-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; transition: all 0.3s; position: relative; overflow: hidden; }
@@ -137,7 +137,7 @@ h2.sec-title em{font-style:normal;color:var(--blue2)}
 <!-- Shared header loaded by site.js -->
 <div id="site-header"></div>
 
-<!-- ══════════ HERO SUBPAGE ══════════ -->
+<!-- -------------------------------- HERO SUBPAGE -------------------------------- -->
 <header class="hero-subpage">
   <div class="W hero-sub-inner">
     <div class="hero-path rv">Home / <span class="active">Contact Us</span></div>
@@ -145,7 +145,7 @@ h2.sec-title em{font-style:normal;color:var(--blue2)}
   </div>
 </header>
 
-<!-- ══════════ CONTACT SECTION ══════════ -->
+<!-- -------------------------------- CONTACT SECTION -------------------------------- -->
 <section class="sec">
   <div class="W">
     <div class="contact-grid">
@@ -231,7 +231,7 @@ h2.sec-title em{font-style:normal;color:var(--blue2)}
   </div>
 </section>
 
-<!-- ══════════ CAREERS SECTION ══════════ -->
+<!-- -------------------------------- CAREERS SECTION -------------------------------- -->
 <section class="sec sec-alt" id="careers">
   <div class="W">
     <div style="text-align:center; margin-bottom:56px" class="rv">
@@ -307,16 +307,16 @@ h2.sec-title em{font-style:normal;color:var(--blue2)}
   </div>
 </section>
 
-<!-- ══════════ MAP SECTION ══════════ -->
+<!-- -------------------------------- MAP SECTION -------------------------------- -->
 <section style="height:450px; background:#eee">
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.345630371007!2d77.61488589999999!3d12.885482900000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15002ca3b463%3A0xf436bfaeb01a2144!2sBrindavana!5e0!3m2!1sen!2sin!4v1776684450403!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>
 
-<!-- ══════════ FOOTER ══════════ -->
+<!-- -------------------------------- FOOTER -------------------------------- -->
 <!-- Shared footer loaded by site.js -->
 <div id="site-footer"></div>
 
-<!-- ══════════ SCRIPTS ══════════ -->
+<!-- -------------------------------- SCRIPTS -------------------------------- -->
 <script src="site.js"></script>
 </body>
 </html>

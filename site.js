@@ -3,9 +3,9 @@
  */
 (function () {
   const headerHTML = `<style>
-/* ─────────────────────────────────────────────
+/* --------------------------------
    GLOBAL DESIGN TOKENS (Self-contained)
-───────────────────────────────────────────── */
+-------------------------------- */
 :root {
   --navy:      #08111f;
   --navy2:     #0c1a30;
@@ -25,9 +25,9 @@
   --text:      #0f1f35;
 }
 
-/* ─────────────────────────────────────────────
+/* --------------------------------
    TOPBAR
-   ───────────────────────────────────────────── */
+   -------------------------------- */
 .topbar { background: var(--navy); padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,.05); }
 .tb-inner { display: flex; justify-content: space-between; align-items: center; }
 .tb-left { display: flex; gap: 24px; }
@@ -36,9 +36,9 @@
 .tb-right { display: flex; gap: 7px; }
 .tb-cert { padding: 2px 9px; border: 1px solid rgba(204,39,0,.3); border-radius: 2px; font-family: 'Barlow Condensed', sans-serif; font-size: 9.5px; font-weight: 700; color: var(--blue-alt); letter-spacing: .08em; text-transform: uppercase; }
 
-/* ─────────────────────────────────────────────
+/* --------------------------------
    NAVBAR
-───────────────────────────────────────────── */
+-------------------------------- */
 .navbar { border-bottom: 3px solid var(--blue-alt); background: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 24px rgba(8,17,31,.1); width: 100%; }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; position: relative; z-index: 10; }
 .logo { display: flex; align-items: center; cursor: pointer; flex-shrink: 0; text-decoration: none; }
@@ -108,7 +108,7 @@
 .nav-open .menu-toggle .bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav-open .menu-toggle .bar:nth-child(3) { transform: translateY(0) rotate(-45deg); background: var(--blue-alt); }
 
-/* ── Intermediate: nav items get tight on medium desktops ── */
+/* -------------------------------- Intermediate: nav items get tight on medium desktops -------------------------------- */
 @media (max-width: 1200px) {
   .nav-link { padding: 0 10px; font-size: 13px; }
   .mega-products { width: 960px; }
@@ -116,7 +116,7 @@
   .mega-col { padding: 0 12px; }
 }
 
-/* ── Tablet & Mobile: hamburger menu ── */
+/* -------------------------------- Tablet & Mobile: hamburger menu -------------------------------- */
 @media (max-width: 1024px) {
   .menu-toggle { display: flex; }
 
@@ -189,7 +189,7 @@
   .svc-item { padding: 10px 8px; }
 }
 
-/* ── Small screens: hide topbar, shrink CTA ── */
+/* -------------------------------- Small screens: hide topbar, shrink CTA -------------------------------- */
 @media (max-width: 600px) {
   .topbar { display: none; }
   .logo img { height: 42px; }
@@ -229,9 +229,9 @@
 
 
 <nav class="navbar"><div class="W nav-inner">
-  <div class="logo" onclick="location.href='index.html'">
+  <a class="logo" href="index.html">
     <img src="images/logo.png" alt="Kumara Engineering Solutions">
-  </div>
+  </a>
 
   <div class="nav-menu" id="navMenu">
     <div class="nav-item">
@@ -278,7 +278,7 @@
           <div class="mega-col">
             <div class="mega-hd">Specialty <span class="mh-cnt">4</span></div>
             <a class="mega-item" href="products.html#aviation-panel">Aviation Lighting</a>
-            <a class="mega-item" href="products.html#street-panel">Street Light Panel</a>
+            <a class="mega-item" href="products.html#street-light">Street Light Panel</a>
             <a class="mega-item" href="products.html#solar-panel">Solar Panel</a>
             <a class="mega-item" href="products.html#ups-panel">UPS Panel</a>
           </div>
@@ -368,12 +368,12 @@
     </div>
 </div></nav>`;
   const footerHTML = `<style>
-/* ─────────────────────────────────────────────
+/* --------------------------------
    FOOTER
-   ───────────────────────────────────────────── */
+   -------------------------------- */
 footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
 .ft-grid { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1.35fr; gap: 56px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,.07); }
-.ft-logo { margin-bottom: 17px; cursor: pointer; }
+.ft-logo { display: inline-flex; margin-bottom: 17px; cursor: pointer; }
 .ft-logo img { height: 46px; width: auto; display: block; }
 .ft-desc { font-size: 13.5px; line-height: 1.82; color: rgba(255,255,255,.7); font-weight: 300; margin-bottom: 24px; max-width: 320px; }
 .ft-soc { display: flex; gap: 8px; }
@@ -414,9 +414,9 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
   <div class="W">
     <div class="ft-grid">
       <div>
-        <div class="ft-logo" onclick="location.href='index.html'">
+        <a class="ft-logo" href="index.html" aria-label="Kumara Engineering Solutions home">
           <img src="images/logo.png" alt="Kumara Engineering Solutions">
-        </div>
+        </a>
         <p class="ft-desc">The True Leader in End-to-End Power Distribution, Control Systems and Turnkey Electrical Solutions. Serving Karnataka and beyond &mdash; built on 24+ years of inherited excellence.</p>
         <div class="ft-soc">
           <a href="#" class="fsoc" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 100-4 2 2 0 000 4z"/></svg></a>
@@ -440,14 +440,14 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
       <div class="ft-col">
         <h4>Products</h4>
         <div class="ft-links">
-          <a href="products.html#lt-panel">LT Panel</a>
+          <a href="products.html#lv-switchgear">LT Panel</a>
           <a href="products.html#mcc-panel">MCC Panel</a>
           <a href="products.html#plc-panel">PLC Control Panel</a>
           <a href="products.html#apfc-panel">APFC Panel</a>
           <a href="products.html#busduct">HV &amp; LV Bus Duct</a>
           <a href="products.html#vfd-panel">VFD Panel</a>
           <a href="products.html#ats-panel">ATS Panel</a>
-          <a href="products.html#dg-panel">DG Sync Panel</a>
+          <a href="products.html#dg-sync">DG Sync Panel</a>
         </div>
       </div>
       <div class="ft-col">
@@ -478,13 +478,20 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
   </div>
 </footer>
 
-<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">&uarr;</button>`;
+<button id="btt" type="button" aria-label="Back to top">&uarr;</button>`;
 
   const headerSlot = document.getElementById('site-header');
   const footerSlot = document.getElementById('site-footer');
 
   if (headerSlot) headerSlot.outerHTML = headerHTML;
   if (footerSlot) footerSlot.outerHTML = footerHTML;
+
+  const btt = document.getElementById('btt');
+  if (btt) {
+    btt.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
   function setActiveNav() {
     const page = location.pathname.split('/').pop() || 'index.html';
@@ -505,7 +512,7 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
     var navItems = document.querySelectorAll('.nav-item');
     if (!navbar || !navMenu) return;
 
-    /* ── Position helpers ── */
+    /* -------------------------------- Position helpers -------------------------------- */
     function getNavbarBottom() {
       return navbar.getBoundingClientRect().bottom;
     }
@@ -536,11 +543,11 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
       navItems.forEach(function (i) { i.classList.remove('open'); });
     }
 
-    /* ── Initial positioning ── */
+    /* -------------------------------- Initial positioning -------------------------------- */
     positionMegaDropdowns();
     positionMobileMenu();
 
-    /* ── Scroll: reposition dropdowns ── */
+    /* -------------------------------- Scroll: reposition dropdowns -------------------------------- */
     window.addEventListener('scroll', function () {
       positionMegaDropdowns();
       positionMobileMenu();
@@ -552,7 +559,7 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
       if (btt) btt.classList.toggle('on', scrollY > 400);
     }, { passive: true });
 
-    /* ── Hamburger toggle ── */
+    /* -------------------------------- Hamburger toggle -------------------------------- */
     toggle && toggle.addEventListener('click', function (e) {
       e.stopPropagation();
       var isOpening = !navbar.classList.contains('nav-open');
@@ -565,7 +572,7 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
       }
     });
 
-    /* ── Dropdown accordion on mobile ── */
+    /* -------------------------------- Dropdown accordion on mobile -------------------------------- */
     navItems.forEach(function (item) {
       var link = item.querySelector(':scope > .nav-link');
       var dropdown = item.querySelector(':scope > .dropdown') || item.querySelector(':scope > .mega-dropdown');
@@ -580,7 +587,7 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
       });
     });
 
-    /* ── Close mobile menu on leaf-link click ── */
+    /* -------------------------------- Close mobile menu on leaf-link click -------------------------------- */
     document.querySelectorAll('.nav-menu a.nav-link, .mega-item, .dd-item, .svc-item').forEach(function (el) {
       el.addEventListener('click', function () {
         if (window.innerWidth > 1024) return;
@@ -589,7 +596,7 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
       });
     });
 
-    /* ── Resize: clean up ── */
+    /* -------------------------------- Resize: clean up -------------------------------- */
     window.addEventListener('resize', function () {
       if (window.innerWidth > 1024) {
         closeMenu();
@@ -603,9 +610,16 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
   }
 
   function initReveal() {
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.rv, .rl, .rr').forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) e.target.classList.add('in');
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
     document.querySelectorAll('.rv, .rl, .rr').forEach(function (el) { io.observe(el); });

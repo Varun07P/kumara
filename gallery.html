@@ -34,7 +34,7 @@ img{display:block;max-width:100%}
 .rv.in,.rl.in,.rr.in{opacity:1;transform:none}
 .d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}
 
-/* ═══ GALLERY HERO ═══ */
+/* -------------------------------- GALLERY HERO -------------------------------- */
 .gal-hero{position:relative;min-height:520px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--navy)}
 .gal-hero-bg{position:absolute;inset:0}
 .gal-hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.3) saturate(.6);transform:scale(1.04);animation:heroZoom 20s ease-in-out infinite alternate}
@@ -59,7 +59,7 @@ img{display:block;max-width:100%}
 .gal-hero-scroll .line{width:1px;height:36px;background:linear-gradient(180deg,rgba(204,39,0,.6),transparent)}
 @keyframes scrollPulse{0%,100%{opacity:.4;transform:translateX(-50%) translateY(0)}50%{opacity:1;transform:translateX(-50%) translateY(6px)}}
 
-/* ═══ FILTER BAR ═══ */
+/* -------------------------------- FILTER BAR -------------------------------- */
 .filter-bar{background:var(--navy2);border-bottom:1px solid rgba(255,255,255,.04);position:sticky;top:68px;z-index:100}
 .filter-inner{display:flex;align-items:center;gap:6px;padding:14px 0;overflow-x:auto;scrollbar-width:none}
 .filter-inner::-webkit-scrollbar{display:none}
@@ -67,7 +67,7 @@ img{display:block;max-width:100%}
 .fbtn-filter:hover{color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.2)}
 .fbtn-filter.active{background:var(--blue-alt);color:#fff;border-color:var(--blue-alt);box-shadow:0 4px 18px rgba(204,39,0,.35)}
 
-/* ═══ GALLERY GRID ═══ */
+/* -------------------------------- GALLERY GRID -------------------------------- */
 .gal-sec{padding:72px 0 100px;background:var(--off)}
 .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .gal-item{position:relative;overflow:hidden;border-radius:12px;cursor:pointer;background:var(--navy);box-shadow:var(--s1);transition:all .4s cubic-bezier(.16,1,.3,1)}
@@ -105,7 +105,7 @@ img{display:block;max-width:100%}
   .gal-hero-stats{flex-wrap:wrap;gap:20px}
 }
 
-/* ═══ LIGHTBOX ═══ */
+/* -------------------------------- LIGHTBOX -------------------------------- */
 .lightbox{position:fixed;inset:0;z-index:9999;background:rgba(4,8,18,.95);backdrop-filter:blur(20px);display:none;align-items:center;justify-content:center;opacity:0;transition:opacity .35s}
 .lightbox.open{display:flex;opacity:1}
 .lb-close{position:absolute;top:24px;right:28px;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:10}
@@ -123,7 +123,7 @@ img{display:block;max-width:100%}
 .lb-next{right:24px}
 .lb-counter{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,.3);letter-spacing:.1em}
 
-/* ═══ CTA BANNER ═══ */
+/* -------------------------------- CTA BANNER -------------------------------- */
 .gal-cta{background:var(--navy);padding:80px 0;text-align:center;position:relative;overflow:hidden}
 .gal-cta::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(204,39,0,.4),transparent)}
 .gal-cta-inner{position:relative;z-index:2}
@@ -138,7 +138,7 @@ img{display:block;max-width:100%}
 
 <div id="site-header"></div>
 
-<!-- ══════════ GALLERY HERO ══════════ -->
+<!-- -------------------------------- GALLERY HERO -------------------------------- -->
 <header class="gal-hero">
   <div class="gal-hero-bg"><img src="images/gallery/hero.png" alt="KES Manufacturing Facility"/></div>
   <div class="gal-hero-content">
@@ -155,7 +155,7 @@ img{display:block;max-width:100%}
   <div class="gal-hero-scroll"><div class="line"></div>Scroll</div>
 </header>
 
-<!-- ══════════ FILTER BAR ══════════ -->
+<!-- -------------------------------- FILTER BAR -------------------------------- -->
 <div class="filter-bar">
   <div class="W">
     <div class="filter-inner">
@@ -168,7 +168,7 @@ img{display:block;max-width:100%}
   </div>
 </div>
 
-<!-- ══════════ GALLERY GRID ══════════ -->
+<!-- -------------------------------- GALLERY GRID -------------------------------- -->
 <section class="gal-sec">
   <div class="W">
     <div class="gal-grid" id="galGrid">
@@ -231,7 +231,7 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
-<!-- ══════════ CTA BANNER ══════════ -->
+<!-- -------------------------------- CTA BANNER -------------------------------- -->
 <section class="gal-cta">
   <div class="W gal-cta-inner rv">
     <h2>Ready to <em>Power</em> Your Project?</h2>
@@ -240,7 +240,7 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
-<!-- ══════════ LIGHTBOX ══════════ -->
+<!-- -------------------------------- LIGHTBOX -------------------------------- -->
 <div class="lightbox" id="lightbox">
   <button class="lb-close" id="lbClose"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
   <button class="lb-nav lb-prev" id="lbPrev"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
@@ -252,10 +252,10 @@ img{display:block;max-width:100%}
   <div class="lb-counter" id="lbCounter"></div>
 </div>
 
-<!-- ══════════ FOOTER ══════════ -->
+<!-- -------------------------------- FOOTER -------------------------------- -->
 <div id="site-footer"></div>
 
-<!-- ══════════ SCRIPTS ══════════ -->
+<!-- -------------------------------- SCRIPTS -------------------------------- -->
 <script src="site.js"></script>
 <script>
 (function(){

@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  /* ─── Design tokens ─── */
+  /* -------------------------------- Design tokens -------------------------------- */
   :root {
     --navy:   #08111f;
     --navy2:  #0c1a30;
@@ -26,7 +26,7 @@
     --shadow-md: 0 8px 36px rgba(8,17,31,.13);
   }
 
-  /* ─── Reset ─── */
+  /* -------------------------------- Reset -------------------------------- */
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   html  { scroll-behavior: smooth; }
   body  { font-family: 'Barlow', sans-serif; color: var(--text); background: #fff; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
@@ -35,10 +35,10 @@
   img   { display: block; max-width: 100%; object-fit: cover; }
   ul    { list-style: none; }
 
-  /* ─── Layout wrapper ─── */
+  /* -------------------------------- Layout wrapper -------------------------------- */
   .W { max-width: 1300px; margin: 0 auto; padding: 0 52px; }
 
-  /* ─── Scroll reveal ─── */
+  /* -------------------------------- Scroll reveal -------------------------------- */
   .rv  { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
   .rl  { opacity: 0; transform: translateX(-32px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
   .rr  { opacity: 0; transform: translateX(32px);  transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
@@ -48,9 +48,9 @@
   .d3 { transition-delay: .24s; }
   .d4 { transition-delay: .32s; }
 
-  /* ════════════════════════════
+  /* --------------------------------
      HERO
-  ════════════════════════════ */
+  -------------------------------- */
   .hero {
     position: relative;
     min-height: 100svh;
@@ -188,9 +188,9 @@
   }
   .btn-ghost:hover { border-color: rgba(255,255,255,.5); color: #fff; }
 
-  /* ════════════════════════════
+  /* --------------------------------
      SHARED SECTION STYLES
-  ════════════════════════════ */
+  -------------------------------- */
   .sec     { padding: 80px 0; }
   .sec-alt { background: var(--off); }
 
@@ -234,9 +234,9 @@
     margin: 0 auto 52px;
   }
 
-  /* ════════════════════════════
+  /* --------------------------------
      ABOUT INTRO SPLIT
-  ════════════════════════════ */
+  -------------------------------- */
   .intro-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -308,9 +308,9 @@
   .dir-info .dt { font-size: 12px; color: var(--red); text-transform: uppercase; letter-spacing: .1em; font-weight: 600; margin-bottom: 10px; }
   .dir-info .db { font-size: 13.5px; color: rgba(255,255,255,.5); line-height: 1.6; }
 
-  /* ════════════════════════════
+  /* --------------------------------
      STATS + CERTS  (combined)
-  ════════════════════════════ */
+  -------------------------------- */
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -376,9 +376,9 @@
   .cert-card h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800; color: #fff; text-transform: uppercase; margin-bottom: 8px; }
   .cert-card p  { font-size: 12.5px; color: rgba(255,255,255,.45); line-height: 1.6; }
 
-  /* ════════════════════════════
+  /* --------------------------------
      MISSION / VISION / QUALITY
-  ════════════════════════════ */
+  -------------------------------- */
   .mvv-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -440,9 +440,9 @@
   .mvv-card.quality p { color: rgba(255,255,255,.58); }
   .mvv-card.vision p  { color: var(--grey); }
 
-  /* ════════════════════════════
+  /* --------------------------------
      CORE VALUES
-  ════════════════════════════ */
+  -------------------------------- */
   .val-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -479,9 +479,9 @@
   .val-item h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800; color: var(--navy); text-transform: uppercase; margin-bottom: 6px; }
   .val-item p  { font-size: 13.5px; color: var(--grey); line-height: 1.6; }
 
-  /* ════════════════════════════
+  /* --------------------------------
      INFRASTRUCTURE
-  ════════════════════════════ */
+  -------------------------------- */
   .infra-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -520,9 +520,9 @@
   .infra-item h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800; color: var(--navy); text-transform: uppercase; margin-bottom: 5px; }
   .infra-item p  { font-size: 13.5px; color: var(--grey); line-height: 1.55; }
 
-  /* ════════════════════════════
+  /* --------------------------------
      CLIENTS MARQUEE
-  ════════════════════════════ */
+  -------------------------------- */
   .clients-marquee {
     overflow: hidden;
     position: relative;
@@ -571,9 +571,9 @@
   }
   .cli-pill:hover { border-color: var(--red); color: var(--red); }
 
-  /* ════════════════════════════
+  /* --------------------------------
      CTA BAND
-  ════════════════════════════ */
+  -------------------------------- */
   .cta-band {
     background: linear-gradient(135deg, var(--red) 0%, var(--red3) 100%);
     padding: 64px 0;
@@ -630,9 +630,9 @@
   }
   .btn-white:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,.3); }
 
-  /* ════════════════════════════
+  /* --------------------------------
      BACK TO TOP
-  ════════════════════════════ */
+  -------------------------------- */
   #btt {
     position: fixed;
     bottom: 32px; right: 32px;
@@ -654,9 +654,9 @@
   #btt.on { opacity: 1; pointer-events: auto; }
   #btt:hover { transform: translateY(-3px); }
 
-  /* ════════════════════════════
+  /* --------------------------------
      RESPONSIVE
-  ════════════════════════════ */
+  -------------------------------- */
   @media (max-width: 1100px) {
     .stats-grid,
     .cert-grid { grid-template-columns: repeat(2, 1fr); }
@@ -706,9 +706,9 @@
 
 <div id="site-header"></div>
 
-<!-- ═══════════════════════════════
+<!-- --------------------------------
      HERO
-═══════════════════════════════ -->
+-------------------------------- -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grad"></div>
@@ -740,9 +740,9 @@
 </section>
 
 
-<!-- ═══════════════════════════════
+<!-- --------------------------------
      ABOUT STORY
-═══════════════════════════════ -->
+-------------------------------- -->
 <section class="sec" id="about-story">
   <div class="W">
     <div class="intro-grid">
@@ -790,9 +790,9 @@
 </section>
 
 
-<!-- ═══════════════════════════════
+<!-- --------------------------------
      STATS + CERTIFICATIONS
-═══════════════════════════════ -->
+-------------------------------- -->
 <section class="sec sec-alt">
   <div class="W">
 
@@ -870,9 +870,9 @@
 </section>
 
 
-<!-- ═══════════════════════════════
+<!-- --------------------------------
      MISSION / VISION / QUALITY
-═══════════════════════════════ -->
+-------------------------------- -->
 <section class="sec">
   <div class="W">
     <div class="sec-header">
@@ -901,9 +901,9 @@
 </section>
 
 
-<!-- ═══════════════════════════════
+<!-- --------------------------------
      CORE VALUES
-═══════════════════════════════ -->
+-------------------------------- -->
 <section class="sec sec-alt">
   <div class="W">
     <div class="sec-header">
@@ -976,9 +976,9 @@
 </section>
 
 
-<!-- ═══════════════════════════════
+<!-- --------------------------------
      INFRASTRUCTURE
-═══════════════════════════════ -->
+-------------------------------- -->
 <section class="sec">
   <div class="W">
     <div class="infra-grid">
@@ -1033,9 +1033,9 @@
 </section>
 
 
-<!-- ═══════════════════════════════
+<!-- --------------------------------
      CLIENTS
-═══════════════════════════════ -->
+-------------------------------- -->
 <section class="sec sec-alt">
   <div class="W">
     <div class="sec-header">
@@ -1088,9 +1088,9 @@
 </section>
 
 
-<!-- ═══════════════════════════════
+<!-- --------------------------------
      CTA
-═══════════════════════════════ -->
+-------------------------------- -->
 <div class="cta-band">
   <div class="W cta-inner">
     <div class="rv">

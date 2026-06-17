@@ -1,7 +1,7 @@
 <style>
-/* ─────────────────────────────────────────────
+/* --------------------------------
    GLOBAL DESIGN TOKENS (Self-contained)
-───────────────────────────────────────────── */
+-------------------------------- */
 :root {
   --navy:      #08111f;
   --navy2:     #0c1a30;
@@ -21,12 +21,12 @@
   --text:      #0f1f35;
 }
 
-/* ─────────────────────────────────────────────
+/* --------------------------------
    FOOTER
-   ───────────────────────────────────────────── */
+   -------------------------------- */
 footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
 .ft-grid { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1.35fr; gap: 56px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,.07); }
-.ft-logo { margin-bottom: 17px; cursor: pointer; }
+.ft-logo { display: inline-flex; margin-bottom: 17px; cursor: pointer; }
 .ft-logo img { height: 46px; width: auto; display: block; }
 .ft-desc { font-size: 13.5px; line-height: 1.82; color: rgba(255,255,255,.3); font-weight: 300; margin-bottom: 24px; max-width: 320px; }
 .ft-soc { display: flex; gap: 8px; }
@@ -63,9 +63,9 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
   <div class="W">
     <div class="ft-grid">
       <div>
-        <div class="ft-logo" onclick="location.href='index.html'">
+        <a class="ft-logo" href="index.html" aria-label="Kumara Engineering Solutions home">
           <img src="images/logo.png" alt="Kumara Engineering Solutions">
-        </div>
+        </a>
         <p class="ft-desc">The True Leader in End-to-End Power Distribution, Control Systems and Turnkey Electrical Solutions. Serving Karnataka and beyond &mdash; built on 24+ years of inherited excellence.</p>
         <div class="ft-soc">
           <a href="#" class="fsoc">in</a>
@@ -87,14 +87,14 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
       <div class="ft-col">
         <h4>Products</h4>
         <div class="ft-links">
-          <a href="products.html#lt-panel">LT Panel</a>
+          <a href="products.html#lv-switchgear">LT Panel</a>
           <a href="products.html#mcc-panel">MCC Panel</a>
           <a href="products.html#plc-panel">PLC Control Panel</a>
           <a href="products.html#apfc-panel">APFC Panel</a>
           <a href="products.html#busduct">HV &amp; LV Bus Duct</a>
           <a href="products.html#vfd-panel">VFD Panel</a>
           <a href="products.html#ats-panel">ATS Panel</a>
-          <a href="products.html#dg-panel">DG Sync Panel</a>
+          <a href="products.html#dg-sync">DG Sync Panel</a>
         </div>
       </div>
       <div class="ft-col">
@@ -125,4 +125,4 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
   </div>
 </footer>
 
-<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">&uarr;</button>
+<button id="btt" type="button" aria-label="Back to top">&uarr;</button>
