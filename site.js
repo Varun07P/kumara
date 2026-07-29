@@ -357,7 +357,7 @@
   </div>
 
     <div class="nav-actions">
-      <a href="contactus.html" class="nav-cta"><span>Get a Quote</span> <span class="arr">&#8594;</span></a>
+      <a href="admin.html" class="nav-cta"><span>Login</span> <span class="arr">&#8594;</span></a>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
         <div class="bar-box">
           <span class="bar"></span>
@@ -371,30 +371,37 @@
 /* --------------------------------
    FOOTER
    -------------------------------- */
-footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
-.ft-grid { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1.35fr; gap: 56px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,.07); }
-.ft-logo { display: inline-flex; margin-bottom: 17px; cursor: pointer; }
-.ft-logo img { height: 46px; width: auto; display: block; }
-.ft-desc { font-size: 13.5px; line-height: 1.82; color: rgba(255,255,255,.7); font-weight: 300; margin-bottom: 24px; max-width: 320px; }
-.ft-soc { display: flex; gap: 8px; }
-.fsoc { width: 36px; height: 36px; border-radius: 6px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); display: grid; place-items: center; transition: all .2s; text-decoration: none; }
-.fsoc svg { width: 16px; height: 16px; fill: rgba(255,255,255,.7); transition: fill .2s; }
+footer { position: relative; background: #07101f; color: #fff; padding: 0; overflow: hidden; }
+footer::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 12% 0%, rgba(204,39,0,.16), transparent 30%), linear-gradient(180deg, rgba(255,255,255,.035), transparent 42%); pointer-events: none; }
+.ft-wrap { position: relative; z-index: 1; width: 96vw; max-width: 1760px; padding: 0; }
+.ft-grid { display: grid; grid-template-columns: minmax(300px,1.15fr) minmax(175px,.72fr) minmax(190px,.78fr) minmax(360px,1.12fr); align-items: start; gap: clamp(26px, 3.2vw, 58px); padding: 42px 0 34px; border-bottom: 1px solid rgba(255,255,255,.1); }
+.ft-brand { min-height: 100%; padding: 24px; border: 1px solid rgba(255,255,255,.1); border-radius: 8px; background: rgba(255,255,255,.045); box-shadow: 0 18px 50px rgba(0,0,0,.12); }
+.ft-logo { display: inline-flex; margin-bottom: 18px; cursor: pointer; padding: 10px 12px; border-radius: 7px; background: rgba(255,255,255,.97); }
+.ft-logo img { height: 42px; width: auto; display: block; }
+.ft-desc { font-size: 14.5px; line-height: 1.72; color: rgba(255,255,255,.72); font-weight: 300; margin-bottom: 22px; max-width: 410px; }
+.ft-soc { display: flex; gap: 9px; }
+.fsoc { width: 40px; height: 40px; border-radius: 7px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.13); display: grid; place-items: center; transition: transform .2s, background .2s, border-color .2s; text-decoration: none; }
+.fsoc svg { width: 16px; height: 16px; fill: rgba(255,255,255,.72); transition: fill .2s; }
 .fsoc:hover svg { fill: #fff; }
-.fsoc:hover { background: var(--blue-alt); color: #fff; border-color: var(--blue-alt); }
-.ft-col h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 9.5px; font-weight: 700; color: rgba(255,255,255,.6); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,.1); letter-spacing: .14em; text-transform: uppercase; }
-.ft-links { display: flex; flex-direction: column; gap: 10px; }
-.ft-links a { font-size: 13.5px; color: rgba(255,255,255,.75); font-weight: 400; cursor: pointer; transition: color .2s; display: flex; align-items: center; gap: 7px; text-decoration: none; }
-.ft-links a:hover { color: #fff; }
-.ft-links a::before { content: ''; width: 6px; height: 2px; background: var(--blue-alt); opacity: .4; flex-shrink: 0; transition: width .2s, opacity .2s; }
-.ft-links a:hover::before { width: 12px; opacity: 1; }
-.ft-contact { display: flex; flex-direction: column; gap: 11px; }
-.fc-i { display: flex; align-items: flex-start; gap: 9px; font-size: 12.5px; color: rgba(255,255,255,.75); line-height: 1.6; font-weight: 400; }
-.svg-ic { width: 16px; height: 16px; display: inline-block; flex-shrink: 0; margin-top: 2px; color: var(--blue-alt); }
-.fc-i svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; stroke: var(--blue-alt); }
-.ft-bottom { padding: 22px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
-.ft-bottom p { font-size: 11.5px; color: rgba(255,255,255,.6); }
-.ft-badges { display: flex; gap: 6px; flex-wrap: wrap; }
-.ftb { padding: 3px 9px; border: 1px solid rgba(204,39,0,.22); border-radius: 2px; font-family: 'Barlow Condensed', sans-serif; font-size: 9.5px; font-weight: 700; color: var(--blue-alt); letter-spacing: .09em; text-transform: uppercase; }
+.fsoc:hover { background: var(--blue-alt); color: #fff; border-color: var(--blue-alt); transform: translateY(-2px); }
+.ft-col { padding-top: 6px; }
+.ft-col h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 800; color: #fff; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,.12); letter-spacing: .15em; text-transform: uppercase; }
+.ft-links { display: flex; flex-direction: column; gap: 8px; }
+.ft-links a { font-size: 14px; line-height: 1.35; color: rgba(255,255,255,.7); font-weight: 400; cursor: pointer; transition: color .2s, transform .2s; display: flex; align-items: center; gap: 8px; text-decoration: none; width: fit-content; }
+.ft-links a:hover { color: #fff; transform: translateX(3px); }
+.ft-links a::before { content: ''; width: 7px; height: 2px; background: var(--blue-alt); opacity: .55; flex-shrink: 0; transition: width .2s, opacity .2s; }
+.ft-links a:hover::before { width: 14px; opacity: 1; }
+.ft-contact { display: flex; flex-direction: column; gap: 9px; }
+.fc-i { display: flex; align-items: flex-start; gap: 11px; min-height: 44px; padding: 11px 12px; border: 1px solid rgba(255,255,255,.09); border-radius: 7px; background: rgba(255,255,255,.04); font-size: 13.5px; color: rgba(255,255,255,.74); line-height: 1.5; font-weight: 400; }
+.svg-ic { width: 17px; height: 17px; display: inline-block; flex-shrink: 0; margin-top: 2px; color: var(--blue-alt); }
+.fc-i svg { width: 17px; height: 17px; flex-shrink: 0; margin-top: 2px; stroke: var(--blue-alt); }
+.ft-cert-row { display:flex; gap:7px; flex-wrap:wrap; margin-top:14px; }
+.ft-bottom { padding: 18px 0 22px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
+.ft-bottom p { font-size: 12.5px; color: rgba(255,255,255,.58); }
+.ft-bottom a { color: var(--blue-alt); text-decoration: none; font-weight: 600; transition: color .2s; }
+.ft-bottom a:hover { color: #fff; text-decoration: underline; }
+.ft-badges { display: flex; gap: 7px; flex-wrap: wrap; justify-content: flex-end; }
+.ftb { padding: 5px 9px; border: 1px solid rgba(204,39,0,.25); border-radius: 4px; font-family: 'Barlow Condensed', sans-serif; font-size: 10px; line-height: 1; font-weight: 800; color: var(--blue-alt); letter-spacing: .09em; text-transform: uppercase; background: rgba(204,39,0,.055); }
 
 /* Back to Top */
 #btt { position: fixed; bottom: 28px; right: 28px; z-index: 999; width: 44px; height: 44px; border-radius: 6px; background: var(--blue-alt); color: #fff; display: none; align-items: center; justify-content: center; font-size: 18px; font-weight: 900; box-shadow: 0 4px 18px rgba(204,39,0,.4); cursor: pointer; transition: all .22s; font-family: 'Barlow Condensed', sans-serif; border: none; outline: none; }
@@ -402,18 +409,24 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
 #btt:hover { background: var(--blue-alt2); transform: translateY(-3px); }
 
 @media (max-width: 1024px) {
-  .ft-grid { grid-template-columns: 1fr 1fr; }
+  .ft-wrap { width: 94vw; }
+  .ft-grid { grid-template-columns: 1.2fr 1fr; }
 }
 @media (max-width: 640px) {
+  .ft-wrap { width: calc(100% - 32px); }
+  .ft-brand { padding: 18px; }
   .ft-grid { grid-template-columns: 1fr; }
+  .ft-col { padding-top: 0; }
+  .ft-badges { justify-content: flex-start; }
+  .ft-bottom { align-items: flex-start; flex-direction: column; }
 }
 </style>
 
 <!-- FOOTER -->
 <footer>
-  <div class="W">
+  <div class="W ft-wrap">
     <div class="ft-grid">
-      <div>
+      <div class="ft-brand">
         <a class="ft-logo" href="index.html" aria-label="Kumara Engineering Solutions home">
           <img src="images/logo.png" alt="Kumara Engineering Solutions">
         </a>
@@ -458,7 +471,7 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
           <div class="fc-i"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 6l-10 7L2 6"/></svg> info@kumarasolutions.in</div>
           <div class="fc-i"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/></svg> Mon&ndash;Sat &middot; 9 AM &ndash; 6 PM IST</div>
         </div>
-        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:18px">
+        <div class="ft-cert-row">
           <span class="ftb">IEC 61439</span>
           <span class="ftb">IS:8623</span>
           <span class="ftb">CPRI</span>
@@ -467,7 +480,7 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
       </div>
     </div>
     <div class="ft-bottom">
-      <p>&copy; 2025 Kumara Engineering Solutions Private Limited. All rights reserved.</p>
+      <p>&copy; 2026 Kumara Engineering Solutions Private Limited. All rights reserved. <span style="margin: 0 6px; opacity: 0.4;">|</span> Designed by <a href="https://niyanitsolutions.com" target="_blank" rel="noopener">Niyan IT Solutions</a></p>
       <div class="ft-badges">
         <span class="ftb">ISO Certified</span>
         <span class="ftb">Class I Contractor</span>
