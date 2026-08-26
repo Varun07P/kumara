@@ -1,0 +1,173 @@
+[Fri Jul 10 15:05:30 2026] PHP 8.0.30 Development Server (http://127.0.0.1:8000) started
+[Fri Jul 10 15:05:33 2026] 127.0.0.1:51544 Accepted
+[Fri Jul 10 15:05:33 2026] 127.0.0.1:51544 [200]: GET /
+[Fri Jul 10 15:05:33 2026] 127.0.0.1:51544 Closing
+[Fri Jul 10 15:05:33 2026] 127.0.0.1:51545 Accepted
+[Fri Jul 10 15:05:33 2026] 127.0.0.1:51545 Closing
+[Fri Jul 10 15:05:55 2026] 127.0.0.1:51555 Accepted
+[Fri Jul 10 15:05:55 2026] 127.0.0.1:51555 [200]: GET /
+[Fri Jul 10 15:05:55 2026] 127.0.0.1:51555 Closing
+[Fri Jul 10 15:06:05 2026] 127.0.0.1:51557 Accepted
+[Fri Jul 10 15:06:05 2026] 127.0.0.1:51557 [200]: GET /
+[Fri Jul 10 15:06:05 2026] 127.0.0.1:51557 Closing
+[Fri Jul 10 15:06:06 2026] 127.0.0.1:51558 Accepted
+[Fri Jul 10 15:06:06 2026] 127.0.0.1:51558 Closing
+[Fri Jul 10 15:06:40 2026] 127.0.0.1:51584 Accepted
+[Fri Jul 10 15:06:40 2026] 127.0.0.1:51584 [200]: GET /
+[Fri Jul 10 15:06:40 2026] 127.0.0.1:51584 Closing
+[Fri Jul 10 15:06:41 2026] 127.0.0.1:51585 Accepted
+[Fri Jul 10 15:06:41 2026] 127.0.0.1:51585 [200]: GET /images/gallery/hero.png
+[Fri Jul 10 15:06:41 2026] 127.0.0.1:51586 Accepted
+[Fri Jul 10 15:06:41 2026] 127.0.0.1:51587 Accepted
+[Fri Jul 10 15:06:41 2026] 127.0.0.1:51586 [200]: GET /images/gallery/testing.png
+[Fri Jul 10 15:06:41 2026] 127.0.0.1:51588 Accepted
+[Fri Jul 10 15:06:41 2026] 127.0.0.1:51587 [200]: GET /site.js
+[Fri Jul 10 15:06:41 2026] 127.0.0.1:51588 [200]: GET /images/gallery/panel1.png
+[Fri Jul 10 15:06:41 2026] 127.0.0.1:51587 Closing
+[Fri Jul 10 15:06:41 2026] 127.0.0.1:51585 Closing
+[Fri Jul 10 15:06:41 2026] 127.0.0.1:51586 Closing
+[Fri Jul 10 15:06:41 2026] 127.0.0.1:51588 Closing
+[Fri Jul 10 15:06:41 2026] 127.0.0.1:51591 Accepted
+[Fri Jul 10 15:06:41 2026] 127.0.0.1:51592 Accepted
+[Fri Jul 10 15:06:41 2026] 127.0.0.1:51593 Accepted
+[Fri Jul 10 15:06:41 2026] 127.0.0.1:51594 Accepted
+[Fri Jul 10 15:06:41 2026] 127.0.0.1:51593 [200]: GET /images/gallery/factory.png
+[Fri Jul 10 15:06:42 2026] 127.0.0.1:51591 [200]: GET /images/gallery/panel3.png
+[Fri Jul 10 15:06:42 2026] 127.0.0.1:51592 [200]: GET /images/gallery/panel2.png
+[Fri Jul 10 15:06:42 2026] 127.0.0.1:51594 [200]: GET /images/gallery/busduct.png
+[Fri Jul 10 15:06:42 2026] 127.0.0.1:51602 Accepted
+[Fri Jul 10 15:06:42 2026] 127.0.0.1:51602 [200]: GET /images/logo.png
+[Fri Jul 10 15:06:42 2026] 127.0.0.1:51602 Closing
+[Fri Jul 10 15:06:42 2026] 127.0.0.1:51591 Closing
+[Fri Jul 10 15:06:42 2026] 127.0.0.1:51593 Closing
+[Fri Jul 10 15:06:42 2026] 127.0.0.1:51592 Closing
+[Fri Jul 10 15:06:42 2026] 127.0.0.1:51594 Closing
+[Fri Jul 10 15:06:43 2026] 127.0.0.1:51603 Accepted
+[Fri Jul 10 15:06:43 2026] 127.0.0.1:51603 [404]: GET /favicon.ico - No such file or directory
+[Fri Jul 10 15:06:43 2026] 127.0.0.1:51603 Closing
+[Fri Jul 10 15:07:02 2026] 127.0.0.1:51614 Accepted
+[Fri Jul 10 15:07:02 2026] 127.0.0.1:51615 Accepted
+[Fri Jul 10 15:07:02 2026] 127.0.0.1:51615 [200]: GET /
+[Fri Jul 10 15:07:02 2026] 127.0.0.1:51615 Closing
+[Fri Jul 10 15:07:03 2026] 127.0.0.1:51616 Accepted
+[Fri Jul 10 15:07:03 2026] 127.0.0.1:51614 [200]: GET /images/gallery/hero.png
+[Fri Jul 10 15:07:03 2026] 127.0.0.1:51617 Accepted
+[Fri Jul 10 15:07:03 2026] 127.0.0.1:51616 [200]: GET /images/gallery/testing.png
+[Fri Jul 10 15:07:03 2026] 127.0.0.1:51618 Accepted
+[Fri Jul 10 15:07:03 2026] 127.0.0.1:51617 [200]: GET /images/gallery/panel1.png
+[Fri Jul 10 15:07:03 2026] 127.0.0.1:51618 [200]: GET /site.js
+[Fri Jul 10 15:07:03 2026] 127.0.0.1:51618 Closing
+[Fri Jul 10 15:07:03 2026] 127.0.0.1:51614 Closing
+[Fri Jul 10 15:07:03 2026] 127.0.0.1:51616 Closing
+[Fri Jul 10 15:07:03 2026] 127.0.0.1:51617 Closing
+[Fri Jul 10 15:07:04 2026] 127.0.0.1:51620 Accepted
+[Fri Jul 10 15:07:04 2026] 127.0.0.1:51621 Accepted
+[Fri Jul 10 15:07:04 2026] 127.0.0.1:51622 Accepted
+[Fri Jul 10 15:07:04 2026] 127.0.0.1:51620 [200]: GET /images/gallery/factory.png
+[Fri Jul 10 15:07:04 2026] 127.0.0.1:51621 [200]: GET /images/gallery/panel2.png
+[Fri Jul 10 15:07:04 2026] 127.0.0.1:51622 [200]: GET /images/gallery/panel3.png
+[Fri Jul 10 15:07:04 2026] 127.0.0.1:51622 Closing
+[Fri Jul 10 15:07:04 2026] 127.0.0.1:51620 Closing
+[Fri Jul 10 15:07:04 2026] 127.0.0.1:51621 Closing
+[Fri Jul 10 15:07:05 2026] 127.0.0.1:51623 Accepted
+[Fri Jul 10 15:07:05 2026] 127.0.0.1:51623 [200]: GET /images/logo.png
+[Fri Jul 10 15:07:05 2026] 127.0.0.1:51623 Closing
+[Fri Jul 10 15:07:17 2026] 127.0.0.1:51627 Accepted
+[Fri Jul 10 15:07:17 2026] 127.0.0.1:51627 [200]: GET /images/gallery/busduct.png
+[Fri Jul 10 15:07:17 2026] 127.0.0.1:51627 Closing
+[Fri Jul 10 17:59:58 2026] 127.0.0.1:54704 Accepted
+[Fri Jul 10 17:59:58 2026] 127.0.0.1:54705 Accepted
+[Fri Jul 10 17:59:58 2026] 127.0.0.1:54704 [200]: GET /
+[Fri Jul 10 17:59:58 2026] 127.0.0.1:54704 Closing
+[Fri Jul 10 17:59:59 2026] 127.0.0.1:54706 Accepted
+[Fri Jul 10 17:59:59 2026] 127.0.0.1:54705 [200]: GET /images/gallery/hero.png
+[Fri Jul 10 17:59:59 2026] 127.0.0.1:54706 [200]: GET /images/gallery/testing.png
+[Fri Jul 10 17:59:59 2026] 127.0.0.1:54707 Accepted
+[Fri Jul 10 17:59:59 2026] 127.0.0.1:54708 Accepted
+[Fri Jul 10 17:59:59 2026] 127.0.0.1:54707 [200]: GET /images/gallery/panel1.png
+[Fri Jul 10 17:59:59 2026] 127.0.0.1:54708 [200]: GET /site.js
+[Fri Jul 10 17:59:59 2026] 127.0.0.1:54705 Closing
+[Fri Jul 10 17:59:59 2026] 127.0.0.1:54706 Closing
+[Fri Jul 10 17:59:59 2026] 127.0.0.1:54708 Closing
+[Fri Jul 10 17:59:59 2026] 127.0.0.1:54707 Closing
+[Fri Jul 10 17:59:59 2026] 127.0.0.1:54709 Accepted
+[Fri Jul 10 17:59:59 2026] 127.0.0.1:54710 Accepted
+[Fri Jul 10 17:59:59 2026] 127.0.0.1:54711 Accepted
+[Fri Jul 10 17:59:59 2026] 127.0.0.1:54709 [200]: GET /images/gallery/factory.png
+[Fri Jul 10 17:59:59 2026] 127.0.0.1:54710 [200]: GET /images/gallery/panel2.png
+[Fri Jul 10 17:59:59 2026] 127.0.0.1:54711 [200]: GET /images/gallery/panel3.png
+[Fri Jul 10 17:59:59 2026] 127.0.0.1:54711 Closing
+[Fri Jul 10 17:59:59 2026] 127.0.0.1:54709 Closing
+[Fri Jul 10 17:59:59 2026] 127.0.0.1:54710 Closing
+[Fri Jul 10 18:00:00 2026] 127.0.0.1:54712 Accepted
+[Fri Jul 10 18:00:00 2026] 127.0.0.1:54712 [200]: GET /images/logo.png
+[Fri Jul 10 18:00:00 2026] 127.0.0.1:54712 Closing
+[Fri Jul 10 18:00:00 2026] 127.0.0.1:54713 Accepted
+[Fri Jul 10 18:00:00 2026] 127.0.0.1:54713 [404]: GET /favicon.ico - No such file or directory
+[Fri Jul 10 18:00:00 2026] 127.0.0.1:54713 Closing
+[Fri Jul 10 18:00:13 2026] 127.0.0.1:54716 Accepted
+[Fri Jul 10 18:00:13 2026] 127.0.0.1:54716 [200]: GET /images/gallery/busduct.png
+[Fri Jul 10 18:00:13 2026] 127.0.0.1:54716 Closing
+[Fri Jul 10 18:01:33 2026] 127.0.0.1:54742 Accepted
+[Fri Jul 10 18:01:33 2026] 127.0.0.1:54742 [200]: GET /images/gallery/panel4.png
+[Fri Jul 10 18:01:33 2026] 127.0.0.1:54742 Closing
+[Fri Jul 10 18:01:48 2026] 127.0.0.1:54748 Accepted
+[Fri Jul 10 18:02:52 2026] 127.0.0.1:54748 Closed without sending a request; it was probably just an unused speculative preconnection
+[Fri Jul 10 18:02:52 2026] 127.0.0.1:54748 Closing
+[Fri Jul 10 18:22:08 2026] 127.0.0.1:55026 Accepted
+[Fri Jul 10 18:22:08 2026] 127.0.0.1:55027 Accepted
+[Fri Jul 10 18:22:08 2026] 127.0.0.1:55027 [200]: GET /
+[Fri Jul 10 18:22:08 2026] 127.0.0.1:55027 Closing
+[Fri Jul 10 18:22:08 2026] 127.0.0.1:55028 Accepted
+[Fri Jul 10 18:22:08 2026] 127.0.0.1:55029 Accepted
+[Fri Jul 10 18:22:08 2026] 127.0.0.1:55030 Accepted
+[Fri Jul 10 18:22:08 2026] 127.0.0.1:55026 [200]: GET /images/gallery/panel1.png
+[Fri Jul 10 18:22:08 2026] 127.0.0.1:55028 [200]: GET /images/gallery/hero.png
+[Fri Jul 10 18:22:08 2026] 127.0.0.1:55029 [200]: GET /images/gallery/testing.png
+[Fri Jul 10 18:22:08 2026] 127.0.0.1:55030 [200]: GET /site.js
+[Fri Jul 10 18:22:08 2026] 127.0.0.1:55030 Closing
+[Fri Jul 10 18:22:08 2026] 127.0.0.1:55026 Closing
+[Fri Jul 10 18:22:08 2026] 127.0.0.1:55029 Closing
+[Fri Jul 10 18:22:08 2026] 127.0.0.1:55028 Closing
+[Fri Jul 10 18:22:09 2026] 127.0.0.1:55031 Accepted
+[Fri Jul 10 18:22:09 2026] 127.0.0.1:55032 Accepted
+[Fri Jul 10 18:22:09 2026] 127.0.0.1:55033 Accepted
+[Fri Jul 10 18:22:09 2026] 127.0.0.1:55034 Accepted
+[Fri Jul 10 18:22:09 2026] 127.0.0.1:55031 [200]: GET /images/logo.png
+[Fri Jul 10 18:22:09 2026] 127.0.0.1:55032 [200]: GET /images/gallery/panel2.png
+[Fri Jul 10 18:22:09 2026] 127.0.0.1:55033 [200]: GET /images/gallery/factory.png
+[Fri Jul 10 18:22:09 2026] 127.0.0.1:55034 [200]: GET /images/gallery/panel3.png
+[Fri Jul 10 18:22:09 2026] 127.0.0.1:55031 Closing
+[Fri Jul 10 18:22:09 2026] 127.0.0.1:55032 Closing
+[Fri Jul 10 18:22:09 2026] 127.0.0.1:55034 Closing
+[Fri Jul 10 18:22:09 2026] 127.0.0.1:55033 Closing
+[Fri Jul 10 18:22:14 2026] 127.0.0.1:55035 Accepted
+[Fri Jul 10 18:22:14 2026] 127.0.0.1:55035 [200]: GET /images/gallery/busduct.png
+[Fri Jul 10 18:22:15 2026] 127.0.0.1:55035 Closing
+[Sat Jul 11 12:48:11 2026] 127.0.0.1:56466 Accepted
+[Sat Jul 11 12:48:11 2026] 127.0.0.1:56466 [200]: GET /
+[Sat Jul 11 12:48:11 2026] 127.0.0.1:56467 Accepted
+[Sat Jul 11 12:48:11 2026] 127.0.0.1:56466 Closing
+[Sat Jul 11 12:48:11 2026] 127.0.0.1:56468 Accepted
+[Sat Jul 11 12:48:11 2026] 127.0.0.1:56467 [200]: GET /images/gallery/hero.png
+[Sat Jul 11 12:48:11 2026] 127.0.0.1:56468 [200]: GET /images/gallery/testing.png
+[Sat Jul 11 12:48:11 2026] 127.0.0.1:56467 Closing
+[Sat Jul 11 12:48:11 2026] 127.0.0.1:56468 Closing
+[Sat Jul 11 12:48:11 2026] 127.0.0.1:56469 Accepted
+[Sat Jul 11 12:48:11 2026] 127.0.0.1:56469 [200]: GET /images/gallery/panel1.png
+[Sat Jul 11 12:48:11 2026] 127.0.0.1:56470 Accepted
+[Sat Jul 11 12:48:11 2026] 127.0.0.1:56470 [200]: GET /site.js
+[Sat Jul 11 12:48:11 2026] 127.0.0.1:56469 Closing
+[Sat Jul 11 12:48:12 2026] 127.0.0.1:56470 Closing
+[Sat Jul 11 12:48:12 2026] 127.0.0.1:56471 Accepted
+[Sat Jul 11 12:48:12 2026] 127.0.0.1:56472 Accepted
+[Sat Jul 11 12:48:12 2026] 127.0.0.1:56473 Accepted
+[Sat Jul 11 12:48:12 2026] 127.0.0.1:56471 [200]: GET /images/gallery/factory.png
+[Sat Jul 11 12:48:12 2026] 127.0.0.1:56472 [200]: GET /images/gallery/panel2.png
+[Sat Jul 11 12:48:12 2026] 127.0.0.1:56473 [200]: GET /images/gallery/panel3.png
+[Sat Jul 11 12:48:12 2026] 127.0.0.1:56473 Closing
+[Sat Jul 11 12:48:12 2026] 127.0.0.1:56471 Closing
+[Sat Jul 11 12:48:12 2026] 127.0.0.1:56472 Closing
+[Sat Jul 11 12:48:12 2026] 127.0.0.1:56474 Accepted
+[Sat Jul 11 12:48:12 2026] 127.0.0.1:56474 [200]: GET /images/logo.png
+[Sat Jul 11 12:48:12 2026] 127.0.0.1:56474 Closing

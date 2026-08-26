@@ -1,969 +1,1671 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Our Services — Kumara Engineering Solutions Pvt. Ltd.</title>
-<meta name="description" content="End-to-end HT/LT electrical services by Kumara Engineering Solutions — turnkey projects, substation erection, panel maintenance, transformer servicing, cable work, AMC contracts. ISO 9001:2015 & CPRI certified."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Services — Engineering Consultancy, Works Contract & Panel Manufacturing | KES</title>
+<meta name="description" content="End-to-end electrical & MEPF engineering services by Kumara Engineering Solutions across Karnataka — Engineering Consultancy, Works Contract Turnkey Execution, and Precision Panel Manufacturing. Class I Govt. Licensed & CPRI Certified.">
+<link rel="canonical" href="services.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --navy:#08111f;--navy2:#0c1a30;--navy3:#0f2040;
-  --red:#cc2700;--red2:#a81e00;--red3:#8a1800;
-  --off:#f9f5f4;--white:#ffffff;
-  --grey:#64748b;--grey2:#94a3b8;--border:#e2eaf5;--text:#0f1f35;
-  --s1:0 2px 16px rgba(8,17,31,.07);
-  --s2:0 8px 36px rgba(8,17,31,.13);
-  --s3:0 24px 64px rgba(8,17,31,.22);
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Barlow',sans-serif;color:var(--text);background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-a{text-decoration:none;color:inherit}
-button{font-family:inherit;cursor:pointer;border:none;outline:none;background:none}
-img{display:block;max-width:100%;object-fit:cover}
-ul{list-style:none}
-.W{max-width:1300px;margin:0 auto;padding:0 52px}
+  /* ==================== DESIGN TOKENS ==================== */
+  :root {
+    --navy:        #060e1a;
+    --navy2:       #0b182c;
+    --navy3:       #0f223f;
+    --red:         #cc2700;
+    --red2:        #aa2000;
+    --red-glow:    rgba(204,39,0,.28);
+    --orange:      #ff5722;
+    --white:       #ffffff;
+    --off:         #f8fafd;
+    --off2:        #f0f4f9;
+    --grey:        #4e6074;
+    --grey2:       #8293a6;
+    --border:      #dfe7f0;
+    --border-sub:  #ebf1f7;
+    --text:        #09172a;
+    --s1: 0 4px 16px rgba(6,14,26,.05);
+    --s2: 0 10px 30px rgba(6,14,26,.09);
+    --s3: 0 20px 50px rgba(6,14,26,.14);
+    --ease: cubic-bezier(.16,1,.3,1);
+  }
 
-/* -------------------------------- REVEAL -------------------------------- */
-.rv{opacity:0;transform:translateY(30px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
-.rl{opacity:0;transform:translateX(-36px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
-.rr{opacity:0;transform:translateX(36px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
-.rv.in,.rl.in,.rr.in{opacity:1;transform:none}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
-.d5{transition-delay:.40s}.d6{transition-delay:.48s}
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Barlow', sans-serif;
+    color: var(--text);
+    background: #fff;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+  }
+  a { text-decoration: none; color: inherit; }
+  button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+  img { display: block; max-width: 100%; object-fit: cover; }
+  ul { list-style: none; }
 
-/* -------------------------------- HERO -------------------------------- */
-.shero {
-  position: relative; min-height: 520px;
-  display: flex; align-items: flex-start; 
-  background: var(--navy); overflow: hidden;
-}
-.shero-bg {
-  position: absolute; inset: 0; 
-  background: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1920&q=85') center/cover no-repeat;
-  opacity: 0.25;
-}
-.shero-grad {
-  position: absolute; inset: 0;
-  background: linear-gradient(105deg, var(--navy) 40%, rgba(8,17,31,0.4) 100%);
-}
-.shero-inner {
-  position: relative; z-index: 2; width: 100%;
-  display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: center;
-  padding: 100px 0 60px;
-}
-.shero-crumb {
-  display: flex; align-items: center; gap: 8px;
-  font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700;
-  color: rgba(255,255,255,0.3); letter-spacing: 0.14em; text-transform: uppercase;
-  margin-bottom: 20px;
-}
-.shero-crumb a { transition: color 0.2s; }
-.shero-crumb a:hover { color: var(--red); }
-.shero-crumb .sep { color: rgba(255,255,255,0.15); }
-.shero-crumb .cur { color: var(--red); }
-.shero-tag {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(204,39,0,0.1); border: 1px solid rgba(204,39,0,0.25);
-  color: var(--red); font-family: 'Barlow Condensed', sans-serif;
-  font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
-  padding: 4px 12px; border-radius: 100px; margin-bottom: 16px;
-}
-.shero-h1 {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: clamp(40px, 5.5vw, 84px); font-weight: 900; color: #fff;
-  text-transform: uppercase; line-height: 0.95; letter-spacing: -0.01em;
-  margin-bottom: 16px;
-}
-.shero-h1 em { font-style: normal; color: var(--red); }
-.shero-sub {
-  font-size: 14.5px; color: rgba(255,255,255,0.6); line-height: 1.6;
-  margin-bottom: 28px; font-weight: 300; max-width: 580px;
-}
-.shero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
-.shero-btns a { padding: 12px 28px !important; font-size: 14px !important; }
+  /* Containers */
+  .W { max-width: 1260px; margin: 0 auto; padding: 0 32px; }
+  @media(max-width:900px){ .W { padding: 0 20px; } }
+  @media(max-width:480px){ .W { padding: 0 16px; } }
 
+  /* Reveal Animations */
+  .rv, .rl, .rr {
+    opacity: 0;
+    transition: opacity .65s var(--ease), transform .65s var(--ease);
+    will-change: opacity, transform;
+  }
+  .rv { transform: translateY(20px); }
+  .rl { transform: translateX(-24px); }
+  .rr { transform: translateX(24px); }
+  .rv.in, .rl.in, .rr.in { opacity: 1; transform: none; }
+  .d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}.d4{transition-delay:.24s}
 
-.btn-red {
-  display:inline-flex; align-items:center; gap:10px;
-  background:var(--red); color:#fff;
-  padding:16px 36px !important; border-radius:4px;
-  font-family:'Barlow Condensed', sans-serif;
-  font-size:15px !important; font-weight:800; text-transform:uppercase;
-  letter-spacing:.07em; transition:all .25s;
-  box-shadow:0 6px 28px rgba(204,39,0,.35);
-  border:none; cursor:pointer;
-}
-.btn-red:hover {
-  background:var(--red2); transform:translateY(-2px); box-shadow:0 12px 40px rgba(204,39,0,.45);
-}
-.btn-ghost {
-  display:inline-flex; align-items:center; gap:10px;
-  border:1.5px solid rgba(255,255,255,.22); color:rgba(255,255,255,.75);
-  padding:14px 32px !important; border-radius:4px;
-  font-family:'Barlow Condensed', sans-serif;
-  font-size:15px !important; font-weight:700; text-transform:uppercase;
-  letter-spacing:.06em; backdrop-filter:blur(8px); transition:all .25s; cursor:pointer;
-}
-.btn-ghost:hover {
-  border-color:rgba(255,255,255,.55); color:#fff; background:rgba(255,255,255,.07); transform:translateY(-2px);
-}
+  /* Section Styles */
+  .sec { padding: 52px 0; position: relative; }
+  .sec-alt { background: var(--off); border-top: 1px solid var(--border-sub); border-bottom: 1px solid var(--border-sub); }
+  .sec-dark { background: var(--navy); color: #fff; }
 
-/* Dynamic Right Side Feature Stack */
-.shero-visual {
-  position: relative; display: flex; flex-direction: column; gap: 12px;
-}
-.sv-card {
-  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 12px; padding: 16px 20px; display: flex; align-items: center; gap: 16px;
-  backdrop-filter: blur(12px); box-shadow: 0 16px 40px rgba(0,0,0,0.25);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s, border-color 0.4s;
-}
-.sv-card:hover {
-  transform: translateX(-8px); background: rgba(255,255,255,0.06);
-  border-color: rgba(204,39,0,0.3);
-}
-.sv-card:nth-child(2) { margin-left: 24px; }
-.sv-card:nth-child(3) { margin-left: 48px; }
-.sv-card:nth-child(4) { margin-left: 72px; }
-.sv-icon {
-  width: 44px; height: 44px; background: rgba(204,39,0,0.15); border-radius: 10px;
-  display: grid; place-items: center; flex-shrink: 0;
-}
-.sv-icon svg { width: 22px; height: 22px; stroke: var(--red); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.sv-text h4 {
-  font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800;
-  color: #fff; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 2px;
-}
-.sv-text p {
-  font-size: 12.5px; color: rgba(255,255,255,0.5); line-height: 1.4; margin-bottom: 0;
-}
+  .sec-lbl {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11.5px;
+    font-weight: 800;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: .16em;
+    margin-bottom: 8px;
+  }
+  .sec-lbl::before { content: ''; width: 22px; height: 2.5px; background: var(--red); border-radius: 2px; }
 
-@media(max-width:900px){
-  .shero-inner { grid-template-columns: 1fr; gap: 32px; padding: 100px 0 40px; }
-  .shero-h1 { font-size: clamp(38px,8vw,64px); }
-  .sv-card:nth-child(n+2) { margin-left: 0; }
-}
+  h2.sec-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(30px, 3.5vw, 46px);
+    font-weight: 900;
+    color: var(--navy);
+    letter-spacing: -.01em;
+    text-transform: uppercase;
+    line-height: 1.05;
+    margin-bottom: 8px;
+  }
+  h2.sec-title em { font-style: normal; color: var(--red); }
+  h2.sec-title.inv { color: #fff; }
 
-/* -------------------------------- SECTION COMMONS -------------------------------- */
-.sec{padding:60px 0}
-.sec-alt{background:var(--off)}
-.sec-dark{background:var(--navy)}
-.sec-lbl{display:inline-flex;align-items:center;gap:10px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.18em;margin-bottom:14px}
-.sec-lbl::before{content:'';width:28px;height:2px;background:var(--red);border-radius:1px}
-h2.sec-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(34px,3.8vw,58px);font-weight:900;color:var(--navy);letter-spacing:-.01em;text-transform:uppercase;line-height:1.05;margin-bottom:16px}
-h2.sec-title em{font-style:normal;color:var(--red)}
-h2.sec-title.w{color:#fff}
-.sec-body{font-size:15.5px;line-height:1.78;color:var(--grey);font-weight:300}
-.sec-hd{text-align:center;max-width:720px;margin:0 auto 44px}
-.sec-hd .sec-lbl{justify-content:center}
-.sec-hd .sec-lbl::before{display:none}
-.sec-hd .sec-lbl::after{content:'';width:28px;height:2px;background:var(--red);border-radius:1px}
+  .sec-body { font-size: 14.5px; line-height: 1.68; color: var(--grey); font-weight: 300; }
+  .sec-header { text-align: center; max-width: 700px; margin: 0 auto 32px; }
 
-/* -------------------------------- OVERVIEW SERVICES BENTO -------------------------------- */
-.svc-bento{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto;gap:24px}
-.svc-bento .sb-wide{grid-column:span 2}
-.sb-card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;position:relative;transition:all .32s cubic-bezier(.16,1,.3,1);cursor:default}
-.sb-card:hover{box-shadow:var(--s2);border-color:rgba(204,39,0,.3);transform:translateY(-5px)}
-.sb-img{width:100%;height:240px;overflow:hidden;position:relative}
-.sb-img img{width:100%;height:100%;object-fit:cover;transition:transform .65s}
-.sb-card:hover .sb-img img{transform:scale(1.07)}
-.sb-img::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,17,31,.75) 0%,transparent 55%);z-index:1}
-.sb-badge{position:absolute;top:16px;left:16px;z-index:2;background:var(--red);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:2px}
-.sb-num{position:absolute;bottom:16px;right:18px;z-index:2;font-family:'Barlow Condensed',sans-serif;font-size:40px;font-weight:900;color:rgba(255,255,255,.12);line-height:1}
-.sb-body{padding:30px 28px 28px}
-.sb-body h3{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:var(--navy);text-transform:uppercase;line-height:1.15;margin-bottom:10px}
-.sb-body p{font-size:14px;color:var(--grey);line-height:1.68;margin-bottom:18px}
-.sb-tags{display:flex;flex-wrap:wrap;gap:7px}
-.sb-tag{font-size:11px;font-weight:600;color:var(--red);background:rgba(204,39,0,.07);border:1px solid rgba(204,39,0,.15);padding:3px 9px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;letter-spacing:.06em;text-transform:uppercase}
+  /* Buttons */
+  .btn-red {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--red); color: #fff;
+    padding: 13px 30px; border-radius: 6px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em;
+    transition: all .25s var(--ease); box-shadow: 0 4px 20px var(--red-glow);
+  }
+  .btn-red:hover { background: var(--red2); transform: translateY(-2px); box-shadow: 0 8px 26px rgba(204,39,0,.45); color: #fff; }
+  .btn-red .arr { transition: transform .2s; }
+  .btn-red:hover .arr { transform: translateX(4px); }
 
-/* -------------------------------- DEEP DIVE SERVICES -------------------------------- */
-.ddv-section{padding:60px 0}
-.ddv-section:nth-child(even){background:var(--off)}
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1.5px solid rgba(255,255,255,.28); color: rgba(255,255,255,.9);
+    padding: 12px 26px; border-radius: 6px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+    backdrop-filter: blur(8px); background: rgba(255,255,255,.05); transition: all .25s;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,.6); color: #fff; background: rgba(255,255,255,.12); transform: translateY(-2px); }
 
-/* -------------------------------- SERVICE TABS -------------------------------- */
-.svc-tab-layout{display:grid;grid-template-columns:280px 1fr;gap:0;background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 10px 40px rgba(8,17,31,0.03)}
-.svc-sidebar{background:var(--off);padding:24px 0;border-right:1px solid var(--border);display:flex;flex-direction:column}
-.st-btn{background:transparent;border:none;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;color:var(--grey);text-transform:uppercase;letter-spacing:0.05em;padding:16px 32px;text-align:left;cursor:pointer;border-left:3px solid transparent;transition:all 0.2s}
-.st-btn:hover{background:rgba(0,0,0,0.02);color:var(--navy)}
-.st-btn.active{background:#fff;color:var(--red);border-left-color:var(--red);box-shadow:0 4px 12px rgba(0,0,0,0.02)}
-.svc-content{padding:48px}
-.st-pane{display:none;animation:fadeIn 0.4s}
-.st-pane.active{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.ddv-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.ddv-inner.flip{direction:rtl}
-.ddv-inner.flip > *{direction:ltr}
-.ddv-img{border-radius:16px;overflow:hidden;position:relative;height:380px}
-.ddv-img img{width:100%;height:100%;object-fit:cover}
-.ddv-img::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(204,39,0,.15) 0%,transparent 60%);z-index:1;pointer-events:none}
-.ddv-img-badge{position:absolute;bottom:24px;left:24px;z-index:2;background:rgba(8,17,31,.92);border:1px solid rgba(204,39,0,.3);color:#fff;padding:12px 18px;border-radius:8px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
-.ddv-img-badge span{color:var(--red)}
-.ddv-content h3{font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,3vw,46px);font-weight:900;color:var(--navy);text-transform:uppercase;line-height:1.05;margin-bottom:16px}
-.ddv-content h3 em{font-style:normal;color:var(--red)}
-.ddv-content .lead{font-size:15.5px;color:var(--grey);line-height:1.72;margin-bottom:28px}
-.ddv-list{margin-bottom:32px}
-.ddv-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--text);line-height:1.55;margin-bottom:12px;font-weight:500}
-.ddv-list li::before{content:'';flex-shrink:0;width:6px;height:6px;background:var(--red);border-radius:50%;margin-top:6px}
-.ddv-work{background:var(--navy);border-radius:12px;padding:24px;margin-top:8px}
-.ddv-work h4{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.14em;margin-bottom:16px}
-.ddv-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.ddv-step{text-align:center}
-.ddv-step .sn{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;color:var(--red);line-height:1;margin-bottom:5px}
-.ddv-step .sl{font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em;line-height:1.3}
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1.5px solid var(--border); color: var(--navy);
+    padding: 10px 22px; border-radius: 6px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em;
+    background: #fff; transition: all .25s;
+  }
+  .btn-outline:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px); box-shadow: var(--s1); }
 
-/* -------------------------------- WORKING PROCESS -------------------------------- */
-.proc-track{display:grid;grid-template-columns:repeat(7,1fr);gap:0;position:relative;margin-top:40px}
-.proc-track::before{content:'';position:absolute;top:36px;left:7%;right:7%;height:1px;background:linear-gradient(90deg,var(--red),rgba(204,39,0,.15));z-index:0}
-.proc-step{position:relative;z-index:1;text-align:center;padding:0 8px}
-.ps-ring{width:72px;height:72px;border-radius:50%;border:2px solid var(--red);background:#fff;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;position:relative;z-index:2;transition:all .3s}
-.proc-step:hover .ps-ring{background:var(--red);transform:scale(1.1)}
-.ps-ring span{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;color:var(--red);transition:color .3s}
-.proc-step:hover .ps-ring span{color:#fff}
-.proc-step h4{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;color:var(--navy);text-transform:uppercase;line-height:1.25;margin-bottom:8px}
-.proc-step p{font-size:12px;color:var(--grey);line-height:1.55}
+  /* ==================== HERO SECTION ==================== */
+  .hero-services {
+    position: relative;
+    padding: 68px 0 56px;
+    background: var(--navy);
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    text-align: center;
+  }
+  .hero-services-bg {
+    position: absolute; inset: 0;
+    background: url('images/gallery/hero.png') center center / cover no-repeat;
+    filter: brightness(0.22) saturate(0.85);
+    transform: scale(1.04);
+  }
+  .hero-services-ov {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 35%, rgba(6,14,26,.68) 0%, rgba(6,14,26,.97) 80%);
+    z-index: 1;
+  }
+  .hero-services-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(204,39,0,.04) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(204,39,0,.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    max-width: 920px; margin: 0 auto;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+  }
 
-/* -------------------------------- SCOPE MATRIX -------------------------------- */
-.scope-box{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--s1)}
-.scope-hdr{background:var(--navy);padding:32px 40px;display:flex;align-items:center;justify-content:space-between}
-.scope-hdr h3{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:900;color:#fff;text-transform:uppercase}
-.scope-tag{background:rgba(204,39,0,.2);color:var(--red);font-size:11px;font-weight:700;padding:5px 12px;border-radius:2px;font-family:'Barlow Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(204,39,0,.2)}
-.scope-body{padding:40px}
-.scope-cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px}
-.scope-col h4{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.12em;margin-bottom:18px;padding-bottom:10px;border-bottom:2px solid rgba(204,39,0,.1)}
-.scope-col ul li{position:relative;padding-left:16px;font-size:13.5px;color:var(--grey);margin-bottom:10px;line-height:1.5}
-.scope-col ul li::before{content:'▸';position:absolute;left:0;top:0;color:var(--red);font-size:10px;margin-top:2px}
+  .breadcrumb {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11.5px; font-weight: 700;
+    color: rgba(255,255,255,.45); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px;
+  }
+  .breadcrumb a { color: rgba(255,255,255,.6); transition: color .2s; }
+  .breadcrumb a:hover { color: var(--red); }
+  .breadcrumb .sep { color: rgba(255,255,255,.2); font-size: 10px; }
+  .breadcrumb .cur { color: var(--red); }
 
-/* -------------------------------- WHY KES -------------------------------- */
-.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.why-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:32px 26px;position:relative;overflow:hidden;transition:all .3s cubic-bezier(.16,1,.3,1)}
-.why-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .35s}
-.why-card:hover{box-shadow:var(--s2);transform:translateY(-5px)}
-.why-card:hover::before{transform:scaleX(1)}
-.why-ico{width:56px;height:56px;background:rgba(204,39,0,.07);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;transition:background .3s}
-.why-card:hover .why-ico{background:var(--red)}
-.why-ico svg{width:24px;height:24px;stroke:var(--red);transition:stroke .3s;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.why-card:hover .why-ico svg{stroke:#fff}
-.why-card h4{font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:800;color:var(--navy);text-transform:uppercase;margin-bottom:10px}
-.why-card p{font-size:13.5px;color:var(--grey);line-height:1.6}
+  .hero-badge {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: rgba(204,39,0,.15); border: 1px solid rgba(204,39,0,.38);
+    color: #ff7a47; font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11.5px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+    padding: 5px 16px; border-radius: 100px; margin-bottom: 16px;
+  }
+  .hero-h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(38px, 5vw, 64px); font-weight: 900;
+    color: #fff; text-transform: uppercase; line-height: 1.02; letter-spacing: -.015em; margin-bottom: 16px;
+  }
+  .hero-h1 em {
+    font-style: normal; color: #ff5722;
+    background: linear-gradient(180deg, #ff7a47 0%, #cc2700 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero-sub {
+    font-size: 15.5px; color: rgba(255,255,255,.84); line-height: 1.65;
+    max-width: 780px; font-weight: 300; margin: 0 auto 26px;
+  }
+  .hero-actions {
+    display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 26px;
+  }
 
-/* -------------------------------- BUSWAYS SPEC TABLE -------------------------------- */
-.spec-table{width:100%;border-collapse:collapse;font-size:13.5px}
-.spec-table th{background:var(--navy);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:14px 20px;text-align:left;border-right:1px solid rgba(255,255,255,.06)}
-.spec-table td{padding:14px 20px;border-bottom:1px solid var(--border);color:var(--text);border-right:1px solid var(--border)}
-.spec-table tr:nth-child(even) td{background:var(--off)}
-.spec-table td:first-child{font-weight:600;color:var(--navy)}
+  .hero-certs-ribbon {
+    display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
+    padding-top: 18px; border-top: 1px solid rgba(255,255,255,.1); width: 100%;
+  }
+  .hcert-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12);
+    padding: 5px 14px; border-radius: 6px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700;
+    color: rgba(255,255,255,.85); text-transform: uppercase; letter-spacing: .06em;
+  }
+  .hcert-chip span { color: var(--red); font-weight: 900; }
 
-/* -------------------------------- CTA BAND -------------------------------- */
-.cta-band{background:linear-gradient(135deg,var(--red) 0%,var(--red3) 100%);padding:56px 0;position:relative;overflow:hidden}
-.cta-band::before{content:'';position:absolute;top:-80px;right:-80px;width:380px;height:380px;border-radius:50%;background:rgba(255,255,255,.04)}
-.cta-band::after{content:'';position:absolute;bottom:-100px;left:140px;width:260px;height:260px;border-radius:50%;background:rgba(0,0,0,.06)}
-.cta-inner{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:60px}
-.cta-inner h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(32px,4vw,58px);font-weight:900;color:#fff;text-transform:uppercase;line-height:1.05;margin-bottom:14px}
-.cta-inner h2 em{font-style:normal;color:rgba(255,255,255,.6)}
-.cta-inner p{font-size:16px;color:rgba(255,255,255,.72);max-width:580px;line-height:1.68}
-.btn-white{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--red);padding:17px 40px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;white-space:nowrap;transition:all .25s;box-shadow:0 8px 28px rgba(0,0,0,.2);flex-shrink:0}
-.btn-white:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(0,0,0,.3)}
+  /* ==================== 3 CORE SERVICES OVERVIEW ==================== */
+  .vtri-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 10px;
+  }
+  .vtri-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 14px;
+    padding: 28px 24px; position: relative; overflow: hidden;
+    transition: all .32s var(--ease); box-shadow: var(--s1);
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .vtri-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease);
+  }
+  .vtri-card:hover {
+    transform: translateY(-5px); box-shadow: var(--s2); border-color: rgba(204,39,0,.35);
+  }
+  .vtri-card:hover::before { transform: scaleX(1); }
 
-/* -------------------------------- BACK TO TOP -------------------------------- */
-#btt{position:fixed;bottom:32px;right:32px;width:48px;height:48px;background:var(--red);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer;opacity:0;pointer-events:none;transition:all .3s;box-shadow:0 4px 16px rgba(204,39,0,.4);z-index:999}
-#btt.on{opacity:1;pointer-events:auto}
+  .vtri-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+  .vtri-tag {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 10.5px; font-weight: 800;
+    color: var(--red); text-transform: uppercase; letter-spacing: .12em;
+    background: rgba(204,39,0,.08); padding: 3px 10px; border-radius: 4px;
+  }
+  .vtri-num {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 34px; font-weight: 900;
+    color: rgba(7,16,30,.1); line-height: 1;
+  }
+  .vtri-ico {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: rgba(204,39,0,.08); border: 1px solid rgba(204,39,0,.18);
+    color: var(--red); display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px; transition: all .25s;
+  }
+  .vtri-card:hover .vtri-ico { background: var(--red); color: #fff; border-color: var(--red); }
+  .vtri-ico svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-/* -------------------------------- RESPONSIVE -------------------------------- */
-@media(max-width:1100px){
-  .svc-bento{grid-template-columns:1fr 1fr}
-  .svc-bento .sb-wide{grid-column:span 2}
-  .proc-track{grid-template-columns:repeat(4,1fr);gap:28px}
-  .proc-track::before{display:none}
-  .why-grid{grid-template-columns:repeat(2,1fr)}
-  .scope-cols{grid-template-columns:1fr 1fr}
-}
-.ddv-section{padding:60px 0}
-.ddv-section:nth-child(even){background:var(--off)}
-@media(max-width:900px){
-  .W{padding:0 28px}
-  .shero h1{font-size:clamp(44px,8vw,80px)}
-  .shero-stats{grid-template-columns:repeat(2,1fr);gap:28px}
-  .sh-stat{border-right:none;padding-right:0}
-  .ddv-inner,.ddv-inner.flip{grid-template-columns:1fr;direction:ltr;gap:40px}
-  .ddv-img{height:300px}
-  .cta-inner{flex-direction:column;text-align:center}
-  .svc-bento,.svc-bento .sb-wide{grid-template-columns:1fr;grid-column:span 1}
-  .ddv-steps{grid-template-columns:repeat(2,1fr);gap:12px}
-  .svc-tab-layout{grid-template-columns:1fr;gap:0}
-  .svc-sidebar{flex-direction:row;overflow-x:auto;padding:0;border-right:none;border-bottom:1px solid var(--border);white-space:nowrap;scrollbar-width:none}
-  .svc-sidebar::-webkit-scrollbar{display:none}
-  .st-btn{padding:16px 20px;border-left:none;border-bottom:3px solid transparent}
-  .st-btn.active{border-bottom-color:var(--red)}
-  .svc-content{padding:32px 24px}
-}
-@media(max-width:640px){
-  .sec{padding:64px 0}
-  .proc-track{grid-template-columns:1fr 1fr}
-  .scope-cols{grid-template-columns:1fr}
-  .why-grid{grid-template-columns:1fr}
-  .shero-stats{grid-template-columns:1fr 1fr}
-}
+  .vtri-card h3 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 800;
+    color: var(--navy); text-transform: uppercase; line-height: 1.12; margin-bottom: 10px;
+  }
+  .vtri-card p {
+    font-size: 13.5px; color: var(--grey); line-height: 1.58; font-weight: 300; margin-bottom: 18px;
+  }
+  .vtri-features {
+    display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-sub);
+  }
+  .vtri-feat {
+    font-size: 12.5px; color: var(--navy); font-weight: 500; display: flex; align-items: center; gap: 8px;
+  }
+  .vtri-feat::before {
+    content: '✓'; color: var(--red); font-weight: 800; font-size: 11px;
+  }
+  .vtri-link {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 13.5px; font-weight: 800;
+    color: var(--red); text-transform: uppercase; letter-spacing: .06em;
+    display: inline-flex; align-items: center; gap: 6px; transition: gap .2s;
+  }
+  .vtri-link:hover { gap: 10px; }
+
+  /* ==================== STICKY QUICK SELECTOR ==================== */
+  .vnav-bar {
+    position: sticky; top: 71px; z-index: 100;
+    background: rgba(255,255,255,.96); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border); box-shadow: 0 4px 20px rgba(6,14,26,.04);
+    padding: 10px 0;
+  }
+  .vnav-inner {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px; overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .vnav-inner::-webkit-scrollbar { display: none; }
+  .vnav-lbl {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11.5px; font-weight: 800;
+    color: var(--grey2); text-transform: uppercase; letter-spacing: .14em; white-space: nowrap;
+  }
+  .vnav-pills { display: flex; gap: 8px; flex-shrink: 0; }
+  .vnav-pill {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--off2); border: 1px solid var(--border);
+    padding: 7px 16px; border-radius: 100px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 12.5px; font-weight: 700;
+    color: var(--navy); text-transform: uppercase; letter-spacing: .04em;
+    transition: all .2s; white-space: nowrap;
+  }
+  .vnav-pill:hover, .vnav-pill.active {
+    background: var(--navy); color: #fff; border-color: var(--navy);
+  }
+  .vnav-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red); }
+
+  /* ==================== SECTION BANNER HEADERS ==================== */
+  .vsec-banner {
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    padding-bottom: 16px; margin-bottom: 30px; border-bottom: 2px solid var(--border);
+  }
+  .vsec-banner-left { display: flex; align-items: center; gap: 14px; }
+  .vsec-badge-big {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 900;
+    background: var(--red); color: #fff; padding: 4px 12px; border-radius: 4px;
+    text-transform: uppercase; letter-spacing: .08em;
+  }
+  .vsec-title {
+    font-family: 'Barlow Condensed', sans-serif; font-size: clamp(26px, 3.2vw, 38px); font-weight: 900;
+    color: var(--navy); text-transform: uppercase; line-height: 1; letter-spacing: -.01em;
+  }
+  .vsec-title em { font-style: normal; color: var(--red); }
+
+  /* ==================== INTRO SPLIT ==================== */
+  .intro-grid {
+    display: grid; grid-template-columns: 1fr 1.15fr; gap: 36px; align-items: center; margin-bottom: 34px;
+  }
+  .intro-media {
+    position: relative; border-radius: 14px; overflow: hidden; height: 350px;
+    box-shadow: var(--s2); border: 1px solid var(--border);
+  }
+  .intro-media img { width: 100%; height: 100%; }
+  .intro-floating-badge {
+    position: absolute; bottom: 18px; left: 18px; z-index: 2;
+    background: rgba(6,14,26,.94); border: 1px solid rgba(204,39,0,.38);
+    padding: 12px 18px; border-radius: 10px; backdrop-filter: blur(8px);
+  }
+  .intro-floating-badge .val {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 900;
+    color: var(--red); line-height: 1;
+  }
+  .intro-floating-badge .lbl {
+    font-size: 11px; color: rgba(255,255,255,.8); text-transform: uppercase;
+    letter-spacing: .08em; margin-top: 3px; font-weight: 600;
+  }
+  .intro-content p { font-size: 14.5px; line-height: 1.7; color: var(--grey); font-weight: 300; margin-bottom: 14px; }
+  .intro-content p strong { color: var(--navy); font-weight: 600; }
+
+  .intro-cap-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .icap {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11.5px; font-weight: 700;
+    color: var(--navy); background: var(--off2); border: 1px solid var(--border);
+    padding: 4px 12px; border-radius: 100px; text-transform: uppercase; letter-spacing: .04em;
+  }
+
+  /* ==================== 6-GRID HIGH DENSITY CARDS ==================== */
+  .grid-6 {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px;
+  }
+  .gcard {
+    background: #fff; border: 1px solid var(--border); border-radius: 12px;
+    padding: 20px 20px 18px; position: relative; overflow: hidden;
+    transition: all .28s var(--ease); box-shadow: var(--s1);
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .gcard:hover {
+    transform: translateY(-3px); box-shadow: var(--s2);
+    border-color: rgba(204,39,0,.4);
+  }
+  .gcard-top { margin-bottom: 12px; }
+  .gcard-tag-row {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
+  }
+  .gcard-tag {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 800;
+    color: var(--red); text-transform: uppercase; letter-spacing: .12em;
+    background: rgba(204,39,0,.08); padding: 2px 8px; border-radius: 3px;
+  }
+  .gcard-badge-scope {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700;
+    color: var(--grey); background: var(--off2); padding: 2px 7px; border-radius: 3px;
+  }
+  .gcard h3 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 19px; font-weight: 800;
+    color: var(--navy); text-transform: uppercase; line-height: 1.15; margin-bottom: 6px;
+  }
+  .gcard p {
+    font-size: 12.5px; color: var(--grey); line-height: 1.52; font-weight: 300;
+  }
+  .gcard-list {
+    margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-sub);
+    display: flex; flex-direction: column; gap: 5px;
+  }
+  .gcard-list li {
+    font-size: 11.5px; color: var(--grey); display: flex; align-items: center; gap: 6px;
+  }
+  .gcard-list li::before { content: '✓'; color: var(--red); font-weight: 800; font-size: 10px; }
+
+  .gcard-chips {
+    display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; padding-top: 12px;
+    border-top: 1px solid var(--border-sub);
+  }
+  .gchip {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 10.5px; font-weight: 600;
+    color: var(--navy); background: var(--off2); border: 1px solid var(--border);
+    padding: 3px 8px; border-radius: 3px; text-transform: uppercase;
+  }
+
+  /* ==================== LIFECYCLE & PROCESS STEPS ==================== */
+  .flow-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 26px; }
+  .flow-grid-7 { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-bottom: 26px; }
+  .flow-grid-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-bottom: 26px; }
+
+  .fstep-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px 14px; position: relative; transition: all .25s; box-shadow: var(--s1);
+  }
+  .fstep-card:hover {
+    border-color: var(--red); transform: translateY(-3px); box-shadow: var(--s2);
+  }
+  .fstep-num {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 900;
+    color: var(--red); line-height: 1; margin-bottom: 4px;
+  }
+  .fstep-card h4 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 800;
+    color: var(--navy); text-transform: uppercase; line-height: 1.2; margin-bottom: 4px;
+  }
+  .fstep-card p {
+    font-size: 11px; color: var(--grey); line-height: 1.45; font-weight: 300;
+  }
+
+  /* ==================== STATUTORY APPROVALS & AMC BANDS ==================== */
+  .amc-card-band {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+    border: 1px solid rgba(255,255,255,.1); border-radius: 14px;
+    padding: 28px 32px; display: grid; grid-template-columns: 1fr auto;
+    gap: 28px; align-items: center; box-shadow: var(--s3); color: #fff; margin-bottom: 26px;
+  }
+  .amc-card-band h3 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 900;
+    color: #fff; text-transform: uppercase; line-height: 1.1; margin-bottom: 6px;
+  }
+  .amc-card-band h3 em { font-style: normal; color: var(--red); }
+  .amc-card-band p {
+    font-size: 13.5px; color: rgba(255,255,255,.78); line-height: 1.6; max-width: 680px; font-weight: 300;
+  }
+  .amc-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .apill {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700;
+    color: rgba(255,255,255,.9); background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.14); padding: 3px 10px; border-radius: 4px;
+    text-transform: uppercase; letter-spacing: .04em;
+  }
+
+  /* ==================== SPECS / RATINGS MATRIX TABLE ==================== */
+  .specs-box {
+    background: var(--navy); border-radius: 14px; padding: 30px; color: #fff; margin-bottom: 30px;
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  .specs-box-grid { display: grid; grid-template-columns: 1fr 1.35fr; gap: 34px; align-items: center; }
+  .specs-table {
+    border: 1px solid rgba(255,255,255,.1); border-radius: 10px; overflow: hidden;
+    background: rgba(255,255,255,.02);
+  }
+  .specs-row {
+    display: grid; grid-template-columns: 1.2fr 1.4fr;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .specs-row:last-child { border-bottom: none; }
+  .specs-row.head { background: rgba(204,39,0,.2); }
+  .specs-cell { padding: 9px 14px; font-size: 12.5px; }
+  .specs-row.head .specs-cell {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 800;
+    color: #ff7a47; text-transform: uppercase; letter-spacing: .1em;
+  }
+  .specs-cell:first-child { color: rgba(255,255,255,.6); border-right: 1px solid rgba(255,255,255,.06); }
+  .specs-cell:last-child  { color: rgba(255,255,255,.94); font-weight: 600; }
+
+  /* ==================== 8-PANEL PRODUCT CARDS ==================== */
+  .grid-8 {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 30px;
+  }
+  .pcard {
+    background: #fff; border: 1px solid var(--border); border-radius: 12px;
+    padding: 18px 16px; position: relative; overflow: hidden;
+    transition: all .28s var(--ease); box-shadow: var(--s1);
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .pcard:hover {
+    transform: translateY(-3px); box-shadow: var(--s2);
+    border-color: rgba(204,39,0,.4);
+  }
+  .pcard-tag-row {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;
+  }
+  .pcard-tag {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 9.5px; font-weight: 800;
+    color: var(--red); text-transform: uppercase; letter-spacing: .1em;
+    background: rgba(204,39,0,.08); padding: 2px 7px; border-radius: 3px;
+  }
+  .pcard h4 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 16.5px; font-weight: 800;
+    color: var(--navy); text-transform: uppercase; line-height: 1.15; margin-bottom: 4px;
+  }
+  .pcard p {
+    font-size: 12px; color: var(--grey); line-height: 1.48; font-weight: 300;
+  }
+  .pcard-spec-strip {
+    margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border-sub);
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700;
+    color: var(--navy); display: flex; justify-content: space-between;
+  }
+
+  /* ==================== THE KES ADVANTAGE: ULTRA CLEAN & POLISHED ==================== */
+  .kes-why-contrast {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 28px;
+  }
+  .kwc-box {
+    border-radius: 14px; padding: 26px 28px; position: relative;
+  }
+  .kwc-old {
+    background: #fff; border: 1.5px dashed #cbd5e1;
+  }
+  .kwc-old h3 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 21px; font-weight: 800;
+    color: #64748b; text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+  }
+  .kwc-old ul li {
+    font-size: 13.5px; color: #64748b; line-height: 1.6; display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px;
+  }
+  .kwc-old ul li::before { content: '✕'; color: #ef4444; font-weight: 900; font-size: 13px; }
+
+  .kwc-kes {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+    border: 1.5px solid rgba(204,39,0,.45); color: #fff; box-shadow: var(--s2);
+  }
+  .kwc-kes h3 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 21px; font-weight: 900;
+    color: #fff; text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+  }
+  .kwc-kes h3 em { font-style: normal; color: var(--red); }
+  .kwc-kes ul li {
+    font-size: 13.5px; color: rgba(255,255,255,.9); line-height: 1.6; display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px;
+  }
+  .kwc-kes ul li::before { content: '✓'; color: #ff5722; font-weight: 900; font-size: 13px; }
+
+  .adv-grid-6 {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  }
+  .adv-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 14px;
+    padding: 24px 22px; position: relative; overflow: hidden;
+    transition: all .28s var(--ease); box-shadow: var(--s1);
+  }
+  .adv-card:hover {
+    transform: translateY(-4px); box-shadow: var(--s2); border-color: rgba(204,39,0,.4);
+  }
+  .adv-ico {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: rgba(204,39,0,.08); border: 1px solid rgba(204,39,0,.2);
+    color: var(--red); display: flex; align-items: center; justify-content: center;
+    margin-bottom: 14px; transition: all .25s;
+  }
+  .adv-card:hover .adv-ico { background: var(--red); color: #fff; }
+  .adv-ico svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  
+  .adv-ico-rupee {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .adv-card h3 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800;
+    color: var(--navy); text-transform: uppercase; line-height: 1.15; margin-bottom: 8px;
+  }
+  .adv-card p {
+    font-size: 13px; color: var(--grey); line-height: 1.58; font-weight: 300; margin-bottom: 14px;
+  }
+  .adv-highlight {
+    display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 11.5px;
+    font-weight: 800; color: var(--red); text-transform: uppercase; letter-spacing: .06em;
+    background: rgba(204,39,0,.06); padding: 3px 10px; border-radius: 4px;
+  }
+
+  /* ==================== CLIENTS MARQUEE ==================== */
+  .clients-marquee { overflow: hidden; position: relative; padding: 6px 0; }
+  .clients-marquee::before, .clients-marquee::after {
+    content: ''; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2; pointer-events: none;
+  }
+  .clients-marquee::before { left: 0; background: linear-gradient(90deg, var(--off), transparent); }
+  .clients-marquee::after  { right: 0; background: linear-gradient(270deg, var(--off), transparent); }
+  .clients-track { display: flex; gap: 10px; width: max-content; animation: marquee 28s linear infinite; }
+  @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  .clients-marquee:hover .clients-track { animation-play-state: paused; }
+  .cli-pill {
+    flex-shrink: 0; background: #fff; border: 1px solid var(--border); border-radius: 6px;
+    padding: 8px 16px; font-family: 'Barlow Condensed', sans-serif; font-size: 12.5px;
+    font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: .04em;
+    transition: all .2s; box-shadow: var(--s1);
+  }
+  .cli-pill:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px); }
+
+  /* ==================== CTA SECTION ==================== */
+  .cta-band {
+    position: relative; overflow: hidden; padding: 58px 0 54px;
+    background: var(--navy); color: #fff; text-align: center;
+    border-top: 1px solid rgba(255,255,255,.08);
+  }
+  .cta-band-bg {
+    position: absolute; inset: 0;
+    background: url('images/gallery/cta_bg.jpg') center 40% / cover no-repeat;
+    filter: brightness(0.35);
+  }
+  .cta-band-ov {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(6,14,26,.7) 0%, rgba(6,14,26,.95) 100%);
+  }
+  .cta-inner { position: relative; z-index: 2; max-width: 760px; margin: 0 auto; }
+  .cta-inner h2 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: clamp(32px, 4vw, 50px);
+    font-weight: 900; color: #fff; text-transform: uppercase; line-height: 1; margin-bottom: 12px;
+  }
+  .cta-inner h2 em { font-style: normal; color: var(--red); }
+  .cta-inner p { font-size: 15px; color: rgba(255,255,255,.82); font-weight: 300; margin-bottom: 24px; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  /* Back to top */
+  #btt {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+    width: 42px; height: 42px; border-radius: 6px;
+    background: var(--red); color: #fff; display: none; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 900; box-shadow: 0 4px 18px rgba(204,39,0,.4);
+    cursor: pointer; transition: all .22s; font-family: 'Barlow Condensed', sans-serif;
+  }
+  #btt.on { display: flex; }
+  #btt:hover { background: var(--red2); transform: translateY(-2px); }
+
+  /* ==================== RESPONSIVE BREAKPOINTS ==================== */
+  @media(max-width: 1024px) {
+    .vtri-grid { grid-template-columns: 1fr; }
+    .grid-6 { grid-template-columns: repeat(2, 1fr); }
+    .grid-8 { grid-template-columns: repeat(2, 1fr); }
+    .adv-grid-6 { grid-template-columns: repeat(2, 1fr); }
+    .kes-why-contrast { grid-template-columns: 1fr; }
+    .flow-grid-7 { grid-template-columns: repeat(4, 1fr); }
+    .flow-grid-6 { grid-template-columns: repeat(3, 1fr); }
+    .flow-grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .intro-grid { grid-template-columns: 1fr; gap: 24px; }
+    .specs-box-grid { grid-template-columns: 1fr; gap: 24px; }
+    .amc-card-band { grid-template-columns: 1fr; gap: 20px; }
+  }
+  @media(max-width: 640px) {
+    .sec { padding: 36px 0; }
+    .grid-6 { grid-template-columns: 1fr; }
+    .grid-8 { grid-template-columns: 1fr; }
+    .adv-grid-6 { grid-template-columns: 1fr; }
+    .flow-grid-7 { grid-template-columns: repeat(2, 1fr); }
+    .flow-grid-6 { grid-template-columns: repeat(2, 1fr); }
+    .flow-grid-4 { grid-template-columns: 1fr; }
+    .hero-h1 { font-size: 34px; }
+    .vsec-banner { flex-direction: column; align-items: flex-start; gap: 10px; }
+  }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- HEADER (Injected by site.js) -->
 <div id="site-header"></div>
 
-<!-- -------------------------------- HERO -------------------------------- -->
-<section class="shero">
-  <div class="shero-bg"></div>
-  <div class="shero-grad"></div>
-  <div class="W shero-inner">
-    <div class="shero-content">
-      <div class="shero-crumb rv">
-        <a href="index.html">Home</a><span class="sep">/</span><span class="cur">Services</span>
-      </div>
-      <div class="shero-tag rv d1">⚡ Class I Govt. Licensed Electrical Contractor — Karnataka</div>
-      <h1 class="shero-h1 rv d1" style="font-size:clamp(44px,7vw,84px);margin-bottom:16px;">End-to-End <em>Electrical</em><br>Engineering Services</h1>
-      <p class="shero-sub rv d2">From high-tension substation erection to precision panel installation, transformer maintenance, cable work, AMC contracts and CEIG statutory approvals — KES is your single point of accountability across Karnataka.</p>
-      <div class="shero-btns rv d3">
-        <a href="contactus.html" class="btn-red">Request a Quote &rarr;</a>
-        <a href="#core-services" class="btn-ghost">View All Services</a>
-      </div>
+<!-- ==================== HERO SECTION ==================== -->
+<section class="hero-services">
+  <div class="hero-services-bg"></div>
+  <div class="hero-services-ov"></div>
+  <div class="hero-services-grid"></div>
+  <div class="W hero-inner">
+    <div class="breadcrumb rv">
+      <a href="index.html">Home</a>
+      <span class="sep">/</span>
+      <span class="cur">Our Services</span>
     </div>
-    <div class="shero-visual rv d4">
-      <div class="sv-card">
-        <div class="sv-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
-        <div class="sv-text">
-          <h4>Turnkey Project Execution</h4>
-          <p>Seamless design-to-commissioning with complete IEC compliance.</p>
-        </div>
-      </div>
-      <div class="sv-card">
-        <div class="sv-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg></div>
-        <div class="sv-text">
-          <h4>Preventive Asset Care</h4>
-          <p>Advanced diagnostic testing &amp; maintenance for HT/LT systems.</p>
-        </div>
-      </div>
-      <div class="sv-card">
-        <div class="sv-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <div class="sv-text">
-          <h4>24/7 SLA-Driven O&amp;M</h4>
-          <p>Targeted uptime guarantees with emergency rapid response teams.</p>
-        </div>
-      </div>
-      <div class="sv-card">
-        <div class="sv-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
-        <div class="sv-text">
-          <h4>CEIG Approvals & Compliance</h4>
-          <p>End-to-end liaisoning and safety certification for HT/LT setups.</p>
-        </div>
-      </div>
+
+    <div class="hero-badge rv d1">⚡ Three Core Services · Single-Point Accountability across Karnataka</div>
+
+    <h1 class="hero-h1 rv d1">
+      End-to-End Electrical &amp;<br>
+      <em>MEPF Engineering Solutions</em>
+    </h1>
+
+    <p class="hero-sub rv d2">
+      From high-level architectural MEPF consultancy and CEIG statutory sanctions, to Class I licensed turnkey project execution and CPRI-certified precision switchgear manufacturing in Bengaluru &mdash; KES is your unified engineering partner.
+    </p>
+
+    <div class="hero-actions rv d3">
+      <a href="#core-services" class="btn-red">Explore Our Services <span class="arr">&darr;</span></a>
+      <a href="contactus.html" class="btn-ghost">Request Consultation &amp; Quote</a>
+    </div>
+
+    <div class="hero-certs-ribbon rv d4">
+      <div class="hcert-chip"><span>✓</span> Govt. Class I Licensed</div>
+      <div class="hcert-chip"><span>✓</span> CPRI 100kA Type-Tested</div>
+      <div class="hcert-chip"><span>✓</span> ISO 9001:2015 Certified</div>
+      <div class="hcert-chip"><span>✓</span> IEC 61439 Form 4b</div>
+      <div class="hcert-chip"><span>✓</span> 24/7 SLA AMC Support</div>
     </div>
   </div>
 </section>
 
-<!-- -------------------------------- SERVICES OVERVIEW BENTO -------------------------------- -->
+
+<!-- ==================== 3 CORE SERVICES OVERVIEW ==================== -->
 <section class="sec sec-alt" id="core-services">
   <div class="W">
-    <div class="sec-hd rv">
-      <div class="sec-lbl">Our Services</div>
-      <h2 class="sec-title">What We <em>Deliver</em></h2>
-      <p class="sec-body">Every service is executed by Class I certified engineers adhering to IEC 61439, IS:8623, and Karnataka EB safety standards — from kickoff to handover.</p>
+    <div class="sec-header rv">
+      <div class="sec-lbl" style="justify-content:center">Three Capabilities · One Company</div>
+      <h2 class="sec-title">Our Core <em>Services</em></h2>
+      <p class="sec-body">A complete engineering solution &mdash; design blueprints, physical installation, and certified factory manufacturing under one roof.</p>
     </div>
-    <div class="svc-bento">
 
-      <!-- Card 1 — wide -->
-      <div class="sb-card sb-wide rv">
-        <div class="sb-img">
-          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200&q=85" alt="Turnkey Electrical Projects"/>
-          <span class="sb-badge">01 — Flagship</span>
-          <div class="sb-num">01</div>
-        </div>
-        <div class="sb-body">
-          <h3>Turnkey Electrical Projects</h3>
-          <p>Single point of responsibility for your entire electrical footprint — from design, material procurement, and HT/LT erection, right through to commissioning, CEIG liaisoning, and handover documentation. We manage everything so you don't have to.</p>
-          <div class="sb-tags">
-            <span class="sb-tag">System Design & SLD</span>
-            <span class="sb-tag">Site Execution</span>
-            <span class="sb-tag">CEIG Approvals</span>
-            <span class="sb-tag">Statutory NOC</span>
-            <span class="sb-tag">O&M Handover</span>
+    <div class="vtri-grid">
+
+      <!-- Service 01 Card -->
+      <div class="vtri-card rv d1">
+        <div>
+          <div class="vtri-head">
+            <span class="vtri-tag">Service 01 · Advisory</span>
+            <div class="vtri-num">01</div>
           </div>
+          <div class="vtri-ico">
+            <svg viewBox="0 0 24 24"><polyline points="16 11 12 15 8 11"/><polyline points="16 5 12 9 8 5"/><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/></svg>
+          </div>
+          <h3>Engineering &amp; MEPF Consultancy</h3>
+          <p>The technical brains behind infrastructure assets. Electrical SLDs, HVAC, fire protection, structured cabling, and CEIG government power sanctions.</p>
+          <div class="vtri-features">
+            <div class="vtri-feat">Schematic Line Diagrams (SLD) &amp; BOQ</div>
+            <div class="vtri-feat">CEIG Statutory Approvals &amp; NOC</div>
+            <div class="vtri-feat">HVAC, Fire Safety &amp; Cleanroom IAQ</div>
+            <div class="vtri-feat">Structured IT Network Topologies</div>
+          </div>
+        </div>
+        <div>
+          <a href="#service-consultancy" class="vtri-link">View Service Details &rarr;</a>
         </div>
       </div>
 
-      <!-- Card 2 -->
-      <div class="sb-card rv d1">
-        <div class="sb-img">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=85" alt="Substation Erection"/>
-          <span class="sb-badge">02</span>
-          <div class="sb-num">02</div>
-        </div>
-        <div class="sb-body">
-          <h3>Sub Station Erection</h3>
-          <p>Complete erection of HT/LT substations including 11KV RMU, VCB, Ring Main Unit, transformer installation, metering cubicle, HT cable trenching, and earth pit design with CEIG clearances.</p>
-          <div class="sb-tags">
-            <span class="sb-tag">Up to 33KV HT</span>
-            <span class="sb-tag">CEIG Clearance</span>
-            <span class="sb-tag">Earthing Design</span>
+      <!-- Service 02 Card -->
+      <div class="vtri-card rv d2">
+        <div>
+          <div class="vtri-head">
+            <span class="vtri-tag">Service 02 · Execution</span>
+            <div class="vtri-num">02</div>
+          </div>
+          <div class="vtri-ico">
+            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3>Works Contract &amp; Turnkey Execution</h3>
+          <p>Class I licensed contractor for physical project execution &mdash; 11kV/33kV substations, power cabling, transformer overhauls, testing and 24/7 AMC.</p>
+          <div class="vtri-features">
+            <div class="vtri-feat">11kV / 33kV Substation Erection</div>
+            <div class="vtri-feat">HT/LT Power Cabling &amp; Termination</div>
+            <div class="vtri-feat">Turnkey MEPF On-Site Installation</div>
+            <div class="vtri-feat">24/7 Breakdown &amp; AMC Maintenance</div>
           </div>
         </div>
+        <div>
+          <a href="#service-works" class="vtri-link">View Service Details &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Service 03 Card -->
+      <div class="vtri-card rv d3">
+        <div>
+          <div class="vtri-head">
+            <span class="vtri-tag">Service 03 · Manufacturing</span>
+            <div class="vtri-num">03</div>
+          </div>
+          <div class="vtri-ico">
+            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3>Precision Panel Manufacturing</h3>
+          <p>5,000+ sq. ft. CNC manufacturing facility in Bengaluru. CPRI 100kA type-tested LV/MV switchboards, MCC, PCC, APFC, and bus ducts built to IEC 61439.</p>
+          <div class="vtri-features">
+            <div class="vtri-feat">Main LT Panels up to 6300A (Form 4b)</div>
+            <div class="vtri-feat">Motor Control Centres (MCC / VFD)</div>
+            <div class="vtri-feat">Sandwich Bus Ducts (630A &ndash; 6300A)</div>
+            <div class="vtri-feat">100% In-House FAT Testing Lab</div>
+          </div>
+        </div>
+        <div>
+          <a href="#service-manufacturing" class="vtri-link">View Service Details &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== STICKY QUICK SELECTOR BAR ==================== -->
+<nav class="vnav-bar" id="vnav">
+  <div class="W vnav-inner">
+    <span class="vnav-lbl">Jump to Service:</span>
+    <div class="vnav-pills">
+      <a href="#service-consultancy" class="vnav-pill"><span class="dot"></span> 01. Consultancy</a>
+      <a href="#service-works" class="vnav-pill"><span class="dot"></span> 02. Works Contract</a>
+      <a href="#service-manufacturing" class="vnav-pill"><span class="dot"></span> 03. Manufacturing</a>
+      <a href="#kes-advantage" class="vnav-pill"><span class="dot"></span> Why Choose KES</a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ==================== SERVICE 01: ENGINEERING & MEPF CONSULTANCY ==================== -->
+<section class="sec" id="service-consultancy">
+  <div class="W">
+
+    <div class="vsec-banner rv">
+      <div class="vsec-banner-left">
+        <span class="vsec-badge-big">Service 01</span>
+        <h2 class="vsec-title">Engineering &amp; <em>MEPF Consultancy</em></h2>
+      </div>
+      <a href="engineeringcounsultancy.html" class="btn-outline">Dedicated Consultancy Page &rarr;</a>
+    </div>
+
+    <!-- Intro Split -->
+    <div class="intro-grid">
+      <div class="intro-media rl">
+        <img src="images/gallery/hero.png" alt="KES Engineering Consultancy Technical Advisory">
+        <div class="intro-floating-badge">
+          <div class="val">20+ Yrs</div>
+          <div class="lbl">Led by Director B.E. Electrical</div>
+        </div>
+      </div>
+      <div class="intro-content rr">
+        <div class="sec-lbl">The Technical Backbone</div>
+        <h2 class="sec-title">The Brains Behind Your<br><em>Infrastructure Assets</em></h2>
+        <p>
+          Engineering Consultancy is the high-level advisory and architectural blueprint phase of any capital project. At KES, our senior electrical engineers act as your <strong>technical backbone</strong> &mdash; ensuring every cable route, switchgear panel, transformer capacity, and HVAC duct is engineered for optimal efficiency before construction commences.
+        </p>
+        <p>
+          Led by our Director, <strong>Mr. Kumaraswamy B.R.</strong> (B.E. Electrical &amp; Electronics) with 20+ years of power distribution mastery, we provide single-point accountability for Schematic Line Diagrams (SLDs), detailed BOQs, and statutory government sanctions under the Chief Electrical Inspectorate (CEIG).
+        </p>
+        <div class="intro-cap-chips">
+          <span class="icap">Electrical SLD &amp; BOQ</span>
+          <span class="icap">CEIG Statutory Sanctions</span>
+          <span class="icap">HVAC &amp; Cleanroom IAQ</span>
+          <span class="icap">Fire &amp; Life Safety</span>
+          <span class="icap">Structured IT Cabling</span>
+          <span class="icap">PHE &amp; Solar PV</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 Core Disciplines Grid -->
+    <div class="sec-lbl rv" style="margin-bottom:14px">Our Scope &middot; 6 Engineering Disciplines</div>
+    <div class="grid-6">
+
+      <!-- 01 -->
+      <div class="gcard rv d1">
+        <div class="gcard-top">
+          <div class="gcard-tag-row">
+            <span class="gcard-tag">Electrical Power</span>
+            <span class="gcard-badge-scope">HT / LT</span>
+          </div>
+          <h3>Electrical Power Distribution</h3>
+          <p>Full power distribution design &mdash; 11kV/33kV substations, transformer sizing, DG sync, UPS, SLD preparation, earthing design, and protection coordination.</p>
+        </div>
+        <ul class="gcard-list">
+          <li>HV/LV Substation &amp; SLD Drawings</li>
+          <li>Fault Level &amp; Short Circuit Calculations</li>
+          <li>Earthing Grid &amp; Lightning Protection</li>
+          <li>Lux Level Lighting &amp; Energy Modeling</li>
+        </ul>
+      </div>
+
+      <!-- 02 -->
+      <div class="gcard rv d2">
+        <div class="gcard-top">
+          <div class="gcard-tag-row">
+            <span class="gcard-tag">Statutory Clearances</span>
+            <span class="gcard-badge-scope">Govt. Liaisoning</span>
+          </div>
+          <h3>Statutory &amp; CEIG Liaisoning</h3>
+          <p>Complete regulatory advisory &mdash; power sanction applications, CEIG drawing approvals, statutory inspections, safety certifications, and utility liaisoning.</p>
+        </div>
+        <ul class="gcard-list">
+          <li>CEIG Power Sanction &amp; Approvals</li>
+          <li>Statutory Safety Clearances &amp; NOCs</li>
+          <li>BESCOM / KPTCL Utility Coordination</li>
+          <li>Drawing Vetting &amp; Regulatory Compliance</li>
+        </ul>
+      </div>
+
+      <!-- 03 -->
+      <div class="gcard rv d3">
+        <div class="gcard-top">
+          <div class="gcard-tag-row">
+            <span class="gcard-tag">Mechanical HVAC</span>
+            <span class="gcard-badge-scope">Climate Engineering</span>
+          </div>
+          <h3>HVAC &amp; Ventilation Design</h3>
+          <p>Thermal load calculation, Air Handling Unit (AHU) sizing, VRV/VRF multi-splits, GI ducting layouts, chiller plant design, and BMS automation integration.</p>
+        </div>
+        <ul class="gcard-list">
+          <li>Chilled Water &amp; VRV/VRF System Sizing</li>
+          <li>GI Ducting &amp; Air Distribution Layouts</li>
+          <li>Cleanroom &amp; Industrial IAQ Engineering</li>
+          <li>Energy Recovery &amp; Ventilation Optimization</li>
+        </ul>
+      </div>
+
+      <!-- 04 -->
+      <div class="gcard rv d1">
+        <div class="gcard-top">
+          <div class="gcard-tag-row">
+            <span class="gcard-tag">Life Safety</span>
+            <span class="gcard-badge-scope">Active &amp; Passive</span>
+          </div>
+          <h3>Fire Protection &amp; Safety</h3>
+          <p>Comprehensive life safety engineering conforming to NBC &amp; NFPA codes &mdash; addressable fire alarm, hydrant network, sprinkler design, CCTV, and access control.</p>
+        </div>
+        <ul class="gcard-list">
+          <li>Addressable Fire Detection &amp; Alarms</li>
+          <li>Hydrant &amp; Automatic Sprinkler Networks</li>
+          <li>Gas Suppression &amp; Rodent Repellent</li>
+          <li>CCTV, Access Control &amp; PA Systems</li>
+        </ul>
+      </div>
+
+      <!-- 05 -->
+      <div class="gcard rv d2">
+        <div class="gcard-top">
+          <div class="gcard-tag-row">
+            <span class="gcard-tag">IT Infrastructure</span>
+            <span class="gcard-badge-scope">Data &amp; Telecom</span>
+          </div>
+          <h3>Structured IT Networking</h3>
+          <p>Enterprise physical data layer design &mdash; fiber optic backbones, Cat6A structured cabling, server room layouts, cable raceways, and rack dressing schedules.</p>
+        </div>
+        <ul class="gcard-list">
+          <li>Optical Fiber &amp; Cat6A Network Topology</li>
+          <li>Server Room &amp; Data Center Layouts</li>
+          <li>Cable Tray &amp; Raceway Coordination</li>
+          <li>AV, Video Door Phone &amp; Intercom Networks</li>
+        </ul>
+      </div>
+
+      <!-- 06 -->
+      <div class="gcard rv d3">
+        <div class="gcard-top">
+          <div class="gcard-tag-row">
+            <span class="gcard-tag">Plumbing &amp; Solar</span>
+            <span class="gcard-badge-scope">PHE Utilities</span>
+          </div>
+          <h3>PHE, Solar &amp; Allied Utilities</h3>
+          <p>Public Health Engineering (PHE) &mdash; hydro-pneumatic water supply, drainage networks, stormwater harvesting, rooftop solar power packs, and EV charging stations.</p>
+        </div>
+        <ul class="gcard-list">
+          <li>Hydro-Pneumatic Water Pumping Design</li>
+          <li>Drainage, STP &amp; Stormwater Management</li>
+          <li>Rooftop Solar PV Integration &amp; SLDs</li>
+          <li>EV Charging Station Power Allocation</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- 4-Stage Engagement Process -->
+    <div class="sec-lbl rv" style="margin-bottom:12px">Advisory Lifecycle &middot; 4-Stage Engagement Process</div>
+    <div class="flow-grid-4">
+      <div class="fstep-card rv d1">
+        <div class="fstep-num">01</div>
+        <h4>Feasibility &amp; Survey</h4>
+        <p>Site inspection, load study, maximum demand calculation, and preliminary budget in 2 working days.</p>
+      </div>
+      <div class="fstep-card rv d2">
+        <div class="fstep-num">02</div>
+        <h4>Detailed CAD Design</h4>
+        <p>Schematic Line Diagrams (SLDs), cable sizing, BOQ estimation, and clash-detected 3D MEPF drawings.</p>
+      </div>
+      <div class="fstep-card rv d3">
+        <div class="fstep-num">03</div>
+        <h4>Statutory Filings</h4>
+        <p>Drawing submissions to CEIG, BESCOM, and municipal boards for rapid power sanction and safety NOC.</p>
+      </div>
+      <div class="fstep-card rv d4">
+        <div class="fstep-num">04</div>
+        <h4>Handover &amp; As-Builts</h4>
+        <p>Final as-built drawings, technical specifications, O&amp;M dossiers, and commissioning support for site teams.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ==================== SERVICE 02: WORKS CONTRACT & TURNKEY EXECUTION ==================== -->
+<section class="sec sec-alt" id="service-works">
+  <div class="W">
+
+    <div class="vsec-banner rv">
+      <div class="vsec-banner-left">
+        <span class="vsec-badge-big">Service 02</span>
+        <h2 class="vsec-title">Works Contract &amp; <em>Turnkey Execution</em></h2>
+      </div>
+      <a href="workscontract.html" class="btn-outline">Dedicated Works Contract Page &rarr;</a>
+    </div>
+
+    <!-- Intro Split -->
+    <div class="intro-grid">
+      <div class="intro-media rl">
+        <img src="images/gallery/testing.png" alt="KES Works Contract On-Site Execution">
+        <div class="intro-floating-badge">
+          <div class="val">Class I</div>
+          <div class="lbl">Govt. Licensed Electrical Contractor</div>
+        </div>
+      </div>
+      <div class="intro-content rr">
+        <div class="sec-lbl">Single-Point Accountability</div>
+        <h2 class="sec-title">From Site Survey to<br><em>Power Commissioning</em></h2>
+        <p>
+          Kumara Engineering Solutions takes end-to-end responsibility for <strong>planning, estimation, OEM procurement, installation, testing, commissioning,</strong> and statutory government clearances &mdash; delivering a seamless turnkey experience with zero vendor gaps.
+        </p>
+        <p>
+          We execute complex electrical installations for factories, commercial complexes, software facilities, data centers, hospitals, and high-rise apartments. Our dedicated onsite team of Project Managers, Site Engineers, Safety Officers, and Testing Engineers ensures 100% adherence to delivery schedules and safety codes.
+        </p>
+        <div class="intro-cap-chips">
+          <span class="icap">11kV/33kV Substations</span>
+          <span class="icap">CEIG Statutory Clearances</span>
+          <span class="icap">HT/LT Power Cabling</span>
+          <span class="icap">HVAC &amp; BMS Integration</span>
+          <span class="icap">24/7 Breakdown AMC</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 Turnkey Execution Capabilities Grid -->
+    <div class="sec-lbl rv" style="margin-bottom:14px">Our Scope &middot; 6 Turnkey Contracting Capabilities</div>
+    <div class="grid-6">
+
+      <!-- 01 -->
+      <div class="gcard rv d1">
+        <div class="gcard-top">
+          <div class="gcard-tag-row">
+            <span class="gcard-tag">Electrical Projects</span>
+            <span class="gcard-badge-scope">HT &amp; LT</span>
+          </div>
+          <h3>HT / LT Power Installations</h3>
+          <p>Supply, erection, testing and commissioning of 11kV/33kV HT panels, oil/dry transformers, DG sets, LT switchboards, UPS banks, cable trays, and earthing protection.</p>
+        </div>
+        <div class="gcard-chips">
+          <span class="gchip">11kV/33kV Panels</span>
+          <span class="gchip">Transformers</span>
+          <span class="gchip">DG Sets</span>
+          <span class="gchip">LT Switchgear</span>
+          <span class="gchip">Earthing Grid</span>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="gcard rv d2">
+        <div class="gcard-top">
+          <div class="gcard-tag-row">
+            <span class="gcard-tag">Statutory Clearances</span>
+            <span class="gcard-badge-scope">Govt. Liaisoning</span>
+          </div>
+          <h3>Statutory &amp; CEIG Approvals</h3>
+          <p>Complete liaisoning and approval handling for Chief Electrical Inspectorate (CEIG), utility power sanction (BESCOM/KPTCL), safety certificates, and government clearances.</p>
+        </div>
+        <div class="gcard-chips">
+          <span class="gchip">CEIG Sanction</span>
+          <span class="gchip">Safety NOC</span>
+          <span class="gchip">Drawing Approval</span>
+          <span class="gchip">Service Clearance</span>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="gcard rv d3">
+        <div class="gcard-top">
+          <div class="gcard-tag-row">
+            <span class="gcard-tag">Mechanical HVAC</span>
+            <span class="gcard-badge-scope">Climate Systems</span>
+          </div>
+          <h3>HVAC &amp; Ventilation Systems</h3>
+          <p>Turnkey mechanical HVAC installations including Air Handling Units (AHU), chillers, VRV/VRF multi-splits, GI ducting, diffusers, and BMS automation control.</p>
+        </div>
+        <div class="gcard-chips">
+          <span class="gchip">VRV / VRF</span>
+          <span class="gchip">AHU Units</span>
+          <span class="gchip">GI Ducting</span>
+          <span class="gchip">CSU / Cassettes</span>
+          <span class="gchip">Chillers</span>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="gcard rv d1">
+        <div class="gcard-top">
+          <div class="gcard-tag-row">
+            <span class="gcard-tag">Life Safety</span>
+            <span class="gcard-badge-scope">Active &amp; Passive</span>
+          </div>
+          <h3>Fire Safety &amp; Security Systems</h3>
+          <p>Addressable fire alarm systems, public address (PA), rodent repellent, CCTV surveillance, access control, visitor management, and hydrant/sprinkler protection.</p>
+        </div>
+        <div class="gcard-chips">
+          <span class="gchip">Fire Alarm</span>
+          <span class="gchip">CCTV &amp; Access</span>
+          <span class="gchip">PA System</span>
+          <span class="gchip">Rodent System</span>
+          <span class="gchip">Hydrants</span>
+        </div>
+      </div>
+
+      <!-- 05 -->
+      <div class="gcard rv d2">
+        <div class="gcard-top">
+          <div class="gcard-tag-row">
+            <span class="gcard-tag">IT Infrastructure</span>
+            <span class="gcard-badge-scope">Data &amp; Telecom</span>
+          </div>
+          <h3>Structured Cabling &amp; Networking</h3>
+          <p>Enterprise data infrastructure deployment &mdash; Cat6/Cat6A structured cabling, fiber optic backbones, server room rack dressing, patch panels, and cable management.</p>
+        </div>
+        <div class="gcard-chips">
+          <span class="gchip">Fiber Optic</span>
+          <span class="gchip">Cat6A Cabling</span>
+          <span class="gchip">Server Racks</span>
+          <span class="gchip">HDMI / TV / AV</span>
+        </div>
+      </div>
+
+      <!-- 06 -->
+      <div class="gcard rv d3">
+        <div class="gcard-top">
+          <div class="gcard-tag-row">
+            <span class="gcard-tag">Allied Services</span>
+            <span class="gcard-badge-scope">Turnkey Allied</span>
+          </div>
+          <h3>PHE, Solar, EV &amp; Civil Works</h3>
+          <p>Hydro-pneumatic plumbing pumping systems, solar power packs, solar water heating, EV fast charging stations, civil structural modifications, and interior fit-outs.</p>
+        </div>
+        <div class="gcard-chips">
+          <span class="gchip">Solar Power</span>
+          <span class="gchip">EV Charging</span>
+          <span class="gchip">PHE Plumbing</span>
+          <span class="gchip">Video Door Phone</span>
+          <span class="gchip">Civil Fit-out</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 7-Stage Execution Pipeline -->
+    <div class="sec-lbl rv" style="margin-bottom:12px">Execution Methodology &middot; 7-Stage Project Pipeline</div>
+    <div class="flow-grid-7">
+      <div class="fstep-card rv d1">
+        <div class="fstep-num">01</div>
+        <h4>Survey &amp; Plan</h4>
+        <p>Site audit, load study, risk assessment &amp; BOQ.</p>
+      </div>
+      <div class="fstep-card rv d2">
+        <div class="fstep-num">02</div>
+        <h4>CAD Eng.</h4>
+        <p>SLD schematic layout &amp; authority submissions.</p>
+      </div>
+      <div class="fstep-card rv d3">
+        <div class="fstep-num">03</div>
+        <h4>Statutory</h4>
+        <p>CEIG, NOC &amp; utility power sanction filings.</p>
+      </div>
+      <div class="fstep-card rv d4">
+        <div class="fstep-num">04</div>
+        <h4>FAT &amp; OEM</h4>
+        <p>Tier-1 switchgear sourcing &amp; factory testing.</p>
+      </div>
+      <div class="fstep-card rv d1">
+        <div class="fstep-num">05</div>
+        <h4>Erection</h4>
+        <p>Supervised site installation of HT/LT &amp; MEPF.</p>
+      </div>
+      <div class="fstep-card rv d2">
+        <div class="fstep-num">06</div>
+        <h4>Testing</h4>
+        <p>Insulation Megger, earth resistance &amp; trials.</p>
+      </div>
+      <div class="fstep-card rv d3">
+        <div class="fstep-num">07</div>
+        <h4>Handover</h4>
+        <p>CEIG clearance, as-builts &amp; AMC support.</p>
+      </div>
+    </div>
+
+    <!-- AMC & 24/7 Breakdown Card Band -->
+    <div class="amc-card-band rv">
+      <div>
+        <h3>Annual Maintenance Contracts <em>(AMC) &amp; 24/7 Breakdown Service</em></h3>
+        <p>
+          Prevent costly operational downtime with KES Annual Maintenance Contracts. Our certified technicians handle scheduled preventive inspections, thermal imaging audits, transformer BDV oil testing, breaker overhaul, and rapid 24/7 emergency response.
+        </p>
+        <div class="amc-pills">
+          <span class="apill">24/7 Rapid Response</span>
+          <span class="apill">Thermal Imaging Audits</span>
+          <span class="apill">Transformer BDV Oil Testing</span>
+          <span class="apill">Breaker Calibration</span>
+          <span class="apill">Critical Spares Stock</span>
+          <span class="apill">Facility O&amp;M</span>
+        </div>
+      </div>
+      <div>
+        <a href="contactus.html" class="btn-red">Get AMC Proposal <span class="arr">&rarr;</span></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ==================== SERVICE 03: PRECISION PANEL MANUFACTURING ==================== -->
+<section class="sec" id="service-manufacturing">
+  <div class="W">
+
+    <div class="vsec-banner rv">
+      <div class="vsec-banner-left">
+        <span class="vsec-badge-big">Service 03</span>
+        <h2 class="vsec-title">Precision Panel <em>Manufacturing</em></h2>
+      </div>
+      <a href="manufacturing.html" class="btn-outline">Dedicated Manufacturing Page &rarr;</a>
+    </div>
+
+    <!-- Intro Split -->
+    <div class="intro-grid">
+      <div class="intro-media rl">
+        <img src="images/gallery/panel1.png" alt="KES Switchgear Fabrication Plant">
+        <div class="intro-floating-badge">
+          <div class="val">5,000+</div>
+          <div class="lbl">Sq. ft. CNC Facility, Bengaluru</div>
+        </div>
+      </div>
+      <div class="intro-content rr">
+        <div class="sec-lbl">Our Manufacturing Base</div>
+        <h2 class="sec-title">Engineered with Precision,<br>Certified for <em>Performance</em></h2>
+        <p>
+          From our <strong>5,000+ sq. ft. manufacturing facility in Bengaluru</strong>, Kumara Engineering Solutions (KES) designs, fabricates, powder coats, wires, and tests custom LV &amp; MV switchgear boards for industries, IT parks, hospitals, and infrastructure projects across Karnataka.
+        </p>
+        <p>
+          Every switchboard is built using heavy-gauge CRCA sheet steel (14/16 SWG), 9-tank chemical pre-treatment, automated electrostatic powder coating (Siemens Grey RAL 7032), and high-conductivity 99.97% electrolytic copper/aluminium busbars.
+        </p>
+        <div class="intro-cap-chips">
+          <span class="icap">Form-1 to Form-4b Design</span>
+          <span class="icap">Up to 6300A Capacity</span>
+          <span class="icap">100kA Fault Withstand</span>
+          <span class="icap">IP42 to IP66 Protection</span>
+          <span class="icap">Tier-1 OEM Switchgear</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technical Ratings Matrix Table -->
+    <div class="specs-box rv">
+      <div class="specs-box-grid">
+        <div>
+          <div class="sec-lbl" style="color:var(--red)">Engineering Parameters</div>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:900;text-transform:uppercase;margin-bottom:8px">Standard Technical <em>Ratings</em></h3>
+          <p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.6;font-weight:300">
+            All KES panels are built to strict IEC 61439-1&amp;2 and IS:8623 standards, with CPRI short-circuit withstand certifications. Custom configurations engineered for every project.
+          </p>
+        </div>
+        <div class="specs-table">
+          <div class="specs-row head">
+            <div class="specs-cell">Parameter</div>
+            <div class="specs-cell">Specification Standard</div>
+          </div>
+          <div class="specs-row">
+            <div class="specs-cell">System Voltage</div>
+            <div class="specs-cell">415V AC, 3-Phase 4-Wire, 50Hz (MV up to 33kV)</div>
+          </div>
+          <div class="specs-row">
+            <div class="specs-cell">Rated Current</div>
+            <div class="specs-cell">Up to 6300A Continuous Rating</div>
+          </div>
+          <div class="specs-row">
+            <div class="specs-cell">Short-Circuit Withstand</div>
+            <div class="specs-cell">50kA / 100kA for 1 Sec (CPRI Certified)</div>
+          </div>
+          <div class="specs-row">
+            <div class="specs-cell">Ingress Protection</div>
+            <div class="specs-cell">IP42, IP52, IP54, IP55, IP65, IP66</div>
+          </div>
+          <div class="specs-row">
+            <div class="specs-cell">Busbar Material</div>
+            <div class="specs-cell">99.97% Pure Electrolytic Copper (Silver Plated) / Al</div>
+          </div>
+          <div class="specs-row">
+            <div class="specs-cell">Enclosure Sheet</div>
+            <div class="specs-cell">CRCA 2.0mm / 1.6mm with 7-Tank Powder Coat (RAL 7032)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8 Core Switchgear Products Grid -->
+    <div class="sec-lbl rv" style="margin-bottom:14px">Our Range &middot; Core Switchgear &amp; Panel Systems</div>
+    <div class="grid-8">
+
+      <!-- 01 -->
+      <div class="pcard rv d1">
+        <div>
+          <div class="pcard-tag-row">
+            <span class="pcard-tag">LV Switchgear</span>
+          </div>
+          <h4>Main LT Panels</h4>
+          <p>Central power distribution featuring ACB/MCCB protection and Form 3b/4b safety barriers.</p>
+        </div>
+        <div class="pcard-spec-strip">
+          <span>Up to 6300A</span>
+          <span style="color:var(--red)">100kA CPRI</span>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="pcard rv d2">
+        <div>
+          <div class="pcard-tag-row">
+            <span class="pcard-tag">Motor Control</span>
+          </div>
+          <h4>MCC &amp; Smart Drives</h4>
+          <p>Motor control centers with smart protection relays, soft starters, and VFD speed control.</p>
+        </div>
+        <div class="pcard-spec-strip">
+          <span>DOL / Star-Delta</span>
+          <span style="color:var(--red)">Form 3b / 4b</span>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="pcard rv d3">
+        <div>
+          <div class="pcard-tag-row">
+            <span class="pcard-tag">Power Control</span>
+          </div>
+          <h4>PCC &amp; PMCC Panels</h4>
+          <p>Heavy-duty power receiving and distribution boards with segregated busbar chambers.</p>
+        </div>
+        <div class="pcard-spec-strip">
+          <span>Single/Double Front</span>
+          <span style="color:var(--red)">IP52 / IP65</span>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="pcard rv d4">
+        <div>
+          <div class="pcard-tag-row">
+            <span class="pcard-tag">Medium Voltage</span>
+          </div>
+          <h4>MV &amp; VCB Panels</h4>
+          <p>High-reliability 11kV/33kV switchgear equipped with Vacuum Circuit Breakers for substations.</p>
+        </div>
+        <div class="pcard-spec-strip">
+          <span>11kV &amp; 33kV</span>
+          <span style="color:var(--red)">IEC 62271</span>
+        </div>
+      </div>
+
+      <!-- 05 -->
+      <div class="pcard rv d1">
+        <div>
+          <div class="pcard-tag-row">
+            <span class="pcard-tag">Power Quality</span>
+          </div>
+          <h4>APFC Capacitor Panels</h4>
+          <p>Automatic power factor correction maintaining 0.99 unity PF with detuned harmonic filter reactors.</p>
+        </div>
+        <div class="pcard-spec-strip">
+          <span>0.99 Unity Target</span>
+          <span style="color:var(--red)">Microprocessor</span>
+        </div>
+      </div>
+
+      <!-- 06 -->
+      <div class="pcard rv d2">
+        <div>
+          <div class="pcard-tag-row">
+            <span class="pcard-tag">Automation</span>
+          </div>
+          <h4>PLC &amp; SCADA Panels</h4>
+          <p>Custom control boards with Siemens/Schneider/ABB PLCs, touch HMIs, and remote telemetry.</p>
+        </div>
+        <div class="pcard-spec-strip">
+          <span>Modbus / Profinet</span>
+          <span style="color:var(--red)">Cloud Ready</span>
+        </div>
+      </div>
+
+      <!-- 07 -->
+      <div class="pcard rv d3">
+        <div>
+          <div class="pcard-tag-row">
+            <span class="pcard-tag">Backup Power</span>
+          </div>
+          <h4>DG Sync &amp; ATS Panels</h4>
+          <p>Automatic generator load sharing, synchronizing, and auto transfer for critical zero-downtime loads.</p>
+        </div>
+        <div class="pcard-spec-strip">
+          <span>&lt; 8s Transfer</span>
+          <span style="color:var(--red)">Deep Sea Logic</span>
+        </div>
+      </div>
+
+      <!-- 08 -->
+      <div class="pcard rv d4">
+        <div>
+          <div class="pcard-tag-row">
+            <span class="pcard-tag">Transmission</span>
+          </div>
+          <h4>Sandwich Bus Ducts</h4>
+          <p>High-current sandwich bus trunking systems carrying 630A to 6300A with minimal voltage drop.</p>
+        </div>
+        <div class="pcard-spec-strip">
+          <span>630A &ndash; 6300A</span>
+          <span style="color:var(--red)">IP54 &ndash; IP66</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 6-Stage Manufacturing Workflow -->
+    <div class="sec-lbl rv" style="margin-bottom:12px">Quality Assurance &middot; 6-Stage Manufacturing &amp; Testing Workflow</div>
+    <div class="flow-grid-6">
+      <div class="fstep-card rv d1">
+        <div class="fstep-num">01</div>
+        <h4>SLD Review</h4>
+        <p>Load calculation, BOQ estimation &amp; commercial alignment.</p>
+      </div>
+      <div class="fstep-card rv d2">
+        <div class="fstep-num">02</div>
+        <h4>GA CAD</h4>
+        <p>Detailed General Arrangement and schematic CAD sign-off.</p>
+      </div>
+      <div class="fstep-card rv d3">
+        <div class="fstep-num">03</div>
+        <h4>OEM Sourcing</h4>
+        <p>Tier-1 switchgear procurement with incoming inspections.</p>
+      </div>
+      <div class="fstep-card rv d4">
+        <div class="fstep-num">04</div>
+        <h4>CNC Fab</h4>
+        <p>Precision cutting, 9-tank pre-treatment &amp; RAL 7032 coating.</p>
+      </div>
+      <div class="fstep-card rv d1">
+        <div class="fstep-num">05</div>
+        <h4>100% FAT</h4>
+        <p>HV insulation, Megger, primary injection &amp; trip testing.</p>
+      </div>
+      <div class="fstep-card rv d2">
+        <div class="fstep-num">06</div>
+        <h4>Dispatch</h4>
+        <p>Secure packing, site delivery &amp; energization support.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ==================== THE KES ADVANTAGE: CLEAR, SIMPLE & DIRECT ==================== -->
+<section class="sec sec-alt" id="kes-advantage">
+  <div class="W">
+    <div class="sec-header rv">
+      <div class="sec-lbl" style="justify-content:center">Why Choose Us</div>
+      <h2 class="sec-title">The KES <em>Advantage</em></h2>
+      <p class="sec-body">Simple, honest reasons why businesses, builders, and factories across Karnataka trust us with their electrical infrastructure.</p>
+    </div>
+
+    <!-- Simple Visual Contrast Box -->
+    <div class="kes-why-contrast rv d1">
+      <div class="kwc-box kwc-old">
+        <h3>The Traditional Way</h3>
+        <ul>
+          <li>Hiring 3 different vendors: 1 Consultant + 1 Panel Maker + 1 Site Contractor</li>
+          <li>Constant finger-pointing and blame games when problems happen</li>
+          <li>Higher costs due to middleman markups on panels and materials</li>
+          <li>Frequent project delays in CEIG government approvals</li>
+        </ul>
+      </div>
+
+      <div class="kwc-box kwc-kes">
+        <h3>The KES Way &mdash; <em>All 3 Under One Roof</em></h3>
+        <ul>
+          <li><strong>One Single Company</strong> for Design, Manufacturing, and Installation</li>
+          <li><strong>100% Direct Factory Pricing in ₹ (Rupees)</strong> &mdash; save 15&ndash;20% by avoiding middlemen</li>
+          <li><strong>Guaranteed Govt. Approvals</strong> &mdash; we handle all CEIG and BESCOM paperwork</li>
+          <li><strong>30% Faster Project Delivery</strong> &mdash; seamless team coordination with zero delays</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 6 Simple Benefit Cards with Indian Rupee Icon -->
+    <div class="adv-grid-6">
+
+      <!-- Card 1 -->
+      <div class="adv-card rv d1">
+        <div class="adv-ico">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>Everything Under One Roof</h3>
+        <p>You work with only ONE trusted partner from technical drawings and panel assembly to final on-site power commissioning.</p>
+        <span class="adv-highlight">Zero Multi-Vendor Hassle</span>
+      </div>
+
+      <!-- Card 2: Indian Rupee Symbol -->
+      <div class="adv-card rv d2">
+        <div class="adv-ico">
+          <span class="adv-ico-rupee">₹</span>
+        </div>
+        <h3>Direct Factory Prices in Rupees</h3>
+        <p>We build our own panels in our 5,000 sq.ft Bengaluru plant. You get direct manufacturer prices without contractor markups.</p>
+        <span class="adv-highlight">Save 15% &ndash; 20% on Costs</span>
       </div>
 
       <!-- Card 3 -->
-      <div class="sb-card rv d2">
-        <div class="sb-img">
-          <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=85" alt="HT Panel Services"/>
-          <span class="sb-badge">03</span>
-          <div class="sb-num">03</div>
+      <div class="adv-card rv d3">
+        <div class="adv-ico">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
-        <div class="sb-body">
-          <h3>HT Panel Services</h3>
-          <p>On-site and workshop-based HT panel maintenance with advanced equipment. We perform routine inspections, relay testing, insulation tests, gasket replacements, and full refurbishment works.</p>
-          <div class="sb-tags">
-            <span class="sb-tag">On-Site & Workshop</span>
-            <span class="sb-tag">Megger Tests</span>
-            <span class="sb-tag">Relay Testing</span>
-          </div>
-        </div>
+        <h3>100% Govt. Clearances</h3>
+        <p>We handle all official drawings, safety inspections, power sanctions, and NOC approvals with CEIG and electricity boards.</p>
+        <span class="adv-highlight">Guaranteed Approvals</span>
       </div>
 
       <!-- Card 4 -->
-      <div class="sb-card rv">
-        <div class="sb-img">
-          <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=85" alt="Transformer Maintenance"/>
-          <span class="sb-badge">04</span>
-          <div class="sb-num">04</div>
+      <div class="adv-card rv d1">
+        <div class="adv-ico">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
-        <div class="sb-body">
-          <h3>Transformer Maintenance</h3>
-          <p>Complete repairing, servicing and refurbishing of all transformer types. BDV oil testing, winding insulation Megger, ratio checks, vacuum & pressure tests, oven drying, and AMC contracts available.</p>
-          <div class="sb-tags">
-            <span class="sb-tag">Oil Testing</span>
-            <span class="sb-tag">AMC Available</span>
-            <span class="sb-tag">Winding Tests</span>
-          </div>
-        </div>
+        <h3>Faster Project Delivery</h3>
+        <p>Because our designers, factory workers, and site electricians work together as one team, projects complete on time with zero delay.</p>
+        <span class="adv-highlight">30% Faster Turnaround</span>
       </div>
 
       <!-- Card 5 -->
-      <div class="sb-card rv d1">
-        <div class="sb-img">
-          <img src="https://tiimg.tistatic.com/fp/1/004/026/ht-lt-cable-lying-termination-364.jpg" alt="Cable Work"/>
-          <span class="sb-badge">05</span>
-          <div class="sb-num">05</div>
-        </div>
-        <div class="sb-body">
-          <h3>HT & LT Cable Work</h3>
-          <p>Premium copper and aluminium HT/LT power cables — supply, laying, termination and commissioning. Full substation cabling capability including XLPE insulated HT cables and organized cable tray systems.</p>
-          <div class="sb-tags">
-            <span class="sb-tag">Supply & Installation</span>
-            <span class="sb-tag">HT Termination</span>
-            <span class="sb-tag">Cable Trays</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 6 — wide -->
-      <div class="sb-card sb-wide rv d2">
-        <div class="sb-img" style="height:200px">
-          <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1200&q=85" alt="MV LV Busways"/>
-          <span class="sb-badge">06 — Busways</span>
-          <div class="sb-num">06</div>
-        </div>
-        <div class="sb-body">
-          <h3>MV & LV Busway Systems</h3>
-          <p>Engineered Busway systems with 99.97% copper purity and silver-plated full-length conductors ranging from 630A to 6300A. Fire resistance certified to AS1530.4:2014. Protection grades IP54–IP66. Polarities: 3L+PE, 3L+N+PE.</p>
-          <div class="sb-tags">
-            <span class="sb-tag">630A – 6300A</span>
-            <span class="sb-tag">99.97% Copper</span>
-            <span class="sb-tag">IP54–IP66</span>
-            <span class="sb-tag">Fire Certified</span>
-            <span class="sb-tag">Supply & Erection</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 7 -->
-      <div class="sb-card rv">
-        <div class="sb-img">
-          <img src="https://www.powercontrolsystems.in/innovtouch/uploads/2021/08/pcs-oem-drive-panels-1.jpg" alt="AC Drive Servicing"/>
-          <span class="sb-badge">07</span>
-          <div class="sb-num">07</div>
-        </div>
-        <div class="sb-body">
-          <h3>Panel & AC Drive Servicing</h3>
-          <p>Preventive and corrective maintenance for all types of LT/HT panels, VFDs and AC drives on a scheduled or emergency basis. On-site and workshop repair supported by our extensive spares inventory.</p>
-          <div class="sb-tags">
-            <span class="sb-tag">VFD Repair</span>
-            <span class="sb-tag">AC/DC Drives</span>
-            <span class="sb-tag">Emergency Response</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 8 -->
-      <div class="sb-card rv d1">
-        <div class="sb-img">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=85" alt="O&M Contracts"/>
-          <span class="sb-badge">08</span>
-          <div class="sb-num">08</div>
-        </div>
-        <div class="sb-body">
-          <h3>O&M Contracts</h3>
-          <p>Long-term Operation & Maintenance contracts for entire electrical infrastructure. SLA-driven, trained dedicated team, thermographic audits, and 24/7 emergency response for unplanned breakdowns.</p>
-          <div class="sb-tags">
-            <span class="sb-tag">24/7 Response</span>
-            <span class="sb-tag">SLA-Driven</span>
-            <span class="sb-tag">Annual Contracts</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 9 — wide -->
-      <div class="sb-card sb-wide rv d2" id="statutory">
-        <div class="sb-img" style="height:200px">
-          <img src="https://images.unsplash.com/photo-1574689211272-bc1550ce184b?w=1200&q=85" alt="Statutory Works"/>
-          <span class="sb-badge">09 — Regulatory</span>
-          <div class="sb-num">09</div>
-        </div>
-        <div class="sb-body">
-          <h3>Statutory Works</h3>
-          <p>End-to-end liaisoning and regulatory compliance. We handle complete CEIG drawings, execution, safety certificates, NOC processing, and all official documentation required by standard electricity boards and government bodies.</p>
-          <div class="sb-tags">
-            <span class="sb-tag">CEIG Drawings</span>
-            <span class="sb-tag">Safety Certificates</span>
-            <span class="sb-tag">Govt Liaisoning</span>
-            <span class="sb-tag">NOC Generation</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 10 — wide -->
-      <div class="sb-card sb-wide rv" id="civil-works">
-        <div class="sb-img" style="height:200px">
-          <img src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?w=1200&q=85" alt="Civil Works"/>
-          <span class="sb-badge">10 — Infrastructure</span>
-          <div class="sb-num">10</div>
-        </div>
-        <div class="sb-body">
-          <h3>Civil Works</h3>
-          <p>Comprehensive civil construction services aligned with electrical and mechanical requirements. From robust equipment foundations and structural modifications to control room construction, ensuring a solid base for critical infrastructure.</p>
-          <div class="sb-tags">
-            <span class="sb-tag">Equipment Foundations</span>
-            <span class="sb-tag">Structural Modifications</span>
-            <span class="sb-tag">Control Rooms</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 11 -->
-      <div class="sb-card rv d1" id="interior">
-        <div class="sb-img">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=85" alt="Interior Furnishing"/>
-          <span class="sb-badge">11</span>
-          <div class="sb-num">11</div>
-        </div>
-        <div class="sb-body">
-          <h3>Interior Furnishing</h3>
-          <p>Premium fabrication and furnishing for corporate, commercial and industrial spaces. We create functional, aesthetic environments that perfectly integrate with precise MEPF and safety standards.</p>
-          <div class="sb-tags">
-            <span class="sb-tag">Space Planning</span>
-            <span class="sb-tag">MEPF Integration</span>
-            <span class="sb-tag">Turnkey Execution</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- -------------------------------- DEEP DIVE SERVICES TABS -------------------------------- -->
-<section class="sec sec-alt" id="detailed-services">
-  <div class="W">
-    <div class="sec-hd rv">
-      <div class="sec-lbl">Specialised Solutions</div>
-      <h2 class="sec-title">Deep Dive <em>Capabilities</em></h2>
-      <p class="sec-body">Select a service category below to view our comprehensive capability matrix and scope of work.</p>
-    </div>
-    
-    <div class="svc-tab-layout rv d1">
-      <aside class="svc-sidebar">
-        <button class="st-btn active" data-t="pane-ht-services">HT Panel Services</button>
-        <button class="st-btn" data-t="pane-transformer">Transformer Maintenance</button>
-        <button class="st-btn" data-t="pane-cable">HT & LT Cable Work</button>
-        <button class="st-btn" data-t="pane-substation">Sub Station Erection</button>
-        <button class="st-btn" data-t="pane-oam">O&M Contracts</button>
-      </aside>
-      
-      <div class="svc-content">
-        <!-- -------------------------------- PANE: HT PANEL -------------------------------- -->
-        <div class="st-pane active" id="pane-ht-services">
-          <div class="ddv-inner">
-            <div class="ddv-img rr">
-              <img src="https://nakshatraelectricals.com/wp-content/uploads/2025/05/product-jpeg-1024x768.jpg" alt="HT Panel Maintenance"/>
-              <div class="ddv-img-badge">Class I <span>Certified</span> Engineers</div>
-            </div>
-            <div class="ddv-content rl">
-              <div class="sec-lbl">Service Detail</div>
-              <h3>HT Panel <em>Services</em></h3>
-              <p class="lead">We render HT Panel Maintenance services with advanced techniques and precision equipment. Our experts understand your requirements through site consultation, prepare thoroughly, execute with surgical accuracy, and always close with a documented inspection.</p>
-              <ul class="ddv-list">
-                <li>Gasket Replacement & General Modifications</li>
-                <li>Fitting Protective Devices</li>
-                <li>Oven Drying of Windings</li>
-                <li>Oil Testing, Vacuum & Pressure Testing, Oil Filtering</li>
-                <li>Megger Test & Insulation Resistance Testing</li>
-                <li>Polarity Testing, Ratio Check & Phase Sequence Verification</li>
-              </ul>
-              <div class="ddv-work">
-                <h4>Working Process</h4>
-                <div class="ddv-steps">
-                  <div class="ddv-step"><div class="sn">01</div><div class="sl">Requirement<br>Analysis</div></div>
-                  <div class="ddv-step"><div class="sn">02</div><div class="sl">Pre-<br>Preparation</div></div>
-                  <div class="ddv-step"><div class="sn">03</div><div class="sl">On-Site<br>Execution</div></div>
-                  <div class="ddv-step"><div class="sn">04</div><div class="sl">Inspection &<br>Handover</div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- -------------------------------- PANE: TRANSFORMER -------------------------------- -->
-        <div class="st-pane" id="pane-transformer">
-          <div class="ddv-inner">
-            <div class="ddv-img rl">
-              <img src="https://www.ukelectric.in/wp-content/uploads/2025/05/transformer-repair-service.jpg" alt="Transformer Maintenance"/>
-              <div class="ddv-img-badge">AMC <span>Contracts Available</span></div>
-            </div>
-            <div class="ddv-content rr">
-              <div class="sec-lbl">Service Detail</div>
-              <h3>Transformer <em>Maintenance</em></h3>
-              <p class="lead">We have marked a distinct position in the market providing Transformer Repairing and Servicing to our clients. Our trained engineers use optimum grade techniques and tools installed in our testing lab to handle repairing, servicing and refurbishing work — at nominal price.</p>
-              <ul class="ddv-list">
-                <li>Transformer Oil Testing (BDV & Moisture Content)</li>
-                <li>Winding Insulation Resistance (Megger) Testing</li>
-                <li>Ratio Check, Polarity & Vector Group Verification</li>
-                <li>Vacuum & Pressure Testing</li>
-                <li>Oven Drying of Windings (if required)</li>
-                <li>HT RMU & VCB Functional Testing</li>
-                <li>Lightning Arrester Checking</li>
-                <li>Annual Maintenance Contracts (AMC) available</li>
-              </ul>
-              <a href="contactus.html" class="btn-red" style="display:inline-flex;align-items:center;gap:8px">Get AMC Quote →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- -------------------------------- PANE: CABLE WORK -------------------------------- -->
-        <div class="st-pane" id="pane-cable">
-          <div class="ddv-inner">
-            <div class="ddv-img rr">
-              <img src="https://5.imimg.com/data5/SELLER/Default/2024/3/401908020/PI/YL/SS/28954157/cable-installation-services-500x500.jpg" alt="HT LT Cables"/>
-              <div class="ddv-img-badge">Copper & <span>Aluminium</span> Conductors</div>
-            </div>
-            <div class="ddv-content rl">
-              <div class="sec-lbl">Service Detail</div>
-              <h3>HT & LT Cable <em>Work</em></h3>
-              <p class="lead">KES is among the foremost suppliers and installers of HT/LT cables. We supply High Temperature, LT, and HT Power Cables — durable, dimensionally precise, and resistant to wear & tear — then execute professional laying, termination, and commissioning.</p>
-              <ul class="ddv-list">
-                <li>XLPE & PVC Insulated HT Power Cables (Al & Cu Conductors)</li>
-                <li>LT Cable Laying, Joining & Termination</li>
-                <li>High Continuous Current Rating & Higher Short Circuit Rating</li>
-                <li>Cable Tray & Raceway Supply and Installation</li>
-                <li>Underground HT Cable Trenching</li>
-                <li>Full Substation Cabling Capability</li>
-              </ul>
-              <div style="background:var(--off);border-radius:10px;padding:20px;margin-top:8px">
-                <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;color:var(--red);letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px">MV & LV Busway Highlights</div>
-                <ul class="ddv-list" style="margin-bottom:0">
-                  <li>Copper Busways: 630A–6300A, 99.97% purity, silver-plated conductors</li>
-                  <li>Al+Cu Contact Busways: 800A–6300A, max 1000V rated</li>
-                  <li>Fire Resistance Certified to AS1530.4:2014 & AS4072.1-2005</li>
-                  <li>Protection: IP54 to IP66 grades available</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- -------------------------------- PANE: SUBSTATION -------------------------------- -->
-        <div class="st-pane" id="pane-substation">
-          <div class="ddv-inner">
-            <div class="ddv-img rl">
-              <img src="https://5.imimg.com/data5/SELLER/Default/2023/2/ZI/LF/CV/2887104/765kv-electrical-substation-erection-service.jpeg" alt="Substation Erection"/>
-              <div class="ddv-img-badge">Up to <span>33KV</span> HT Systems</div>
-            </div>
-            <div class="ddv-content rr">
-              <div class="sec-lbl">Service Detail</div>
-              <h3>Sub Station <em>Erection</em></h3>
-              <p class="lead">We design, supply, and erect indoor and outdoor HT/LT substations for large-scale industrial and commercial loads. Our team handles the complete HT side — from cable trenching to transformer oil testing — with CEIG clearances.</p>
-              <ul class="ddv-list">
-                <li>11KV RMU, Transformer & VCB Installation</li>
-                <li>Metering Cubicle & HT Distribution System Setup</li>
-                <li>Earth Pit & Earth Grid Design and Laying</li>
-                <li>HT Cable Trenching & Termination</li>
-                <li>Megger, Ratio Check & Polarity Testing</li>
-                <li>CEIG Approval Filing & Safety Certificate</li>
-                <li>NOC & Statutory Authority Coordination</li>
-              </ul>
-              <a href="contactus.html" class="btn-red" style="display:inline-flex;align-items:center;gap:8px">Enquire for Substation Project &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- -------------------------------- PANE: O&M -------------------------------- -->
-        <div class="st-pane" id="pane-oam">
-          <div class="ddv-inner">
-            <div class="ddv-img rr">
-              <img src="https://nakshatraelectricals.com/wp-content/uploads/2025/05/product-jpeg-1024x768.jpg" alt="O&M AMC"/>
-              <div class="ddv-img-badge">24/7 <span>Emergency Response</span></div>
-            </div>
-            <div class="ddv-content rl">
-              <div class="sec-lbl">Service Detail</div>
-              <h3>O&M <em>Contracts</em></h3>
-              <p class="lead">Long-term Operation & Maintenance contracts for your entire electrical infrastructure. Our SLA-driven service model is built on proactive inspection schedules, thermographic audits, and a dedicated trained team — ensuring zero unplanned downtime.</p>
-              <ul class="ddv-list">
-                <li>Preventive Maintenance for HT/LT Panels, VFDs & AC Drives</li>
-                <li>Transformer Oil Testing & Winding Insulation Checks</li>
-                <li>Switchgear Functional Checks & Calibration</li>
-                <li>Busbar Torque Inspection & Thermal Imaging (Thermography)</li>
-                <li>Earth Continuity Testing & Cable Termination Re-tightening</li>
-                <li>24/7 Emergency Breakdown Response Teams</li>
-              </ul>
-              <div style="display:flex;gap:12px;flex-wrap:wrap">
-                <a href="contactus.html" class="btn-red" style="display:inline-flex;align-items:center;gap:8px">Get AMC Quote &rarr;</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- -------------------------------- WORKING PROCESS -------------------------------- -->
-<section class="sec sec-dark">
-  <div class="W">
-    <div class="sec-hd rv" style="--sec-hd-color:#fff">
-      <div class="sec-lbl" style="color:var(--red)">How We Work</div>
-      <h2 class="sec-title w">Our <em>Service</em> Process</h2>
-      <p class="sec-body" style="color:rgba(255,255,255,.45)">A disciplined 4-stage methodology that delivers every project predictably — on time, on spec, and with complete documentation.</p>
-    </div>
-    <div class="proc-track">
-      <div class="proc-step rv d1">
-        <div class="ps-ring"><span>01</span></div>
-        <h4>Requirement<br>Analysis</h4>
-        <p>Site visit & consultation, load study, and complete technical requirement report in 2 working days.</p>
-      </div>
-      <div class="proc-step rv d2">
-        <div class="ps-ring"><span>02</span></div>
-        <h4>Pre-<br>Preparation</h4>
-        <p>OEM material sourcing, team mobilization & method statement preparation for smooth execution.</p>
-      </div>
-      <div class="proc-step rv d3">
-        <div class="ps-ring"><span>03</span></div>
-        <h4>On-Site<br>Execution</h4>
-        <p>Certified engineers execute installation or servicing per approved plans, maintaining quality throughout.</p>
-      </div>
-      <div class="proc-step rv d4">
-        <div class="ps-ring"><span>04</span></div>
-        <h4>Testing &<br>Inspection</h4>
-        <p>Full functional and insulation testing, punch list clearance, and formal inspection report preparation.</p>
-      </div>
-      <div class="proc-step rv d5">
-        <div class="ps-ring"><span>05</span></div>
-        <h4>Statutory<br>Approvals</h4>
-        <p>CEIG filing, NOC documentation, and all regulatory compliance handled on your behalf.</p>
-      </div>
-      <div class="proc-step rv d6">
-        <div class="ps-ring"><span>06</span></div>
-        <h4>O&M<br>Handover</h4>
-        <p>As-Built drawings, O&M manual, warranty docs, and formal handover with client sign-off.</p>
-      </div>
-      <div class="proc-step rv d1">
-        <div class="ps-ring"><span>07</span></div>
-        <h4>After-Sales<br>Support</h4>
-        <p>Ongoing technical support, AMC contracts, and 24/7 emergency response for future needs.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- -------------------------------- AMC SCOPE MATRIX -------------------------------- -->
-<section class="sec sec-alt" id="servicing">
-  <div class="W">
-    <div class="sec-hd rv">
-      <div class="sec-lbl">AMC & Service Scope</div>
-      <h2 class="sec-title">Comprehensive <em>Maintenance</em> Coverage</h2>
-      <p class="sec-body">Our Annual Maintenance Contracts are structured to minimise risk and maximise plant uptime through proactive inspection schedules and in-house testing capability.</p>
-    </div>
-    <div class="scope-box rv">
-      <div class="scope-hdr">
-        <h3>Service Scope Matrix</h3>
-        <span class="scope-tag">All Tiers Covered</span>
-      </div>
-      <div class="scope-body">
-        <div class="scope-cols">
-          <div class="scope-col">
-            <h4>Electrical Panel Services</h4>
-            <ul>
-              <li>Switchgear functional checks & calibration</li>
-              <li>Busbar torque inspection & re-tightening</li>
-              <li>Internal cleaning & gasket check</li>
-              <li>Relay trip testing with secondary injector</li>
-              <li>Earth continuity testing</li>
-              <li>Thermal imaging (thermography)</li>
-              <li>Cable termination checks & re-tightening</li>
-              <li>Control wiring integrity verification</li>
-            </ul>
-          </div>
-          <div class="scope-col">
-            <h4>Transformer & HT Services</h4>
-            <ul>
-              <li>Transformer oil testing (BDV & moisture)</li>
-              <li>Winding insulation resistance (Megger)</li>
-              <li>Ratio check, polarity & vector group verification</li>
-              <li>Vacuum & pressure testing</li>
-              <li>Oven drying of windings (if required)</li>
-              <li>HT RMU & VCB functional testing</li>
-              <li>Lightning arrester checking</li>
-              <li>Oil filtering & refilling</li>
-            </ul>
-          </div>
-          <div class="scope-col">
-            <h4>In-House Testing Lab</h4>
-            <ul>
-              <li>High Voltage Dielectric Strength Test</li>
-              <li>HV Megger Insulation Test</li>
-              <li>Operational & Physical Tests (secondary injectors)</li>
-              <li>Paint Thickness & Scratch Tests</li>
-              <li>Torque Test at busbar joints</li>
-              <li>Conductivity Test (Al & Cu busbar)</li>
-              <li>Temperature Rise Test (up to 4000A)</li>
-              <li>Third-party calibrated test equipment</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- -------------------------------- WHY KES -------------------------------- -->
-<section class="sec">
-  <div class="W">
-    <div class="sec-hd rv">
-      <div class="sec-lbl">Why Choose KES</div>
-      <h2 class="sec-title">The <em>KES</em> Advantage</h2>
-      <p class="sec-body">Reasons why leading manufacturers, IT campuses, and infrastructure bodies trust us with their most critical electrical systems.</p>
-    </div>
-    <div class="why-grid">
-      <div class="why-card rv d1">
-        <div class="why-ico">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        </div>
-        <h4>Class I Licensed Contractor</h4>
-        <p>CEIG registered under the Karnataka Government — authorized for both HT and LT electrical contracting and statutory approval processes.</p>
-      </div>
-      <div class="why-card rv d2">
-        <div class="why-ico">
+      <div class="adv-card rv d2">
+        <div class="adv-ico">
           <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <h4>ISO & CPRI Certified</h4>
-        <p>ISO 9001:2015 and CPRI certified organization. All work complies with IEC 61439, IS:8623, and international safety benchmarks.</p>
+        <h3>Tested &amp; Certified Safety</h3>
+        <p>All switchboards are CPRI 100kA type-tested and ISO 9001 certified. Built to international IEC 61439 safety standards.</p>
+        <span class="adv-highlight">100% In-House FAT Tested</span>
       </div>
-      <div class="why-card rv d3">
-        <div class="why-ico">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+
+      <!-- Card 6 -->
+      <div class="adv-card rv d3">
+        <div class="adv-ico">
+          <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
         </div>
-        <h4>24+ Years of Legacy</h4>
-        <p>Built on the deep expertise of Sunrise Enterprises (Est. 2011), led by Mr. Kumaraswamy B.R., a professionally qualified Electrical Engineer with vast experience in electrical engineering and allied fields.</p>
+        <h3>24/7 Breakdown &amp; AMC</h3>
+        <p>We don't leave after installation. Our rapid response teams provide 24/7 breakdown support, oil testing, and preventive AMC.</p>
+        <span class="adv-highlight">Long-Term Peace of Mind</span>
       </div>
-      <div class="why-card rv d4">
-        <div class="why-ico">
-          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        </div>
-        <h4>In-House Testing Lab</h4>
-        <p>High Voltage Dielectric, Megger insulation, current injection, temperature rise tests — all conducted in our own calibrated facility.</p>
-      </div>
-      <div class="why-card rv d1">
-        <div class="why-ico">
-          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <h4>End-to-End Delivery</h4>
-        <p>Design, engineering, supply, erection, testing, commissioning, liaisoning, and O&M — all under one roof. Zero coordination overhead.</p>
-      </div>
-      <div class="why-card rv d2">
-        <div class="why-ico">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-        </div>
-        <h4>Expert Team</h4>
-        <p>25 permanent staff + 15+ trained technicians, plus experienced subcontractors for large-scale project surges across Karnataka.</p>
-      </div>
-      <div class="why-card rv d3">
-        <div class="why-ico">
-          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        </div>
-        <h4>OEM-Sourced Materials</h4>
-        <p>All materials and switchgears sourced exclusively from OEM-approved vendors with stringent quality checks at every procurement stage.</p>
-      </div>
-      <div class="why-card rv d4">
-        <div class="why-ico">
-          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-        </div>
-        <h4>Quick Action Support</h4>
-        <p>Rapid response for site calls by our dedicated technical support team — available for emergency breakdowns 24/7 under AMC contracts.</p>
-      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ==================== PROVEN CLIENT TRACK RECORD ==================== -->
+<section class="sec">
+  <div class="W">
+    <div class="sec-header rv">
+      <div class="sec-lbl" style="justify-content:center">Proven Track Record</div>
+      <h2 class="sec-title">Enterprise Clients &amp; <em>Projects Executed</em></h2>
+      <p class="sec-body">Trusted by Fortune 500 corporations, real estate leaders, and major industrial plants across Karnataka.</p>
+    </div>
+  </div>
+
+  <div class="clients-marquee">
+    <div class="clients-track">
+      <div class="cli-pill">Wipro Limited (Bengaluru)</div>
+      <div class="cli-pill">Wells Fargo (via CBRE)</div>
+      <div class="cli-pill">Broadcom / LSI India (via CBRE)</div>
+      <div class="cli-pill">Swiss Re (via CBRE)</div>
+      <div class="cli-pill">JSW Township Project (Toranagallu)</div>
+      <div class="cli-pill">Sparsh Hospital (Mandya &amp; Bengaluru)</div>
+      <div class="cli-pill">Azim Premji University (Sarjapura)</div>
+      <div class="cli-pill">Wipro Enterprises (Corporate Office)</div>
+      <div class="cli-pill">Essar Group / L&amp;T (Water's Edge)</div>
+      <div class="cli-pill">South India Agencies (Koramangala)</div>
+      <div class="cli-pill">Krypton India Solutions</div>
+      <div class="cli-pill">Raman Thermosets (Nelamangala)</div>
+      <div class="cli-pill">Ess Enn Auto CNC (Hassan)</div>
+      <div class="cli-pill">Prestige Golfshire (Devanahalli)</div>
+      <!-- Duplicate for infinite seamless marquee -->
+      <div class="cli-pill">Wipro Limited (Bengaluru)</div>
+      <div class="cli-pill">Wells Fargo (via CBRE)</div>
+      <div class="cli-pill">Broadcom / LSI India (via CBRE)</div>
+      <div class="cli-pill">Swiss Re (via CBRE)</div>
+      <div class="cli-pill">JSW Township Project (Toranagallu)</div>
+      <div class="cli-pill">Sparsh Hospital (Mandya &amp; Bengaluru)</div>
+      <div class="cli-pill">Azim Premji University (Sarjapura)</div>
+      <div class="cli-pill">Wipro Enterprises (Corporate Office)</div>
+      <div class="cli-pill">Essar Group / L&amp;T (Water's Edge)</div>
+      <div class="cli-pill">South India Agencies (Koramangala)</div>
+      <div class="cli-pill">Krypton India Solutions</div>
+      <div class="cli-pill">Raman Thermosets (Nelamangala)</div>
+      <div class="cli-pill">Ess Enn Auto CNC (Hassan)</div>
+      <div class="cli-pill">Prestige Golfshire (Devanahalli)</div>
     </div>
   </div>
 </section>
 
-<!-- -------------------------------- CTA BAND -------------------------------- -->
-<div class="cta-band">
-  <div class="W cta-inner">
-    <div class="rv">
-      <h2>Ready to Start Your<br><em>Next Electrical Project?</em></h2>
-      <p>Get a detailed engineering quote from our team within 2 working days. We consult, design, execute and deliver — completely end to end, with CEIG liaisoning included.</p>
-    </div>
-    <a href="contactus.html" class="btn-white rv d1">Request a Quote &rarr;</a>
-  </div>
-</div>
 
-<!-- FOOTER -->
+<!-- ==================== HIGH IMPACT CTA BAND ==================== -->
+<section class="cta-band">
+  <div class="cta-band-bg"></div>
+  <div class="cta-band-ov"></div>
+  <div class="W cta-inner">
+    <h2 class="rv">Ready to Work with a <em>Single-Point Partner</em>?</h2>
+    <p class="rv d1">Whether you need high-level MEPF consultancy drawings, a Class I licensed turnkey project contractor, custom CPRI switchgear panels, or a 24/7 AMC maintenance contract &mdash; our engineering team is ready to assist.</p>
+    <div class="cta-btns rv d2">
+      <a href="contactus.html" class="btn-red">Get in Touch Today <span class="arr">&rarr;</span></a>
+      <a href="tel:+919900604365" class="btn-ghost">Call +91 99006 04365</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER (Injected by site.js) -->
 <div id="site-footer"></div>
-<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&uarr;</button>
+
+<!-- Back to Top -->
+<button id="btt" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
 
 <script>
-/* Service Tabs */
-(function(){
-  const btns = document.querySelectorAll('.st-btn');
-  const panes = document.querySelectorAll('.st-pane');
-  btns.forEach(b => {
-    b.addEventListener('click', () => {
-      btns.forEach(x => x.classList.remove('active'));
-      panes.forEach(x => x.classList.remove('active'));
-      b.classList.add('active');
-      document.getElementById(b.dataset.t).classList.add('active');
-    });
+  // Smooth scroll and active pill update for sticky navigation
+  document.addEventListener('DOMContentLoaded', function() {
+    const pills = document.querySelectorAll('.vnav-pill');
+    const sections = [
+      document.getElementById('service-consultancy'),
+      document.getElementById('service-works'),
+      document.getElementById('service-manufacturing'),
+      document.getElementById('kes-advantage')
+    ];
+
+    window.addEventListener('scroll', function() {
+      let current = '';
+      const scrollPos = window.scrollY + 200;
+      sections.forEach(function(sec) {
+        if (sec && sec.offsetTop <= scrollPos) {
+          current = sec.getAttribute('id');
+        }
+      });
+
+      pills.forEach(function(p) {
+        p.classList.remove('active');
+        if (p.getAttribute('href') === '#' + current) {
+          p.classList.add('active');
+        }
+      });
+    }, { passive: true });
   });
-})();
-/* Scroll Reveal */
-(function(){
-  const els = document.querySelectorAll('.rv,.rl,.rr');
-  const io = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);} });
-  },{threshold:0.1,rootMargin:'0px 0px -60px 0px'});
-  els.forEach(el=>io.observe(el));
-})();
-/* Back to top */
-(function(){
-  const btn = document.getElementById('btt');
-  window.addEventListener('scroll',()=>btn.classList.toggle('on',window.scrollY>500));
-})();
 </script>
 <script src="site.js"></script>
 </body>

@@ -3,219 +3,463 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Manufacturing & Services — KES Pvt. Ltd.</title>
-<meta name="description" content="KES Manufacturing — CPRI & ISO certified design, manufacture and supply of LV/MV switchgear panels, MCC, PCC, busducts, compact substations and transformers in Bengaluru, Karnataka.">
+<title>Manufacturing & Switchgear Solutions — Kumara Engineering Solutions</title>
+<meta name="description" content="CPRI & ISO 9001:2015 certified design, manufacture and supply of LV/MV switchgear panels, MCC, PCC, bus ducts, compact substations and automation panels from Bengaluru.">
+<link rel="canonical" href="manufacturing.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  /* === DESIGN TOKENS === */
   :root {
-    --navy:  #08111f;
-    --navy2: #0c1a30;
-    --navy3: #0f2040;
-    --red:   #cc2700;
-    --red2:  #a81e00;
-    --red3:  #8a1800;
-    --off:   #f9f5f4;
-    --white: #ffffff;
-    --grey:  #64748b;
-    --grey2: #94a3b8;
-    --border:#e2eaf5;
-    --text:  #0f1f35;
-    --s1: 0 2px 16px rgba(8,17,31,.07);
-    --s2: 0 8px 36px rgba(8,17,31,.13);
+    --navy:        #07101e;
+    --navy2:       #0c1a30;
+    --navy3:       #102344;
+    --red:         #cc2700;
+    --red2:        #a81e00;
+    --red-glow:    rgba(204,39,0,.25);
+    --orange:      #ff5722;
+    --white:       #ffffff;
+    --off:         #f8fafd;
+    --off2:        #f1f5f9;
+    --grey:        #506176;
+    --grey2:       #8595a8;
+    --border:      #e2eaf2;
+    --border-sub:  #edf2f8;
+    --text:        #09182d;
+    --s1: 0 2px 10px rgba(7,16,30,.04);
+    --s2: 0 8px 24px rgba(7,16,30,.08);
+    --s3: 0 16px 44px rgba(7,16,30,.12);
+    --ease: cubic-bezier(.16,1,.3,1);
   }
+
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  html  { scroll-behavior: smooth; }
-  body  { font-family: 'Barlow', sans-serif; color: var(--text); background: #fff; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-  a     { text-decoration: none; color: inherit; }
-  img   { display: block; max-width: 100%; object-fit: cover; }
-  ul    { list-style: none; }
-  .W    { max-width: 1300px; margin: 0 auto; padding: 0 52px; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Barlow', sans-serif;
+    color: var(--text);
+    background: #fff;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+  }
+  a { text-decoration: none; color: inherit; }
+  button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+  img { display: block; max-width: 100%; object-fit: cover; }
+  ul { list-style: none; }
 
-  .rv  { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
-  .rl  { opacity: 0; transform: translateX(-32px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
-  .rr  { opacity: 0; transform: translateX(32px);  transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
-  .rv.in,.rl.in,.rr.in { opacity: 1; transform: none; }
-  .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.40s}
+  /* Containers & High-Density Layout */
+  .W { max-width: 1260px; margin: 0 auto; padding: 0 32px; }
+  @media(max-width:900px){ .W { padding: 0 20px; } }
+  @media(max-width:480px){ .W { padding: 0 16px; } }
 
-  /* -------------------------------- HERO -------------------------------- */
-  .hero { position: relative; min-height: 82vh; display: flex; align-items: center; background: var(--navy); overflow: hidden; }
-  .hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80') center/cover no-repeat; opacity: .14; }
-  .hero-grad { position: absolute; inset: 0; background: linear-gradient(110deg, var(--navy) 45%, rgba(8,17,31,.5) 100%); }
-  .hero-ring { position: absolute; right: -80px; top: 50%; transform: translateY(-50%); width: 560px; height: 560px; border-radius: 50%; border: 1px solid rgba(204,39,0,.1); pointer-events: none; }
-  .hero-inner { position: relative; z-index: 2; width: 100%; padding: 100px 0 70px; }
+  /* Reveal System */
+  .rv, .rl, .rr {
+    opacity: 0;
+    transition: opacity .65s var(--ease), transform .65s var(--ease);
+    will-change: opacity, transform;
+  }
+  .rv { transform: translateY(20px); }
+  .rl { transform: translateX(-24px); }
+  .rr { transform: translateX(24px); }
+  .rv.in, .rl.in, .rr.in { opacity: 1; transform: none; }
+  .d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}.d4{transition-delay:.24s}
 
-  .breadcrumb { display: flex; align-items: center; gap: 8px; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; color: rgba(255,255,255,.28); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 28px; }
+  /* Typography & Badges */
+  .sec { padding: 42px 0; position: relative; }
+  .sec-alt { background: var(--off); border-top: 1px solid var(--border-sub); border-bottom: 1px solid var(--border-sub); }
+  .sec-dark { background: var(--navy); color: #fff; }
+
+  .sec-lbl {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: .16em;
+    margin-bottom: 6px;
+  }
+  .sec-lbl::before { content: ''; width: 22px; height: 2.5px; background: var(--red); border-radius: 2px; }
+
+  h2.sec-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(28px, 3.4vw, 44px);
+    font-weight: 900;
+    color: var(--navy);
+    letter-spacing: -.01em;
+    text-transform: uppercase;
+    line-height: 1.05;
+    margin-bottom: 6px;
+  }
+  h2.sec-title em { font-style: normal; color: var(--red); }
+  h2.sec-title.inv { color: #fff; }
+
+  .sec-body { font-size: 14px; line-height: 1.65; color: var(--grey); font-weight: 300; }
+  .sec-header { text-align: center; max-width: 640px; margin: 0 auto 26px; }
+
+  /* Buttons */
+  .btn-red {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--red); color: #fff;
+    padding: 12px 28px; border-radius: 4px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em;
+    transition: all .25s var(--ease); box-shadow: 0 4px 18px var(--red-glow);
+  }
+  .btn-red:hover { background: var(--red2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(204,39,0,.4); }
+  .btn-red .arr { transition: transform .2s; }
+  .btn-red:hover .arr { transform: translateX(3px); }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1.5px solid rgba(255,255,255,.28); color: rgba(255,255,255,.85);
+    padding: 11px 24px; border-radius: 4px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+    backdrop-filter: blur(8px); background: rgba(255,255,255,.05); transition: all .25s;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,.6); color: #fff; background: rgba(255,255,255,.1); transform: translateY(-2px); }
+
+  /* === HERO SECTION (CENTERED & CRAFTED) === */
+  .hero-mfg {
+    position: relative;
+    padding: 58px 0 48px;
+    background: var(--navy);
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    text-align: center;
+  }
+  .hero-mfg-bg {
+    position: absolute; inset: 0;
+    background: url('images/gallery/factory.png') center center / cover no-repeat;
+    filter: brightness(0.24) saturate(0.8);
+    transform: scale(1.04);
+  }
+  .hero-mfg-ov {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 40%, rgba(7,16,30,.7) 0%, rgba(7,16,30,.96) 80%);
+    z-index: 1;
+  }
+  .hero-mfg-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(204,39,0,.04) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(204,39,0,.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    max-width: 840px; margin: 0 auto;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+  }
+
+  .breadcrumb {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11.5px; font-weight: 700;
+    color: rgba(255,255,255,.45); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 12px;
+  }
+  .breadcrumb a { color: rgba(255,255,255,.6); transition: color .2s; }
   .breadcrumb a:hover { color: var(--red); }
-  .breadcrumb .sep { color: rgba(255,255,255,.12); }
+  .breadcrumb .sep { color: rgba(255,255,255,.2); font-size: 10px; }
   .breadcrumb .cur { color: var(--red); }
 
-  .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(204,39,0,.13); border: 1px solid rgba(204,39,0,.28); color: var(--red); font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 5px 14px; border-radius: 2px; margin-bottom: 22px; }
-  .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(48px, 6.5vw, 90px); font-weight: 900; color: #fff; text-transform: uppercase; line-height: .92; letter-spacing: -.025em; margin-bottom: 24px; }
-  .hero h1 em { font-style: normal; color: var(--red); }
-  .hero-sub { font-size: clamp(15px, 1.4vw, 18px); color: rgba(255,255,255,.52); max-width: 600px; line-height: 1.72; margin-bottom: 44px; font-weight: 300; }
-  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-badge {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: rgba(204,39,0,.14); border: 1px solid rgba(204,39,0,.35);
+    color: #ff7a47; font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+    padding: 4px 14px; border-radius: 100px; margin-bottom: 12px;
+  }
+  .hero-h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(34px, 4.6vw, 56px); font-weight: 900;
+    color: #fff; text-transform: uppercase; line-height: 1.02; letter-spacing: -.015em; margin-bottom: 12px;
+  }
+  .hero-h1 em {
+    font-style: normal; color: #ff5722;
+    background: linear-gradient(180deg, #ff7a47 0%, #cc2700 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero-sub {
+    font-size: 14.5px; color: rgba(255,255,255,.8); line-height: 1.65;
+    max-width: 680px; font-weight: 300; margin: 0 auto 22px;
+  }
+  .hero-actions {
+    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 22px;
+  }
 
-  /* -------------------------------- Cert badges in hero -------------------------------- */
-  .hero-certs { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 48px; }
-  .hero-cert { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); padding: 8px 16px; border-radius: 4px; font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; color: rgba(255,255,255,.7); text-transform: uppercase; letter-spacing: .06em; }
-  .hero-cert span { color: var(--red); }
+  .hero-certs-ribbon {
+    display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
+    padding-top: 16px; border-top: 1px solid rgba(255,255,255,.1); width: 100%;
+  }
+  .hcert-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12);
+    padding: 4px 12px; border-radius: 4px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11.5px; font-weight: 700;
+    color: rgba(255,255,255,.8); text-transform: uppercase; letter-spacing: .06em;
+  }
+  .hcert-chip span { color: var(--red); font-weight: 900; }
 
-  .btn-red { display: inline-flex; align-items: center; gap: 10px; background: var(--red); color: #fff; padding: 16px 36px; border-radius: 4px; font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; transition: all .25s; box-shadow: 0 6px 28px rgba(204,39,0,.35); }
-  .btn-red:hover { background: var(--red2); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(204,39,0,.45); }
-  .btn-ghost { display: inline-flex; align-items: center; gap: 10px; border: 1.5px solid rgba(255,255,255,.22); color: rgba(255,255,255,.72); padding: 14px 32px; border-radius: 4px; font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; backdrop-filter: blur(8px); transition: all .25s; }
-  .btn-ghost:hover { border-color: rgba(255,255,255,.5); color: #fff; }
+  /* === INTRO SPLIT === */
+  .intro-grid {
+    display: grid; grid-template-columns: 1fr 1.15fr; gap: 36px; align-items: center;
+  }
+  .intro-media {
+    position: relative; border-radius: 12px; overflow: hidden; height: 360px;
+    box-shadow: var(--s2); border: 1px solid var(--border);
+  }
+  .intro-media img { width: 100%; height: 100%; }
+  .intro-floating-badge {
+    position: absolute; bottom: 16px; left: 16px; z-index: 2;
+    background: rgba(7,16,30,.92); border: 1px solid rgba(204,39,0,.35);
+    padding: 10px 16px; border-radius: 8px; backdrop-filter: blur(8px);
+  }
+  .intro-floating-badge .val {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 900;
+    color: var(--red); line-height: 1;
+  }
+  .intro-floating-badge .lbl {
+    font-size: 10.5px; color: rgba(255,255,255,.75); text-transform: uppercase;
+    letter-spacing: .08em; margin-top: 2px;
+  }
+  .intro-content p { font-size: 14px; line-height: 1.68; color: var(--grey); font-weight: 300; margin-bottom: 12px; }
+  .intro-content p strong { color: var(--navy); font-weight: 600; }
 
-  /* -------------------------------- SHARED -------------------------------- */
-  .sec     { padding: 80px 0; }
-  .sec-alt { background: var(--off); }
-  .sec-dark{ background: var(--navy); }
+  .intro-cap-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .icap {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700;
+    color: var(--navy); background: var(--off2); border: 1px solid var(--border);
+    padding: 3px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: .04em;
+  }
 
-  .sec-lbl { display: inline-flex; align-items: center; gap: 10px; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: .18em; margin-bottom: 14px; }
-  .sec-lbl::before { content: ''; width: 28px; height: 2px; background: var(--red); border-radius: 1px; }
-
-  h2.sec-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(32px, 3.8vw, 52px); font-weight: 900; color: var(--navy); letter-spacing: -.01em; text-transform: uppercase; line-height: 1.05; margin-bottom: 16px; }
-  h2.sec-title em  { font-style: normal; color: var(--red); }
-  h2.sec-title.inv { color: #fff; }
-  .sec-body { font-size: 15.5px; line-height: 1.78; color: var(--grey); font-weight: 300; }
-  .sec-header { text-align: center; max-width: 680px; margin: 0 auto 52px; }
-
-  /* -------------------------------- INTRO SPLIT -------------------------------- */
-  .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .intro-img { border-radius: 16px; overflow: hidden; position: relative; height: 460px; }
-  .intro-img img { width: 100%; height: 100%; }
-  .intro-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(204,39,0,.1) 0%, transparent 55%); pointer-events: none; }
-  .intro-badge { position: absolute; bottom: 24px; left: 24px; z-index: 2; background: rgba(8,17,31,.92); border: 1px solid rgba(204,39,0,.3); color: #fff; padding: 14px 20px; border-radius: 8px; }
-  .intro-badge .big  { font-family: 'Barlow Condensed', sans-serif; font-size: 30px; font-weight: 900; color: var(--red); line-height: 1; }
-  .intro-badge .smol { font-size: 11px; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .1em; margin-top: 4px; }
-  .intro-lead { font-size: 16px; line-height: 1.78; color: var(--grey); font-weight: 300; margin-bottom: 24px; }
-  .intro-lead strong { color: var(--navy); font-weight: 600; }
-
-  /* -------------------------------- TECH SPECS -------------------------------- */
-  .specs-band { background: var(--navy); padding: 60px 0; }
-  .specs-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-  .specs-table { border: 1px solid rgba(255,255,255,.08); border-radius: 12px; overflow: hidden; }
-  .specs-row { display: grid; grid-template-columns: 1.4fr 1fr; border-bottom: 1px solid rgba(255,255,255,.06); }
+  /* === SPECS & RATINGS MATRIX === */
+  .specs-sec { background: var(--navy); padding: 38px 0; }
+  .specs-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 36px; align-items: center; }
+  .specs-table {
+    border: 1px solid rgba(255,255,255,.1); border-radius: 10px; overflow: hidden;
+    background: rgba(255,255,255,.02);
+  }
+  .specs-row {
+    display: grid; grid-template-columns: 1.3fr 1.4fr;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+  }
   .specs-row:last-child { border-bottom: none; }
-  .specs-row.head { background: rgba(204,39,0,.15); }
-  .specs-cell { padding: 13px 18px; font-size: 13.5px; }
-  .specs-row.head .specs-cell { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 800; color: var(--red); text-transform: uppercase; letter-spacing: .1em; }
-  .specs-cell:first-child { color: rgba(255,255,255,.55); border-right: 1px solid rgba(255,255,255,.06); }
-  .specs-cell:last-child  { color: rgba(255,255,255,.85); font-weight: 500; }
-
-  /* -------------------------------- PRODUCT RANGE -------------------------------- */
-  .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .prod-card {
-    background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 28px 24px;
-    position: relative; overflow: hidden; transition: all .3s;
+  .specs-row.head { background: rgba(204,39,0,.18); }
+  .specs-cell { padding: 9px 14px; font-size: 12.5px; }
+  .specs-row.head .specs-cell {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 800;
+    color: #ff7a47; text-transform: uppercase; letter-spacing: .1em;
   }
-  .prod-card::before {
-    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-    height: 3px; background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform .35s;
+  .specs-cell:first-child { color: rgba(255,255,255,.6); border-right: 1px solid rgba(255,255,255,.06); font-weight: 400; }
+  .specs-cell:last-child  { color: rgba(255,255,255,.92); font-weight: 600; }
+
+  /* === PRODUCT CARDS (HIGH-DENSITY CRAFTED GRID) === */
+  .prod-grid-9 {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
   }
-  .prod-card:hover { box-shadow: var(--s2); transform: translateY(-4px); }
-  .prod-card:hover::before { transform: scaleX(1); }
-  .prod-tag { display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 800; color: var(--red); text-transform: uppercase; letter-spacing: .15em; background: rgba(204,39,0,.07); padding: 3px 10px; border-radius: 2px; margin-bottom: 14px; }
-  .prod-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; color: var(--navy); text-transform: uppercase; margin-bottom: 10px; }
-  .prod-card p  { font-size: 13.5px; color: var(--grey); line-height: 1.65; }
-  .prod-specs { margin-top: 16px; display: flex; flex-direction: column; gap: 6px; }
-  .prod-specs li { display: flex; justify-content: space-between; font-size: 12px; padding: 5px 0; border-bottom: 1px solid var(--border); }
-  .prod-specs li:last-child { border-bottom: none; }
-  .prod-specs li .k { color: var(--grey2); }
-  .prod-specs li .v { color: var(--navy); font-weight: 600; }
-
-  /* -------------------------------- MANUFACTURING PROCESS -------------------------------- */
-  .mfg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-  .mfg-img { border-radius: 16px; overflow: hidden; height: 480px; }
-  .mfg-img img { width: 100%; height: 100%; }
-  .mfg-steps { display: flex; flex-direction: column; gap: 0; }
-  .mfg-step { display: flex; gap: 18px; padding: 20px 0; border-bottom: 1px solid var(--border); align-items: flex-start; transition: padding .3s; }
-  .mfg-step:last-child { border-bottom: none; }
-  .mfg-step:hover { padding-left: 8px; }
-  .mfg-num { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 900; color: var(--red); line-height: 1; flex-shrink: 0; width: 40px; margin-top: 2px; }
-  .mfg-step h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800; color: var(--navy); text-transform: uppercase; margin-bottom: 5px; }
-  .mfg-step p  { font-size: 13.5px; color: var(--grey); line-height: 1.55; }
-
-  /* -------------------------------- IN-HOUSE TESTING -------------------------------- */
-  .testing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .test-card { background: var(--navy2); border-radius: 10px; padding: 22px 18px; text-align: center; border: 1px solid rgba(255,255,255,.05); transition: all .3s; }
-  .test-card:hover { transform: translateY(-3px); border-color: rgba(204,39,0,.2); }
-  .test-ico { width: 44px; height: 44px; background: rgba(204,39,0,.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
-  .test-ico svg { width: 20px; height: 20px; stroke: var(--red); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .test-card h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 800; color: #fff; text-transform: uppercase; margin-bottom: 6px; }
-  .test-card p  { font-size: 12px; color: rgba(255,255,255,.45); line-height: 1.5; }
-
-  /* -------------------------------- LIFECYCLE BAND -------------------------------- */
-  .lifecycle { display: flex; justify-content: space-between; align-items: center; gap: 0; }
-  .lc-step { text-align: center; flex: 1; position: relative; }
-  .lc-step::after { content: '\2192'; position: absolute; right: -12px; top: 28px; font-size: 20px; color: rgba(255,255,255,.2); pointer-events: none; }
-  .lc-step:last-child::after { display: none; }
-  .lc-num { width: 56px; height: 56px; border-radius: 50%; background: rgba(204,39,0,.15); border: 1px solid rgba(204,39,0,.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 900; color: var(--red); }
-  .lc-step p { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; color: rgba(255,255,255,.6); text-transform: uppercase; letter-spacing: .08em; }
-
-  /* -------------------------------- CERTIFICATIONS ROW -------------------------------- */
-  .cert-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-  .cert-card { background: var(--navy); border-radius: 12px; padding: 28px 24px; text-align: center; transition: transform .3s, box-shadow .3s; }
-  .cert-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(8,17,31,.3); }
-  .cert-ico { width: 52px; height: 52px; background: rgba(204,39,0,.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; border: 1px solid rgba(204,39,0,.25); }
-  .cert-ico svg { width: 22px; height: 22px; stroke: var(--red); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .cert-card h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800; color: #fff; text-transform: uppercase; margin-bottom: 8px; }
-  .cert-card p  { font-size: 12.5px; color: rgba(255,255,255,.45); line-height: 1.6; }
-
-  /* -------------------------------- INDUSTRIES -------------------------------- */
-  .ind-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .ind-pill { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 16px 18px; display: flex; align-items: center; gap: 12px; transition: all .25s; }
-  .ind-pill:hover { border-color: rgba(204,39,0,.25); box-shadow: var(--s1); }
-  .ind-dot { width: 8px; height: 8px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
-  .ind-pill span { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: .04em; }
-
-  /* -------------------------------- CTA BAND -------------------------------- */
-  .cta-band { background: linear-gradient(135deg, var(--red) 0%, var(--red3) 100%); padding: 64px 0; position: relative; overflow: hidden; }
-  .cta-band::before { content: ''; position: absolute; top: -80px; right: -80px; width: 380px; height: 380px; border-radius: 50%; background: rgba(255,255,255,.04); pointer-events: none; }
-  .cta-inner { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 60px; }
-  .cta-inner h2 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(28px, 4vw, 50px); font-weight: 900; color: #fff; text-transform: uppercase; line-height: 1.05; margin-bottom: 12px; }
-  .cta-inner h2 em { font-style: normal; color: rgba(255,255,255,.6); }
-  .cta-inner p { font-size: 16px; color: rgba(255,255,255,.7); max-width: 560px; line-height: 1.68; }
-  .btn-white { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: var(--red); padding: 17px 40px; border-radius: 4px; font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; white-space: nowrap; flex-shrink: 0; transition: all .25s; box-shadow: 0 8px 28px rgba(0,0,0,.2); }
-  .btn-white:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,.3); }
-
-  #btt { position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px; background: var(--red); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .3s, transform .3s; box-shadow: 0 4px 16px rgba(204,39,0,.4); z-index: 999; }
-  #btt.on { opacity: 1; pointer-events: auto; }
-  #btt:hover { transform: translateY(-3px); }
-
-  /* -------------------------------- RESPONSIVE -------------------------------- */
-  @media (max-width: 1100px) {
-    .products-grid { grid-template-columns: 1fr 1fr; }
-    .cert-grid     { grid-template-columns: repeat(2, 1fr); }
-    .testing-grid  { grid-template-columns: repeat(2, 1fr); }
-    .ind-grid      { grid-template-columns: repeat(2, 1fr); }
-    .intro-grid,
-    .mfg-grid,
-    .specs-inner   { grid-template-columns: 1fr; gap: 40px; }
-    .intro-img, .mfg-img { height: 300px; }
-    .lifecycle     { flex-wrap: wrap; gap: 24px; justify-content: center; }
-    .lc-step::after { display: none; }
-    .lc-step       { flex: 0 0 calc(25% - 18px); }
+  .pcard {
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 18px 16px; position: relative; overflow: hidden;
+    transition: all .28s var(--ease); box-shadow: var(--s1);
+    display: flex; flex-direction: column; justify-content: space-between;
   }
-  @media (max-width: 900px) {
-    .W { padding: 0 28px; }
-    .cta-inner { flex-direction: column; text-align: center; }
-    .cta-inner p { margin: 0 auto; }
-    .lc-step { flex: 0 0 calc(33% - 16px); }
+  .pcard:hover {
+    transform: translateY(-3px); box-shadow: var(--s2);
+    border-color: rgba(204,39,0,.4);
   }
-  @media (max-width: 640px) {
-    .sec { padding: 52px 0; }
-    .products-grid { grid-template-columns: 1fr; }
-    .cert-grid     { grid-template-columns: 1fr 1fr; }
-    .testing-grid  { grid-template-columns: 1fr 1fr; }
-    .ind-grid      { grid-template-columns: 1fr 1fr; }
-    .hero-btns     { flex-direction: column; }
-    .lc-step       { flex: 0 0 calc(50% - 12px); }
+  .pcard-top { margin-bottom: 10px; }
+  .pcard-tag-row {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
   }
-  @media (max-width: 420px) {
-    .W { padding: 0 20px; }
-    .ind-grid { grid-template-columns: 1fr; }
-    .cert-grid, .testing-grid { grid-template-columns: 1fr; }
+  .pcard-tag {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 9.5px; font-weight: 800;
+    color: var(--red); text-transform: uppercase; letter-spacing: .12em;
+    background: rgba(204,39,0,.08); padding: 2px 8px; border-radius: 2px;
+  }
+  .pcard-badge-rating {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 9.5px; font-weight: 700;
+    color: var(--grey); background: var(--off2); padding: 2px 6px; border-radius: 2px;
+  }
+  .pcard h3 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800;
+    color: var(--navy); text-transform: uppercase; line-height: 1.15; margin-bottom: 6px;
+  }
+  .pcard p {
+    font-size: 12px; color: var(--grey); line-height: 1.5; font-weight: 300;
+  }
+  .pcard-specs {
+    margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border-sub);
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .pcard-specs li {
+    display: flex; justify-content: space-between; font-size: 11px;
+  }
+  .pcard-specs .k { color: var(--grey2); font-weight: 400; }
+  .pcard-specs .v { color: var(--navy); font-weight: 600; }
+
+  /* === WORKFLOW & TIMELINE === */
+  .workflow-grid {
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px;
+  }
+  .wflow-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 8px;
+    padding: 14px 12px; position: relative; transition: all .25s;
+    box-shadow: var(--s1);
+  }
+  .wflow-card:hover {
+    border-color: var(--red); transform: translateY(-3px); box-shadow: var(--s2);
+  }
+  .wflow-num {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 900;
+    color: var(--red); line-height: 1; margin-bottom: 6px;
+  }
+  .wflow-card h4 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 800;
+    color: var(--navy); text-transform: uppercase; line-height: 1.2; margin-bottom: 4px;
+  }
+  .wflow-card p {
+    font-size: 10.5px; color: var(--grey); line-height: 1.45; font-weight: 300;
+  }
+
+  /* === TESTING LAB & TOOLS (ENRICHED FROM DOCUMENT) === */
+  .testing-sec { background: var(--navy); padding: 40px 0 36px; }
+  .testing-grid-8 {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 22px;
+  }
+  .tcard {
+    background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08);
+    border-radius: 8px; padding: 14px 12px; transition: all .25s;
+  }
+  .tcard:hover {
+    background: rgba(255,255,255,.07); border-color: rgba(204,39,0,.4);
+    transform: translateY(-2px);
+  }
+  .tcard-ico {
+    width: 28px; height: 28px; border-radius: 4px;
+    background: rgba(204,39,0,.15); border: 1px solid rgba(204,39,0,.3);
+    color: #ff5722; display: flex; align-items: center; justify-content: center;
+    margin-bottom: 8px;
+  }
+  .tcard-ico svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .tcard h4 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 13.5px; font-weight: 800;
+    color: #fff; text-transform: uppercase; margin-bottom: 3px;
+  }
+  .tcard p { font-size: 11px; color: rgba(255,255,255,.6); line-height: 1.45; font-weight: 300; }
+
+  .tools-strip {
+    background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.08);
+    border-radius: 8px; padding: 12px 18px; display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap; gap: 10px;
+  }
+  .tools-strip-lbl {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 800;
+    color: #ff7a47; text-transform: uppercase; letter-spacing: .08em;
+  }
+  .tools-pills { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tpill {
+    font-size: 10px; color: rgba(255,255,255,.75); background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.08); padding: 2px 7px; border-radius: 3px;
+  }
+
+  /* === CERTIFICATIONS 4-COL === */
+  .cert-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+  }
+  .cert-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 16px; text-align: center; transition: all .28s var(--ease);
+    box-shadow: var(--s1);
+  }
+  .cert-card:hover {
+    border-color: var(--red); transform: translateY(-3px); box-shadow: var(--s2);
+  }
+  .cert-ico {
+    width: 38px; height: 38px; background: rgba(204,39,0,.08); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; margin: 0 auto 10px;
+    border: 1px solid rgba(204,39,0,.2); color: var(--red);
+  }
+  .cert-ico svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .cert-card h4 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800;
+    color: var(--navy); text-transform: uppercase; margin-bottom: 4px;
+  }
+  .cert-card p { font-size: 11.5px; color: var(--grey); line-height: 1.5; font-weight: 300; }
+
+  /* === INDUSTRIES PILLS === */
+  .ind-grid-12 {
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px;
+  }
+  .ind-box {
+    background: #fff; border: 1px solid var(--border); border-radius: 6px;
+    padding: 10px 12px; display: flex; align-items: center; gap: 8px;
+    transition: all .2s; box-shadow: var(--s1);
+  }
+  .ind-box:hover { border-color: var(--red); transform: translateY(-2px); }
+  .ind-dot { width: 6px; height: 6px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
+  .ind-box span {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700;
+    color: var(--navy); text-transform: uppercase; letter-spacing: .03em;
+  }
+
+  /* === CTA SECTION === */
+  .cta-band {
+    position: relative; overflow: hidden; padding: 56px 0 52px;
+    background: var(--navy); color: #fff; text-align: center;
+    border-top: 1px solid rgba(255,255,255,.08);
+  }
+  .cta-band-bg {
+    position: absolute; inset: 0;
+    background: url('images/gallery/cta_bg.jpg') center 40% / cover no-repeat;
+    filter: brightness(0.35);
+  }
+  .cta-band-ov {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(7,16,30,.7) 0%, rgba(7,16,30,.94) 100%);
+  }
+  .cta-inner { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
+  .cta-inner h2 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: clamp(30px, 4vw, 48px);
+    font-weight: 900; color: #fff; text-transform: uppercase; line-height: 1; margin-bottom: 10px;
+  }
+  .cta-inner h2 em { font-style: normal; color: var(--red); }
+  .cta-inner p { font-size: 14.5px; color: rgba(255,255,255,.8); font-weight: 300; margin-bottom: 22px; }
+  .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  #btt {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+    width: 42px; height: 42px; border-radius: 6px;
+    background: var(--red); color: #fff; display: none; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 900; box-shadow: 0 4px 18px rgba(204,39,0,.4);
+    cursor: pointer; transition: all .22s; font-family: 'Barlow Condensed', sans-serif;
+  }
+  #btt.on { display: flex; }
+  #btt:hover { background: var(--red2); transform: translateY(-2px); }
+
+  /* Responsive Breakpoints */
+  @media(max-width: 1024px) {
+    .prod-grid-9 { grid-template-columns: repeat(2, 1fr); }
+    .workflow-grid { grid-template-columns: repeat(3, 1fr); }
+    .testing-grid-8 { grid-template-columns: repeat(2, 1fr); }
+    .ind-grid-12 { grid-template-columns: repeat(3, 1fr); }
+    .cert-grid { grid-template-columns: repeat(2, 1fr); }
+    .intro-grid { grid-template-columns: 1fr; gap: 24px; }
+    .specs-grid { grid-template-columns: 1fr; gap: 24px; }
+    .hero-mfg { background-size: cover; background-position: center; }
+  }
+  @media(max-width: 640px) {
+    .sec { padding: 32px 0; }
+    .prod-grid-9 { grid-template-columns: 1fr; }
+    .workflow-grid { grid-template-columns: repeat(2, 1fr); }
+    .testing-grid-8 { grid-template-columns: 1fr; }
+    .ind-grid-12 { grid-template-columns: repeat(2, 1fr); }
+    .cert-grid { grid-template-columns: 1fr; }
+    .hero-h1 { font-size: 34px; }
   }
 </style>
 </head>
@@ -223,80 +467,77 @@
 
 <div id="site-header"></div>
 
-<!-- -------------------------------- HERO -------------------------------- -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grad"></div>
-  <div class="hero-ring"></div>
-
+<!-- ==================== HERO SECTION ==================== -->
+<section class="hero-mfg">
+  <div class="hero-mfg-bg"></div>
+  <div class="hero-mfg-ov"></div>
+  <div class="hero-mfg-grid"></div>
   <div class="W hero-inner">
     <div class="breadcrumb rv">
       <a href="index.html">Home</a>
       <span class="sep">/</span>
-      <a href="services.html">Services</a>
+      <a href="index.html#divisions">Divisions</a>
       <span class="sep">/</span>
-      <span class="cur">Manufacturing & Services</span>
+      <span class="cur">Vertical 01 — Panel Manufacturing</span>
     </div>
 
-    <div class="hero-tag rv d1">⚡ Service 03 of 03</div>
+    <div class="hero-badge rv d1">⚡ 5,000 Sq.Ft CNC Manufacturing Facility · Bengaluru</div>
 
-    <h1 class="rv d1">
-      Manufacturing<br>
-      &amp; <em>Services</em>
+    <h1 class="hero-h1 rv d1">
+      Precision Switchgear &amp;<br>
+      <em>Panel Manufacturing</em>
     </h1>
 
     <p class="hero-sub rv d2">
-      CPRI and ISO 9001:2015 certified design, manufacture, testing and installation of
-      LV &amp; MV switchgear panels, busducts, compact substations and transformers —
-      built to IEC 61439 and IS:8623 standards from our Bengaluru facility.
+      CPRI type-tested &amp; ISO 9001:2015 certified design, assembly, busbar fabrication and 100% in-house testing of custom LV/MV switchgear panels, MCC, PCC, and bus ducts &mdash; built to IEC 61439 &amp; IS:8623 standards.
     </p>
 
-    <div class="hero-btns rv d3">
-      <a href="contactus.html" class="btn-red">Request a Quote &rarr;</a>
-      <a href="#products" class="btn-ghost">Our Products</a>
+    <div class="hero-actions rv d3">
+      <a href="contactus.html" class="btn-red">Request a Technical Quote <span class="arr">&rarr;</span></a>
+      <a href="#products" class="btn-ghost">View Panel Range</a>
     </div>
 
-    <div class="hero-certs rv d4">
-      <div class="hero-cert"><span>✓</span> ISO 9001:2015</div>
-      <div class="hero-cert"><span>✓</span> CPRI Certified</div>
-      <div class="hero-cert"><span>✓</span> IEC 61439 Part I & II</div>
-      <div class="hero-cert"><span>✓</span> IS:8623</div>
+    <div class="hero-certs-ribbon rv d4">
+      <div class="hcert-chip"><span>✓</span> CPRI 100kA Certified</div>
+      <div class="hcert-chip"><span>✓</span> ISO 9001:2015</div>
+      <div class="hcert-chip"><span>✓</span> IEC 61439 Form 4b</div>
+      <div class="hcert-chip"><span>✓</span> IS:8623 Compliant</div>
     </div>
   </div>
 </section>
 
 
-<!-- -------------------------------- INTRO -------------------------------- -->
-<section class="sec" id="about-service">
+<!-- ==================== PLANT & CORE CAPABILITIES ==================== -->
+<section class="sec" id="about-facility">
   <div class="W">
     <div class="intro-grid">
 
-      <div class="intro-img rl">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&q=85" alt="KES Manufacturing Facility">
-        <div class="intro-badge">
-          <div class="big">5000+</div>
-          <div class="smol">Sq. ft. Facility</div>
+      <div class="intro-media rl">
+        <img src="images/gallery/panel1.png" alt="KES Switchgear Fabrication Plant">
+        <div class="intro-floating-badge">
+          <div class="val">5,000+</div>
+          <div class="lbl">Sq. ft. CNC Facility, Bengaluru</div>
         </div>
       </div>
 
-      <div class="rr">
-        <div class="sec-lbl">Our Core Business</div>
-        <h2 class="sec-title">Built in Bengaluru,<br>Certified for the <em>World</em></h2>
+      <div class="intro-content rr">
+        <div class="sec-lbl">Our Manufacturing Base</div>
+        <h2 class="sec-title">Engineered with Precision,<br>Certified for <em>Performance</em></h2>
 
-        <p class="intro-lead">
-          Manufacturing is KES's heartland. From our <strong>5,000+ sq. ft. facility in Bengaluru</strong>,
-          we design, fabricate, assemble, test and dispatch a comprehensive range of LV and MV electrical panels
-          — built to the latest IEC 61439 and IS:8623 standards, type-tested by CPRI.
+        <p>
+          From our <strong>5,000+ sq. ft. manufacturing facility in Bengaluru</strong>, Kumara Engineering Solutions (KES) designs, fabricates, powders coats, wires, and tests custom LV &amp; MV switchgear boards for industries, IT parks, hospitals, and infrastructure projects across Karnataka.
         </p>
-        <p class="intro-lead">
-          Every panel that leaves our factory has gone through a <strong>stringent multi-stage quality
-          inspection</strong> process — from raw material sourcing through OEM partners, to in-house HV testing
-          and final torque checks. We believe in "Doing Right the First Time."
+        <p>
+          Every switchboard is built using heavy-gauge CRCA sheet steel (14/16 SWG), 9-tank pre-treatment, automated electrostatic powder coating (Siemens Grey RAL 7032), and high-conductivity 99.97% electrolytic copper/aluminium busbars.
         </p>
-        <p class="intro-lead">
-          Our capability covers the complete product lifecycle: <strong>design &rarr; fabrication &rarr; powder coating
-          &rarr; assembly &rarr; in-house testing &rarr; on-site installation &rarr; after-sales servicing.</strong>
-        </p>
+
+        <div class="intro-cap-chips">
+          <span class="icap">Form-1 to Form-4b Design</span>
+          <span class="icap">Up to 6300A Capacity</span>
+          <span class="icap">100kA Fault Withstand</span>
+          <span class="icap">IP42 to IP66 Protection</span>
+          <span class="icap">Tier-1 OEM Switchgear</span>
+        </div>
       </div>
 
     </div>
@@ -304,281 +545,215 @@
 </section>
 
 
-<!-- -------------------------------- LIFECYCLE BAND -------------------------------- -->
-<section class="sec sec-dark">
+<!-- ==================== TECHNICAL RATINGS MATRIX ==================== -->
+<section class="sec-alt specs-sec">
   <div class="W">
-    <div class="sec-header">
-      <div class="sec-lbl rv" style="justify-content:center">End-to-End</div>
-      <h2 class="sec-title inv rv">Full Product <em>Lifecycle</em></h2>
-      <p class="sec-body rv" style="color:rgba(255,255,255,.45)">We own every step — no outsourcing, no quality gaps.</p>
-    </div>
-
-    <div class="lifecycle rv">
-      <div class="lc-step">
-        <div class="lc-num">01</div>
-        <p>Design &amp; Engineering</p>
-      </div>
-      <div class="lc-step">
-        <div class="lc-num">02</div>
-        <p>Fabrication</p>
-      </div>
-      <div class="lc-step">
-        <div class="lc-num">03</div>
-        <p>Powder Coating</p>
-      </div>
-      <div class="lc-step">
-        <div class="lc-num">04</div>
-        <p>Assembly</p>
-      </div>
-      <div class="lc-step">
-        <div class="lc-num">05</div>
-        <p>In-House Testing</p>
-      </div>
-      <div class="lc-step">
-        <div class="lc-num">06</div>
-        <p>Installation</p>
-      </div>
-      <div class="lc-step">
-        <div class="lc-num">07</div>
-        <p>After-Sales Service</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- -------------------------------- TECHNICAL SPECS -------------------------------- -->
-<div class="specs-band">
-  <div class="W">
-    <div class="specs-inner">
+    <div class="specs-grid">
       <div class="rl">
-        <div class="sec-lbl" style="color:var(--red)">LV Panel Specifications</div>
+        <div class="sec-lbl" style="color:var(--red)">Engineering Parameters</div>
         <h2 class="sec-title inv">Standard Technical <em>Ratings</em></h2>
-        <p class="sec-body" style="color:rgba(255,255,255,.5); margin-top:12px">
-          Our LV panels are fully type-tested and CPRI certified. Custom ratings and configurations
-          available on request for any project requirement.
+        <p class="sec-body" style="color:rgba(255,255,255,.7);margin-top:6px">
+          All KES panels are built to strict IEC 61439-1&amp;2 and IS:8623 standards, with CPRI short-circuit withstand certifications. Custom configurations engineered for every project.
         </p>
       </div>
+
       <div class="specs-table rr">
         <div class="specs-row head">
           <div class="specs-cell">Parameter</div>
-          <div class="specs-cell">Specification</div>
+          <div class="specs-cell">Specification Standard</div>
         </div>
         <div class="specs-row">
-          <div class="specs-cell">Supply</div>
-          <div class="specs-cell">415V, 3-Phase, 4-Wire, 50Hz</div>
+          <div class="specs-cell">System Voltage &amp; Frequency</div>
+          <div class="specs-cell">415V AC, 3-Phase 4-Wire, 50Hz (MV up to 33kV)</div>
         </div>
         <div class="specs-row">
-          <div class="specs-cell">Rated Current</div>
-          <div class="specs-cell">Up to 6300A</div>
+          <div class="specs-cell">Rated Current Capacity</div>
+          <div class="specs-cell">Up to 6300A (Continuous Rating)</div>
         </div>
         <div class="specs-row">
-          <div class="specs-cell">Operational Voltage</div>
-          <div class="specs-cell">Up to 690V AC / 1500V DC</div>
+          <div class="specs-cell">Short-Circuit Withstand</div>
+          <div class="specs-cell">50kA / 100kA for 1 Sec (CPRI Certified)</div>
         </div>
         <div class="specs-row">
-          <div class="specs-cell">Short Time Current</div>
-          <div class="specs-cell">50kA / 1 Sec, 105kA Peak</div>
+          <div class="specs-cell">Ingress Protection (IP)</div>
+          <div class="specs-cell">IP42, IP52, IP54, IP55, IP65 (Indoor &amp; Outdoor)</div>
         </div>
         <div class="specs-row">
-          <div class="specs-cell">Degree of Protection</div>
-          <div class="specs-cell">IP42, 54, 55, 65 (as required)</div>
+          <div class="specs-cell">Busbar Material &amp; Plating</div>
+          <div class="specs-cell">99.97% Pure Electrolytic Copper (Silver Plated) / Al</div>
         </div>
         <div class="specs-row">
-          <div class="specs-cell">Mounting Type</div>
-          <div class="specs-cell">Wall mount or Floor mount</div>
-        </div>
-        <div class="specs-row">
-          <div class="specs-cell">Busbar Material</div>
-          <div class="specs-cell">Aluminium or Copper</div>
-        </div>
-        <div class="specs-row">
-          <div class="specs-cell">Paint Finish</div>
-          <div class="specs-cell">Siemens Grey Powder Coat RAL 7032</div>
-        </div>
-        <div class="specs-row">
-          <div class="specs-cell">Reference Standards</div>
-          <div class="specs-cell">IEC 61439-1&2, IS:8623, CPRI</div>
+          <div class="specs-cell">Enclosure Sheet &amp; Coating</div>
+          <div class="specs-cell">CRCA 2.0mm / 1.6mm with 7-Tank Powder Coat (RAL 7032)</div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 
-<!-- -------------------------------- PRODUCT RANGE -------------------------------- -->
+<!-- ==================== 9-PANEL PRODUCT RANGE ==================== -->
 <section class="sec" id="products">
   <div class="W">
-    <div class="sec-header">
-      <div class="sec-lbl rv" style="justify-content:center">What We Make</div>
-      <h2 class="sec-title rv">Our Panel &amp; Equipment <em>Range</em></h2>
-      <p class="sec-body rv">Every panel is custom-built to your exact project specification — standard or bespoke configurations available.</p>
+    <div class="sec-header rv">
+      <div class="sec-lbl" style="justify-content:center">What We Manufacture</div>
+      <h2 class="sec-title">Our Complete Panel <em>Range</em></h2>
+      <p class="sec-body">25+ precision-engineered switchgear solutions custom-built for power distribution, motor control, and automation.</p>
     </div>
 
-    <div class="products-grid">
+    <div class="prod-grid-9">
 
-      <div class="prod-card rv d1">
-        <div class="prod-tag">LV Switchgear</div>
-        <h3>MV & LV Switchgear Panels</h3>
-        <p>Type-tested panels for power control and distribution — used as the central hub of any electrical installation. Available in Form-1 to Form-4 design.</p>
-        <ul class="prod-specs">
-          <li><span class="k">Rating</span><span class="v">Up to 6300A</span></li>
-          <li><span class="k">Fault Level</span><span class="v">Up to 100kA / 1 Sec</span></li>
-          <li><span class="k">Standard</span><span class="v">IEC 61439 / IS:8623</span></li>
-        </ul>
-      </div>
-
-      <div class="prod-card rv d2">
-        <div class="prod-tag">Motor Control</div>
-        <h3>MCC Panel</h3>
-        <p>Motor Control Centres for centralised control of electric motors — including combination starters, VFDs, PLCs and metering equipment in a common power bus enclosure.</p>
-        <ul class="prod-specs">
-          <li><span class="k">Supply</span><span class="v">415V, 3-Phase, 50Hz</span></li>
-          <li><span class="k">Configuration</span><span class="v">Draw-out or Fixed</span></li>
-          <li><span class="k">Standard</span><span class="v">IEC 61439 / IS:8623</span></li>
-        </ul>
-      </div>
-
-      <div class="prod-card rv d3">
-        <div class="prod-tag">Power Control</div>
-        <h3>PCC Panel</h3>
-        <p>Power Control Centres for distribution of power from one or more sources to various downstream loads — with draw-out or non-draw-out construction for indoor and outdoor use.</p>
-        <ul class="prod-specs">
-          <li><span class="k">Access</span><span class="v">Single or Double Front</span></li>
-          <li><span class="k">Enclosure</span><span class="v">IP52 Indoor / IP65 Outdoor</span></li>
-          <li><span class="k">Standard</span><span class="v">IEC 61439 / IS:8623</span></li>
-        </ul>
-      </div>
-
-      <div class="prod-card rv d1">
-        <div class="prod-tag">Automation</div>
-        <h3>PLC Control Panel</h3>
-        <p>Programmable Logic Controller panels for automated control of production lines, HVAC systems and building management — reducing relay count and saving installation space.</p>
-        <ul class="prod-specs">
-          <li><span class="k">Application</span><span class="v">Industrial & Building</span></li>
-          <li><span class="k">Function</span><span class="v">Stand-alone / Remote / SCADA</span></li>
-          <li><span class="k">Type</span><span class="v">Custom to Spec</span></li>
-        </ul>
-      </div>
-
-      <div class="prod-card rv d2">
-        <div class="prod-tag">Power Quality</div>
-        <h3>APFC Panel</h3>
-        <p>Automatic Power Factor Correction panels with capacitor banks and APFC relays — automatically switching to maintain power factor close to unity and eliminate penalty charges.</p>
-        <ul class="prod-specs">
-          <li><span class="k">Control</span><span class="v">Automatic APFC Relay</span></li>
-          <li><span class="k">Construction</span><span class="v">Modular or Non-Compartmental</span></li>
-          <li><span class="k">Option</span><span class="v">With Harmonic Reactors</span></li>
-        </ul>
-      </div>
-
-      <div class="prod-card rv d3">
-        <div class="prod-tag">Backup Power</div>
-        <h3>DG Sync & ATS Panel</h3>
-        <p>DG Synchronisation panels for parallel generator operation, and Automatic Transfer Switch (ATS) panels that automatically switch to emergency power when mains supply fails or drops below 80%.</p>
-        <ul class="prod-specs">
-          <li><span class="k">Transfer</span><span class="v">Automatic / Manual</span></li>
-          <li><span class="k">Control</span><span class="v">Digital Controller</span></li>
-          <li><span class="k">Application</span><span class="v">Commercial & Industrial</span></li>
-        </ul>
-      </div>
-
-      <div class="prod-card rv d1">
-        <div class="prod-tag">Power Distribution</div>
-        <h3>HV & LV Bus Duct</h3>
-        <p>Sheet metal enclosed copper or aluminium busbar systems — carrying up to 6300A from transformers to panels across multiple floors, with superior performance over heavy cables.</p>
-        <ul class="prod-specs">
-          <li><span class="k">Current Rating</span><span class="v">630A to 6300A</span></li>
-          <li><span class="k">Purity</span><span class="v">99.97% Copper (silver-plated)</span></li>
-          <li><span class="k">Protection</span><span class="v">IP54 to IP66</span></li>
-        </ul>
-      </div>
-
-      <div class="prod-card rv d2">
-        <div class="prod-tag">Substation</div>
-        <h3>Compact Substation (CSS)</h3>
-        <p>Pre-engineered, self-contained units housing a transformer and switchgear to step down high-voltage power for local distribution — in a small, efficient footprint.</p>
-        <ul class="prod-specs">
-          <li><span class="k">Type</span><span class="v">Pad-Mounted / Walk-In</span></li>
-          <li><span class="k">HV Range</span><span class="v">11kV / 33kV</span></li>
-          <li><span class="k">Standard</span><span class="v">IEC 62271-202</span></li>
-        </ul>
-      </div>
-
-      <div class="prod-card rv d3">
-        <div class="prod-tag">HVAC Control</div>
-        <h3>HVAC & AHU Panels</h3>
-        <p>Specialised control panels for HVAC and Air Handling Units — managing climate systems with precision, minimising energy use and maximising output across all zones.</p>
-        <ul class="prod-specs">
-          <li><span class="k">Control</span><span class="v">PLC / VFD Integrated</span></li>
-          <li><span class="k">Application</span><span class="v">Commercial & Industrial HVAC</span></li>
-          <li><span class="k">Type</span><span class="v">Custom to Project</span></li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- -------------------------------- MANUFACTURING PROCESS -------------------------------- -->
-<section class="sec sec-alt">
-  <div class="W">
-    <div class="mfg-grid">
-
-      <div class="mfg-img rl">
-        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=900&q=85" alt="KES Manufacturing Process">
-      </div>
-
-      <div class="rr">
-        <div class="sec-lbl">How We Build</div>
-        <h2 class="sec-title">Our Manufacturing <em>Process</em></h2>
-        <p class="sec-body" style="margin-bottom:36px">A disciplined 6-step process — from your requirement to a fully tested, shipped panel with traceability at every stage.</p>
-
-        <div class="mfg-steps">
-          <div class="mfg-step">
-            <div class="mfg-num">01</div>
-            <div>
-              <h4>Planning & Evaluation</h4>
-              <p>We review your requirement, run a complete cost analysis and issue an Order Acknowledgement with full panel specification within 2 working days.</p>
-            </div>
+      <!-- 01 -->
+      <div class="pcard rv d1">
+        <div class="pcard-top">
+          <div class="pcard-tag-row">
+            <span class="pcard-tag">LV Switchgear</span>
+            <span class="pcard-badge-rating">Up to 6300A</span>
           </div>
-          <div class="mfg-step">
-            <div class="mfg-num">02</div>
-            <div>
-              <h4>Panel Design</h4>
-              <p>Auto-generated layout drawings, component placement, power and control schematics — with a bookmarked engineering submittal PDF for client approval before production begins.</p>
-            </div>
-          </div>
-          <div class="mfg-step">
-            <div class="mfg-num">03</div>
-            <div>
-              <h4>Material Procurement</h4>
-              <p>After QC sign-off on the design, we raise POs to approved OEM vendors with confirmed pricing and a delivery schedule tied to the production start date.</p>
-            </div>
-          </div>
-          <div class="mfg-step">
-            <div class="mfg-num">04</div>
-            <div>
-              <h4>Fabrication & Assembly</h4>
-              <p>CNC/hydraulic sheet metal cutting, DIN rail installation, wire processing, multi-colour labelling and full component assembly — per the approved design drawings.</p>
-            </div>
-          </div>
-          <div class="mfg-step">
-            <div class="mfg-num">05</div>
-            <div>
-              <h4>QA, Testing & Dispatch</h4>
-              <p>Full point-to-point wire testing, HV dielectric tests, functional checks, torque verification — then careful packaging with Drop N' Tell and Tip N' Tell indicators before dispatch.</p>
-            </div>
-          </div>
-          <div class="mfg-step">
-            <div class="mfg-num">06</div>
-            <div>
-              <h4>On-Site Installation & Support</h4>
-              <p>Our engineers install, commission and test the panel at your site — then hand over the User Manual, Maintenance Manual and warranty documentation. We remain available for post-installation support.</p>
-            </div>
-          </div>
+          <h3>LV Switchboards &amp; Main LT Panel</h3>
+          <p>Central power distribution panels featuring ACB/MCCB protection, metering, and compartmentalised Form 3b/4b safety barriers.</p>
         </div>
+        <ul class="pcard-specs">
+          <li><span class="k">Standard</span><span class="v">IEC 61439 / IS:8623</span></li>
+          <li><span class="k">Fault Level</span><span class="v">100kA / 1 Sec</span></li>
+          <li><span class="k">Execution</span><span class="v">Fixed / Draw-out</span></li>
+        </ul>
+      </div>
+
+      <!-- 02 -->
+      <div class="pcard rv d2">
+        <div class="pcard-top">
+          <div class="pcard-tag-row">
+            <span class="pcard-tag">Motor Control</span>
+            <span class="pcard-badge-rating">DOL / Star-Delta / VFD</span>
+          </div>
+          <h3>Motor Control Centre (MCC)</h3>
+          <p>Centralised motor control boards with smart motor protection relays, soft starters, and intelligent interlocking for heavy industrial drives.</p>
+        </div>
+        <ul class="pcard-specs">
+          <li><span class="k">Supply</span><span class="v">415V, 3-Phase, 50Hz</span></li>
+          <li><span class="k">Construction</span><span class="v">Fully Compartmental</span></li>
+          <li><span class="k">Control</span><span class="v">Local / Remote / SCADA</span></li>
+        </ul>
+      </div>
+
+      <!-- 03 -->
+      <div class="pcard rv d3">
+        <div class="pcard-top">
+          <div class="pcard-tag-row">
+            <span class="pcard-tag">Power Control</span>
+            <span class="pcard-badge-rating">Single / Double Front</span>
+          </div>
+          <h3>Power Control Centre (PCC)</h3>
+          <p>Heavy-duty power receiving and distribution units for continuous plant operation with segregated busbar and cable chambers.</p>
+        </div>
+        <ul class="pcard-specs">
+          <li><span class="k">Protection</span><span class="v">IP52 Indoor / IP65 Outdoor</span></li>
+          <li><span class="k">Switchgear</span><span class="v">Tier-1 OEM Breakers</span></li>
+          <li><span class="k">Access</span><span class="v">Top &amp; Bottom Entry</span></li>
+        </ul>
+      </div>
+
+      <!-- 04 -->
+      <div class="pcard rv d1">
+        <div class="pcard-top">
+          <div class="pcard-tag-row">
+            <span class="pcard-tag">Medium Voltage</span>
+            <span class="pcard-badge-rating">11kV / 33kV</span>
+          </div>
+          <h3>MV Switchgear &amp; VCB Panels</h3>
+          <p>High-reliability medium voltage panels equipped with Vacuum Circuit Breakers (VCB) or SF6 gas-insulated breakers for substation incomers.</p>
+        </div>
+        <ul class="pcard-specs">
+          <li><span class="k">Rating</span><span class="v">11kV &amp; 33kV Systems</span></li>
+          <li><span class="k">Duty</span><span class="v">Indoor &amp; Outdoor</span></li>
+          <li><span class="k">Standard</span><span class="v">IEC 62271-200</span></li>
+        </ul>
+      </div>
+
+      <!-- 05 -->
+      <div class="pcard rv d2">
+        <div class="pcard-top">
+          <div class="pcard-tag-row">
+            <span class="pcard-tag">Power Quality</span>
+            <span class="pcard-badge-rating">Automatic APFC</span>
+          </div>
+          <h3>APFC Capacitor Panels</h3>
+          <p>Automatic Power Factor Correction panels with heavy-duty capacitor banks, thyristor switching, and detuned harmonic filter reactors.</p>
+        </div>
+        <ul class="pcard-specs">
+          <li><span class="k">Target PF</span><span class="v">0.99 Unity Maintained</span></li>
+          <li><span class="k">Relay</span><span class="v">Microprocessor Controller</span></li>
+          <li><span class="k">Benefit</span><span class="v">Zero Penalty / Max Rebate</span></li>
+        </ul>
+      </div>
+
+      <!-- 06 -->
+      <div class="pcard rv d3">
+        <div class="pcard-top">
+          <div class="pcard-tag-row">
+            <span class="pcard-tag">Automation</span>
+            <span class="pcard-badge-rating">PLC &amp; SCADA</span>
+          </div>
+          <h3>PLC &amp; Automation Panels</h3>
+          <p>Custom programmable control boards with Siemens / Schneider / ABB PLCs, HMIs, and remote telemetry for process automation and BMS.</p>
+        </div>
+        <ul class="pcard-specs">
+          <li><span class="k">Protocol</span><span class="v">Modbus / Profinet / BACnet</span></li>
+          <li><span class="k">HMI Screen</span><span class="v">7" to 15" Touch Panels</span></li>
+          <li><span class="k">Telemetry</span><span class="v">Cloud / SCADA Ready</span></li>
+        </ul>
+      </div>
+
+      <!-- 07 -->
+      <div class="pcard rv d1">
+        <div class="pcard-top">
+          <div class="pcard-tag-row">
+            <span class="pcard-tag">Backup Power</span>
+            <span class="pcard-badge-rating">Auto Sync</span>
+          </div>
+          <h3>DG Synchronization &amp; ATS Panel</h3>
+          <p>Multi-generator automatic load sharing, auto-synchronizing, and Automatic Transfer Switch (ATS) for uninterrupted critical power continuity.</p>
+        </div>
+        <ul class="pcard-specs">
+          <li><span class="k">Transfer</span><span class="v">&lt; 8 Sec Auto Transition</span></li>
+          <li><span class="k">Control</span><span class="v">Deep Sea / ComAp Logic</span></li>
+          <li><span class="k">Mains Sync</span><span class="v">Peak Lopping &amp; Base Load</span></li>
+        </ul>
+      </div>
+
+      <!-- 08 -->
+      <div class="pcard rv d2">
+        <div class="pcard-top">
+          <div class="pcard-tag-row">
+            <span class="pcard-tag">Transmission</span>
+            <span class="pcard-badge-rating">630A to 6300A</span>
+          </div>
+          <h3>HV &amp; LV Sandwich Bus Ducts</h3>
+          <p>Compact sandwich bus trunking systems carrying high continuous currents from transformers to main switchboards with minimal voltage drop.</p>
+        </div>
+        <ul class="pcard-specs">
+          <li><span class="k">Conductor</span><span class="v">99.97% Electrolytic Copper</span></li>
+          <li><span class="k">Protection</span><span class="v">IP54 to IP66 Certified</span></li>
+          <li><span class="k">Fire Rating</span><span class="v">AS1530.4 Certified</span></li>
+        </ul>
+      </div>
+
+      <!-- 09 -->
+      <div class="pcard rv d3">
+        <div class="pcard-top">
+          <div class="pcard-tag-row">
+            <span class="pcard-tag">Substation</span>
+            <span class="pcard-badge-rating">Compact Package</span>
+          </div>
+          <h3>Compact Substation (CSS / USS)</h3>
+          <p>Prefabricated all-weather packaged substations housing 11kV RMU, oil/dry transformer, and LV distribution panel in a single compact footprint.</p>
+        </div>
+        <ul class="pcard-specs">
+          <li><span class="k">Capacity</span><span class="v">Up to 2500 kVA</span></li>
+          <li><span class="k">Standard</span><span class="v">IEC 62271-202</span></li>
+          <li><span class="k">Benefit</span><span class="v">Rapid Site Deployment</span></li>
+        </ul>
       </div>
 
     </div>
@@ -586,130 +761,209 @@
 </section>
 
 
-<!-- -------------------------------- IN-HOUSE TESTING LAB -------------------------------- -->
-<section class="sec sec-dark">
+<!-- ==================== 6-STAGE DISCIPLINED PROCESS ==================== -->
+<section class="sec-alt sec">
   <div class="W">
-    <div class="sec-header">
-      <div class="sec-lbl rv" style="justify-content:center">Testing Lab</div>
-      <h2 class="sec-title inv rv">In-House Testing <em>Capability</em></h2>
-      <p class="sec-body rv" style="color:rgba(255,255,255,.45)">Every panel is tested before it leaves our facility. All test equipment is periodically calibrated by NABL-approved third-party labs — as required under our ISO 9001:2015 certification.</p>
+    <div class="sec-header rv">
+      <div class="sec-lbl" style="justify-content:center">Quality Lifecycle</div>
+      <h2 class="sec-title">6-Stage Manufacturing <em>Process</em></h2>
+      <p class="sec-body">Every panel is built through a disciplined, trackable workflow ensuring zero errors upon site delivery.</p>
     </div>
 
-    <div class="testing-grid">
-      <div class="test-card rv d1">
-        <div class="test-ico"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-        <h4>HV Dielectric Test</h4>
-        <p>High Voltage Dielectric Strength testing per IEC 61439 requirements</p>
+    <div class="workflow-grid">
+      <div class="wflow-card rv d1">
+        <div class="wflow-num">01</div>
+        <h4>SLD Review &amp; Costing</h4>
+        <p>Thorough electrical requirement analysis, BOQ estimation, and commercial acknowledgement.</p>
       </div>
-      <div class="test-card rv d2">
-        <div class="test-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-        <h4>Megger Insulation Test</h4>
-        <p>1000V and 500V Megger testing for insulation resistance across all circuits</p>
+
+      <div class="wflow-card rv d2">
+        <div class="wflow-num">02</div>
+        <h4>GA &amp; Schematic CAD</h4>
+        <p>Complete General Arrangement (GA) drawings and power schematics for client engineering sign-off.</p>
       </div>
-      <div class="test-card rv d3">
-        <div class="test-ico"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-        <h4>Temperature Rise Test</h4>
-        <p>In-house temperature rise test facility for current ratings up to 4000A</p>
+
+      <div class="wflow-card rv d3">
+        <div class="wflow-num">03</div>
+        <h4>OEM Sourcing</h4>
+        <p>Procurement of Tier-1 switchgear (ABB, Schneider, L&T, Siemens) with incoming FAT checks.</p>
       </div>
-      <div class="test-card rv d4">
-        <div class="test-ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
-        <h4>Torque & Conductivity</h4>
-        <p>Nut torque tests at joints and conductivity tests on aluminium and copper busbars</p>
+
+      <div class="wflow-card rv d4">
+        <div class="wflow-num">04</div>
+        <h4>CNC Fabrication</h4>
+        <p>Precision CRCA cutting, 9-tank pre-treatment, powder coating (RAL 7032) &amp; copper busbar forming.</p>
       </div>
-      <div class="test-card rv d1">
-        <div class="test-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
-        <h4>Paint Thickness Test</h4>
-        <p>Paint thickness and scratch test to verify powder coating quality and durability</p>
+
+      <div class="wflow-card rv d1">
+        <div class="wflow-num">05</div>
+        <h4>100% FAT Testing</h4>
+        <p>Point-to-point wiring tests, HV insulation dielectric checks, and full functional relay simulations.</p>
       </div>
-      <div class="test-card rv d2">
-        <div class="test-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        <h4>Operational Tests</h4>
-        <p>Secondary current injection tests and physical operational checks on all devices</p>
-      </div>
-      <div class="test-card rv d3">
-        <div class="test-ico"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 0v20M2 12h20"/></svg></div>
-        <h4>PH & Solution Tests</h4>
-        <p>PH and Titration point-age of solution per IS:3618 for busbar surface preparation</p>
-      </div>
-      <div class="test-card rv d4">
-        <div class="test-ico"><svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
-        <h4>Calibrated Equipment</h4>
-        <p>All test instruments periodically calibrated by third-party NABL labs — traceable to national standards</p>
+
+      <div class="wflow-card rv d2">
+        <div class="wflow-num">06</div>
+        <h4>Site Handover</h4>
+        <p>Protective packaging, on-site positioning, CEIG trial runs, test certificates, and warranty handover.</p>
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- -------------------------------- CERTIFICATIONS -------------------------------- -->
+<!-- ==================== IN-HOUSE TESTING LAB & DIAGNOSTIC TOOLS ==================== -->
+<section class="sec testing-sec" id="testing-lab">
+  <div class="W">
+    <div class="sec-header rv">
+      <div class="sec-lbl" style="justify-content:center;color:var(--red)">Calibrated Testing Lab</div>
+      <h2 class="sec-title inv">In-House Quality <em>Inspection Tools</em></h2>
+      <p class="sec-body" style="color:rgba(255,255,255,.6)">All panels undergo rigorous factory acceptance testing (FAT) using certified, NABL-calibrated testing instruments before dispatch.</p>
+    </div>
+
+    <div class="testing-grid-8">
+      <div class="tcard rv d1">
+        <div class="tcard-ico"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <h4>HV Dielectric Test</h4>
+        <p>High voltage dielectric strength testing up to 5kV per IEC 61439 standards.</p>
+      </div>
+
+      <div class="tcard rv d2">
+        <div class="tcard-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <h4>1000V / 500V Megger</h4>
+        <p>Insulation resistance verification across phase-to-phase and phase-to-earth circuits.</p>
+      </div>
+
+      <div class="tcard rv d3">
+        <div class="tcard-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4>Earth Resistance Test</h4>
+        <p>Dedicated Earth Testers ensuring body grounding integrity &lt; 1.0 Ohm.</p>
+      </div>
+
+      <div class="tcard rv d4">
+        <div class="tcard-ico"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h4>Secondary Current Injection</h4>
+        <p>Protection relay tripping timing and breaker secondary current injection verification.</p>
+      </div>
+
+      <div class="tcard rv d1">
+        <div class="tcard-ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+        <h4>Torque &amp; Conductivity</h4>
+        <p>Calibrated torque wrenches on all busbar joints and micro-ohm conductivity checks.</p>
+      </div>
+
+      <div class="tcard rv d2">
+        <div class="tcard-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h4>Phase Sequence &amp; Tong Tester</h4>
+        <p>Digital Multimeters, Tong Testers, and phase sequence meters for 3-phase balancing.</p>
+      </div>
+
+      <div class="tcard rv d3">
+        <div class="tcard-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+        <h4>Paint Thickness &amp; Gloss</h4>
+        <p>Magnetic dry film thickness (DFT) gauges and scratch adhesion verification.</p>
+      </div>
+
+      <div class="tcard rv d4">
+        <div class="tcard-ico"><svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+        <h4>Temperature Rise Rig</h4>
+        <p>Calibrated current injection test facility for thermal verification up to 4000A.</p>
+      </div>
+    </div>
+
+    <!-- Workshop Tools Strip -->
+    <div class="tools-strip rv">
+      <span class="tools-strip-lbl">🛠️ In-House Machinery &amp; Tooling Fleet:</span>
+      <div class="tools-pills">
+        <span class="tpill">Hydraulic Crimping Presses</span>
+        <span class="tpill">Hydraulic Busbar Bending</span>
+        <span class="tpill">Groove &amp; Tile Cutters</span>
+        <span class="tpill">Cable Drum Lifting Jacks</span>
+        <span class="tpill">Lux Meters</span>
+        <span class="tpill">LED Line Marking</span>
+        <span class="tpill">MIG/ARC Welding Machines</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== CERTIFICATIONS ==================== -->
 <section class="sec sec-alt">
   <div class="W">
-    <div class="sec-header">
-      <div class="sec-lbl rv" style="justify-content:center">Quality Credentials</div>
-      <h2 class="sec-title rv">Our Certifications &amp; <em>Standards</em></h2>
+    <div class="sec-header rv">
+      <div class="sec-lbl" style="justify-content:center">Quality Benchmarks</div>
+      <h2 class="sec-title">Our Certifications &amp; <em>Standards</em></h2>
     </div>
 
     <div class="cert-grid">
       <div class="cert-card rv d1">
         <div class="cert-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <h4>ISO 9001:2015</h4>
-        <p>Quality Management System certified for the design, manufacture and supply of electrical panels — ensuring consistent, world-class quality at every stage.</p>
+        <p>Certified Quality Management System for design, manufacture, testing and supply of electrical switchboards.</p>
       </div>
+
       <div class="cert-card rv d2">
         <div class="cert-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div>
         <h4>CPRI Certified</h4>
-        <p>Central Power Research Institute type-tested certification for LV & MV switchboards — 5000A, 3-Phase, 4-Wire, 600V, 100kA short circuit withstand for 1 second.</p>
+        <p>Central Power Research Institute type-tested for 5000A, 600V, 100kA short-circuit withstand for 1 second.</p>
       </div>
+
       <div class="cert-card rv d3">
         <div class="cert-ico"><svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
-        <h4>IEC 61439</h4>
-        <p>Full compliance with Part 1 (General Rules) and Part 2 (Power Switchgear and Control Gear Assemblies) — the leading international standard for panel boards.</p>
+        <h4>IEC 61439-1 &amp; 2</h4>
+        <p>Full compliance with international standards for low-voltage power switchgear and control gear assemblies.</p>
       </div>
+
       <div class="cert-card rv d4">
         <div class="cert-ico"><svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
-        <h4>IS:8623</h4>
-        <p>Indian Standard compliance for factory-built assemblies of low-voltage switchgear and control gear — mandatory for all panels supplied to Indian projects.</p>
+        <h4>IS:8623 &amp; CEIG Ready</h4>
+        <p>Indian Standard compliance and CEIG-ready documentation for statutory government electrical approvals.</p>
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- -------------------------------- INDUSTRIES -------------------------------- -->
+<!-- ==================== INDUSTRIES ==================== -->
 <section class="sec">
   <div class="W">
-    <div class="sec-header">
-      <div class="sec-lbl rv" style="justify-content:center">Who We Serve</div>
-      <h2 class="sec-title rv">Industries We <em>Manufacture For</em></h2>
-      <p class="sec-body rv">Our panels are deployed across every major industry vertical — wherever reliable power distribution matters.</p>
+    <div class="sec-header rv">
+      <div class="sec-lbl" style="justify-content:center">Sectors We Supply</div>
+      <h2 class="sec-title">Industries We <em>Manufacture For</em></h2>
+      <p class="sec-body">Our switchboards power mission-critical infrastructure across diverse industries in Karnataka.</p>
     </div>
 
-    <div class="ind-grid">
-      <div class="ind-pill rv d1"><div class="ind-dot"></div><span>Pharmaceutical & Pharma</span></div>
-      <div class="ind-pill rv d2"><div class="ind-dot"></div><span>Chemical & Process</span></div>
-      <div class="ind-pill rv d3"><div class="ind-dot"></div><span>Textile & Garment</span></div>
-      <div class="ind-pill rv d4"><div class="ind-dot"></div><span>Automobile & EV</span></div>
-      <div class="ind-pill rv d1"><div class="ind-dot"></div><span>Food & Beverage</span></div>
-      <div class="ind-pill rv d2"><div class="ind-dot"></div><span>Hospitality & Hotels</span></div>
-      <div class="ind-pill rv d3"><div class="ind-dot"></div><span>IT Parks & Data Centres</span></div>
-      <div class="ind-pill rv d4"><div class="ind-dot"></div><span>Commercial Buildings</span></div>
-      <div class="ind-pill rv d1"><div class="ind-dot"></div><span>Agriculture & Irrigation</span></div>
-      <div class="ind-pill rv d2"><div class="ind-dot"></div><span>Cold Storage & Refrigeration</span></div>
-      <div class="ind-pill rv d3"><div class="ind-dot"></div><span>Residential Apartments</span></div>
-      <div class="ind-pill rv d4"><div class="ind-dot"></div><span>Plastic & Packaging</span></div>
+    <div class="ind-grid-12">
+      <div class="ind-box rv d1"><div class="ind-dot"></div><span>Pharma &amp; Biotech</span></div>
+      <div class="ind-box rv d2"><div class="ind-dot"></div><span>IT Parks &amp; Data Centers</span></div>
+      <div class="ind-box rv d3"><div class="ind-dot"></div><span>Automobile &amp; CNC</span></div>
+      <div class="ind-box rv d4"><div class="ind-dot"></div><span>Hospitals &amp; Healthcare</span></div>
+      <div class="ind-box rv d1"><div class="ind-dot"></div><span>Commercial Complexes</span></div>
+      <div class="ind-box rv d2"><div class="ind-dot"></div><span>Food &amp; Beverage</span></div>
+      <div class="ind-box rv d3"><div class="ind-dot"></div><span>Textile &amp; Garments</span></div>
+      <div class="ind-box rv d4"><div class="ind-dot"></div><span>Chemical &amp; Process</span></div>
+      <div class="ind-box rv d1"><div class="ind-dot"></div><span>High-Rise Residential</span></div>
+      <div class="ind-box rv d2"><div class="ind-dot"></div><span>Hotels &amp; Hospitality</span></div>
+      <div class="ind-box rv d3"><div class="ind-dot"></div><span>Educational Campuses</span></div>
+      <div class="ind-box rv d4"><div class="ind-dot"></div><span>Cold Chain &amp; Storage</span></div>
     </div>
   </div>
 </section>
 
 
-<!-- -------------------------------- CTA -------------------------------- -->
+<!-- ==================== CTA SECTION ==================== -->
 <div class="cta-band">
-  <div class="W cta-inner">
-    <div class="rv">
-      <h2>Need a Custom <em>Panel?</em></h2>
-      <p>Share your specifications with our team. We'll review your requirement, prepare a detailed engineering quote and get back to you within 2 working days.</p>
+  <div class="cta-band-bg"></div>
+  <div class="cta-band-ov"></div>
+  <div class="W">
+    <div class="cta-inner rv">
+      <h2>Need a Custom Switchgear <em>Quote?</em></h2>
+      <p>Send us your Single Line Diagram (SLD) or panel schedule. Our engineering team will review your specifications and provide a comprehensive BOQ submittal within 2 working days.</p>
+      <div class="cta-btns">
+        <a href="contactus.html" class="btn-red">Request a Technical Quote <span class="arr">&rarr;</span></a>
+        <a href="tel:+919900604365" class="btn-ghost">Call: +91 99006 04365</a>
+      </div>
     </div>
-    <a href="contactus.html" class="btn-white rv d1">Request a Quote &rarr;</a>
   </div>
 </div>
 

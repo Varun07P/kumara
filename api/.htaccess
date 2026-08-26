@@ -1,0 +1,28 @@
+# Keep PHP upload/runtime warnings out of API responses before the bridge runs.
+<IfModule php_module>
+    php_flag display_errors Off
+    php_flag display_startup_errors Off
+    php_flag log_errors On
+    php_value upload_tmp_dir "C:/Users/smile/Documents/Niyan It Solutions/kumara enterprises/Backend/storage/uploads_tmp"
+</IfModule>
+
+<IfModule mod_php.c>
+    php_flag display_errors Off
+    php_flag display_startup_errors Off
+    php_flag log_errors On
+    php_value upload_tmp_dir "C:/Users/smile/Documents/Niyan It Solutions/kumara enterprises/Backend/storage/uploads_tmp"
+</IfModule>
+
+<IfModule mod_php8.c>
+    php_flag display_errors Off
+    php_flag display_startup_errors Off
+    php_value upload_tmp_dir "C:/Users/smile/Documents/Niyan It Solutions/kumara enterprises/Backend/storage/uploads_tmp"
+    php_flag log_errors On
+</IfModule>
+
+# Route all /api requests through the same-origin PHP API bridge.
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]

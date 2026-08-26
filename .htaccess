@@ -1,0 +1,32 @@
+# Site-level Apache rules for the same-origin frontend and PHP API.
+# Public pages stay directly accessible, while backend source files are blocked
+# from direct browser access. The /api folder has its own front-controller rules.
+
+Options -Indexes
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Do not expose dotfiles such as .env, .git files, or local editor metadata.
+    RewriteRule "(^|/)\.(?!well-known/)" - [F,L]
+
+    # The API bridge loads Backend files server-side; visitors must not access
+    # Backend source, database scripts, Composer files, or uploads directly.
+    RewriteRule "^Backend(?:/|$)" - [F,L]
+
+    # Local development entrypoints should not be reachable in production.
+    RewriteRule "^router\.php$" - [F,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "same-origin"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+<IfModule mod_mime.c>
+    AddType text/css .css
+    AddType application/javascript .js
+</IfModule>

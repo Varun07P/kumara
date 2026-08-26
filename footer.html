@@ -22,109 +22,552 @@
 }
 
 /* --------------------------------
-   FOOTER
+   PREMIUM CRAFTED LIGHT FOOTER (Matches Design Mockup)
    -------------------------------- */
-footer { background: var(--navy); color: #fff; padding: 72px 0 0; }
-.ft-grid { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1.35fr; gap: 56px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,.07); }
-.ft-logo { display: inline-flex; margin-bottom: 17px; cursor: pointer; }
-.ft-logo img { height: 46px; width: auto; display: block; }
-.ft-desc { font-size: 13.5px; line-height: 1.82; color: rgba(255,255,255,.3); font-weight: 300; margin-bottom: 24px; max-width: 320px; }
-.ft-soc { display: flex; gap: 8px; }
-.fsoc { width: 36px; height: 36px; border-radius: 6px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); display: grid; place-items: center; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; color: rgba(255,255,255,.38); transition: all .2s; text-decoration: none; }
-.fsoc:hover { background: var(--blue-alt); color: #fff; border-color: var(--blue-alt); }
-.ft-col h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 9.5px; font-weight: 700; color: rgba(255,255,255,.2); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,.06); letter-spacing: .14em; text-transform: uppercase; }
-.ft-links { display: flex; flex-direction: column; gap: 10px; }
-.ft-links a { font-size: 13.5px; color: rgba(255,255,255,.36); font-weight: 300; cursor: pointer; transition: color .2s; display: flex; align-items: center; gap: 7px; text-decoration: none; }
-.ft-links a:hover { color: rgba(255,255,255,.78); }
-.ft-links a::before { content: ''; width: 6px; height: 2px; background: var(--blue-alt); opacity: .4; flex-shrink: 0; transition: width .2s, opacity .2s; }
-.ft-links a:hover::before { width: 12px; opacity: 1; }
-.ft-contact { display: flex; flex-direction: column; gap: 11px; }
-.fc-i { display: flex; align-items: flex-start; gap: 9px; font-size: 12.5px; color: rgba(255,255,255,.34); line-height: 1.6; font-weight: 300; }
-.ft-bottom { padding: 22px 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
-.ft-bottom p { font-size: 11.5px; color: rgba(255,255,255,.2); }
-.ft-bottom a { color: var(--blue-alt); text-decoration: none; font-weight: 600; transition: color .2s; }
-.ft-bottom a:hover { color: #fff; text-decoration: underline; }
-.ft-badges { display: flex; gap: 6px; flex-wrap: wrap; }
-.ftb { padding: 3px 9px; border: 1px solid rgba(204,39,0,.22); border-radius: 2px; font-family: 'Barlow Condensed', sans-serif; font-size: 9.5px; font-weight: 700; color: var(--blue-alt); letter-spacing: .09em; text-transform: uppercase; }
-
-/* Back to Top */
-#btt { position: fixed; bottom: 28px; right: 28px; z-index: 999; width: 44px; height: 44px; border-radius: 6px; background: var(--blue-alt); color: #fff; display: none; align-items: center; justify-content: center; font-size: 18px; font-weight: 900; box-shadow: 0 4px 18px rgba(204,39,0,.4); cursor: pointer; transition: all .22s; font-family: 'Barlow Condensed', sans-serif; border: none; outline: none; }
-#btt.on { display: flex; }
-#btt:hover { background: var(--blue-alt2); transform: translateY(-3px); }
-
-@media (max-width: 1024px) {
-  .ft-grid { grid-template-columns: 1fr 1fr; }
+footer {
+  position: relative;
+  background: #ffffff;
+  color: #1e293b;
+  padding: 46px 0 20px;
+  border-top: 1px solid #f1f5f9;
+  font-family: inherit;
 }
+
+.ft-wrap {
+  width: 96vw;
+  max-width: 1760px;
+  margin: 0 auto;
+}
+
+.ft-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 0.82fr 0.88fr 1.32fr;
+  align-items: start;
+  gap: clamp(24px, 3.2vw, 54px);
+}
+
+/* Left Brand Card */
+.ft-brand-card {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #f1f5f9;
+  border-radius: 20px;
+  padding: 30px 26px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.035);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.ft-brand-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 120px;
+  background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+  background-size: 8px 8px;
+  opacity: 0.65;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(circle at top right, black 35%, transparent 80%);
+  mask-image: radial-gradient(circle at top right, black 35%, transparent 80%);
+}
+
+.ft-logo {
+  display: inline-flex;
+  width: fit-content;
+}
+
+.ft-logo img {
+  height: 42px;
+  width: auto;
+  display: block;
+}
+
+.ft-brand-line {
+  width: 32px;
+  height: 3px;
+  background: var(--blue-alt);
+  margin: 14px 0 16px;
+  border-radius: 2px;
+}
+
+.ft-desc {
+  font-size: 13.5px;
+  line-height: 1.68;
+  color: #334155;
+  font-weight: 400;
+  margin: 0 0 24px;
+}
+
+.ft-soc {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.fsoc {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e293b;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+  transition: all .2s ease;
+}
+
+.fsoc svg {
+  width: 15px;
+  height: 15px;
+  fill: #1e293b;
+  transition: fill .2s ease;
+}
+
+.fsoc:hover {
+  background: var(--blue-alt);
+  border-color: var(--blue-alt);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.fsoc:hover svg {
+  fill: #ffffff;
+}
+
+/* Nav & Product Columns */
+.ft-col h4 {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  color: #0b1a30;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.ft-head-line {
+  width: 26px;
+  height: 2.5px;
+  background: var(--blue-alt);
+  margin: 8px 0 18px;
+  border-radius: 2px;
+}
+
+.ft-links {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.ft-links a {
+  font-size: 13.5px;
+  line-height: 1.4;
+  color: #334155;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: all .18s ease;
+  width: fit-content;
+}
+
+.ft-links a .ft-chev {
+  color: var(--blue-alt);
+  font-size: 13px;
+  font-weight: 700;
+  transition: transform .18s ease;
+}
+
+.ft-links a:hover {
+  color: var(--blue-alt);
+  transform: translateX(3px);
+}
+
+.ft-links a:hover .ft-chev {
+  transform: translateX(2px);
+}
+
+/* Contact Column */
+.ft-contact-boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.fc-box {
+  border: 1px solid #f1f5f9;
+  border-radius: 10px;
+  padding: 10px 14px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  text-decoration: none;
+  transition: all .2s ease;
+}
+
+.fc-box:hover {
+  border-color: #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transform: translateY(-1px);
+}
+
+.fc-ico {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--blue-alt);
+  stroke: var(--blue-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fc-ico svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--blue-alt);
+}
+
+.fc-val {
+  font-size: 12.5px;
+  color: #1e293b;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.ft-badges-strip {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-top: 13px;
+}
+
+.ft-cert-chip {
+  padding: 5px 12px;
+  border: 1px solid rgba(204, 39, 0, 0.38);
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--blue-alt);
+  background: #ffffff;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  transition: all .2s ease;
+}
+
+.ft-cert-chip:hover {
+  background: rgba(204, 39, 0, 0.04);
+  border-color: var(--blue-alt);
+}
+
+/* Bottom Bar */
+.ft-bottom {
+  border-top: 1px solid #f1f5f9;
+  padding: 18px 0;
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.ft-b-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ft-shield-ic {
+  width: 24px;
+  height: 24px;
+  color: var(--blue-alt);
+  stroke: var(--blue-alt);
+  flex-shrink: 0;
+}
+
+.ft-b-copy {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.4;
+}
+
+.ft-b-designer {
+  border-left: 1px solid #e2e8f0;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.35;
+}
+
+.ft-d-lbl {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.ft-d-link {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--blue-alt);
+  text-decoration: none;
+}
+
+.ft-d-link:hover {
+  text-decoration: underline;
+}
+
+.ft-b-badges {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ft-pill {
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 6px 12px;
+  background: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  color: #1e293b;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.ft-pill svg {
+  width: 14px;
+  height: 14px;
+  color: #64748b;
+  stroke: #64748b;
+  flex-shrink: 0;
+}
+
+/* Round Back to Top */
+#btt {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--blue-alt);
+  color: #ffffff;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(204, 39, 0, 0.38);
+  transition: all .2s ease;
+  outline: none;
+}
+
+#btt.on {
+  display: flex;
+}
+
+#btt:hover {
+  background: var(--blue-alt2);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(204, 39, 0, 0.5);
+}
+
+#btt svg {
+  width: 18px;
+  height: 18px;
+  stroke: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .ft-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
 @media (max-width: 640px) {
-  .ft-grid { grid-template-columns: 1fr; }
+  footer {
+    padding: 32px 0 16px;
+  }
+  .ft-wrap {
+    width: calc(100% - 32px);
+  }
+  .ft-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  .ft-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .ft-b-designer {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 8px;
+    width: 100%;
+  }
 }
 </style>
 
 <!-- FOOTER -->
 <footer>
-  <div class="W">
+  <div class="W ft-wrap">
     <div class="ft-grid">
-      <div>
+      <!-- Brand Card Column -->
+      <div class="ft-brand-card">
         <a class="ft-logo" href="index.html" aria-label="Kumara Engineering Solutions home">
           <img src="images/logo.png" alt="Kumara Engineering Solutions">
         </a>
+        <div class="ft-brand-line"></div>
         <p class="ft-desc">The True Leader in End-to-End Power Distribution, Control Systems and Turnkey Electrical Solutions. Serving Karnataka and beyond &mdash; built on 24+ years of inherited excellence.</p>
+        
         <div class="ft-soc">
-          <a href="#" class="fsoc">in</a>
-          <a href="#" class="fsoc">fb</a>
-          <a href="#" class="fsoc">yt</a>
+          <a href="#" class="fsoc" aria-label="LinkedIn">in</a>
+          <a href="#" class="fsoc" aria-label="Facebook">f</a>
+          <a href="#" class="fsoc" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><path d="M9.75 15.02l5.75-3.27-5.75-3.27v6.54z" fill="#fff"/></svg>
+          </a>
         </div>
       </div>
+
+      <!-- Quick Links -->
       <div class="ft-col">
-        <h4>Quick Links</h4>
+        <h4>QUICK LINKS</h4>
+        <div class="ft-head-line"></div>
         <div class="ft-links">
-          <a href="index.html">Home</a>
-          <a href="aboutus.html">About Us</a>
-          <a href="products.html">Products</a>
-          <a href="services.html">Services</a>
-          <a href="process.html">Manufacturing Process</a>
-          <a href="contactus.html">Contact</a>
+          <a href="index.html"><span class="ft-chev">&gt;</span> Home</a>
+          <a href="aboutus.html"><span class="ft-chev">&gt;</span> About Us</a>
+          <a href="services.html"><span class="ft-chev">&gt;</span> Services</a>
+          <a href="products.html"><span class="ft-chev">&gt;</span> Products</a>
+          <a href="consultancy.html"><span class="ft-chev">&gt;</span> Consultancy</a>
+          <a href="process.html"><span class="ft-chev">&gt;</span> Manufacturing Process</a>
+          <a href="gallery.html"><span class="ft-chev">&gt;</span> Gallery</a>
+          <a href="contactus.html"><span class="ft-chev">&gt;</span> Contact</a>
         </div>
       </div>
+
+      <!-- Products -->
       <div class="ft-col">
-        <h4>Products</h4>
+        <h4>PRODUCTS</h4>
+        <div class="ft-head-line"></div>
         <div class="ft-links">
-          <a href="products.html#lv-switchgear">LT Panel</a>
-          <a href="products.html#mcc-panel">MCC Panel</a>
-          <a href="products.html#plc-panel">PLC Control Panel</a>
-          <a href="products.html#apfc-panel">APFC Panel</a>
-          <a href="products.html#busduct">HV &amp; LV Bus Duct</a>
-          <a href="products.html#vfd-panel">VFD Panel</a>
-          <a href="products.html#ats-panel">ATS Panel</a>
-          <a href="products.html#dg-sync">DG Sync Panel</a>
+          <a href="products.html#lv-switchgear"><span class="ft-chev">&gt;</span> LT Panel</a>
+          <a href="products.html#mcc-panel"><span class="ft-chev">&gt;</span> MCC Panel</a>
+          <a href="products.html#plc-panel"><span class="ft-chev">&gt;</span> PLC Control Panel</a>
+          <a href="products.html#apfc-panel"><span class="ft-chev">&gt;</span> APFC Panel</a>
+          <a href="products.html#busduct"><span class="ft-chev">&gt;</span> HV &amp; LV Bus Duct</a>
+          <a href="products.html#vfd-panel"><span class="ft-chev">&gt;</span> VFD Panel</a>
+          <a href="products.html#ats-panel"><span class="ft-chev">&gt;</span> ATS Panel</a>
+          <a href="products.html#dg-sync"><span class="ft-chev">&gt;</span> DG Sync Panel</a>
         </div>
       </div>
+
+      <!-- Contact Us -->
       <div class="ft-col">
-        <h4>Contact Us</h4>
-        <div class="ft-contact">
-          <div class="fc-i"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/></svg> No.1538/O, 1F, 12th Cross, 4th Stage, 2nd Block, BTM Layout, Hulimavu, Bengaluru - 560 076, Karnataka, India.</div>
-          <div class="fc-i"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg> +91 99006 04365</div>
-          <div class="fc-i"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 6l-10 7L2 6"/></svg> info@kumarasolutions.in</div>
-          <div class="fc-i"><svg viewBox="0 0 24 24" fill="none" class="svg-ic"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2"/></svg> Mon&ndash;Sat &middot; 9 AM &ndash; 6 PM IST</div>
+        <h4>CONTACT US</h4>
+        <div class="ft-head-line"></div>
+        <div class="ft-contact-boxes">
+          <div class="fc-box">
+            <div class="fc-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="fc-val">No.1538/O, 1F, 12th Cross, 4th Stage, 2nd Block, BTM Layout, Hulimavu, Bengaluru - 560 076, Karnataka, India.</div>
+          </div>
+
+          <a href="tel:+919900604365" class="fc-box">
+            <div class="fc-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div class="fc-val">+91 99006 04365</div>
+          </a>
+
+          <a href="mailto:info@kumarasolutions.in" class="fc-box">
+            <div class="fc-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+            </div>
+            <div class="fc-val">info@kumarasolutions.in</div>
+          </a>
+
+          <div class="fc-box">
+            <div class="fc-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div class="fc-val">Mon-Sat &middot; 9 AM &ndash; 6 PM IST</div>
+          </div>
         </div>
-        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:18px">
-          <span class="ftb">IEC 61439</span>
-          <span class="ftb">IS:8623</span>
-          <span class="ftb">CPRI</span>
-          <span class="ftb">ISO 9001</span>
+
+        <div class="ft-badges-strip">
+          <span class="ft-cert-chip">IEC 61439</span>
+          <span class="ft-cert-chip">IS:8623</span>
+          <span class="ft-cert-chip">CPRI</span>
+          <span class="ft-cert-chip">ISO 9001</span>
         </div>
       </div>
     </div>
+
+    <!-- Bottom Bar -->
     <div class="ft-bottom">
-      <p>&copy; 2026 Kumara Engineering Solutions Private Limited. All rights reserved. <span style="margin: 0 6px; opacity: 0.4;">|</span> Designed by <a href="https://niyanitsolutions.com" target="_blank" rel="noopener">Niyan IT Solutions</a></p>
-      <div class="ft-badges">
-        <span class="ftb">ISO Certified</span>
-        <span class="ftb">Class I Contractor</span>
-        <span class="ftb">GSTIN: 29ANNPB3536E1Z3</span>
-        <span class="ftb">Bengaluru, Karnataka</span>
+      <div class="ft-b-left">
+        <svg class="ft-shield-ic" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
+        <div class="ft-b-copy">
+          <span>&copy; 2026 Kumara Engineering Solutions Private Limited.</span>
+          <span>All rights reserved.</span>
+        </div>
+      </div>
+
+      <div class="ft-b-designer">
+        <span class="ft-d-lbl">Designed by</span>
+        <a href="https://niyanitsolutions.com" target="_blank" rel="noopener" class="ft-d-link">Niyan IT Solutions</a>
+      </div>
+
+      <div class="ft-b-badges">
+        <span class="ft-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          ISO CERTIFIED
+        </span>
+        <span class="ft-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18h20M4 18v-4a8 8 0 1 1 16 0v4M9 10h6"/></svg>
+          CLASS I CONTRACTOR
+        </span>
+        <span class="ft-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          GSTIN: 29ANNPB3536E1Z3
+        </span>
+        <span class="ft-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          BENGALURU, KA
+        </span>
       </div>
     </div>
   </div>
 </footer>
 
-<button id="btt" type="button" aria-label="Back to top">&uarr;</button>
+<button id="btt" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>

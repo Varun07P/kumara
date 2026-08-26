@@ -3,296 +3,492 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Works Contract & Services — KES Pvt. Ltd.</title>
-<meta name="description" content="KES Works Contract Services — turnkey electrical projects, HT/LT installation, HVAC, civil, facility maintenance and AMC across Karnataka.">
+<title>Works Contract & Turnkey Execution — Kumara Engineering Solutions</title>
+<meta name="description" content="Govt. Licensed Class I Electrical Contractors in Bengaluru — Turnkey HT/LT installations, 11kV/33kV substations, HVAC, fire safety, CEIG approvals, and 24/7 AMC across Karnataka.">
+<link rel="canonical" href="workscontract.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  /* === DESIGN TOKENS === */
   :root {
-    --navy:  #08111f;
-    --navy2: #0c1a30;
-    --navy3: #0f2040;
-    --red:   #cc2700;
-    --red2:  #a81e00;
-    --red3:  #8a1800;
-    --off:   #f9f5f4;
-    --white: #ffffff;
-    --grey:  #64748b;
-    --grey2: #94a3b8;
-    --border:#e2eaf5;
-    --text:  #0f1f35;
-    --s1: 0 2px 16px rgba(8,17,31,.07);
-    --s2: 0 8px 36px rgba(8,17,31,.13);
+    --navy:        #07101e;
+    --navy2:       #0c1a30;
+    --navy3:       #102344;
+    --red:         #cc2700;
+    --red2:        #a81e00;
+    --red-glow:    rgba(204,39,0,.25);
+    --orange:      #ff5722;
+    --white:       #ffffff;
+    --off:         #f8fafd;
+    --off2:        #f1f5f9;
+    --grey:        #506176;
+    --grey2:       #8595a8;
+    --border:      #e2eaf2;
+    --border-sub:  #edf2f8;
+    --text:        #09182d;
+    --s1: 0 2px 10px rgba(7,16,30,.04);
+    --s2: 0 8px 24px rgba(7,16,30,.08);
+    --s3: 0 16px 44px rgba(7,16,30,.12);
+    --ease: cubic-bezier(.16,1,.3,1);
   }
+
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  html  { scroll-behavior: smooth; }
-  body  { font-family: 'Barlow', sans-serif; color: var(--text); background: #fff; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-  a     { text-decoration: none; color: inherit; }
-  img   { display: block; max-width: 100%; object-fit: cover; }
-  ul    { list-style: none; }
-  .W    { max-width: 1300px; margin: 0 auto; padding: 0 52px; }
-
-  .rv  { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
-  .rl  { opacity: 0; transform: translateX(-32px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
-  .rr  { opacity: 0; transform: translateX(32px);  transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
-  .rv.in,.rl.in,.rr.in { opacity: 1; transform: none; }
-  .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.40s}
-
-  /* -------------------------------- HERO -------------------------------- */
-  .hero {
-    position: relative; min-height: 82vh; display: flex; align-items: center;
-    background: var(--navy); overflow: hidden;
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Barlow', sans-serif;
+    color: var(--text);
+    background: #fff;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
   }
-  .hero-bg {
+  a { text-decoration: none; color: inherit; }
+  button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+  img { display: block; max-width: 100%; object-fit: cover; }
+  ul { list-style: none; }
+
+  /* Containers & High-Density Layout */
+  .W { max-width: 1260px; margin: 0 auto; padding: 0 32px; }
+  @media(max-width:900px){ .W { padding: 0 20px; } }
+  @media(max-width:480px){ .W { padding: 0 16px; } }
+
+  /* Reveal System */
+  .rv, .rl, .rr {
+    opacity: 0;
+    transition: opacity .65s var(--ease), transform .65s var(--ease);
+    will-change: opacity, transform;
+  }
+  .rv { transform: translateY(20px); }
+  .rl { transform: translateX(-24px); }
+  .rr { transform: translateX(24px); }
+  .rv.in, .rl.in, .rr.in { opacity: 1; transform: none; }
+  .d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}.d4{transition-delay:.24s}
+
+  /* Typography & Badges */
+  .sec { padding: 40px 0; position: relative; }
+  .sec-alt { background: var(--off); border-top: 1px solid var(--border-sub); border-bottom: 1px solid var(--border-sub); }
+  .sec-dark { background: var(--navy); color: #fff; }
+
+  .sec-lbl {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: .16em;
+    margin-bottom: 6px;
+  }
+  .sec-lbl::before { content: ''; width: 22px; height: 2.5px; background: var(--red); border-radius: 2px; }
+
+  h2.sec-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(28px, 3.4vw, 44px);
+    font-weight: 900;
+    color: var(--navy);
+    letter-spacing: -.01em;
+    text-transform: uppercase;
+    line-height: 1.05;
+    margin-bottom: 6px;
+  }
+  h2.sec-title em { font-style: normal; color: var(--red); }
+  h2.sec-title.inv { color: #fff; }
+
+  .sec-body { font-size: 14px; line-height: 1.65; color: var(--grey); font-weight: 300; }
+  .sec-header { text-align: center; max-width: 640px; margin: 0 auto 24px; }
+
+  /* Buttons */
+  .btn-red {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--red); color: #fff;
+    padding: 12px 28px; border-radius: 4px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em;
+    transition: all .25s var(--ease); box-shadow: 0 4px 18px var(--red-glow);
+  }
+  .btn-red:hover { background: var(--red2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(204,39,0,.4); }
+  .btn-red .arr { transition: transform .2s; }
+  .btn-red:hover .arr { transform: translateX(3px); }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1.5px solid rgba(255,255,255,.28); color: rgba(255,255,255,.85);
+    padding: 11px 24px; border-radius: 4px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+    backdrop-filter: blur(8px); background: rgba(255,255,255,.05); transition: all .25s;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,.6); color: #fff; background: rgba(255,255,255,.1); transform: translateY(-2px); }
+
+  /* === HERO SECTION (CENTERED & CRAFTED) === */
+  .hero-works {
+    position: relative;
+    padding: 58px 0 48px;
+    background: var(--navy);
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    text-align: center;
+  }
+  .hero-works-bg {
     position: absolute; inset: 0;
-    background: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1920&q=80') center/cover no-repeat;
-    opacity: .14;
+    background: url('images/gallery/testing.png') center center / cover no-repeat;
+    filter: brightness(0.24) saturate(0.8);
+    transform: scale(1.04);
   }
-  .hero-grad { position: absolute; inset: 0; background: linear-gradient(110deg, var(--navy) 45%, rgba(8,17,31,.5) 100%); }
-  .hero-ring {
-    position: absolute; right: -80px; top: 50%; transform: translateY(-50%);
-    width: 560px; height: 560px; border-radius: 50%;
-    border: 1px solid rgba(204,39,0,.1); pointer-events: none;
+  .hero-works-ov {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 40%, rgba(7,16,30,.7) 0%, rgba(7,16,30,.96) 80%);
+    z-index: 1;
   }
-  .hero-inner { position: relative; z-index: 2; width: 100%; padding: 100px 0 70px; }
+  .hero-works-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(204,39,0,.04) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(204,39,0,.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    max-width: 840px; margin: 0 auto;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+  }
 
   .breadcrumb {
-    display: flex; align-items: center; gap: 8px;
-    font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700;
-    color: rgba(255,255,255,.28); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 28px;
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11.5px; font-weight: 700;
+    color: rgba(255,255,255,.45); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 12px;
   }
+  .breadcrumb a { color: rgba(255,255,255,.6); transition: color .2s; }
   .breadcrumb a:hover { color: var(--red); }
-  .breadcrumb .sep { color: rgba(255,255,255,.12); }
+  .breadcrumb .sep { color: rgba(255,255,255,.2); font-size: 10px; }
   .breadcrumb .cur { color: var(--red); }
 
-  .hero-tag {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(204,39,0,.13); border: 1px solid rgba(204,39,0,.28);
-    color: var(--red); font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-    padding: 5px 14px; border-radius: 2px; margin-bottom: 22px;
+  .hero-badge {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: rgba(204,39,0,.14); border: 1px solid rgba(204,39,0,.35);
+    color: #ff7a47; font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+    padding: 4px 14px; border-radius: 100px; margin-bottom: 12px;
   }
-  .hero h1 {
+  .hero-h1 {
     font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(48px, 6.5vw, 90px); font-weight: 900;
-    color: #fff; text-transform: uppercase; line-height: .92; letter-spacing: -.025em; margin-bottom: 24px;
+    font-size: clamp(34px, 4.6vw, 56px); font-weight: 900;
+    color: #fff; text-transform: uppercase; line-height: 1.02; letter-spacing: -.015em; margin-bottom: 12px;
   }
-  .hero h1 em { font-style: normal; color: var(--red); }
-  .hero-sub { font-size: clamp(15px, 1.4vw, 18px); color: rgba(255,255,255,.52); max-width: 600px; line-height: 1.72; margin-bottom: 44px; font-weight: 300; }
-  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
-
-  .btn-red { display: inline-flex; align-items: center; gap: 10px; background: var(--red); color: #fff; padding: 16px 36px; border-radius: 4px; font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; transition: all .25s; box-shadow: 0 6px 28px rgba(204,39,0,.35); }
-  .btn-red:hover { background: var(--red2); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(204,39,0,.45); }
-  .btn-ghost { display: inline-flex; align-items: center; gap: 10px; border: 1.5px solid rgba(255,255,255,.22); color: rgba(255,255,255,.72); padding: 14px 32px; border-radius: 4px; font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; backdrop-filter: blur(8px); transition: all .25s; }
-  .btn-ghost:hover { border-color: rgba(255,255,255,.5); color: #fff; }
-
-  /* -------------------------------- SHARED -------------------------------- */
-  .sec     { padding: 80px 0; }
-  .sec-alt { background: var(--off); }
-  .sec-dark{ background: var(--navy); }
-
-  .sec-lbl { display: inline-flex; align-items: center; gap: 10px; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: .18em; margin-bottom: 14px; }
-  .sec-lbl::before { content: ''; width: 28px; height: 2px; background: var(--red); border-radius: 1px; }
-
-  h2.sec-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(32px, 3.8vw, 52px); font-weight: 900; color: var(--navy); letter-spacing: -.01em; text-transform: uppercase; line-height: 1.05; margin-bottom: 16px; }
-  h2.sec-title em  { font-style: normal; color: var(--red); }
-  h2.sec-title.inv { color: #fff; }
-  .sec-body { font-size: 15.5px; line-height: 1.78; color: var(--grey); font-weight: 300; }
-  .sec-header { text-align: center; max-width: 640px; margin: 0 auto 52px; }
-
-  /* -------------------------------- INTRO SPLIT -------------------------------- */
-  .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .intro-img { border-radius: 16px; overflow: hidden; position: relative; height: 460px; }
-  .intro-img img { width: 100%; height: 100%; }
-  .intro-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(204,39,0,.1) 0%, transparent 55%); pointer-events: none; }
-  .intro-badge { position: absolute; bottom: 24px; left: 24px; z-index: 2; background: rgba(8,17,31,.92); border: 1px solid rgba(204,39,0,.3); color: #fff; padding: 14px 20px; border-radius: 8px; }
-  .intro-badge .big  { font-family: 'Barlow Condensed', sans-serif; font-size: 30px; font-weight: 900; color: var(--red); line-height: 1; }
-  .intro-badge .smol { font-size: 11px; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .1em; margin-top: 4px; }
-  .intro-lead { font-size: 16px; line-height: 1.78; color: var(--grey); font-weight: 300; margin-bottom: 24px; }
-  .intro-lead strong { color: var(--navy); font-weight: 600; }
-
-  /* -------------------------------- SERVICE AREAS -------------------------------- */
-  .svc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  .svc-card {
-    display: flex; gap: 20px; align-items: flex-start; padding: 28px;
-    background: #fff; border: 1px solid var(--border); border-radius: 12px; transition: all .3s;
+  .hero-h1 em {
+    font-style: normal; color: #ff5722;
+    background: linear-gradient(180deg, #ff7a47 0%, #cc2700 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   }
-  .svc-card:hover { box-shadow: var(--s2); transform: translateY(-4px); border-color: rgba(204,39,0,.2); }
-  .svc-ico {
-    width: 52px; height: 52px; background: rgba(204,39,0,.07); border-radius: 10px;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background .3s;
+  .hero-sub {
+    font-size: 14.5px; color: rgba(255,255,255,.8); line-height: 1.65;
+    max-width: 680px; font-weight: 300; margin: 0 auto 22px;
   }
-  .svc-card:hover .svc-ico { background: var(--red); }
-  .svc-ico svg { width: 24px; height: 24px; stroke: var(--red); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: stroke .3s; }
-  .svc-card:hover .svc-ico svg { stroke: #fff; }
-  .svc-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; color: var(--navy); text-transform: uppercase; margin-bottom: 8px; }
-  .svc-card p  { font-size: 13.5px; color: var(--grey); line-height: 1.65; }
-  .svc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
-  .svc-tag { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; color: var(--grey); text-transform: uppercase; letter-spacing: .1em; background: var(--off); padding: 3px 9px; border-radius: 2px; border: 1px solid var(--border); }
+  .hero-actions {
+    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 22px;
+  }
 
-  /* -------------------------------- STATUTORY APPROVAL BAND -------------------------------- */
-  .approvals-band {
-    background: var(--navy); padding: 60px 0;
+  .hero-certs-ribbon {
+    display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
+    padding-top: 16px; border-top: 1px solid rgba(255,255,255,.1); width: 100%;
   }
-  .approvals-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-  .approvals-list { display: flex; flex-direction: column; gap: 16px; }
-  .approval-item { display: flex; align-items: center; gap: 14px; }
-  .approval-tick {
-    width: 32px; height: 32px; background: rgba(204,39,0,.15); border: 1px solid rgba(204,39,0,.3);
-    border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  .hcert-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12);
+    padding: 4px 12px; border-radius: 4px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11.5px; font-weight: 700;
+    color: rgba(255,255,255,.8); text-transform: uppercase; letter-spacing: .06em;
   }
-  .approval-tick svg { width: 14px; height: 14px; stroke: var(--red); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-  .approval-item p { font-size: 14px; color: rgba(255,255,255,.65); line-height: 1.5; }
-  .approvals-text .sec-lbl { color: var(--red); }
+  .hcert-chip span { color: var(--red); font-weight: 900; }
 
-  /* -------------------------------- PROJECT EXECUTION (7 steps) -------------------------------- */
-  .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  /* === INTRO SPLIT === */
+  .intro-grid {
+    display: grid; grid-template-columns: 1fr 1.15fr; gap: 36px; align-items: center;
+  }
+  .intro-media {
+    position: relative; border-radius: 12px; overflow: hidden; height: 360px;
+    box-shadow: var(--s2); border: 1px solid var(--border);
+  }
+  .intro-media img { width: 100%; height: 100%; }
+  .intro-floating-badge {
+    position: absolute; bottom: 16px; left: 16px; z-index: 2;
+    background: rgba(7,16,30,.92); border: 1px solid rgba(204,39,0,.35);
+    padding: 10px 16px; border-radius: 8px; backdrop-filter: blur(8px);
+  }
+  .intro-floating-badge .val {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 900;
+    color: var(--red); line-height: 1;
+  }
+  .intro-floating-badge .lbl {
+    font-size: 10.5px; color: rgba(255,255,255,.75); text-transform: uppercase;
+    letter-spacing: .08em; margin-top: 2px;
+  }
+  .intro-content p { font-size: 14px; line-height: 1.68; color: var(--grey); font-weight: 300; margin-bottom: 12px; }
+  .intro-content p strong { color: var(--navy); font-weight: 600; }
+
+  .intro-cap-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .icap {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700;
+    color: var(--navy); background: var(--off2); border: 1px solid var(--border);
+    padding: 3px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: .04em;
+  }
+
+  /* === 6-SERVICE CARDS (HIGH-DENSITY CRAFTED GRID) === */
+  .svc-grid-6 {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+  }
+  .scard {
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 18px 16px; position: relative; overflow: hidden;
+    transition: all .28s var(--ease); box-shadow: var(--s1);
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .scard:hover {
+    transform: translateY(-3px); box-shadow: var(--s2);
+    border-color: rgba(204,39,0,.4);
+  }
+  .scard-top { margin-bottom: 10px; }
+  .scard-tag-row {
+    display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
+  }
+  .scard-tag {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 9.5px; font-weight: 800;
+    color: var(--red); text-transform: uppercase; letter-spacing: .12em;
+    background: rgba(204,39,0,.08); padding: 2px 8px; border-radius: 2px;
+  }
+  .scard-badge-scope {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 9.5px; font-weight: 700;
+    color: var(--grey); background: var(--off2); padding: 2px 6px; border-radius: 2px;
+  }
+  .scard h3 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800;
+    color: var(--navy); text-transform: uppercase; line-height: 1.15; margin-bottom: 6px;
+  }
+  .scard p {
+    font-size: 12px; color: var(--grey); line-height: 1.5; font-weight: 300;
+  }
+  .scard-chips {
+    display: flex; flex-wrap: wrap; gap: 4px; margin-top: 12px; padding-top: 10px;
+    border-top: 1px solid var(--border-sub);
+  }
+  .schip {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 600;
+    color: var(--navy); background: var(--off2); border: 1px solid var(--border);
+    padding: 2px 6px; border-radius: 2px; text-transform: uppercase;
+  }
+
+  /* === STATUTORY APPROVALS BAND === */
+  .approvals-sec { background: var(--navy); padding: 38px 0; }
+  .approvals-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: 36px; align-items: center; }
+  .appr-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .appr-item {
+    background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08);
+    border-radius: 8px; padding: 12px 14px; display: flex; align-items: flex-start; gap: 10px;
+    transition: all .25s;
+  }
+  .appr-item:hover { background: rgba(255,255,255,.06); border-color: rgba(204,39,0,.35); transform: translateY(-2px); }
+  .appr-tick {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: rgba(204,39,0,.15); border: 1px solid rgba(204,39,0,.3);
+    color: #ff5722; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .appr-tick svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+  .appr-text { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; color: #fff; text-transform: uppercase; line-height: 1.2; }
+  .appr-sub { font-size: 10.5px; color: rgba(255,255,255,.55); font-weight: 300; margin-top: 2px; }
+
+  /* === 7-STEP EXECUTION PIPELINE === */
+  .steps-grid-7 {
+    display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px;
+  }
   .step-card {
-    background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 28px 22px;
-    position: relative; overflow: hidden; transition: all .3s;
+    background: #fff; border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px 10px; position: relative; transition: all .25s; box-shadow: var(--s1);
   }
-  .step-card:hover { box-shadow: var(--s2); transform: translateY(-4px); }
-  .step-card::before {
-    content: attr(data-n); position: absolute; right: 12px; top: 12px;
-    font-family: 'Barlow Condensed', sans-serif; font-size: 52px; font-weight: 900;
-    color: rgba(8,17,31,.04); line-height: 1; pointer-events: none;
+  .step-card:hover {
+    border-color: var(--red); transform: translateY(-3px); box-shadow: var(--s2);
   }
-  .step-card h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800; color: var(--navy); text-transform: uppercase; margin-bottom: 10px; }
-  .step-card p  { font-size: 13px; color: var(--grey); line-height: 1.6; }
-  .step-badge { display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 800; color: var(--red); text-transform: uppercase; letter-spacing: .15em; background: rgba(204,39,0,.07); padding: 3px 10px; border-radius: 2px; margin-bottom: 14px; }
+  .step-num {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 900;
+    color: var(--red); line-height: 1; margin-bottom: 4px;
+  }
+  .step-card h4 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 800;
+    color: var(--navy); text-transform: uppercase; line-height: 1.2; margin-bottom: 3px;
+  }
+  .step-card p {
+    font-size: 10px; color: var(--grey); line-height: 1.45; font-weight: 300;
+  }
 
-  /* -------------------------------- AMC HIGHLIGHT -------------------------------- */
-  .amc-band {
-    background: linear-gradient(135deg, var(--navy2), var(--navy3));
-    border-radius: 20px; padding: 48px; margin: 0;
-    display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center;
+  /* === AMC HIGHLIGHT BAND === */
+  .amc-card-band {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+    border: 1px solid rgba(255,255,255,.08); border-radius: 12px;
+    padding: 28px 32px; display: grid; grid-template-columns: 1fr auto;
+    gap: 32px; align-items: center; box-shadow: var(--s3); color: #fff;
   }
-  .amc-band h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 32px; font-weight: 900; color: #fff; text-transform: uppercase; margin-bottom: 12px; line-height: 1.1; }
-  .amc-band h3 em { font-style: normal; color: var(--red); }
-  .amc-band p  { font-size: 15px; color: rgba(255,255,255,.55); line-height: 1.72; max-width: 640px; }
-  .amc-features { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-  .amc-pill { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; color: rgba(255,255,255,.7); text-transform: uppercase; letter-spacing: .08em; border: 1px solid rgba(255,255,255,.12); padding: 6px 14px; border-radius: 20px; }
-  .amc-cta { flex-shrink: 0; }
+  .amc-card-band h3 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 900;
+    color: #fff; text-transform: uppercase; line-height: 1.1; margin-bottom: 8px;
+  }
+  .amc-card-band h3 em { font-style: normal; color: var(--red); }
+  .amc-card-band p {
+    font-size: 13px; color: rgba(255,255,255,.7); line-height: 1.6; max-width: 680px; font-weight: 300;
+  }
+  .amc-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .apill {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 10.5px; font-weight: 700;
+    color: rgba(255,255,255,.85); background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.12); padding: 3px 9px; border-radius: 3px;
+    text-transform: uppercase; letter-spacing: .04em;
+  }
 
-  /* -------------------------------- CLIENTS -------------------------------- */
-  .clients-marquee { overflow: hidden; position: relative; padding: 8px 0; }
-  .clients-marquee::before,.clients-marquee::after { content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none; }
-  .clients-marquee::before { left: 0;  background: linear-gradient(90deg, var(--off), transparent); }
+  /* === VERIFIED ENTERPRISE CLIENTS MARQUEE === */
+  .clients-marquee { overflow: hidden; position: relative; padding: 6px 0; }
+  .clients-marquee::before, .clients-marquee::after {
+    content: ''; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2; pointer-events: none;
+  }
+  .clients-marquee::before { left: 0; background: linear-gradient(90deg, var(--off), transparent); }
   .clients-marquee::after  { right: 0; background: linear-gradient(270deg, var(--off), transparent); }
-  .clients-track { display: flex; gap: 16px; width: max-content; animation: marquee 30s linear infinite; }
+  .clients-track { display: flex; gap: 10px; width: max-content; animation: marquee 28s linear infinite; }
   @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
   .clients-marquee:hover .clients-track { animation-play-state: paused; }
-  .cli-pill { flex-shrink: 0; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 14px 24px; font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; transition: border-color .25s, color .25s; }
-  .cli-pill:hover { border-color: var(--red); color: var(--red); }
-
-  /* -------------------------------- CTA BAND -------------------------------- */
-  .cta-band { background: linear-gradient(135deg, var(--red) 0%, var(--red3) 100%); padding: 64px 0; position: relative; overflow: hidden; }
-  .cta-band::before { content: ''; position: absolute; top: -80px; right: -80px; width: 380px; height: 380px; border-radius: 50%; background: rgba(255,255,255,.04); pointer-events: none; }
-  .cta-inner { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 60px; }
-  .cta-inner h2 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(28px, 4vw, 50px); font-weight: 900; color: #fff; text-transform: uppercase; line-height: 1.05; margin-bottom: 12px; }
-  .cta-inner h2 em { font-style: normal; color: rgba(255,255,255,.6); }
-  .cta-inner p { font-size: 16px; color: rgba(255,255,255,.7); max-width: 560px; line-height: 1.68; }
-  .btn-white { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: var(--red); padding: 17px 40px; border-radius: 4px; font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; white-space: nowrap; flex-shrink: 0; transition: all .25s; box-shadow: 0 8px 28px rgba(0,0,0,.2); }
-  .btn-white:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,.3); }
-
-  #btt { position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px; background: var(--red); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .3s, transform .3s; box-shadow: 0 4px 16px rgba(204,39,0,.4); z-index: 999; }
-  #btt.on { opacity: 1; pointer-events: auto; }
-  #btt:hover { transform: translateY(-3px); }
-
-  /* -------------------------------- RESPONSIVE -------------------------------- */
-  @media (max-width: 1100px) {
-    .svc-grid { grid-template-columns: 1fr; }
-    .steps-grid { grid-template-columns: repeat(2, 1fr); }
-    .intro-grid { grid-template-columns: 1fr; gap: 40px; }
-    .intro-img  { height: 300px; }
-    .approvals-inner { grid-template-columns: 1fr; gap: 40px; }
-    .amc-band { grid-template-columns: 1fr; }
+  .cli-pill {
+    flex-shrink: 0; background: #fff; border: 1px solid var(--border); border-radius: 6px;
+    padding: 8px 16px; font-family: 'Barlow Condensed', sans-serif; font-size: 12.5px;
+    font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: .04em;
+    transition: all .2s; box-shadow: var(--s1);
   }
-  @media (max-width: 900px) {
-    .W { padding: 0 28px; }
-    .cta-inner { flex-direction: column; text-align: center; }
-    .cta-inner p { margin: 0 auto; }
+  .cli-pill:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px); }
+
+  /* === CTA SECTION === */
+  .cta-band {
+    position: relative; overflow: hidden; padding: 56px 0 52px;
+    background: var(--navy); color: #fff; text-align: center;
+    border-top: 1px solid rgba(255,255,255,.08);
   }
-  @media (max-width: 640px) {
-    .sec { padding: 52px 0; }
-    .steps-grid { grid-template-columns: 1fr; }
-    .hero-btns  { flex-direction: column; }
-    .amc-band   { padding: 32px 24px; }
+  .cta-band-bg {
+    position: absolute; inset: 0;
+    background: url('images/gallery/cta_bg.jpg') center 40% / cover no-repeat;
+    filter: brightness(0.35);
   }
-  @media (max-width: 420px) { .W { padding: 0 20px; } }
+  .cta-band-ov {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(7,16,30,.7) 0%, rgba(7,16,30,.94) 100%);
+  }
+  .cta-inner { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
+  .cta-inner h2 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: clamp(30px, 4vw, 48px);
+    font-weight: 900; color: #fff; text-transform: uppercase; line-height: 1; margin-bottom: 10px;
+  }
+  .cta-inner h2 em { font-style: normal; color: var(--red); }
+  .cta-inner p { font-size: 14.5px; color: rgba(255,255,255,.8); font-weight: 300; margin-bottom: 22px; }
+  .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  #btt {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+    width: 42px; height: 42px; border-radius: 6px;
+    background: var(--red); color: #fff; display: none; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 900; box-shadow: 0 4px 18px rgba(204,39,0,.4);
+    cursor: pointer; transition: all .22s; font-family: 'Barlow Condensed', sans-serif;
+  }
+  #btt.on { display: flex; }
+  #btt:hover { background: var(--red2); transform: translateY(-2px); }
+
+  /* Responsive Breakpoints */
+  @media(max-width: 1024px) {
+    .svc-grid-6 { grid-template-columns: repeat(2, 1fr); }
+    .steps-grid-7 { grid-template-columns: repeat(4, 1fr); }
+    .intro-grid { grid-template-columns: 1fr; gap: 24px; }
+    .approvals-grid { grid-template-columns: 1fr; gap: 24px; }
+    .amc-card-band { grid-template-columns: 1fr; gap: 20px; }
+  }
+  @media(max-width: 640px) {
+    .sec { padding: 32px 0; }
+    .svc-grid-6 { grid-template-columns: 1fr; }
+    .steps-grid-7 { grid-template-columns: repeat(2, 1fr); }
+    .appr-list { grid-template-columns: 1fr; }
+    .hero-h1 { font-size: 34px; }
+  }
 </style>
 </head>
 <body>
 
 <div id="site-header"></div>
 
-<!-- -------------------------------- HERO -------------------------------- -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grad"></div>
-  <div class="hero-ring"></div>
-
+<!-- ==================== HERO SECTION (CENTERED & CRAFTED) ==================== -->
+<section class="hero-works">
+  <div class="hero-works-bg"></div>
+  <div class="hero-works-ov"></div>
+  <div class="hero-works-grid"></div>
   <div class="W hero-inner">
     <div class="breadcrumb rv">
       <a href="index.html">Home</a>
       <span class="sep">/</span>
-      <a href="services.html">Services</a>
+      <a href="index.html#divisions">Divisions</a>
       <span class="sep">/</span>
-      <span class="cur">Works Contract & Services</span>
+      <span class="cur">Vertical 02 — Works Contract</span>
     </div>
 
-    <div class="hero-tag rv d1">⚡ Service 02 of 03</div>
+    <div class="hero-badge rv d1">⚡ Govt. Licensed Class I Electrical Contractors &amp; Engineers</div>
 
-    <h1 class="rv d1">
-      Works Contract<br>
-      &amp; <em>Services</em>
+    <h1 class="hero-h1 rv d1">
+      Turnkey Electrical &amp;<br>
+      <em>Infrastructure Execution</em>
     </h1>
 
     <p class="hero-sub rv d2">
-      Turnkey electrical projects, HVAC, civil, fire safety and facility maintenance —
-      executed from site survey to handover by our Class I licensed engineers and
-      experienced on-site workforce across Karnataka.
+      Complete HT/LT installations, 11kV/33kV substations, power transformers, HVAC, structured networking, statutory CEIG government approvals, and 24/7 AMC across Karnataka.
     </p>
 
-    <div class="hero-btns rv d3">
-      <a href="contactus.html" class="btn-red">Get a Quote &rarr;</a>
-      <a href="#services" class="btn-ghost">Our Services</a>
+    <div class="hero-actions rv d3">
+      <a href="contactus.html" class="btn-red">Request Site Survey &amp; Quote <span class="arr">&rarr;</span></a>
+      <a href="#services" class="btn-ghost">Explore Turnkey Scope</a>
+    </div>
+
+    <div class="hero-certs-ribbon rv d4">
+      <div class="hcert-chip"><span>✓</span> Govt. Class I Licensed</div>
+      <div class="hcert-chip"><span>✓</span> CEIG Approval Specialists</div>
+      <div class="hcert-chip"><span>✓</span> 11kV / 33kV Substation Ready</div>
+      <div class="hcert-chip"><span>✓</span> ISO 9001:2015 Certified</div>
     </div>
   </div>
 </section>
 
 
-<!-- -------------------------------- INTRO -------------------------------- -->
+<!-- ==================== INTRO & CORE ACCOUNTABILITY ==================== -->
 <section class="sec" id="about-service">
   <div class="W">
     <div class="intro-grid">
 
-      <div class="rr" style="order:2">
-        <div class="sec-lbl">What We Do</div>
-        <h2 class="sec-title">From Site Survey to<br><em>Keys in Hand</em></h2>
-
-        <p class="intro-lead">
-          Our Works Contract service is where design becomes reality. KES takes full responsibility for
-          <strong>planning, procurement, installation, testing, commissioning,</strong> and statutory approvals —
-          providing clients a genuine turnkey experience with a single point of accountability.
-        </p>
-        <p class="intro-lead">
-          We handle electrical HT/LT installations, HVAC, structured cabling, fire safety, plumbing, civil works,
-          interior furnishing and ongoing facility maintenance. Whether it's a data centre fit-out for a Fortune 500
-          company or a residential apartment block, <strong>our 25+ skilled permanent staff</strong> and network of
-          experienced subcontractors get it done — on time, to code.
-        </p>
-        <p class="intro-lead">
-          All work is executed as a <strong>Govt. Licensed Class I Electrical Contractor</strong> under the Chief
-          Electrical Inspectorate, Government of Karnataka.
-        </p>
+      <div class="intro-media rl">
+        <img src="images/gallery/testing.png" alt="KES Works Contract On-Site Execution">
+        <div class="intro-floating-badge">
+          <div class="val">Class I</div>
+          <div class="lbl">Govt. Licensed Electrical Contractor</div>
+        </div>
       </div>
 
-      <div class="intro-img rl" style="order:1">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=85" alt="KES Works Contract Execution">
-        <div class="intro-badge">
-          <div class="big">Class I</div>
-          <div class="smol">Licensed Contractor</div>
+      <div class="intro-content rr">
+        <div class="sec-lbl">Single-Point Accountability</div>
+        <h2 class="sec-title">From Site Survey to<br><em>Power Commissioning</em></h2>
+
+        <p>
+          Kumara Engineering Solutions takes end-to-end responsibility for <strong>planning, estimation, OEM procurement, installation, testing, commissioning,</strong> and statutory government clearances &mdash; delivering a seamless turnkey experience with zero vendor gaps.
+        </p>
+        <p>
+          We execute complex electrical installations for factories, commercial complexes, software facilities, data centers, hospitals, and high-rise apartments. Our dedicated onsite team of Project Managers, Site Engineers, Safety Officers, and Testing Engineers ensures 100% adherence to delivery schedules and safety codes.
+        </p>
+
+        <div class="intro-cap-chips">
+          <span class="icap">11kV/33kV Substations</span>
+          <span class="icap">CEIG Statutory Clearances</span>
+          <span class="icap">HT/LT Power Cabling</span>
+          <span class="icap">HVAC &amp; BMS Integration</span>
+          <span class="icap">24/7 Breakdown AMC</span>
         </div>
       </div>
 
@@ -301,112 +497,126 @@
 </section>
 
 
-<!-- -------------------------------- SERVICE AREAS -------------------------------- -->
+<!-- ==================== 6 TURNKEY SERVICE VERTICALS ==================== -->
 <section class="sec sec-alt" id="services">
   <div class="W">
-    <div class="sec-header">
-      <div class="sec-lbl rv" style="justify-content:center">Scope of Work</div>
-      <h2 class="sec-title rv">Everything We <em>Execute</em></h2>
-      <p class="sec-body rv">A complete works contract capability — one vendor, zero gaps.</p>
+    <div class="sec-header rv">
+      <div class="sec-lbl" style="justify-content:center">Comprehensive Scope</div>
+      <h2 class="sec-title">Turnkey Services We <em>Execute</em></h2>
+      <p class="sec-body">Integrated multi-disciplinary execution — from primary electrical distribution to allied MEPF utilities.</p>
     </div>
 
-    <div class="svc-grid">
+    <div class="svc-grid-6">
 
-      <div class="svc-card rv d1">
-        <div class="svc-ico">
-          <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        </div>
-        <div>
-          <h3>Electrical Projects (HT & LT)</h3>
-          <p>Full supply, installation, testing and commissioning of 11kV HT panels, transformers, DG sets, LT distribution boards, UPS, sub-main and circuit wiring, lighting, earthing and lightning protection — across all project types.</p>
-          <div class="svc-tags">
-            <span class="svc-tag">HT Installation</span>
-            <span class="svc-tag">LT Panels</span>
-            <span class="svc-tag">DG Sets</span>
-            <span class="svc-tag">UPS Systems</span>
-            <span class="svc-tag">Solar Power</span>
-            <span class="svc-tag">EV Charging</span>
+      <!-- 01 -->
+      <div class="scard rv d1">
+        <div class="scard-top">
+          <div class="scard-tag-row">
+            <span class="scard-tag">Electrical Projects</span>
+            <span class="scard-badge-scope">HT &amp; LT</span>
           </div>
+          <h3>HT / LT Power Installations</h3>
+          <p>Supply, erection, testing and commissioning of 11kV/33kV HT panels, oil/dry transformers, DG sets, LT switchboards, UPS banks, cable trays, and earthing protection.</p>
+        </div>
+        <div class="scard-chips">
+          <span class="schip">11kV/33kV Panels</span>
+          <span class="schip">Transformers</span>
+          <span class="schip">DG Sets</span>
+          <span class="schip">LT Switchgear</span>
+          <span class="schip">Earthing Grid</span>
         </div>
       </div>
 
-      <div class="svc-card rv d2">
-        <div class="svc-ico">
-          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
-        </div>
-        <div>
-          <h3>Structured Network Cabling</h3>
-          <p>End-to-end physical IT infrastructure installation — fiber optic and copper cable laying, termination, rack dressing, and server room build-out for data centres, IT parks, and commercial offices.</p>
-          <div class="svc-tags">
-            <span class="svc-tag">Fiber Optic</span>
-            <span class="svc-tag">Cat6/6A</span>
-            <span class="svc-tag">Server Rooms</span>
-            <span class="svc-tag">Patch Panels</span>
+      <!-- 02 -->
+      <div class="scard rv d2">
+        <div class="scard-top">
+          <div class="scard-tag-row">
+            <span class="scard-tag">Statutory Clearances</span>
+            <span class="scard-badge-scope">Govt. Liaisoning</span>
           </div>
+          <h3>Statutory &amp; CEIG Approvals</h3>
+          <p>Complete liaisoning and approval handling for Chief Electrical Inspectorate (CEIG), utility power sanction (BESCOM/KPTCL), safety certificates, and government clearances.</p>
+        </div>
+        <div class="scard-chips">
+          <span class="schip">CEIG Sanction</span>
+          <span class="schip">Safety NOC</span>
+          <span class="schip">Drawing Approval</span>
+          <span class="schip">Service Clearance</span>
         </div>
       </div>
 
-      <div class="svc-card rv d3">
-        <div class="svc-ico">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <div>
-          <h3>Fire Safety & Security Systems</h3>
-          <p>Full active and passive fire protection installation — fire alarm panels, sprinklers, hydrants, gas suppression, CCTV, access control, public address systems, and intrusion alarms — all tested and commissioned.</p>
-          <div class="svc-tags">
-            <span class="svc-tag">Fire Alarms</span>
-            <span class="svc-tag">Sprinklers</span>
-            <span class="svc-tag">CCTV</span>
-            <span class="svc-tag">Access Control</span>
+      <!-- 03 -->
+      <div class="scard rv d3">
+        <div class="scard-top">
+          <div class="scard-tag-row">
+            <span class="scard-tag">Mechanical HVAC</span>
+            <span class="scard-badge-scope">Climate Systems</span>
           </div>
+          <h3>HVAC &amp; Ventilation Systems</h3>
+          <p>Turnkey mechanical HVAC installations including Air Handling Units (AHU), chillers, VRV/VRF multi-splits, GI ducting, diffusers, and BMS automation control.</p>
+        </div>
+        <div class="scard-chips">
+          <span class="schip">VRV / VRF</span>
+          <span class="schip">AHU Units</span>
+          <span class="schip">GI Ducting</span>
+          <span class="schip">CSU / Cassettes</span>
+          <span class="schip">Chillers</span>
         </div>
       </div>
 
-      <div class="svc-card rv d4">
-        <div class="svc-ico">
-          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 0v20M2 12h20"/></svg>
-        </div>
-        <div>
-          <h3>HVAC Installation</h3>
-          <p>Mechanical installation of complete HVAC systems — chillers, AHUs, outdoor units, VRF/VRV systems, GI ducting, refrigerant piping — and final balancing to ensure uniform temperature across every zone.</p>
-          <div class="svc-tags">
-            <span class="svc-tag">Chillers</span>
-            <span class="svc-tag">AHU & Ducting</span>
-            <span class="svc-tag">VRF/VRV</span>
-            <span class="svc-tag">Split Units</span>
+      <!-- 04 -->
+      <div class="scard rv d1">
+        <div class="scard-top">
+          <div class="scard-tag-row">
+            <span class="scard-tag">Life Safety</span>
+            <span class="scard-badge-scope">Active &amp; Passive</span>
           </div>
+          <h3>Fire Safety &amp; Security Systems</h3>
+          <p>Addressable fire alarm systems, public address (PA), rodent repellent, CCTV surveillance, access control, visitor management, and hydrant/sprinkler protection.</p>
+        </div>
+        <div class="scard-chips">
+          <span class="schip">Fire Alarm</span>
+          <span class="schip">CCTV &amp; Access</span>
+          <span class="schip">PA System</span>
+          <span class="schip">Rodent System</span>
+          <span class="schip">Hydrants</span>
         </div>
       </div>
 
-      <div class="svc-card rv d1">
-        <div class="svc-ico">
-          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <div>
-          <h3>Plumbing / PHE Works</h3>
-          <p>Water supply and drainage installation — sanitary fixtures, hydro-pneumatic pumping systems, sewage treatment, stormwater management and RO/water treatment plants for commercial and industrial sites.</p>
-          <div class="svc-tags">
-            <span class="svc-tag">Sanitary Works</span>
-            <span class="svc-tag">Pump Systems</span>
-            <span class="svc-tag">Water Treatment</span>
-            <span class="svc-tag">Drainage</span>
+      <!-- 05 -->
+      <div class="scard rv d2">
+        <div class="scard-top">
+          <div class="scard-tag-row">
+            <span class="scard-tag">IT Infrastructure</span>
+            <span class="scard-badge-scope">Data &amp; Telecom</span>
           </div>
+          <h3>Structured Cabling &amp; Networking</h3>
+          <p>Enterprise data infrastructure deployment &mdash; Cat6/Cat6A structured cabling, fiber optic backbones, server room rack dressing, patch panels, and cable management.</p>
+        </div>
+        <div class="scard-chips">
+          <span class="schip">Fiber Optic</span>
+          <span class="schip">Cat6A Cabling</span>
+          <span class="schip">Server Racks</span>
+          <span class="schip">HDMI / TV / AV</span>
         </div>
       </div>
 
-      <div class="svc-card rv d2">
-        <div class="svc-ico">
-          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div>
-          <h3>Civil & Interior Works</h3>
-          <p>Structural works, RCC framing, façade installation, waterproofing — and interior fit-out including custom carpentry, flooring, false ceilings, partitions and painting to deliver a fully finished space.</p>
-          <div class="svc-tags">
-            <span class="svc-tag">Structural Works</span>
-            <span class="svc-tag">Waterproofing</span>
-            <span class="svc-tag">Interior Fit-out</span>
-            <span class="svc-tag">False Ceilings</span>
+      <!-- 06 -->
+      <div class="scard rv d3">
+        <div class="scard-top">
+          <div class="scard-tag-row">
+            <span class="scard-tag">Allied Services</span>
+            <span class="scard-badge-scope">Turnkey Allied</span>
           </div>
+          <h3>PHE, Solar, EV &amp; Civil Works</h3>
+          <p>Hydro-pneumatic plumbing pumping systems, solar power packs, solar water heating, EV fast charging stations, civil structural modifications, and interior fit-outs.</p>
+        </div>
+        <div class="scard-chips">
+          <span class="schip">Solar Power</span>
+          <span class="schip">EV Charging</span>
+          <span class="schip">PHE Plumbing</span>
+          <span class="schip">Video Door Phone</span>
+          <span class="schip">Civil Fit-out</span>
         </div>
       </div>
 
@@ -415,191 +625,197 @@
 </section>
 
 
-<!-- -------------------------------- STATUTORY APPROVALS -------------------------------- -->
-<div class="approvals-band">
+<!-- ==================== STATUTORY APPROVALS MATRIX ==================== -->
+<section class="sec approvals-sec">
   <div class="W">
-    <div class="approvals-inner">
-      <div class="approvals-text rl">
-        <div class="sec-lbl">Statutory Works</div>
-        <h2 class="sec-title inv">We Handle All Your<br><em>Legal Approvals</em></h2>
-        <p class="sec-body" style="color:rgba(255,255,255,.5); margin-top:12px">
-          One of the most time-consuming parts of any project is obtaining statutory clearances.
-          Our team manages every approval on your behalf — so your project never stalls on paperwork.
+    <div class="approvals-grid">
+      <div class="rl">
+        <div class="sec-lbl" style="color:var(--red)">Statutory Clearance Expertise</div>
+        <h2 class="sec-title inv">Zero Delays in<br><em>Government Sanctions</em></h2>
+        <p class="sec-body" style="color:rgba(255,255,255,.7);margin-top:6px">
+          Obtaining power sanction and statutory safety clearances is critical to commissioning any project. Our certified engineers manage every submission, inspection, and certification on your behalf.
         </p>
       </div>
-      <div class="approvals-list rr">
-        <div class="approval-item">
-          <div class="approval-tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <p>CEIG (Chief Electrical Inspectorate to Government) Approvals</p>
-        </div>
-        <div class="approval-item">
-          <div class="approval-tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <p>No Objection Certificates (NOC) from relevant authorities</p>
-        </div>
-        <div class="approval-item">
-          <div class="approval-tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <p>Safety Certificates and Service Clearances for power supply</p>
-        </div>
-        <div class="approval-item">
-          <div class="approval-tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <p>Fire Authority approvals for emergency and life safety systems</p>
-        </div>
-        <div class="approval-item">
-          <div class="approval-tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <p>Utility Authority coordination for power, water and sewage connections</p>
-        </div>
-        <div class="approval-item">
-          <div class="approval-tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-          <p>All IEC, IEEE, IS and local regulatory compliance documentation</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
+      <div class="appr-list rr">
+        <div class="appr-item">
+          <div class="appr-tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <div class="appr-text">CEIG Approval &amp; Sanction</div>
+            <div class="appr-sub">Chief Electrical Inspectorate to Government</div>
+          </div>
+        </div>
 
-<!-- -------------------------------- PROJECT EXECUTION PROCESS -------------------------------- -->
-<section class="sec sec-alt">
-  <div class="W">
-    <div class="sec-header">
-      <div class="sec-lbl rv" style="justify-content:center">How We Work</div>
-      <h2 class="sec-title rv">Our Project Execution <em>Process</em></h2>
-      <p class="sec-body rv">A rigorous 7-step methodology that keeps quality, safety and schedule in check on every site.</p>
-    </div>
+        <div class="appr-item">
+          <div class="appr-tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <div class="appr-text">No Objection Certificate (NOC)</div>
+            <div class="appr-sub">Statutory authority and department clearances</div>
+          </div>
+        </div>
 
-    <div class="steps-grid">
-      <div class="step-card rv d1" data-n="01">
-        <div class="step-badge">Step 01</div>
-        <h4>Feasibility & Planning</h4>
-        <p>Site survey, existing infrastructure assessment, load estimation, risk analysis and a complete Project Execution Plan with BOQ within 2 working days.</p>
-      </div>
-      <div class="step-card rv d2" data-n="02">
-        <div class="step-badge">Step 02</div>
-        <h4>Design Management</h4>
-        <p>SLDs, lighting layouts, power distribution drawings, BIM coordination and authority submission packages — all clash-detected and approval-ready.</p>
-      </div>
-      <div class="step-card rv d3" data-n="03">
-        <div class="step-badge">Step 03</div>
-        <h4>Statutory Approvals</h4>
-        <p>CEIG, NOC, fire authority and utility authority approvals — fully managed by our licensed team. You focus on your project; we handle the paperwork.</p>
-      </div>
-      <div class="step-card rv d4" data-n="04">
-        <div class="step-badge">Step 04</div>
-        <h4>Procurement</h4>
-        <p>Technical submittals, vendor evaluation, Factory Acceptance Tests (FAT) for panels and transformers, and tight logistics management to avoid site delays.</p>
-      </div>
-      <div class="step-card rv d1" data-n="05">
-        <div class="step-badge">Step 05</div>
-        <h4>Construction & Installation</h4>
-        <p>On-site mobilisation, supervised installation of all electrical, HVAC, fire, plumbing and civil systems — with daily progress reports (DPR) issued to the client.</p>
-      </div>
-      <div class="step-card rv d2" data-n="06">
-        <div class="step-badge">Step 06</div>
-        <h4>Testing & Commissioning</h4>
-        <p>Insulation tests, earth resistance verification, functional panel tests, load trials and full performance validation — with written commissioning reports for every system.</p>
-      </div>
-      <div class="step-card rv d3" data-n="07">
-        <div class="step-badge">Step 07</div>
-        <h4>Handover & Documentation</h4>
-        <p>As-built drawings, O&M manuals, warranty documents, staff training records and a complete digital + hardcopy handover dossier. Project closed cleanly.</p>
-      </div>
-      <div class="step-card rv d4" data-n="↺">
-        <div class="step-badge">Ongoing</div>
-        <h4>AMC & Breakdown Support</h4>
-        <p>After handover, we stay with you — with Annual Maintenance Contracts (preventive) and 24/7 breakdown response to minimise costly downtime.</p>
+        <div class="appr-item">
+          <div class="appr-tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <div class="appr-text">Electrical Safety Clearance</div>
+            <div class="appr-sub">Safety certification for power energization</div>
+          </div>
+        </div>
+
+        <div class="appr-item">
+          <div class="appr-tick"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <div class="appr-text">Fire Authority Clearances</div>
+            <div class="appr-sub">Life safety and emergency system verification</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- -------------------------------- AMC HIGHLIGHT -------------------------------- -->
+<!-- ==================== 7-STAGE EXECUTION PIPELINE ==================== -->
+<section class="sec sec-alt">
+  <div class="W">
+    <div class="sec-header rv">
+      <div class="sec-lbl" style="justify-content:center">Disciplined Delivery</div>
+      <h2 class="sec-title">7-Stage Project Execution <em>Pipeline</em></h2>
+      <p class="sec-body">A structured methodology that guarantees on-time delivery, zero rework, and strict safety compliance.</p>
+    </div>
+
+    <div class="steps-grid-7">
+      <div class="step-card rv d1">
+        <div class="step-num">01</div>
+        <h4>Survey &amp; Planning</h4>
+        <p>Site inspection, load calculation, risk assessment, and detailed BOQ.</p>
+      </div>
+
+      <div class="step-card rv d2">
+        <div class="step-num">02</div>
+        <h4>CAD Engineering</h4>
+        <p>SLD schematic layout, cable routing, and authority drawing submissions.</p>
+      </div>
+
+      <div class="step-card rv d3">
+        <div class="step-num">03</div>
+        <h4>Statutory Filings</h4>
+        <p>Managing CEIG, NOC, and utility documentation for rapid approvals.</p>
+      </div>
+
+      <div class="step-card rv d4">
+        <div class="step-num">04</div>
+        <h4>FAT &amp; Sourcing</h4>
+        <p>Factory Acceptance Testing for switchboards and tier-1 procurement.</p>
+      </div>
+
+      <div class="step-card rv d1">
+        <div class="step-num">05</div>
+        <h4>Site Erection</h4>
+        <p>Supervised installation of HT/LT, cabling, HVAC, and fire systems.</p>
+      </div>
+
+      <div class="step-card rv d2">
+        <div class="step-num">06</div>
+        <h4>Testing &amp; Trial</h4>
+        <p>Insulation Megger, earth resistance, and primary load trials.</p>
+      </div>
+
+      <div class="step-card rv d3">
+        <div class="step-num">07</div>
+        <h4>Handover &amp; AMC</h4>
+        <p>As-built documentation, CEIG certificates, staff training &amp; warranty.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== AMC & BREAKDOWN SUPPORT ==================== -->
 <section class="sec">
   <div class="W">
-    <div class="amc-band rv">
+    <div class="amc-card-band rv">
       <div>
-        <h3>Annual Maintenance Contracts<br><em>&amp; Breakdown Works</em></h3>
+        <h3>Annual Maintenance Contracts <em>(AMC) &amp; Breakdown Service</em></h3>
         <p>
-          Long-term reliability depends on regular, expert maintenance. Our AMC service covers scheduled preventive
-          visits — filter cleaning, oil checks, safety trigger tests — and reactive 24/7 emergency response for
-          sudden failures. We also stock critical spares to minimise your downtime.
+          Prevent costly downtime with KES Annual Maintenance Contracts. Our certified technicians handle scheduled preventive inspections, thermal imaging, transformer oil testing, breaker servicing, and rapid 24/7 breakdown emergency response.
         </p>
-        <div class="amc-features">
-          <span class="amc-pill">Preventive Maintenance</span>
-          <span class="amc-pill">24/7 Emergency Response</span>
-          <span class="amc-pill">Spares Management</span>
-          <span class="amc-pill">Panel Maintenance</span>
-          <span class="amc-pill">Transformer Servicing</span>
-          <span class="amc-pill">AC Drive Repair</span>
-          <span class="amc-pill">MV Panel Service</span>
-          <span class="amc-pill">Facility Management</span>
+        <div class="amc-pills">
+          <span class="apill">24/7 Breakdown Response</span>
+          <span class="apill">Preventive Maintenance</span>
+          <span class="apill">Transformer Oil Testing</span>
+          <span class="apill">Panel Servicing</span>
+          <span class="apill">Critical Spares Inventory</span>
+          <span class="apill">Facility O&amp;M</span>
         </div>
       </div>
-      <div class="amc-cta">
-        <a href="contactus.html" class="btn-red">Get AMC Quote &rarr;</a>
+      <div>
+        <a href="contactus.html" class="btn-red">Get AMC Proposal <span class="arr">&rarr;</span></a>
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- -------------------------------- CLIENTS MARQUEE -------------------------------- -->
+<!-- ==================== VERIFIED ENTERPRISE CLIENTS ==================== -->
 <section class="sec sec-alt">
   <div class="W">
-    <div class="sec-header">
-      <div class="sec-lbl rv" style="justify-content:center">Trusted By</div>
-      <h2 class="sec-title rv">Clients Who Trust <em>Our Work</em></h2>
-      <p class="sec-body rv">Leading organisations across technology, manufacturing and infrastructure in Karnataka.</p>
+    <div class="sec-header rv">
+      <div class="sec-lbl" style="justify-content:center">Proven Track Record</div>
+      <h2 class="sec-title">Enterprise Clients &amp; <em>Projects Executed</em></h2>
+      <p class="sec-body">Trusted by Fortune 500 corporations, real estate leaders, and major industrial plants across Karnataka.</p>
     </div>
   </div>
+
   <div class="clients-marquee">
     <div class="clients-track">
-      <div class="cli-pill">Wipro Limited</div>
-      <div class="cli-pill">Wipro Enterprises</div>
-      <div class="cli-pill">JSW Group</div>
-      <div class="cli-pill">Wells Fargo</div>
-      <div class="cli-pill">Azim Premji University</div>
-      <div class="cli-pill">CBRE</div>
-      <div class="cli-pill">MTR Foods</div>
+      <div class="cli-pill">Wipro Limited (Bengaluru)</div>
+      <div class="cli-pill">Wells Fargo (via CBRE)</div>
+      <div class="cli-pill">Broadcom / LSI India (via CBRE)</div>
+      <div class="cli-pill">Swiss Re (via CBRE)</div>
+      <div class="cli-pill">JSW Township Project (Toranagallu)</div>
+      <div class="cli-pill">Sparsh Hospital (Mandya &amp; Bengaluru)</div>
+      <div class="cli-pill">Azim Premji University (Sarjapura)</div>
+      <div class="cli-pill">Wipro Enterprises (Corporate Office)</div>
+      <div class="cli-pill">Essar Group / L&amp;T (Water's Edge)</div>
+      <div class="cli-pill">South India Agencies (Koramangala)</div>
       <div class="cli-pill">Krypton India Solutions</div>
-      <div class="cli-pill">LSI India R&D</div>
-      <div class="cli-pill">Raman Thermosets</div>
-      <div class="cli-pill">South India Agencies</div>
-      <div class="cli-pill">Perfect Day India</div>
-      <div class="cli-pill">Raun Infra</div>
-      <div class="cli-pill">IMG Eco-Build</div>
-      <div class="cli-pill">Sparsh Hospital</div>
-      <div class="cli-pill">Dr. Pack India</div>
-      <!-- duplicate -->
-      <div class="cli-pill">Wipro Limited</div>
-      <div class="cli-pill">Wipro Enterprises</div>
-      <div class="cli-pill">JSW Group</div>
-      <div class="cli-pill">Wells Fargo</div>
-      <div class="cli-pill">Azim Premji University</div>
-      <div class="cli-pill">CBRE</div>
-      <div class="cli-pill">MTR Foods</div>
+      <div class="cli-pill">Raman Thermosets (Nelamangala)</div>
+      <div class="cli-pill">Ess Enn Auto CNC (Hassan)</div>
+      <div class="cli-pill">Prestige Golfshire (Devanahalli)</div>
+      <!-- Duplicate for infinite seamless marquee -->
+      <div class="cli-pill">Wipro Limited (Bengaluru)</div>
+      <div class="cli-pill">Wells Fargo (via CBRE)</div>
+      <div class="cli-pill">Broadcom / LSI India (via CBRE)</div>
+      <div class="cli-pill">Swiss Re (via CBRE)</div>
+      <div class="cli-pill">JSW Township Project (Toranagallu)</div>
+      <div class="cli-pill">Sparsh Hospital (Mandya &amp; Bengaluru)</div>
+      <div class="cli-pill">Azim Premji University (Sarjapura)</div>
+      <div class="cli-pill">Wipro Enterprises (Corporate Office)</div>
+      <div class="cli-pill">Essar Group / L&amp;T (Water's Edge)</div>
+      <div class="cli-pill">South India Agencies (Koramangala)</div>
       <div class="cli-pill">Krypton India Solutions</div>
-      <div class="cli-pill">LSI India R&D</div>
-      <div class="cli-pill">Raman Thermosets</div>
-      <div class="cli-pill">South India Agencies</div>
-      <div class="cli-pill">Perfect Day India</div>
-      <div class="cli-pill">Raun Infra</div>
-      <div class="cli-pill">IMG Eco-Build</div>
-      <div class="cli-pill">Sparsh Hospital</div>
-      <div class="cli-pill">Dr. Pack India</div>
+      <div class="cli-pill">Raman Thermosets (Nelamangala)</div>
+      <div class="cli-pill">Ess Enn Auto CNC (Hassan)</div>
+      <div class="cli-pill">Prestige Golfshire (Devanahalli)</div>
     </div>
   </div>
 </section>
 
 
-<!-- -------------------------------- CTA -------------------------------- -->
+<!-- ==================== CTA SECTION ==================== -->
 <div class="cta-band">
-  <div class="W cta-inner">
-    <div class="rv">
-      <h2>Ready to Start Your <em>Project?</em></h2>
-      <p>Tell us about your project. Our licensed engineers will review your requirement and get back within 2 working days with a detailed BOQ and timeline.</p>
+  <div class="cta-band-bg"></div>
+  <div class="cta-band-ov"></div>
+  <div class="W">
+    <div class="cta-inner rv">
+      <h2>Ready to Power Your Next <em>Project?</em></h2>
+      <p>Share your project requirements, drawings, or BOQ. Our licensed engineers will conduct a comprehensive review and provide an actionable execution proposal within 2 working days.</p>
+      <div class="cta-btns">
+        <a href="contactus.html" class="btn-red">Request a Technical Quote <span class="arr">&rarr;</span></a>
+        <a href="tel:+919900604365" class="btn-ghost">Call: +91 99006 04365</a>
+      </div>
     </div>
-    <a href="contactus.html" class="btn-white rv d1">Request a Quote &rarr;</a>
   </div>
 </div>
 

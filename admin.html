@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="referrer" content="same-origin"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'"/>
+<title>Admin Dashboard — Kumara Engineering Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="admin.css"/>
+</head>
+<body>
+
+<!-- === AUTHENTICATION / LOGIN VIEW === -->
+<main id="loginView" class="login-wrap">
+  <div class="login-backdrop-grid"></div>
+  
+  <form class="login-card" id="loginForm" autocomplete="on">
+    <!-- Brand Header -->
+    <div class="login-brand">
+      <div class="brand-mark-box">
+        <span class="bm-txt">KES</span>
+        <span class="bm-glow"></span>
+      </div>
+      <div class="brand-titles">
+        <h1>Kumara Engineering</h1>
+        <p>Operational Administration Portal</p>
+      </div>
+    </div>
+
+    <div class="login-divider"></div>
+
+    <div class="stack">
+      <!-- Username Field -->
+      <div class="field">
+        <label for="username">
+          <svg class="lbl-ico" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Admin Username</span>
+        </label>
+        <div class="input-wrap">
+          <input class="input" id="username" name="username" autocomplete="username" placeholder="Enter username" required/>
+        </div>
+      </div>
+
+      <!-- Password Field with Eye Toggle -->
+      <div class="field">
+        <label for="password">
+          <svg class="lbl-ico" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>Security Password</span>
+        </label>
+        <div class="pwd-wrap">
+          <input class="input" id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter security password" required/>
+          <button class="pwd-toggle" id="pwdToggle" type="button" aria-label="Toggle password visibility" title="Show / Hide Password" tabindex="-1">
+            <svg class="eye-icon eye-open" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg class="eye-icon eye-closed hidden" viewBox="0 0 24 24"><path d="m9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Sign In Button -->
+      <button class="btn btn-primary" type="submit" id="loginSubmitBtn">
+        <span>Sign In to Dashboard</span>
+        <svg class="btn-arr" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+
+      <div class="status" id="loginStatus" role="status"></div>
+    </div>
+
+    <div class="login-footer">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span>256-Bit SSL Encrypted Session</span>
+    </div>
+  </form>
+</main>
+
+
+<!-- === DASHBOARD SHELL VIEW === -->
+<main id="dashboardView" class="admin-shell hidden">
+  
+  <!-- LEFT SIDEBAR -->
+  <aside class="admin-side">
+    <div class="side-head">
+      <div class="brand">
+        <div class="brand-mark-box small">
+          <span class="bm-txt">KES</span>
+        </div>
+        <div class="brand-info">
+          <h2>Kumara Admin</h2>
+          <span class="status-indicator">
+            <span class="dot-pulse"></span>
+            System Live
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="side-nav" aria-label="Admin Navigation">
+      <a href="#uploadPanel" class="nav-item active">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        <span>Upload Asset</span>
+      </a>
+      <a href="#imagesPanel" class="nav-item">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Image Library</span>
+      </a>
+      <a href="#settingsPanel" class="nav-item">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span>Featured Control</span>
+      </a>
+      <div class="nav-divider"></div>
+      <a href="gallery.html" target="_blank" rel="noopener" class="nav-item external">
+        <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <span>View Live Gallery</span>
+      </a>
+    </nav>
+
+    <!-- Session Card -->
+    <div class="side-session">
+      <div class="session-avatar">
+        <span>KE</span>
+      </div>
+      <div class="session-meta">
+        <span class="sess-lbl">Logged in as</span>
+        <strong id="adminUser">Kumaraenterprises</strong>
+      </div>
+    </div>
+  </aside>
+
+
+  <!-- MAIN CONTENT AREA -->
+  <section class="admin-main">
+    
+    <!-- Topline Bar -->
+    <header class="topline">
+      <div class="topline-left">
+        <div class="breadcrumb">
+          <span>Portal</span>
+          <span class="sep">/</span>
+          <span class="cur">Gallery &amp; Showcase Control</span>
+        </div>
+        <h2>Gallery Dashboard</h2>
+      </div>
+
+      <div class="toolbar">
+        <a class="btn btn-ghost" href="gallery.html" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <span>Live Gallery</span>
+        </a>
+        <button class="btn btn-ghost" id="refreshBtn" type="button" title="Reload Database">
+          <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          <span>Refresh</span>
+        </button>
+        <button class="btn btn-danger" id="logoutBtn" type="button">
+          <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          <span>Logout</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- METRICS & KPI CARDS -->
+    <section class="stats-grid" aria-label="Gallery summary statistics">
+      <div class="stat-card">
+        <div class="stat-header">
+          <span class="stat-lbl">Total Library Images</span>
+          <div class="stat-ico-box">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+        </div>
+        <strong class="stat-val" id="totalCount">0</strong>
+        <span class="stat-sub">Managed in database</span>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <span class="stat-lbl">Gallery Placement</span>
+          <div class="stat-ico-box accent">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+        </div>
+        <strong class="stat-val" id="galleryCount">0</strong>
+        <span class="stat-sub">Active on /gallery.html</span>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <span class="stat-lbl">Featured Placement</span>
+          <div class="stat-ico-box gold">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+        </div>
+        <strong class="stat-val" id="featuredCount">0</strong>
+        <span class="stat-sub">Homepage carousel slots</span>
+      </div>
+    </section>
+
+    <!-- TWO-COLUMN WORKSPACE -->
+    <div class="content-grid">
+      
+      <!-- Upload Panel -->
+      <section class="panel" id="uploadPanel">
+        <div class="panel-hd">
+          <div class="phd-left">
+            <div class="phd-ico">
+              <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            </div>
+            <div>
+              <h3>Upload New Asset</h3>
+              <p class="panel-subtitle">Compressed WebP/JPEG formats automatically optimized</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="panel-body stack" id="uploadForm">
+          
+          <!-- File Dropzone -->
+          <div class="field">
+            <label for="image">Select High-Resolution Image</label>
+            <div class="dropzone-box" id="dropzoneBox">
+              <input class="file-input-hidden" id="image" name="image" type="file" accept="image/jpeg,image/png,image/webp" required/>
+              <div class="dz-content">
+                <div class="dz-ico">
+                  <svg viewBox="0 0 24 24"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M12 12v9"/><path d="m16 16-4-4-4 4"/></svg>
+                </div>
+                <div class="dz-txt">
+                  <span class="dz-main">Click to browse or drop an image file here</span>
+                  <span class="dz-sub">JPEG, PNG or WEBP up to 10 MB</span>
+                </div>
+              </div>
+              <div class="dz-filename hidden" id="dzFilename"></div>
+            </div>
+          </div>
+
+          <!-- Caption Input -->
+          <div class="field">
+            <label for="caption">Project Caption / Title</label>
+            <textarea class="textarea" id="caption" name="caption" placeholder="E.g., 6300A Main Power Distribution Panel Lineup at Aerospace Facility"></textarea>
+          </div>
+
+          <!-- Placements Selection -->
+          <div class="field">
+            <label>Target Placements</label>
+            <div class="checks-grid">
+              <label class="check-chip">
+                <input type="checkbox" name="placement" value="gallery" checked/>
+                <span class="chip-custom"></span>
+                <span class="chip-label">
+                  <strong>Gallery Page</strong>
+                  <small>Displayed on /gallery.html</small>
+                </span>
+              </label>
+
+              <label class="check-chip">
+                <input type="checkbox" name="placement" value="featured"/>
+                <span class="chip-custom"></span>
+                <span class="chip-label">
+                  <strong>Featured Carousel</strong>
+                  <small>Homepage showcase</small>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Upload Submit Button -->
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit" id="uploadSubmitBtn">
+              <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <span>Upload &amp; Publish Image</span>
+            </button>
+            <div class="status" id="uploadStatus" role="status"></div>
+          </div>
+
+        </form>
+      </section>
+
+      <!-- Featured Controls Panel -->
+      <section class="panel" id="settingsPanel">
+        <div class="panel-hd">
+          <div class="phd-left">
+            <div class="phd-ico gold">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div>
+              <h3>Featured Section Settings</h3>
+              <p class="panel-subtitle">Global toggle for homepage showcase</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-body">
+          <div class="switch-box">
+            <div class="switch-info">
+              <strong>Public Visibility Status</strong>
+              <p class="switch-copy">When enabled, images assigned to the "featured" tag are rendered in the homepage carousel.</p>
+            </div>
+            <label class="switch">
+              <input id="featuredToggle" type="checkbox"/>
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="status status-spaced" id="settingsStatus" role="status"></div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- IMAGE LIBRARY MANAGER (FULL-WIDTH PANEL) -->
+    <section class="panel section-spaced" id="imagesPanel">
+      <div class="panel-hd">
+        <div class="phd-left">
+          <div class="phd-ico blue">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <div>
+            <h3>Published Image Library</h3>
+            <p class="panel-subtitle">Edit captions, toggle placements, and delete images</p>
+          </div>
+        </div>
+        <div class="status" id="imagesStatus" role="status"></div>
+      </div>
+
+      <div class="panel-body">
+        <div class="image-grid" id="imageGrid">
+          <!-- Rendered dynamically by admin.js -->
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-box hidden" id="emptyState">
+          <div class="empty-ico">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <h4>No Images Uploaded Yet</h4>
+          <p>Use the upload form above to publish your first electrical engineering project image.</p>
+        </div>
+      </div>
+    </section>
+
+  </section>
+</main>
+
+<script src="admin.js" defer></script>
+</body>
+</html>

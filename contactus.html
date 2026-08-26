@@ -1,322 +1,1341 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Contact Us — Kumara Engineering Solutions</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us &amp; Technical Quotations — Kumara Engineering Solutions</title>
+<meta name="description" content="Connect with our chief electrical engineers for switchgear quotes, Single Line Diagram (SLD) reviews, power audits, and CEIG liaisoning. Bengaluru facility: +91 99006 04365.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* SVGs */
-.svg-ic { width: 1.25em; height: 1.25em; display: inline-block; vertical-align: middle; flex-shrink: 0; }
+  /* ==========================================================================
+     DESIGN TOKENS & SYSTEM
+     ========================================================================== */
+  :root {
+    --navy:        #07101e;
+    --navy-2:      #0b1a32;
+    --navy-3:      #102344;
+    --red:         #cc2700;
+    --red-hover:   #a81e00;
+    --red-accent:  #ff5722;
+    --red-soft:    rgba(204, 39, 0, 0.08);
+    --red-border:  rgba(204, 39, 0, 0.2);
+    --red-glow:    rgba(204, 39, 0, 0.3);
+    
+    --bg-page:     #ffffff;
+    --bg-alt:      #f8fafd;
+    --bg-card:     #ffffff;
+    
+    --border:      #e2eaf2;
+    --border-subtle: #edf2f8;
+    --border-dark: rgba(255, 255, 255, 0.08);
+    
+    --text-main:   #09182d;
+    --text-body:   #506176;
+    --text-muted:  #8595a8;
+    --text-light:  rgba(255, 255, 255, 0.72);
+    
+    --shadow-sm:   0 2px 6px rgba(7, 16, 30, 0.04);
+    --shadow-md:   0 6px 18px rgba(7, 16, 30, 0.06);
+    --shadow-lg:   0 12px 30px rgba(7, 16, 30, 0.09);
+    
+    --radius-sm:   5px;
+    --radius-md:   8px;
+    --radius-lg:   12px;
+    --radius-full: 9999px;
+    
+    --font-heading: 'Barlow Condensed', -apple-system, sans-serif;
+    --font-body:    'Barlow', -apple-system, sans-serif;
+    --ease:         cubic-bezier(0.16, 1, 0.3, 1);
+  }
 
-:root{
-  --navy:     #08111f;
-  --navy2:    #0c1a30;
-  --navy3:    #0f2040;
-  --blue:     #1251a3;
-  --blue2:    #1565c8;
-  --blue3:    #1a7ae8;
-  --blue-pale:#fbeae6;
-  --blue-alt:#cc2700;
-  --blue-alt2:#a81e00;
-  --blue-alt3:#8a1800;
-  --white:    #ffffff;
-  --off:      #f3f6fb;
-  --grey:     #64748b;
-  --grey2:    #94a3b8;
-  --border:   #dde6f5;
-  --text:     #0f1f35;
-  --s1: 0 2px 16px rgba(8,17,31,.08);
-  --s2: 0 8px 36px rgba(8,17,31,.14);
-  --s3: 0 24px 64px rgba(8,17,31,.22);
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Barlow',sans-serif;color:var(--text);background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-a{text-decoration:none;color:inherit}
-button{font-family:inherit;cursor:pointer;border:none;outline:none;background:none}
-img{display:block;max-width:100%}
-.W{max-width:1300px;margin:0 auto;padding:0 48px}
+  /* Reset & Base */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: var(--font-body);
+    color: var(--text-main);
+    background: var(--bg-page);
+    line-height: 1.55;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { text-decoration: none; color: inherit; transition: color 0.2s var(--ease); }
+  button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+  img { display: block; max-width: 100%; height: auto; object-fit: cover; }
+  ul { list-style: none; }
 
+  /* Layout Containers */
+  .W { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 28px; }
+  .sec { padding: 46px 0; position: relative; }
+  .sec-alt { background: var(--bg-alt); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
+  .sec-dark { background: var(--navy); color: #fff; }
 
+  .sec-header { text-align: center; max-width: 640px; margin: 0 auto 28px; }
+  
+  .sec-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-heading);
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding: 3px 10px;
+    background: var(--red-soft);
+    border: 1px solid var(--red-border);
+    border-radius: var(--radius-full);
+    margin-bottom: 8px;
+  }
+  .sec-badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--red); }
 
-/* --------------------------------
-   HERO SUBPAGE
--------------------------------- */
-.hero-subpage{position:relative;padding:120px 0 80px;background:var(--navy);overflow:hidden}
-.hero-subpage::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1600&q=80') center/cover no-repeat;opacity:0.25;filter:brightness(0.5)}
-.hero-subpage::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,var(--navy) 0%,transparent 100%)}
-.hero-sub-inner{position:relative;z-index:10;text-align:center}
-.title-big{font-family:'Barlow Condensed',sans-serif;font-size:clamp(48px,8vw,120px);font-weight:900;color:#fff;text-transform:uppercase;line-height:0.9;letter-spacing:-0.03em;margin-bottom:20px}
-.title-big em{font-style:normal;color:var(--blue-alt)}
-.hero-path{display:flex;justify-content:center;gap:12px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em}
-.hero-path span.active{color:var(--blue-alt)}
+  .sec-title {
+    font-family: var(--font-heading);
+    font-size: clamp(26px, 2.8vw, 38px);
+    font-weight: 900;
+    color: var(--text-main);
+    letter-spacing: -0.015em;
+    text-transform: uppercase;
+    line-height: 1.05;
+    margin-bottom: 8px;
+  }
+  .sec-title em { font-style: normal; color: var(--red); }
+  .sec-title.inv { color: #fff; }
 
-/* --------------------------------
-   CONTACT CONTENT
--------------------------------- */
-.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; margin-top: 40px; }
-.info-col { color: var(--text); }
-.sec-label{display:inline-flex;align-items:center;gap:9px;margin-bottom:14px}
-.sl-bar{width:32px;height:3px;background:var(--blue-alt);border-radius:1px;flex-shrink:0}
-.sl-txt{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;color:var(--blue2);letter-spacing:.15em;text-transform:uppercase}
-h2.sec-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(30px,3.4vw,54px);font-weight:900;line-height:1.02;color:var(--navy);letter-spacing:-.01em;text-transform:uppercase;margin-bottom:24px}
-h2.sec-title em{font-style:normal;color:var(--blue2)}
+  .sec-desc { font-size: 14px; line-height: 1.55; color: var(--text-body); font-weight: 400; }
 
-.contact-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
-.ccard { background: var(--off); border: 1px solid var(--border); padding: 32px 24px; border-radius: 12px; transition: all 0.3s; position: relative; }
-.ccard:hover { background: #fff; border-color: var(--blue-alt); transform: translateY(-5px); box-shadow: var(--s1); }
-.ccard-ico { width: 44px; height: 44px; background: rgba(204,39,0,0.1); border-radius: 8px; display: grid; place-items: center; color: var(--blue-alt); font-size: 20px; margin-bottom: 20px; transition: background 0.3s; }
-.ccard:hover .ccard-ico { background: var(--blue-alt); color: #fff; }
-.ccard h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; color: var(--navy); }
-.ccard p { font-size: 14px; color: var(--grey); line-height: 1.5; font-weight: 400; }
-.ccard a { color: var(--blue); font-weight: 700; }
+  /* Scroll Reveal */
+  .rv, .rl, .rr { opacity: 0; transition: opacity 0.55s var(--ease), transform 0.55s var(--ease); will-change: opacity, transform; }
+  .rv { transform: translateY(18px); }
+  .rl { transform: translateX(-18px); }
+  .rr { transform: translateX(18px); }
+  .rv.in, .rl.in, .rr.in { opacity: 1; transform: none; }
+  .d1 { transition-delay: 0.06s; }
+  .d2 { transition-delay: 0.12s; }
+  .d3 { transition-delay: 0.18s; }
 
-.form-box { background: #fff; border: 1px solid var(--border); border-radius: 15px; overflow: hidden; box-shadow: var(--s3); }
-.form-hd { background: var(--navy); padding: 40px; }
-.form-hd h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 800; color: #fff; text-transform: uppercase; line-height: 1; }
-.form-hd p { font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 8px; }
+  /* Buttons */
+  .btn-red {
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    background: var(--red); color: #fff; padding: 10px 22px; border-radius: var(--radius-sm);
+    font-family: var(--font-heading); font-size: 14px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.05em; transition: all 0.22s var(--ease); box-shadow: 0 4px 14px var(--red-glow);
+    white-space: nowrap;
+  }
+  .btn-red:hover { background: var(--red-hover); transform: translateY(-1.5px); color: #fff; }
 
-.form-body { padding: 40px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
-.form-full { grid-template-columns: 1fr; }
-.fgroup { display: flex; flex-direction: column; gap: 8px; }
-.fgroup label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; color: var(--grey); text-transform: uppercase; letter-spacing: 0.1em; }
-.finput { background: var(--off); border: 1.5px solid var(--border); border-radius: 6px; padding: 14px 18px; font-family: 'Barlow', sans-serif; font-size: 14px; color: var(--navy); outline: none; transition: all 0.2s; }
-.finput:focus { border-color: var(--blue-alt); background: #fff; box-shadow: 0 0 0 4px rgba(204,39,0,0.08); }
-.ftextarea { min-height: 120px; resize: none; }
-.fbtn { width: 100%; background: var(--blue-alt); color: var(--navy); border: none; border-radius: 6px; padding: 18px; font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; transition: all 0.2s; box-shadow: 0 6px 20px rgba(204,39,0,0.3); }
-.fbtn:hover { background: var(--blue-alt2); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(204,39,0,0.4); }
+  .btn-ghost {
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    border: 1.5px solid rgba(255, 255, 255, 0.2); color: rgba(255, 255, 255, 0.85);
+    padding: 9px 18px; border-radius: var(--radius-sm); font-family: var(--font-heading);
+    font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+    backdrop-filter: blur(8px); background: rgba(255, 255, 255, 0.04); transition: all 0.22s var(--ease);
+    white-space: nowrap;
+  }
+  .btn-ghost:hover { border-color: rgba(255, 255, 255, 0.5); color: #fff; background: rgba(255, 255, 255, 0.08); transform: translateY(-1.5px); }
 
-/* --------------------------------
-   FOOTER (Identical)
--------------------------------- */
+  .btn-white {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: #fff; color: var(--red); padding: 12px 28px; border-radius: var(--radius-sm);
+    font-family: var(--font-heading); font-size: 14.5px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.05em; transition: all 0.22s var(--ease); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    white-space: nowrap;
+  }
+  .btn-white:hover { transform: translateY(-2px); color: var(--navy); }
 
+  /* ==========================================================================
+     HERO SECTION
+     ========================================================================== */
+  .hero-sec {
+    position: relative; background: var(--navy); overflow: hidden;
+    padding: 36px 0 32px; border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('images/gallery/hero.png') center/cover no-repeat;
+    opacity: 0.15; filter: saturate(1.2) contrast(1.1);
+  }
+  .hero-grad {
+    position: absolute; inset: 0;
+    background: linear-gradient(108deg, var(--navy) 30%, rgba(7, 16, 30, 0.94) 65%, rgba(7, 16, 30, 0.75) 100%);
+  }
+  .hero-grid-pattern {
+    position: absolute; inset: 0;
+    background-image: 
+      linear-gradient(rgba(204, 39, 0, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(204, 39, 0, 0.03) 1px, transparent 1px);
+    background-size: 32px 32px; pointer-events: none;
+  }
+  .hero-glow {
+    position: absolute; top: -100px; right: 8%; width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(204, 39, 0, 0.14) 0%, transparent 70%); pointer-events: none;
+  }
+  .hero-grid {
+    position: relative; z-index: 2; display: grid;
+    grid-template-columns: 1.15fr 0.85fr; gap: 32px; align-items: center;
+  }
+  .hero-content { display: flex; flex-direction: column; align-items: flex-start; }
 
-/* Reveal */
-.rv{opacity:0;transform:translateY(30px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
-.rl{opacity:0;transform:translateX(-32px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
-.rr{opacity:0;transform:translateX(32px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
-.rv.in,.rl.in,.rr.in{opacity:1;transform:none}
-.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}
+  .breadcrumb {
+    display: flex; align-items: center; gap: 6px; font-family: var(--font-heading);
+    font-size: 11px; font-weight: 700; color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px;
+  }
+  .breadcrumb a:hover { color: var(--red); }
+  .breadcrumb .sep { color: rgba(255, 255, 255, 0.15); }
+  .breadcrumb .cur { color: var(--red-accent); }
 
-/* --------------------------------
-   CAREERS SECTION
--------------------------------- */
-.careers-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: start; }
-.job-list { display: flex; flex-direction: column; gap: 16px; }
-.job-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; transition: all 0.3s; position: relative; overflow: hidden; }
-.job-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--blue-alt); transform: scaleY(0); transition: transform 0.3s; }
-.job-card:hover { transform: translateY(-4px); box-shadow: var(--s2); border-color: rgba(204,39,0,0.3); }
-.job-card:hover::before { transform: scaleY(1); }
-.job-info h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; color: var(--navy); text-transform: uppercase; margin-bottom: 12px; }
-.job-meta { display: flex; gap: 16px; font-size: 13px; color: var(--grey); font-weight: 500; }
-.job-meta span { display: flex; align-items: center; gap: 6px; }
-.job-btn { background: var(--off); color: var(--blue-alt); padding: 12px 28px; border-radius: 6px; font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; transition: all 0.2s; border: 1px solid var(--border); }
-.job-card:hover .job-btn { background: var(--blue-alt); color: #fff; border-color: var(--blue-alt); box-shadow: 0 4px 12px rgba(204,39,0,0.25); }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(204, 39, 0, 0.12); border: 1px solid var(--red-border);
+    color: #ff6036; font-family: var(--font-heading); font-size: 10.5px;
+    font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: var(--radius-sm); margin-bottom: 10px;
+  }
+  .tag-dot {
+    width: 5px; height: 5px; border-radius: 50%; background: var(--red);
+    box-shadow: 0 0 6px var(--red); animation: pulseGlow 2s infinite ease-in-out;
+  }
+  @keyframes pulseGlow { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.3); opacity: 0.7; } }
 
-@media(max-width:1024px){
-  .ccard { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; gap: 56px; }
-  .careers-grid { grid-template-columns: 1fr; gap: 40px; }
-}
-@media(max-width:600px) {
-  .job-card { flex-direction: column; align-items: flex-start; gap: 20px; padding: 24px; }
-  .job-btn { width: 100%; text-align: center; }
-}
-@media(max-width:480px) {
-  .contact-cards { grid-template-columns: 1fr; }
-  .form-row { grid-template-columns: 1fr; }
-  .job-meta { flex-direction: column; gap: 8px; }
-}
+  .hero-h1 {
+    font-family: var(--font-heading); font-size: clamp(30px, 3.6vw, 46px);
+    font-weight: 900; color: #fff; text-transform: uppercase; line-height: 0.98;
+    letter-spacing: -0.02em; margin-bottom: 10px;
+  }
+  .hero-h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, #ff7a59 0%, #cc2700 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero-sub {
+    font-size: 13.5px; color: rgba(255, 255, 255, 0.7); max-width: 500px;
+    line-height: 1.55; margin-bottom: 18px; font-weight: 300;
+  }
+  .hero-btns { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+  /* Hero Direct Engineering Access Card */
+  .hero-desk-card {
+    background: rgba(11, 26, 50, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    padding: 18px 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-desk-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2.5px;
+    background: linear-gradient(90deg, var(--red), var(--red-accent));
+  }
+  
+  .hdc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .hdc-title {
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .hdc-title svg { width: 14px; height: 14px; stroke: var(--red-accent); fill: none; stroke-width: 2; }
+  .hdc-status {
+    font-family: var(--font-heading);
+    font-size: 9.5px;
+    font-weight: 700;
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.1);
+    border: 1px solid rgba(74, 222, 128, 0.25);
+    padding: 2px 7px;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+  }
+
+  .hdc-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .hdc-row {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-sm);
+    padding: 9px 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s;
+  }
+  .hdc-row:hover {
+    background: rgba(255, 255, 255, 0.065);
+    border-color: rgba(204, 39, 0, 0.35);
+  }
+  .hdc-ico {
+    width: 30px;
+    height: 30px;
+    border-radius: var(--radius-sm);
+    background: rgba(204, 39, 0, 0.15);
+    border: 1px solid var(--red-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .hdc-ico svg { width: 15px; height: 15px; stroke: var(--red); fill: none; stroke-width: 2; }
+  .hdc-info { flex: 1; min-width: 0; }
+  .hdc-lbl {
+    font-family: var(--font-heading);
+    font-size: 9.5px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .hdc-val {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .hdc-val a:hover { color: var(--red-accent); }
+
+  /* ==========================================================================
+     CONTACT SECTION & TECHNICAL INQUIRY FORM
+     ========================================================================== */
+  .contact-split {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  /* Left Column: Direct Info Cards */
+  .info-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 18px;
+  }
+
+  .ccard {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: all 0.25s var(--ease);
+    box-shadow: 0 1px 4px rgba(7, 16, 30, 0.03);
+    position: relative;
+    overflow: hidden;
+  }
+  .ccard::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s var(--ease);
+  }
+  .ccard:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(204, 39, 0, 0.3);
+  }
+  .ccard:hover::after { transform: scaleX(1); }
+
+  .ccard-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .ccard-ico {
+    width: 34px;
+    height: 34px;
+    background: var(--red-soft);
+    border: 1px solid var(--red-border);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s;
+  }
+  .ccard:hover .ccard-ico {
+    background: var(--red);
+  }
+  .ccard-ico svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--red);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.25s;
+  }
+  .ccard:hover .ccard-ico svg { stroke: #fff; }
+
+  .ccard h4 {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .ccard p {
+    font-size: 12.5px;
+    color: var(--text-body);
+    line-height: 1.45;
+  }
+  .ccard a {
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .ccard a:hover { color: var(--red); }
+
+  /* Turnkey Liaisoning Pill */
+  .liaison-badge {
+    margin-top: 14px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .lb-ico {
+    width: 28px;
+    height: 28px;
+    background: rgba(7, 16, 30, 0.08);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .lb-ico svg { width: 14px; height: 14px; stroke: var(--navy); fill: none; stroke-width: 2; }
+  .lb-txt strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--navy);
+    text-transform: uppercase;
+  }
+  .lb-txt span { font-size: 11.5px; color: var(--text-body); }
+
+  /* Right Column: High-End Form Box */
+  .form-box {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  .form-hd {
+    background: var(--navy);
+    padding: 18px 22px;
+    border-bottom: 2px solid var(--red);
+  }
+  .form-hd h3 {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+  }
+  .form-hd p {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 2px;
+  }
+
+  .form-body {
+    padding: 20px 22px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .fgroup {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .fgroup.form-full {
+    margin-bottom: 12px;
+  }
+  .fgroup label {
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .fgroup label span {
+    color: var(--red);
+  }
+
+  .finput {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 9px 12px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--text-main);
+    outline: none;
+    transition: all 0.2s var(--ease);
+  }
+  .finput:focus {
+    border-color: var(--red);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(204, 39, 0, 0.08);
+  }
+  .finput::placeholder { color: var(--text-muted); }
+  select.finput { cursor: pointer; }
+  .ftextarea {
+    min-height: 85px;
+    resize: vertical;
+  }
+
+  .fbtn {
+    width: 100%;
+    background: var(--red);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 12px;
+    font-family: var(--font-heading);
+    font-size: 14.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: all 0.22s var(--ease);
+    box-shadow: 0 4px 14px var(--red-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+  }
+  .fbtn:hover {
+    background: var(--red-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(204, 39, 0, 0.4);
+  }
+  .fbtn svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+
+  /* Form Alert Confirmation */
+  .form-alert {
+    display: none;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+    font-size: 12.5px;
+    margin-top: 12px;
+  }
+  .form-alert strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  /* ==========================================================================
+     CAREERS / OPEN POSITIONS SECTION
+     ========================================================================== */
+  .careers-split {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 32px;
+    align-items: start;
+  }
+  
+  .careers-sidebar {
+    position: sticky;
+    top: 90px;
+  }
+  .careers-sidebar h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(24px, 2.8vw, 36px);
+    font-weight: 900;
+    color: var(--text-main);
+    text-transform: uppercase;
+    line-height: 1.05;
+    margin-bottom: 8px;
+  }
+  .careers-sidebar h2 em {
+    font-style: normal;
+    color: var(--red);
+  }
+  .careers-sidebar p {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--text-body);
+    margin-bottom: 16px;
+  }
+  
+  .hr-box {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    box-shadow: var(--shadow-sm);
+  }
+  .hr-box-lbl {
+    font-family: var(--font-heading);
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 2px;
+  }
+  .hr-box a {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--red);
+    text-transform: uppercase;
+  }
+  .hr-box a:hover { color: var(--red-hover); }
+
+  /* Job Cards List */
+  .job-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .job-card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    transition: all 0.22s var(--ease);
+    box-shadow: 0 1px 4px rgba(7, 16, 30, 0.03);
+    position: relative;
+    overflow: hidden;
+  }
+  .job-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--navy);
+    transition: background 0.22s;
+  }
+  .job-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+    border-color: rgba(204, 39, 0, 0.25);
+  }
+  .job-card:hover::before {
+    background: var(--red);
+  }
+
+  .job-info h4 {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 4px;
+  }
+  .job-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 11.5px;
+    color: var(--text-muted);
+  }
+  .job-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .job-meta span::before {
+    content: '•';
+    color: var(--red);
+    font-size: 14px;
+  }
+  .job-meta span:first-child::before { display: none; }
+
+  .job-btn {
+    background: var(--bg-alt);
+    color: var(--navy);
+    border: 1px solid var(--border);
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-heading);
+    font-size: 12.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.2s var(--ease);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .job-card:hover .job-btn {
+    background: var(--red);
+    color: #fff;
+    border-color: var(--red);
+    box-shadow: 0 3px 10px var(--red-glow);
+  }
+
+  /* ==========================================================================
+     MAP SECTION
+     ========================================================================== */
+  .map-sec {
+    position: relative;
+    height: 380px;
+    background: #e2eaf2;
+    overflow: hidden;
+  }
+  .map-sec iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+  .map-floating-chip {
+    position: absolute;
+    bottom: 20px;
+    left: 28px;
+    background: rgba(7, 16, 30, 0.92);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: var(--shadow-lg);
+  }
+  .mfc-ico {
+    width: 28px;
+    height: 28px;
+    background: rgba(204, 39, 0, 0.2);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mfc-ico svg { width: 15px; height: 15px; stroke: var(--red-accent); fill: none; stroke-width: 2; }
+  .mfc-txt strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 13px;
+    text-transform: uppercase;
+  }
+  .mfc-txt span { font-size: 11px; color: rgba(255, 255, 255, 0.65); }
+
+  /* ==========================================================================
+     CALL TO ACTION
+     ========================================================================== */
+  .cta-sec {
+    background: linear-gradient(135deg, var(--navy) 0%, #0d1f3c 60%, #170503 100%);
+    padding: 42px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-grid {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+  }
+  .cta-content h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1.05;
+    margin-bottom: 6px;
+  }
+  .cta-content h2 em {
+    font-style: normal;
+    color: var(--red-accent);
+  }
+  .cta-content p {
+    font-size: 13.5px;
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 520px;
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  /* Back to top */
+  #btt {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+    background: var(--red);
+    color: #fff;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s, transform 0.25s;
+    box-shadow: 0 4px 12px var(--red-glow);
+    z-index: 999;
+  }
+  #btt.on { opacity: 1; pointer-events: auto; }
+  #btt:hover { transform: translateY(-2px); background: var(--red-hover); }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .W { padding: 0 20px; }
+    .sec { padding: 38px 0; }
+    .hero-grid { grid-template-columns: 1fr; gap: 24px; }
+    .contact-split, .careers-split { grid-template-columns: 1fr; gap: 24px; }
+    .careers-sidebar { position: relative; top: 0; }
+  }
+  @media (max-width: 640px) {
+    .sec { padding: 32px 0; }
+    .contact-cards-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .job-card { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .job-btn { width: 100%; text-align: center; }
+    .map-floating-chip { left: 16px; right: 16px; bottom: 16px; }
+    .cta-grid { flex-direction: column; text-align: center; gap: 18px; }
+    .btn-red, .btn-ghost, .btn-white { width: 100%; }
+  }
 </style>
 </head>
 <body>
 
-<!-- Shared header loaded by site.js -->
+<!-- Header placeholder injected by site.js -->
 <div id="site-header"></div>
 
-<!-- -------------------------------- HERO SUBPAGE -------------------------------- -->
-<header class="hero-subpage">
-  <div class="W hero-sub-inner">
-    <div class="hero-path rv">Home / <span class="active">Contact Us</span></div>
-    <h1 class="title-big rv d1">Let's <em>Power</em> Up</h1>
-  </div>
-</header>
+<!-- ==========================================================================
+     HERO SECTION
+     ========================================================================== -->
+<section class="hero-sec">
+  <div class="hero-bg"></div>
+  <div class="hero-grad"></div>
+  <div class="hero-grid-pattern"></div>
+  <div class="hero-glow"></div>
 
-<!-- -------------------------------- CONTACT SECTION -------------------------------- -->
-<section class="sec">
-  <div class="W">
-    <div class="contact-grid">
-      <div class="info-col rl">
-        <div class="sec-label">
-          <span class="sl-bar"></span>
-          <span class="sl-txt">Get In Touch</span>
+  <div class="W hero-grid">
+    <!-- Left Column -->
+    <div class="hero-content">
+      <nav class="breadcrumb rv" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">/</span>
+        <span class="cur">Contact Us</span>
+      </nav>
+
+      <div class="hero-tag rv d1">
+        <span class="tag-dot"></span>
+        <span>48-Hour Technical Quotation Turnaround</span>
+      </div>
+
+      <h1 class="hero-h1 rv d1">
+        Connect with Our<br>
+        <em>Chief Engineers</em>
+      </h1>
+
+      <p class="hero-sub rv d2">
+        Whether you require a custom switchboard quotation, SLD architectural review, or turnkey CEIG liaisoning in Karnataka — our technical team is ready to assist.
+      </p>
+
+      <div class="hero-btns rv d3">
+        <a href="#inquiry" class="btn-red">
+          <span>Request Quote</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+        </a>
+        <a href="#careers" class="btn-ghost">
+          <span>Explore Careers</span>
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Column: Direct Engineering Access Console -->
+    <div class="hero-desk-card rv d2">
+      <div class="hdc-header">
+        <div class="hdc-title">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Direct Engineering Desk</span>
         </div>
-        <h2 class="sec-title">Ready to <em>Connect</em>?</h2>
-        <p class="sec-body">Whether you need a custom LT Panel design or a full-scale industrial power audit, our team is ready to assist. Reach out to our experts for technical consultation and transparent pricing.</p>
+        <span class="hdc-status">Live Desk</span>
+      </div>
 
-        <div class="contact-cards">
-          <div class="ccard">
-            <div class="ccard-ico">📍</div>
-            <h4>Visit Our Facility</h4>
-            <p>No.1538/O, 1F, 12th Cross, 4th Stage, 2nd Block, <br> BTM Layout, Hulimavu, Bengaluru - 560 076, <br> Karnataka, India.</p>
+      <div class="hdc-rows">
+        <div class="hdc-row">
+          <div class="hdc-ico">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
-          <div class="ccard">
-            <div class="ccard-ico">📞</div>
-            <h4>Call Our Experts</h4>
-            <p>+91 99006 04365</p>
+          <div class="hdc-info">
+            <div class="hdc-lbl">Direct Phone / WhatsApp</div>
+            <div class="hdc-val"><a href="tel:+919900604365">+91 99006 04365</a></div>
           </div>
-          <div class="ccard">
-            <div class="ccard-ico">📧</div>
-            <h4>Electronic Mail</h4>
-            <p>info@kumarasolutions.in</p>
+        </div>
+
+        <div class="hdc-row">
+          <div class="hdc-ico">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </div>
+          <div class="hdc-info">
+            <div class="hdc-lbl">Official Engineering Email</div>
+            <div class="hdc-val"><a href="mailto:info@kumarasolutions.in">info@kumarasolutions.in</a></div>
+          </div>
+        </div>
+
+        <div class="hdc-row">
+          <div class="hdc-ico">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="hdc-info">
+            <div class="hdc-lbl">Operating Hours</div>
+            <div class="hdc-val">Mon–Sat: 9:00 AM – 6:00 PM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CONTACT & TECHNICAL QUOTE SECTION
+     ========================================================================== -->
+<section class="sec" id="inquiry">
+  <div class="W">
+    <div class="contact-split">
+      
+      <!-- Left Column: Details & Address Cards -->
+      <div class="info-col rl">
+        <div class="sec-badge">Direct Communication</div>
+        <h2 class="sec-title">Bengaluru Facility <em>&amp; Support</em></h2>
+        <p class="sec-desc">
+          Visit our 5,000+ sq. ft. manufacturing and testing facility in Bengaluru or reach out to our senior technical estimators for comprehensive project discussions.
+        </p>
+
+        <div class="contact-cards-grid">
+          <!-- Card 1: Facility -->
           <div class="ccard">
-            <div class="ccard-ico">🕒</div>
-            <h4>Business Hours</h4>
-            <p>Mon–Sat: 9:00 AM – 6:00 PM <br> Sunday: Closed</p>
+            <div class="ccard-top">
+              <div class="ccard-ico">
+                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+            </div>
+            <h4>Plant &amp; Office</h4>
+            <p>
+              No.1538/O, 1F, 12th Cross, 4th Stage, 2nd Block, BTM Layout, Hulimavu, Bengaluru - 560 076, Karnataka.
+            </p>
+          </div>
+
+          <!-- Card 2: Phone -->
+          <div class="ccard">
+            <div class="ccard-top">
+              <div class="ccard-ico">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+            </div>
+            <h4>Telephone</h4>
+            <p>
+              <a href="tel:+919900604365">+91 99006 04365</a><br>
+              <span style="font-size: 11.5px; color: var(--text-muted);">Direct Line / WhatsApp</span>
+            </p>
+          </div>
+
+          <!-- Card 3: Email -->
+          <div class="ccard">
+            <div class="ccard-top">
+              <div class="ccard-ico">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+            </div>
+            <h4>Email Inquiry</h4>
+            <p>
+              <a href="mailto:info@kumarasolutions.in">info@kumarasolutions.in</a><br>
+              <span style="font-size: 11.5px; color: var(--text-muted);">Response within 24 hours</span>
+            </p>
+          </div>
+
+          <!-- Card 4: Hours -->
+          <div class="ccard">
+            <div class="ccard-top">
+              <div class="ccard-ico">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+            </div>
+            <h4>Working Hours</h4>
+            <p>
+              Mon – Sat: 9:00 AM – 6:00 PM<br>
+              <span style="font-size: 11.5px; color: var(--text-muted);">Sunday: Closed</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="liaison-badge">
+          <div class="lb-ico">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="lb-txt">
+            <strong>Turnkey CEIG Liaisoning Included</strong>
+            <span>Official drawing preparation, testing documentation, and statutory inspectorate approval across Karnataka.</span>
           </div>
         </div>
       </div>
 
+      <!-- Right Column: Technical Quotation Form -->
       <div class="form-col rr">
         <div class="form-box">
           <div class="form-hd">
-            <h3>Technical Inquiry</h3>
-            <p>Fill out the form below and an engineer will contact you within 24 hours.</p>
+            <h3>Technical Inquiry &amp; Quotation</h3>
+            <p>Fill out your project parameters below for direct engineering evaluation.</p>
           </div>
+
           <div class="form-body">
-            <form action="#">
+            <form id="quoteForm" onsubmit="handleFormSubmit(event)">
               <div class="form-row">
                 <div class="fgroup">
-                  <label>Your Name</label>
-                  <input type="text" class="finput" placeholder="e.g. Rahul Sharma" required>
+                  <label for="cName">Your Name <span>*</span></label>
+                  <input type="text" id="cName" class="finput" placeholder="e.g. Rahul Sharma" required>
                 </div>
                 <div class="fgroup">
-                  <label>Company Name</label>
-                  <input type="text" class="finput" placeholder="e.g. Power Grid Ltd">
+                  <label for="cCompany">Company / Client</label>
+                  <input type="text" id="cCompany" class="finput" placeholder="e.g. Wipro / JSW Infra">
                 </div>
               </div>
+
               <div class="form-row">
                 <div class="fgroup">
-                  <label>Email Address</label>
-                  <input type="email" class="finput" placeholder="name@company.com" required>
+                  <label for="cEmail">Official Email <span>*</span></label>
+                  <input type="email" id="cEmail" class="finput" placeholder="name@company.com" required>
                 </div>
                 <div class="fgroup">
-                  <label>Phone Number</label>
-                  <input type="tel" class="finput" placeholder="+91 90000 00000" required>
+                  <label for="cPhone">Phone Number <span>*</span></label>
+                  <input type="tel" id="cPhone" class="finput" placeholder="+91 99000 00000" required>
                 </div>
               </div>
-              <div class="fgroup form-full" style="margin-bottom:20px">
-                <label>Discussion Topic</label>
-                <select class="finput">
-                  <option>New Project Quote</option>
-                  <option>Service & Maintenance</option>
-                  <option>Retrofitting Inquiry</option>
-                  <option>Technical Consultation</option>
-                </select>
+
+              <div class="form-row">
+                <div class="fgroup">
+                  <label for="cProduct">Product / Panel Category <span>*</span></label>
+                  <select id="cProduct" class="finput" required>
+                    <option value="LV_Switchgear">LV Power Switchgear (Up to 6300A)</option>
+                    <option value="MV_Switchgear">MV Switchgear (Up to 33kV)</option>
+                    <option value="MCC_Panel">MCC Motor Control Center</option>
+                    <option value="PCC_Panel">PCC Power Control Center</option>
+                    <option value="APFC_Panel">APFC Power Factor Correction</option>
+                    <option value="ATS_Panel">ATS Automatic Transfer Switch</option>
+                    <option value="DG_Sync">DG Synchronization &amp; AMF</option>
+                    <option value="PLC_Panel">PLC Automation &amp; SCADA Panel</option>
+                    <option value="VFD_Panel">VFD AC Drive Speed Control</option>
+                    <option value="HVAC_Panel">HVAC &amp; Chiller Automation</option>
+                    <option value="Busduct">HV/LV Bus Duct / Rising Mains</option>
+                    <option value="Solar">Solar ACDB / DCDB Distribution</option>
+                    <option value="Turnkey_Consultancy">Turnkey Electrical Consultancy</option>
+                    <option value="Other">Other Custom Specification</option>
+                  </select>
+                </div>
+                <div class="fgroup">
+                  <label for="cRating">Rating / Capacity</label>
+                  <input type="text" id="cRating" class="finput" placeholder="e.g. 1600A, 50kA, 415V">
+                </div>
               </div>
-              <div class="fgroup form-full" style="margin-bottom:30px">
-                <label>Detailed Requirements</label>
-                <textarea class="finput ftextarea" placeholder="Tell us about your technical specifications..."></textarea>
+
+              <div class="fgroup form-full">
+                <label for="cMessage">Detailed Technical Requirements</label>
+                <textarea id="cMessage" class="finput ftextarea" placeholder="Provide details on required incomers, outgoing feeders, OEM preference (ABB/Schneider/L&T), or timeline..."></textarea>
               </div>
-              <button type="submit" class="fbtn">Submit Inquiry &rarr;</button>
+
+              <button type="submit" id="submitBtn" class="fbtn">
+                <span>Submit Technical Inquiry</span>
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+
+              <div class="form-alert" id="formAlert">
+                <strong>Inquiry Sent Successfully!</strong>
+                <span id="alertMsg">Thank you. Our chief electrical engineer will contact you within 24 hours with the preliminary estimate.</span>
+              </div>
             </form>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- -------------------------------- CAREERS SECTION -------------------------------- -->
+<!-- ==========================================================================
+     CAREERS SECTION
+     ========================================================================== -->
 <section class="sec sec-alt" id="careers">
   <div class="W">
-    <div style="text-align:center; margin-bottom:56px" class="rv">
-      <div class="sec-label" style="justify-content:center">
-        <span class="sl-bar"></span>
-        <span class="sl-txt">Careers</span>
-      </div>
-      <h2 class="sec-title">Opening <em>Positions</em></h2>
-    </div>
+    <div class="careers-split">
+      <!-- Left Column -->
+      <div class="careers-sidebar rl">
+        <div class="sec-badge">Join Our Team</div>
+        <h2>Engineering <em>Careers at KES</em></h2>
+        <p>
+          We are continuously seeking passionate electrical design engineers, testing technicians, and project managers to drive industrial electrification across South India.
+        </p>
 
-    <div class="careers-grid">
-      <div class="rl" style="position: sticky; top: 120px;">
-        <p class="sec-body">We are constantly looking for talented engineers, technicians, and project managers to join our rapidly growing operations. Explore our open positions below and take the next step in your professional journey.</p>
-        <div style="margin-top:24px">
-          <p style="font-size:14px; color:var(--grey); font-weight:600; text-transform:uppercase; margin-bottom:8px">Don't see a fit?</p>
-          <a href="mailto:hr@kumarasolutions.in" style="color:var(--blue-alt); font-weight:700; font-size:15px; border-bottom:1px solid currentColor; padding-bottom:2px">Send your resume to HR &rarr;</a>
+        <div class="hr-box">
+          <div class="hr-box-lbl">Don't see your specific role?</div>
+          <p style="margin: 4px 0 8px; font-size: 12px; color: var(--text-body);">Send your resume and project portfolio directly to our HR department:</p>
+          <a href="mailto:hr@kumarasolutions.in?subject=Career%20Application%20at%20KES">
+            <span>hr@kumarasolutions.in &rarr;</span>
+          </a>
         </div>
       </div>
-      
+
+      <!-- Right Column: 4 Job Cards -->
       <div class="job-list rr">
-      
-      <div class="job-card">
-        <div class="job-info">
-          <h4>Senior Electrical Design Engineer</h4>
-          <div class="job-meta">
-            <span>📍 Bengaluru</span>
-            <span>⏱️ Full-Time</span>
-            <span>💼 4-7 Yrs Exp.</span>
+        
+        <!-- Job 1 -->
+        <div class="job-card">
+          <div class="job-info">
+            <h4>Senior Electrical Design Engineer</h4>
+            <div class="job-meta">
+              <span>Bengaluru Plant</span>
+              <span>Full-Time</span>
+              <span>4–7 Years Exp.</span>
+              <span>AutoCAD / SLDs</span>
+            </div>
           </div>
+          <a href="mailto:hr@kumarasolutions.in?subject=Application%20for%20Senior%20Electrical%20Design%20Engineer" class="job-btn">
+            <span>Apply Now</span>
+          </a>
         </div>
-        <a href="mailto:hr@kumarasolutions.in?subject=Application%20for%20Senior%20Electrical%20Design%20Engineer" class="job-btn">Apply Now</a>
-      </div>
 
-      <div class="job-card">
-        <div class="job-info">
-          <h4>Project Manager (Turnkey Infrastructure)</h4>
-          <div class="job-meta">
-            <span>📍 Karnataka (On-Site)</span>
-            <span>⏱️ Full-Time</span>
-            <span>💼 8+ Yrs Exp.</span>
+        <!-- Job 2 -->
+        <div class="job-card">
+          <div class="job-info">
+            <h4>Turnkey Project Manager</h4>
+            <div class="job-meta">
+              <span>Karnataka (On-Site)</span>
+              <span>Full-Time</span>
+              <span>6–10 Years Exp.</span>
+              <span>Substation / CEIG</span>
+            </div>
           </div>
+          <a href="mailto:hr@kumarasolutions.in?subject=Application%20for%20Turnkey%20Project%20Manager" class="job-btn">
+            <span>Apply Now</span>
+          </a>
         </div>
-        <a href="mailto:hr@kumarasolutions.in?subject=Application%20for%20Project%20Manager" class="job-btn">Apply Now</a>
-      </div>
 
-      <div class="job-card">
-        <div class="job-info">
-          <h4>Panel Testing & QC Engineer</h4>
-          <div class="job-meta">
-            <span>📍 Bengaluru Facility</span>
-            <span>⏱️ Full-Time</span>
-            <span>💼 2-5 Yrs Exp.</span>
+        <!-- Job 3 -->
+        <div class="job-card">
+          <div class="job-info">
+            <h4>Panel Testing &amp; QC Engineer</h4>
+            <div class="job-meta">
+              <span>Bengaluru Lab</span>
+              <span>Full-Time</span>
+              <span>2–5 Years Exp.</span>
+              <span>HV Dielectric / FAT</span>
+            </div>
           </div>
+          <a href="mailto:hr@kumarasolutions.in?subject=Application%20for%20Panel%20Testing%20QC%20Engineer" class="job-btn">
+            <span>Apply Now</span>
+          </a>
         </div>
-        <a href="mailto:hr@kumarasolutions.in?subject=Application%20for%20Panel%20Testing%20Engineer" class="job-btn">Apply Now</a>
-      </div>
 
-      <div class="job-card">
-        <div class="job-info">
-          <h4>AutoCAD Draftsman (Electrical)</h4>
-          <div class="job-meta">
-            <span>📍 Bengaluru</span>
-            <span>⏱️ Full-Time</span>
-            <span>💼 1-3 Yrs Exp.</span>
+        <!-- Job 4 -->
+        <div class="job-card">
+          <div class="job-info">
+            <h4>AutoCAD Electrical Draftsman</h4>
+            <div class="job-meta">
+              <span>Bengaluru</span>
+              <span>Full-Time</span>
+              <span>1–4 Years Exp.</span>
+              <span>GA Layouts / Schematics</span>
+            </div>
           </div>
+          <a href="mailto:hr@kumarasolutions.in?subject=Application%20for%20AutoCAD%20Electrical%20Draftsman" class="job-btn">
+            <span>Apply Now</span>
+          </a>
         </div>
-        <a href="mailto:hr@kumarasolutions.in?subject=Application%20for%20AutoCAD%20Draftsman" class="job-btn">Apply Now</a>
-      </div>
 
       </div>
-    </div>        
-
+    </div>
   </div>
 </section>
 
-<!-- -------------------------------- MAP SECTION -------------------------------- -->
-<section style="height:450px; background:#eee">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.345630371007!2d77.61488589999999!3d12.885482900000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15002ca3b463%3A0xf436bfaeb01a2144!2sBrindavana!5e0!3m2!1sen!2sin!4v1776684450403!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<!-- ==========================================================================
+     MAP SECTION
+     ========================================================================== -->
+<section class="map-sec">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.345630371007!2d77.61488589999999!3d12.885482900000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15002ca3b463%3A0xf436bfaeb01a2144!2sBrindavana!5e0!3m2!1sen!2sin!4v1776684450403!5m2!1sen!2sin" title="KES Bengaluru Location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  
+  <div class="map-floating-chip">
+    <div class="mfc-ico">
+      <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    </div>
+    <div class="mfc-txt">
+      <strong>Kumara Engineering Solutions Plant</strong>
+      <span>BTM Layout 4th Stage, 2nd Block, Bengaluru - 560 076</span>
+    </div>
+  </div>
 </section>
 
-<!-- -------------------------------- FOOTER -------------------------------- -->
-<!-- Shared footer loaded by site.js -->
+<!-- ==========================================================================
+     CALL TO ACTION
+     ========================================================================== -->
+<div class="cta-sec">
+  <div class="W cta-grid">
+    <div class="cta-content rv">
+      <h2>Have an Upcoming <em>Infrastructure Project?</em></h2>
+      <p>Schedule a face-to-face consultation with Mr. Kumaraswamy B.R. and our engineering leads at our Bengaluru plant.</p>
+    </div>
+    <div class="cta-action rv d1">
+      <a href="tel:+919900604365" class="btn-white">
+        <span>Call +91 99006 04365</span>
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Global Footer placeholder injected by site.js -->
 <div id="site-footer"></div>
 
-<!-- -------------------------------- SCRIPTS -------------------------------- -->
+<!-- Back to top button -->
+<button id="btt" aria-label="Back to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">&uarr;</button>
+
+<!-- ==========================================================================
+     SCRIPTS & QUERY PARAMETER PREFILL
+     ========================================================================== -->
+<script>
+  // Intersection Observer for scroll reveal animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -30px 0px'
+  });
+
+  document.querySelectorAll('.rv, .rl, .rr').forEach((el) => observer.observe(el));
+
+  const btt = document.getElementById('btt');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 350) {
+      btt.classList.add('on');
+    } else {
+      btt.classList.remove('on');
+    }
+  }, { passive: true });
+
+  // Pre-fill product selection if linked from products.html
+  window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const prodParam = urlParams.get('prod');
+    if (prodParam) {
+      const selectEl = document.getElementById('cProduct');
+      if (selectEl) {
+        for (let i = 0; i < selectEl.options.length; i++) {
+          if (selectEl.options[i].value.toLowerCase() === prodParam.toLowerCase() ||
+              selectEl.options[i].value.toLowerCase().includes(prodParam.toLowerCase())) {
+            selectEl.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    }
+  });
+
+  // Client-side submission with instant feedback
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    const name = document.getElementById('cName').value;
+    const company = document.getElementById('cCompany').value;
+    const email = document.getElementById('cEmail').value;
+    const phone = document.getElementById('cPhone').value;
+    const product = document.getElementById('cProduct').value;
+    const rating = document.getElementById('cRating').value;
+    const message = document.getElementById('cMessage').value;
+
+    const btn = document.getElementById('submitBtn');
+    const alertBox = document.getElementById('formAlert');
+
+    btn.disabled = true;
+    btn.innerHTML = '<span>Processing Inquiry...</span>';
+
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.innerHTML = '<span>Submit Technical Inquiry</span> <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+      
+      alertBox.style.display = 'block';
+      document.getElementById('alertMsg').innerHTML = `Thank you, <strong>${name}</strong>! Your inquiry regarding <strong>${product.replace('_', ' ')}</strong> has been recorded. Our engineering desk will connect with you at <strong>${phone}</strong> / <strong>${email}</strong> shortly.`;
+      
+      // Construct mailto link fallback
+      const subject = encodeURIComponent(`Technical Inquiry: ${product.replace('_', ' ')} - ${company || name}`);
+      const body = encodeURIComponent(`Name: ${name}\nCompany: ${company}\nEmail: ${email}\nPhone: ${phone}\nProduct: ${product}\nRating: ${rating}\nRequirements:\n${message}`);
+      
+      // Reset form
+      document.getElementById('quoteForm').reset();
+    }, 600);
+  }
+</script>
 <script src="site.js"></script>
 </body>
 </html>

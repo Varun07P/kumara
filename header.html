@@ -76,18 +76,142 @@
 .mega-item::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--blue-alt); flex-shrink: 0; opacity: .2; transition: opacity .15s, transform .15s; }
 .mega-item:hover::before { opacity: 1; transform:scale(1.3); }
 
-/* Services Specific */
-.svc-grid-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 10px 0; }
-.svc-drop-hd { display:flex; align-items:center; justify-content:space-between; font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 800; color: var(--blue-alt); letter-spacing: .16em; text-transform: uppercase; padding: 0 4px 12px; border-bottom: 2px solid rgba(204,39,0,.1); margin-bottom: 8px; }
-.svc-item { display: flex; align-items: flex-start; gap: 12px; padding: 11px 14px; border-radius: 10px; cursor: pointer; transition: all .2s; text-decoration: none; }
-.svc-item:hover { background: rgba(204,39,0,.04); transform:translateX(2px); }
-.svc-item .si-ico { width: 38px; height: 38px; background: rgba(204,39,0,.06); border:1px solid rgba(204,39,0,.1); border-radius: 9px; display: grid; place-items: center; flex-shrink: 0; transition: all .2s; }
-.svc-item:hover .si-ico { background: var(--blue-alt); border-color:var(--blue-alt); }
-.svc-item .si-ico svg { width: 17px; height: 17px; stroke: var(--blue-alt); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: stroke .2s; }
-.svc-item:hover .si-ico svg { stroke: #fff; }
-.svc-item .si-text .si-name { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: .02em; line-height: 1.1; margin-bottom: 3px; }
-.svc-item .si-text .si-desc { font-size: 11.5px; color: var(--grey); line-height: 1.45; }
-.svc-item .si-text .si-tag { display:inline-block; margin-top:4px; font-family:'Barlow Condensed',sans-serif; font-size: 9px; font-weight: 700; color: var(--blue-alt); letter-spacing: .1em; text-transform: uppercase; background: rgba(204,39,0,.06); border: 1px solid rgba(204,39,0,.12); padding: 2px 8px; border-radius: 3px; }
+/* Ultra-Compact Low-Height Services Dropdown */
+.svc-compact-dropdown {
+  position: absolute;
+  top: calc(100% + 3px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  width: 760px;
+  max-width: 95vw;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px;
+  box-shadow: 0 16px 44px rgba(8,17,31,.16);
+  opacity: 0;
+  visibility: hidden;
+  transition: all .2s cubic-bezier(.16,1,.3,1);
+  z-index: 9999;
+}
+.nav-item:hover .svc-compact-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.svc-side-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.sc-card {
+  background: var(--off);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all .18s ease;
+}
+.sc-card:hover {
+  background: #ffffff;
+  border-color: rgba(204,39,0,.4);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(6,14,26,.06);
+}
+
+.sc-ico {
+  width: 34px;
+  height: 34px;
+  border-radius: 7px;
+  background: rgba(204,39,0,.08);
+  border: 1px solid rgba(204,39,0,.18);
+  color: var(--blue-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all .18s ease;
+}
+.sc-card:hover .sc-ico {
+  background: var(--blue-alt);
+  color: #fff;
+  border-color: var(--blue-alt);
+}
+.sc-ico svg {
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sc-body {
+  flex: 1;
+  min-width: 0;
+}
+.sc-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sc-arr {
+  font-size: 12px;
+  color: var(--grey2);
+  transition: all .18s ease;
+}
+.sc-card:hover .sc-arr {
+  color: var(--blue-alt);
+  transform: translateX(3px);
+}
+.sc-sub {
+  font-size: 11px;
+  color: var(--grey);
+  line-height: 1.25;
+  font-weight: 400;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sc-footer {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid var(--border-sub);
+  text-align: center;
+}
+.sc-footer a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--blue-alt);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  transition: gap .18s ease;
+}
+.sc-footer a:hover {
+  gap: 7px;
+  text-decoration: underline;
+}
 
 .mega-products .mega-drop-footer { grid-column: 1 / -1; }
 .mega-drop-footer { margin-top: 24px; padding: 18px 24px; background: rgba(204,39,0,.03); border-radius: 10px; display: flex; align-items: center; justify-content: space-between; border: 1px solid rgba(204,39,0,.08); }
@@ -244,6 +368,51 @@
       <a href="aboutus.html" class="nav-link">About</a>
     </div>
 
+    <!-- Services dropdown (Ultra-Compact Low-Height with Worker Icon) -->
+    <div class="nav-item has-dropdown">
+      <a href="services.html" class="nav-link">Services <svg class="chev" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></a>
+      <div class="dropdown svc-compact-dropdown">
+        <div class="svc-side-grid">
+          <!-- 01: Consultancy with Worker / Hardhat Icon -->
+          <a href="engineeringcounsultancy.html" class="sc-card">
+            <div class="sc-ico" title="Engineering Advisory">
+              <svg viewBox="0 0 24 24"><path d="M2 20h20"/><path d="M4 20v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2"/><circle cx="12" cy="8" r="4"/><path d="M7 8a5 5 0 0 1 10 0H7z"/><path d="M12 3v2"/></svg>
+            </div>
+            <div class="sc-body">
+              <div class="sc-title">Engineering Consultancy <span class="sc-arr">&rarr;</span></div>
+              <div class="sc-sub">MEPF SLDs &amp; CEIG Sanctions</div>
+            </div>
+          </a>
+
+          <!-- 02: Works Contract -->
+          <a href="workscontract.html" class="sc-card">
+            <div class="sc-ico" title="Turnkey Works Contract">
+              <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <div class="sc-body">
+              <div class="sc-title">Works Contract <span class="sc-arr">&rarr;</span></div>
+              <div class="sc-sub">Substations, Cabling &amp; 24/7 AMC</div>
+            </div>
+          </a>
+
+          <!-- 03: Panel Manufacturing -->
+          <a href="manufacturing.html" class="sc-card">
+            <div class="sc-ico" title="Switchgear Manufacturing">
+              <svg viewBox="0 0 24 24"><path d="M2 20h20"/><path d="M5 20V8l5 4V8l5 4V4h5v16H5z"/><line x1="18" y1="8" x2="18.01" y2="8"/><line x1="18" y1="12" x2="18.01" y2="12"/></svg>
+            </div>
+            <div class="sc-body">
+              <div class="sc-title">Panel Manufacturing <span class="sc-arr">&rarr;</span></div>
+              <div class="sc-sub">CPRI 100kA Switchboards &amp; Bus Ducts</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="sc-footer">
+          <a href="services.html">View All Services Overview &rarr;</a>
+        </div>
+      </div>
+    </div>
+
     <!-- Products mega-menu -->
     <div class="nav-item mega-parent">
       <div class="nav-link">Products <svg class="chev" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
@@ -303,54 +472,6 @@
       </div>
     </div>
 
-    <div class="nav-item mega-parent">
-      <div class="nav-link">Services <svg class="chev" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg></div>
-      <div class="mega-dropdown">
-        <div class="mega-services">
-          <div class="svc-drop-hd">
-            <span>Three Verticals, One Powerhouse</span>
-            <span style="color:var(--grey2); font-size:9px; letter-spacing:0">Our Business Divisions</span>
-          </div>
-          <div class="svc-grid-inner">
-            <a href="engineeringcounsultancy.html" class="svc-item">
-              <div class="si-ico">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 11 12 15 8 11"/><polyline points="16 5 12 9 8 5"/><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/></svg>
-              </div>
-              <div class="si-text">
-                <div class="si-name">Consultancy</div>
-                <div class="si-desc">Engineering & MEPF Design</div>
-                <div class="si-tag">Vertical 01</div>
-              </div>
-            </a>
-            <a href="workscontract.html" class="svc-item">
-              <div class="si-ico">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-              </div>
-              <div class="si-text">
-                <div class="si-name">Works Contract</div>
-                <div class="si-desc">Installation, Services & AMC</div>
-                <div class="si-tag">Vertical 02</div>
-              </div>
-            </a>
-            <a href="manufacturing.html" class="svc-item">
-              <div class="si-ico">
-                <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-              </div>
-              <div class="si-text">
-                <div class="si-name">Manufacturing</div>
-                <div class="si-desc">Panel Manufacturing & Products</div>
-                <div class="si-tag">Vertical 03</div>
-              </div>
-            </a>
-          </div>
-          <div class="mega-drop-footer">
-            <span>Class I Govt. Licensed Contractor &middot; ISO 9001 &middot; CPRI</span>
-            <a href="services.html">View All Services &rarr;</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
 
     <div class="nav-item">
       <a href="process.html" class="nav-link">Process</a>
@@ -364,7 +485,7 @@
   </div>
 
   <div class="nav-actions">
-    <a href="contactus.html" class="nav-cta"><span>Get a Quote</span> <span class="arr">&#8594;</span></a>
+    <a href="admin.html" class="nav-cta"><span>Login</span> <span class="arr">&#8594;</span></a>
     <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
       <div class="bar-box">
         <span class="bar"></span>

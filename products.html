@@ -1,919 +1,1913 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Products — Kumara Engineering Solutions</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products & Switchboards — Kumara Engineering Solutions</title>
+<meta name="description" content="Explore 25+ CPRI and IEC 61439 certified electrical switchboards, PCC, MCC, APFC, ATS, DG Sync, PLC automation, and bus duct systems manufactured by KES in Bengaluru.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#0b0d0f; --bg2:#111418; --bg3:#181c22; --bg4:#1e2328;
-  --line:rgba(255,255,255,0.07); --line2:rgba(255,255,255,0.13);
-  --red:#e03210; --red2:#ff4520; --red-dim:rgba(224,50,16,0.13); --red-glow:rgba(224,50,16,0.4);
-  --t1:rgba(255,255,255,0.98); --t2:rgba(255,255,255,0.85); --t3:rgba(255,255,255,0.5); --t4:rgba(255,255,255,0.15);
-  --display:'Bebas Neue',cursive; --body:'Instrument Sans',sans-serif; --mono:'JetBrains Mono',monospace;
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;background:var(--bg)}
-body{font-family:var(--body);color:var(--t1);background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-a{text-decoration:none;color:inherit}img{display:block;width:100%;height:100%;object-fit:cover}
-button{font-family:var(--body);cursor:pointer;border:none;background:none;outline:none}
-.W{max-width:1440px;margin:0 auto;padding:0 60px}
+  /* ==========================================================================
+     DESIGN TOKENS & SYSTEM
+     ========================================================================== */
+  :root {
+    --navy:        #07101e;
+    --navy-2:      #0b1a32;
+    --navy-3:      #102344;
+    --red:         #cc2700;
+    --red-hover:   #a81e00;
+    --red-accent:  #ff5722;
+    --red-soft:    rgba(204, 39, 0, 0.08);
+    --red-border:  rgba(204, 39, 0, 0.2);
+    --red-glow:    rgba(204, 39, 0, 0.3);
+    
+    --bg-page:     #ffffff;
+    --bg-alt:      #f8fafd;
+    --bg-card:     #ffffff;
+    
+    --border:      #e2eaf2;
+    --border-subtle: #edf2f8;
+    --border-dark: rgba(255, 255, 255, 0.08);
+    
+    --text-main:   #09182d;
+    --text-body:   #506176;
+    --text-muted:  #8595a8;
+    --text-light:  rgba(255, 255, 255, 0.72);
+    
+    --shadow-sm:   0 2px 6px rgba(7, 16, 30, 0.04);
+    --shadow-md:   0 6px 18px rgba(7, 16, 30, 0.06);
+    --shadow-lg:   0 12px 30px rgba(7, 16, 30, 0.09);
+    
+    --radius-sm:   5px;
+    --radius-md:   8px;
+    --radius-lg:   12px;
+    --radius-full: 9999px;
+    
+    --font-heading: 'Barlow Condensed', -apple-system, sans-serif;
+    --font-body:    'Barlow', -apple-system, sans-serif;
+    --ease:         cubic-bezier(0.16, 1, 0.3, 1);
+  }
 
-/* -------------------------------- SITE-MATCHING HERO -------------------------------- */
-.page-hero{
-  position:relative;min-height:520px;display:flex;align-items:center;
-  background:var(--bg);overflow:hidden;padding:100px 0 60px;
-}
-.phero-bg{
-  position:absolute;inset:0;
-  background:url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1920&q=80') center/cover no-repeat;
-  opacity:0.1;
-}
-.phero-grad{
-  position:absolute;inset:0;
-  background:linear-gradient(115deg,var(--bg) 45%,rgba(11,13,15,0.6) 100%);
-}
-.phero-inner{
-  position:relative;z-index:2;width:100%;
-  display:grid;grid-template-columns:1.2fr 0.8fr;gap:60px;align-items:center;padding:0 80px;
-}
-.phero-crumb{
-  display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;font-weight:700;
-  color:rgba(255,255,255,0.28);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:24px;
-}
-.phero-crumb a{transition:color 0.2s;}
-.phero-crumb a:hover{color:var(--red2);}
-.phero-crumb .sep{color:rgba(255,255,255,0.12);}
-.phero-crumb .cur{color:var(--red2);}
-.phero-tag{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(224,50,16,0.1);border:1px solid rgba(224,50,16,0.25);color:var(--red2);
-  font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.12em;
-  text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:20px;
-}
-.phero-h1{
-  font-family:'Barlow Condensed',sans-serif;font-size:clamp(48px,6.5vw,90px);
-  font-weight:900;color:rgba(255,255,255,0.95);text-transform:uppercase;
-  line-height:0.95;letter-spacing:-0.02em;margin-bottom:22px;
-}
-.phero-h1 em{font-style:normal;color:var(--red2);}
-.phero-sub{
-  font-size:15px;color:rgba(255,255,255,0.55);line-height:1.7;
-  margin-bottom:34px;font-family:'Barlow',sans-serif;font-weight:300;max-width:560px;
-}
+  /* Reset & Base */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: var(--font-body);
+    color: var(--text-main);
+    background: var(--bg-page);
+    line-height: 1.55;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { text-decoration: none; color: inherit; transition: color 0.2s var(--ease); }
+  button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+  img { display: block; max-width: 100%; height: auto; object-fit: cover; }
+  ul { list-style: none; }
 
-/* Dynamic Right-Side Product Showcase Grid */
-.phero-visual {
-  display:grid;grid-template-columns:1fr 1fr;grid-template-rows:160px 160px;gap:16px;position:relative;
-}
-.pv-card {
-  position:relative;border-radius:12px;overflow:hidden;background:var(--bg2);
-  border:1px solid rgba(255,255,255,0.06);transition:all 0.4s cubic-bezier(0.16,1,0.3,1);
-  box-shadow:0 16px 40px rgba(0,0,0,0.4);
-}
-.pv-card:hover {
-  transform:translateY(-6px);border-color:var(--red2);box-shadow:0 24px 50px rgba(224,50,16,0.2);
-}
-.pv-card.tall { grid-row:span 2; }
-.pv-card img {
-  width:100%;height:100%;object-fit:cover;opacity:0.4;transition:opacity 0.4s;
-}
-.pv-card:hover img { opacity:0.8; }
-.pv-card .pv-ov {
-  position:absolute;inset:0;background:linear-gradient(0deg, var(--bg) 0%, transparent 70%);
-}
-.pv-card .pv-txt {
-  position:absolute;bottom:18px;left:20px;right:20px;z-index:2;
-}
-.pv-txt h4 {
-  font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;
-  color:#fff;text-transform:uppercase;margin-bottom:4px;letter-spacing:0.02em;
-}
-.pv-txt p {
-  font-size:11px;font-family:var(--mono);color:var(--red2);
-  letter-spacing:0.1em;text-transform:uppercase;margin:0;font-weight:500;
-}
+  /* Layout Containers */
+  .W { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 28px; }
+  .sec { padding: 46px 0; position: relative; }
+  .sec-alt { background: var(--bg-alt); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
+  .sec-dark { background: var(--navy); color: #fff; }
 
-@media(max-width:900px){
-  .phero-inner{grid-template-columns:1fr;gap:40px;padding:80px 0 0;}
-  .phero-visual{grid-template-rows:120px 120px;}
-}
+  /* Scroll Reveal */
+  .rv, .rl, .rr { opacity: 0; transition: opacity 0.55s var(--ease), transform 0.55s var(--ease); will-change: opacity, transform; }
+  .rv { transform: translateY(18px); }
+  .rl { transform: translateX(-18px); }
+  .rr { transform: translateX(18px); }
+  .rv.in, .rl.in, .rr.in { opacity: 1; transform: none; }
+  .d1 { transition-delay: 0.06s; }
+  .d2 { transition-delay: 0.12s; }
+  .d3 { transition-delay: 0.18s; }
 
-/* -------------------------------- FILTER BAR -------------------------------- */
-.filter-bar{
-  position:sticky;top:71px;z-index:500;
-  background:rgba(11,13,15,0.96);backdrop-filter:blur(24px);
-  border-bottom:1px solid var(--line);
-}
-/* -------------------------------- SIDEBAR & STOREFRONT -------------------------------- */
-.storefront{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start;padding:40px 0 80px}
-.sidebar-nav{position:sticky;top:100px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:8px;max-height:calc(100vh - 120px);overflow-y:auto;overflow-x:hidden;scrollbar-width:thin}
-.sn-title{font-family:var(--display);font-size:14px;font-weight:800;color:var(--t1);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;padding-bottom:12px;border-bottom:1px solid var(--line)}
-.f-btn{display:flex;align-items:center;justify-content:space-between;width:100%;text-align:left;background:transparent;border:1px solid transparent;padding:10px 14px;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--t1);cursor:pointer;border-radius:4px;transition:all 0.2s}
-.f-btn:hover{background:var(--bg2);color:var(--t1)}
-.f-btn.active{background:var(--red-dim);color:var(--red2);border-color:rgba(224,50,16,0.3)}
-.f-cnt{background:var(--t4);color:var(--t3);font-size:9px;padding:2px 8px;border-radius:100px;transition:all 0.2s}
-.f-btn.active .f-cnt{background:var(--red);color:#fff}
-.f-div{min-height:1px;background:var(--line);margin:8px 0;flex-shrink:0}
-.f-grp-lbl{font-family:var(--mono);font-size:9px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.15em;padding:4px 14px;margin-top:4px}
-.f-search-wrap{position:relative;margin-top:0;margin-bottom:8px;}
-.f-search{width:100%;background:var(--bg3);border:1px solid var(--line);border-radius:4px;padding:12px 14px 12px 38px;font-family:var(--mono);font-size:10px;color:var(--t2);transition:all 0.2s}
-.f-search::placeholder{color:var(--t3)}
-.f-search:focus{outline:none;border-color:var(--red);background:var(--bg2);color:var(--t1)}
-.f-search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:14px;height:14px;stroke:var(--t3);fill:none;stroke-width:2}
+  /* Buttons */
+  .btn-red {
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    background: var(--red); color: #fff; padding: 10px 22px; border-radius: var(--radius-sm);
+    font-family: var(--font-heading); font-size: 14px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.05em; transition: all 0.22s var(--ease); box-shadow: 0 4px 14px var(--red-glow);
+    white-space: nowrap;
+  }
+  .btn-red:hover { background: var(--red-hover); transform: translateY(-1.5px); color: #fff; }
 
-/* -------------------------------- RESULTS META -------------------------------- */
-.results-meta{display:flex;align-items:center;justify-content:space-between;padding:0 0 20px}
-.rm-c{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:0.06em}
-.rm-c strong{color:var(--t2)}
-.rm-lbl{font-family:var(--mono);font-size:9px;color:var(--t3);letter-spacing:0.12em;text-transform:uppercase}
+  .btn-ghost {
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    border: 1.5px solid rgba(255, 255, 255, 0.2); color: rgba(255, 255, 255, 0.85);
+    padding: 9px 18px; border-radius: var(--radius-sm); font-family: var(--font-heading);
+    font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+    backdrop-filter: blur(8px); background: rgba(255, 255, 255, 0.04); transition: all 0.22s var(--ease);
+    white-space: nowrap;
+  }
+  .btn-ghost:hover { border-color: rgba(255, 255, 255, 0.5); color: #fff; background: rgba(255, 255, 255, 0.08); transform: translateY(-1.5px); }
 
-/* -------------------------------- GRID -------------------------------- */
-.products-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:1px;background:var(--line);
-  border:1px solid var(--line);border-radius:2px;overflow:hidden;
-}
+  .btn-white {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: #fff; color: var(--red); padding: 12px 28px; border-radius: var(--radius-sm);
+    font-family: var(--font-heading); font-size: 14.5px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.05em; transition: all 0.22s var(--ease); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    white-space: nowrap;
+  }
+  .btn-white:hover { transform: translateY(-2px); color: var(--navy); }
 
-/* -------------------------------- CAT HEADER ROWS -------------------------------- */
-.cat-hdr{
-  grid-column:1/-1;
-  display:flex;align-items:center;gap:16px;
-  padding:20px 32px;background:var(--bg2);
-  border-bottom:1px solid var(--line);
-}
-.cat-hdr-n{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,0.2);letter-spacing:0.14em;text-transform:uppercase;flex-shrink:0}
-.cat-hdr-t{font-family:var(--display);font-size:26px;letter-spacing:0.04em;color:var(--t1);flex-shrink:0}
-.cat-hdr-t em{font-style:normal;color:var(--red2)}
-.cat-hdr-line{flex:1;height:1px;background:linear-gradient(90deg,var(--line2),transparent)}
-.cat-hdr-sub{font-family:var(--mono);font-size:9px;color:rgba(255,255,255,0.2);letter-spacing:0.12em;text-transform:uppercase;flex-shrink:0}
+  /* ==========================================================================
+     HERO SECTION
+     ========================================================================== */
+  .hero-sec {
+    position: relative; background: var(--navy); overflow: hidden;
+    padding: 36px 0 32px; border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('images/gallery/factory.png') center/cover no-repeat;
+    opacity: 0.15; filter: saturate(1.2) contrast(1.1);
+  }
+  .hero-grad {
+    position: absolute; inset: 0;
+    background: linear-gradient(108deg, var(--navy) 30%, rgba(7, 16, 30, 0.94) 65%, rgba(7, 16, 30, 0.75) 100%);
+  }
+  .hero-grid-pattern {
+    position: absolute; inset: 0;
+    background-image: 
+      linear-gradient(rgba(204, 39, 0, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(204, 39, 0, 0.03) 1px, transparent 1px);
+    background-size: 32px 32px; pointer-events: none;
+  }
+  .hero-glow {
+    position: absolute; top: -100px; right: 8%; width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(204, 39, 0, 0.14) 0%, transparent 70%); pointer-events: none;
+  }
+  .hero-grid {
+    position: relative; z-index: 2; display: grid;
+    grid-template-columns: 1.1fr 0.9fr; gap: 32px; align-items: center;
+  }
+  .hero-content { display: flex; flex-direction: column; align-items: flex-start; }
 
-/* -------------------------------- PCARD BASE -------------------------------- */
-.pcard{
-  background:var(--bg);display:flex;flex-direction:column;
-  position:relative;overflow:hidden;cursor:default;
-  animation:cardIn 0.45s both;
-}
-@keyframes cardIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-.pcard:hover{background:var(--bg2)}
-.pcard::before{
-  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
-  background:var(--red);transform:scaleY(0);transform-origin:bottom;
-  transition:transform 0.35s cubic-bezier(0.16,1,0.3,1);z-index:5;
-}
-.pcard:hover::before{transform:scaleY(1)}
+  .breadcrumb {
+    display: flex; align-items: center; gap: 6px; font-family: var(--font-heading);
+    font-size: 11px; font-weight: 700; color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px;
+  }
+  .breadcrumb a:hover { color: var(--red); }
+  .breadcrumb .sep { color: rgba(255, 255, 255, 0.15); }
+  .breadcrumb .cur { color: var(--red-accent); }
 
-/* Featured full width */
-.pcard.feat{grid-column:1/-1;flex-direction:row;min-height:360px}
-.pcard.feat .pc-img{width:460px;height:auto;flex-shrink:0}
-.pcard.feat .pc-body{padding:44px 52px}
-.pcard.feat .pc-title{font-size:clamp(34px,3.5vw,52px)}
-.pcard.feat .pc-desc{font-size:14.5px;max-width:580px}
-/* Half width */
-.pcard.half{grid-column:span 2}
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(204, 39, 0, 0.12); border: 1px solid var(--red-border);
+    color: #ff6036; font-family: var(--font-heading); font-size: 10.5px;
+    font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: var(--radius-sm); margin-bottom: 10px;
+  }
+  .tag-dot {
+    width: 5px; height: 5px; border-radius: 50%; background: var(--red);
+    box-shadow: 0 0 6px var(--red); animation: pulseGlow 2s infinite ease-in-out;
+  }
+  @keyframes pulseGlow { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.3); opacity: 0.7; } }
 
-/* Image */
-.pc-img{height:210px;overflow:hidden;position:relative;background:var(--bg3);flex-shrink:0}
-.pc-img img{transition:transform 0.7s cubic-bezier(0.16,1,0.3,1),filter 0.4s;filter:brightness(0.72) saturate(0.8)}
-.pcard:hover .pc-img img{transform:scale(1.07);filter:brightness(0.85) saturate(1)}
-.pc-img::after{content:'';position:absolute;inset:0;background:linear-gradient(140deg,rgba(11,13,15,0.55),transparent 55%,rgba(11,13,15,0.25));pointer-events:none}
-.pc-cat-badge{position:absolute;top:13px;left:13px;z-index:3;font-family:var(--mono);font-size:9px;letter-spacing:0.11em;text-transform:uppercase;color:rgba(255,255,255,0.6);background:rgba(11,13,15,0.72);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.1);padding:3px 9px;border-radius:2px}
-.pc-stds{position:absolute;bottom:12px;right:12px;z-index:3;display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
-.pc-std{font-family:var(--mono);font-size:8px;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--red2);background:rgba(224,50,16,0.18);border:1px solid rgba(224,50,16,0.28);padding:2px 6px;border-radius:2px}
+  .hero-h1 {
+    font-family: var(--font-heading); font-size: clamp(30px, 3.6vw, 46px);
+    font-weight: 900; color: #fff; text-transform: uppercase; line-height: 0.98;
+    letter-spacing: -0.02em; margin-bottom: 10px;
+  }
+  .hero-h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, #ff7a59 0%, #cc2700 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero-sub {
+    font-size: 13.5px; color: rgba(255, 255, 255, 0.7); max-width: 500px;
+    line-height: 1.55; margin-bottom: 18px; font-weight: 300;
+  }
+  .hero-btns { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 
-/* Body */
-.pc-body{padding:24px 28px;display:flex;flex-direction:column;flex-grow:1}
-.pc-idx{font-family:var(--mono);font-size:9px;color:var(--t3);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:8px}
-.pc-idx::after{content:'';flex:1;height:1px;background:var(--line);max-width:32px}
-.pc-title{font-family:var(--display);font-size:clamp(22px,1.8vw,30px);color:var(--t1);letter-spacing:0.02em;text-transform:uppercase;line-height:1;margin-bottom:12px}
-.pc-desc{font-size:13px;color:var(--t2);line-height:1.75;margin-bottom:18px;flex-grow:1}
+  /* Hero Showcase Right Matrix */
+  .hero-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 110px 110px;
+    gap: 10px;
+  }
+  .hsc-item {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.25s var(--ease);
+  }
+  .hsc-item.tall {
+    grid-row: span 2;
+  }
+  .hsc-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.55;
+    transition: transform 0.5s var(--ease), opacity 0.3s;
+  }
+  .hsc-item:hover img {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+  .hsc-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(7, 16, 30, 0.2) 0%, rgba(7, 16, 30, 0.85) 100%);
+  }
+  .hsc-caption {
+    position: absolute;
+    bottom: 10px;
+    left: 12px;
+    right: 12px;
+    z-index: 2;
+  }
+  .hsc-tag {
+    font-family: var(--font-heading);
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--red-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .hsc-caption h4 {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1.15;
+  }
 
-/* Chips */
-.chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:18px}
-.chip{font-family:var(--mono);font-size:9px;letter-spacing:0.07em;text-transform:uppercase;color:var(--t3);background:var(--t4);border:1px solid var(--line);padding:3px 9px;border-radius:2px;transition:all 0.2s}
-.chip.hi{color:var(--red2);background:var(--red-dim);border-color:rgba(224,50,16,0.25)}
-.pcard:hover .chip{color:var(--t2);border-color:var(--line2)}
+  /* ==========================================================================
+     STOREFRONT & CATALOG LAYOUT
+     ========================================================================== */
+  .storefront {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 32px;
+    align-items: start;
+    padding: 36px 0 60px;
+  }
 
-/* Table */
-.pc-tbl{width:100%;border-collapse:collapse;margin-bottom:18px}
-.pc-tbl tr{border-bottom:1px solid var(--line)}
-.pc-tbl tr:last-child{border-bottom:none}
-.pc-tbl td{padding:7px 0;font-size:12px;vertical-align:top}
-.pc-tbl td:first-child{font-family:var(--mono);font-size:9px;letter-spacing:0.05em;text-transform:uppercase;color:var(--t3);width:36%;padding-right:10px}
-.pc-tbl td:last-child{color:var(--t2)}
+  /* Sidebar Filter Navigation */
+  .sidebar-nav {
+    position: sticky;
+    top: 90px;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    box-shadow: var(--shadow-sm);
+  }
 
-/* Features */
-.feats{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
-.ft{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;color:var(--t2);line-height:1.5}
-.ft::before{content:'\2192';font-family:var(--mono);font-size:10px;color:var(--red);flex-shrink:0;margin-top:1px}
+  .sn-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .sn-title {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
 
-/* Two-col feats */
-.feats-2col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
-.fcg-lbl{font-family:var(--mono);font-size:9px;letter-spacing:0.13em;text-transform:uppercase;color:var(--red);margin-bottom:9px}
+  /* Search Wrap */
+  .f-search-wrap {
+    position: relative;
+    margin-bottom: 10px;
+  }
+  .f-search {
+    width: 100%;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 9px 12px 9px 34px;
+    font-family: var(--font-body);
+    font-size: 12.5px;
+    color: var(--text-main);
+    transition: all 0.2s var(--ease);
+  }
+  .f-search::placeholder { color: var(--text-muted); }
+  .f-search:focus {
+    outline: none;
+    border-color: var(--red);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(204, 39, 0, 0.08);
+  }
+  .f-search-wrap svg {
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    stroke: var(--text-muted);
+    fill: none;
+    stroke-width: 2;
+  }
 
-/* Footer */
-.pc-foot{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1px solid var(--line);margin-top:auto}
-.pc-enq{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--red2);transition:gap 0.2s}
-.pcard:hover .pc-enq{gap:12px}
-.pc-enq svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.pc-std-lbl{font-family:var(--mono);font-size:9px;color:var(--t3);letter-spacing:0.05em;text-align:right;max-width:160px;line-height:1.4}
+  .f-grp-lbl {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 6px 8px 2px;
+  }
 
-/* Hidden/filter */
-.pcard.hidden{display:none!important}
-.cat-hdr.hid{display:none!important}
+  .f-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 8px 10px;
+    font-family: var(--font-heading);
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--text-body);
+    border-radius: var(--radius-sm);
+    transition: all 0.18s var(--ease);
+  }
+  .f-btn:hover {
+    background: var(--bg-alt);
+    color: var(--navy);
+  }
+  .f-btn.active {
+    background: var(--red-soft);
+    color: var(--red);
+    border-color: var(--red-border);
+  }
+  .f-cnt {
+    font-size: 10px;
+    font-weight: 700;
+    background: rgba(7, 16, 30, 0.06);
+    color: var(--text-muted);
+    padding: 2px 7px;
+    border-radius: var(--radius-full);
+    transition: all 0.18s;
+  }
+  .f-btn.active .f-cnt {
+    background: var(--red);
+    color: #fff;
+  }
 
-/* Empty state */
-.no-results{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px 40px;background:var(--bg)}
-.nr-big{font-family:var(--display);font-size:80px;color:var(--t4);margin-bottom:14px;letter-spacing:0.05em}
-.nr-msg{font-family:var(--mono);font-size:10px;color:var(--t3);letter-spacing:0.1em;text-transform:uppercase}
+  /* Sidebar Help Box */
+  .sn-help {
+    margin-top: 14px;
+    padding: 12px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+  }
+  .sn-help-title {
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--navy);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .sn-help p {
+    font-size: 11px;
+    color: var(--text-body);
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+  .sn-help a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--font-heading);
+    font-size: 11.5px;
+    font-weight: 800;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .sn-help a:hover { color: var(--red-hover); }
 
-/* CTA */
-.cta-block{
-  margin-top:1px;border:1px solid var(--line);border-top:none;
-  padding:52px 60px;display:flex;align-items:center;justify-content:space-between;gap:36px;flex-wrap:wrap;
-  position:relative;overflow:hidden;background:var(--bg);
-}
-.cta-block::before{content:'KES';position:absolute;right:32px;top:50%;transform:translateY(-50%);font-family:var(--display);font-size:200px;color:rgba(255,255,255,0.015);line-height:1;pointer-events:none}
-.cta-h{font-family:var(--display);font-size:clamp(30px,3.2vw,50px);color:var(--t1);text-transform:uppercase;letter-spacing:0.02em;line-height:1;margin-bottom:10px}
-.cta-h em{font-style:normal;color:var(--red2)}
-.cta-p{font-size:14px;color:var(--t2);line-height:1.7;max-width:460px}
-.cta-btns{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:2}
-.btn-r{display:inline-flex;align-items:center;gap:9px;background:var(--red);color:#fff;padding:14px 32px;border-radius:3px;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;transition:all 0.22s;box-shadow:0 4px 28px rgba(224,50,16,0.28)}
-.btn-r:hover{background:var(--red2);transform:translateY(-2px);box-shadow:0 10px 36px rgba(224,50,16,0.45)}
-.btn-o{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line2);color:var(--t2);padding:13px 28px;border-radius:3px;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;transition:all 0.22s}
-.btn-o:hover{border-color:var(--red);color:var(--red2);transform:translateY(-2px)}
+  /* Storefront Main Area */
+  .storefront-main {
+    display: flex;
+    flex-direction: column;
+  }
 
-/* Reveal */
-.rv{opacity:0;transform:translateY(20px);transition:opacity 0.5s cubic-bezier(0.16,1,0.3,1),transform 0.5s cubic-bezier(0.16,1,0.3,1)}
-.rv.in{opacity:1;transform:none}
-.d1{transition-delay:0.06s}.d2{transition-delay:0.12s}.d3{transition-delay:0.18s}.d4{transition-delay:0.24s}
+  .results-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 14px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .rm-c {
+    font-size: 13px;
+    color: var(--text-body);
+  }
+  .rm-c strong {
+    color: var(--navy);
+    font-weight: 700;
+  }
+  .rm-lbl {
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
 
-/* Responsive */
-@media(max-width:1200px){.products-grid{grid-template-columns:repeat(2,1fr)}.pcard.half{grid-column:span 1}.W{padding:0 36px}}
-@media(max-width:900px){
-  .storefront{grid-template-columns:1fr;gap:24px;padding:20px 0 60px}
-  .sidebar-nav{position:relative;top:0;display:flex;flex-direction:row;overflow-x:auto;padding:12px;white-space:nowrap;scrollbar-width:none}
-  .sidebar-nav::-webkit-scrollbar{display:none}
-  .f-btn{width:auto;flex-shrink:0;margin-right:8px}
-  .sn-title,.f-div,.f-grp-lbl{display:none}
-  .f-search-wrap{position: absolute; right: 12px; top: 18px; margin-top: 0; width: 140px;}
-}
-@media(max-width:768px){.products-grid{grid-template-columns:1fr}.pcard.feat{flex-direction:column}.pcard.feat .pc-img{width:100%;height:240px}.pcard.feat .pc-body{padding:28px}.W{padding:0 20px}.phero-h1{font-size:64px}.cta-block{padding:36px 24px}}
-@media(max-width:480px){.W{padding:0 16px}}
+  /* ==========================================================================
+     PRODUCTS GRID & CARDS
+     ========================================================================== */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  /* Category Separator Header */
+  .cat-hdr {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    margin: 8px 0 2px;
+  }
+  .cat-hdr-n {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 900;
+    color: var(--red);
+    background: var(--red-soft);
+    border: 1px solid var(--red-border);
+    padding: 2px 7px;
+    border-radius: var(--radius-sm);
+  }
+  .cat-hdr-t {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .cat-hdr-t em {
+    font-style: normal;
+    color: var(--red);
+  }
+  .cat-hdr-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--border), transparent);
+  }
+  .cat-hdr-sub {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  /* Base Product Card */
+  .pcard {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s var(--ease);
+    box-shadow: 0 1px 4px rgba(7, 16, 30, 0.03);
+  }
+  .pcard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(7, 16, 30, 0.08);
+    border-color: rgba(204, 39, 0, 0.3);
+  }
+  .pcard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2.5px;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s var(--ease);
+    z-index: 4;
+  }
+  .pcard:hover::before {
+    transform: scaleX(1);
+  }
+
+  /* Featured Full Width Product Card */
+  .pcard.feat {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 0;
+  }
+  .pcard.feat .pc-img {
+    height: 100%;
+    min-height: 280px;
+  }
+  .pcard.feat .pc-body {
+    padding: 24px 28px;
+  }
+  .pcard.feat .pc-title {
+    font-size: 22px;
+  }
+
+  /* Product Card Image Container */
+  .pc-img {
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-alt);
+    flex-shrink: 0;
+  }
+  .pc-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease);
+  }
+  .pcard:hover .pc-img img {
+    transform: scale(1.04);
+  }
+
+  .pc-cat-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 3;
+    font-family: var(--font-heading);
+    font-size: 9.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #fff;
+    background: rgba(7, 16, 30, 0.85);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 2.5px 8px;
+    border-radius: 3px;
+  }
+
+  .pc-stds {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 3;
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .pc-std {
+    font-family: var(--font-heading);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--red);
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--red-border);
+    padding: 2px 6px;
+    border-radius: 3px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  /* Product Card Body */
+  .pc-body {
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .pc-idx {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--red);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .pc-title {
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+  .pc-desc {
+    font-size: 12.5px;
+    color: var(--text-body);
+    line-height: 1.5;
+    margin-bottom: 12px;
+    flex-grow: 1;
+  }
+
+  /* Chips */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 12px;
+  }
+  .chip {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--navy);
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    padding: 2px 7px;
+    border-radius: 3px;
+  }
+  .chip.hi {
+    color: var(--red);
+    background: var(--red-soft);
+    border-color: var(--red-border);
+    font-weight: 600;
+  }
+
+  /* Specifications Table for Featured Cards */
+  .pc-tbl {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 14px;
+  }
+  .pc-tbl tr {
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .pc-tbl tr:last-child { border-bottom: none; }
+  .pc-tbl td {
+    padding: 5px 0;
+    font-size: 12px;
+    vertical-align: top;
+  }
+  .pc-tbl td:first-child {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    width: 32%;
+    padding-right: 8px;
+  }
+  .pc-tbl td:last-child {
+    color: var(--text-main);
+    font-weight: 500;
+  }
+
+  /* Feature bullets */
+  .feats {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 12px;
+  }
+  .ft {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    font-size: 12px;
+    color: var(--text-body);
+    line-height: 1.45;
+  }
+  .ft::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--red);
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  /* Card Footers */
+  .pc-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-subtle);
+    margin-top: auto;
+  }
+  .pc-enq {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--red);
+    transition: gap 0.2s;
+  }
+  .pcard:hover .pc-enq {
+    gap: 9px;
+    color: var(--red-hover);
+  }
+  .pc-enq svg {
+    width: 12px;
+    height: 12px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2.5;
+  }
+  .pc-std-lbl {
+    font-family: var(--font-heading);
+    font-size: 9.5px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  /* Filtering States */
+  .pcard.hidden { display: none !important; }
+  .cat-hdr.hid { display: none !important; }
+
+  /* Empty State */
+  .no-results {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background: var(--bg-alt);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-md);
+    text-align: center;
+  }
+  .nr-big {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .nr-msg {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-body);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* ==========================================================================
+     CALL TO ACTION
+     ========================================================================== */
+  .cta-sec {
+    background: linear-gradient(135deg, var(--navy) 0%, #0d1f3c 60%, #170503 100%);
+    padding: 42px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-grid {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+  }
+  .cta-content h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1.05;
+    margin-bottom: 6px;
+  }
+  .cta-content h2 em {
+    font-style: normal;
+    color: var(--red-accent);
+  }
+  .cta-content p {
+    font-size: 13.5px;
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 520px;
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  /* Back to top */
+  #btt {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+    background: var(--red);
+    color: #fff;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s, transform 0.25s;
+    box-shadow: 0 4px 12px var(--red-glow);
+    z-index: 999;
+  }
+  #btt.on { opacity: 1; pointer-events: auto; }
+  #btt:hover { transform: translateY(-2px); background: var(--red-hover); }
+
+  /* Responsive Breakpoints */
+  @media (max-width: 1200px) {
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 960px) {
+    .W { padding: 0 20px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 24px; }
+    .storefront { grid-template-columns: 1fr; gap: 20px; padding: 24px 0 48px; }
+    .sidebar-nav {
+      position: relative;
+      top: 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding: 10px;
+      gap: 6px;
+      white-space: nowrap;
+      scrollbar-width: none;
+    }
+    .sidebar-nav::-webkit-scrollbar { display: none; }
+    .sn-head, .f-grp-lbl, .sn-help { display: none; }
+    .f-search-wrap { min-width: 180px; margin-bottom: 0; }
+    .f-btn { width: auto; flex-shrink: 0; padding: 6px 12px; }
+  }
+  @media (max-width: 640px) {
+    .products-grid { grid-template-columns: 1fr; }
+    .pcard.feat { grid-template-columns: 1fr; }
+    .pcard.feat .pc-img { height: 200px; min-height: auto; }
+    .hero-showcase { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .hsc-item.tall { grid-row: auto; height: 140px; }
+    .cta-grid { flex-direction: column; text-align: center; gap: 18px; }
+    .btn-red, .btn-ghost, .btn-white { width: 100%; }
+  }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- Header placeholder injected by site.js -->
 <div id="site-header"></div>
 
-<!-- HERO -->
-<section class="page-hero">
-  <div class="phero-bg"></div>
-  <div class="phero-grad"></div>
-  <div class="W phero-inner">
-    <div class="phero-content">
-      <div class="phero-crumb rv">
-        <a href="index.html">Home</a><span class="sep">/</span><span class="cur">Products</span>
+<!-- ==========================================================================
+     HERO SECTION
+     ========================================================================== -->
+<section class="hero-sec">
+  <div class="hero-bg"></div>
+  <div class="hero-grad"></div>
+  <div class="hero-grid-pattern"></div>
+  <div class="hero-glow"></div>
+
+  <div class="W hero-grid">
+    <!-- Left Column: Identity & Actions -->
+    <div class="hero-content">
+      <nav class="breadcrumb rv" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">/</span>
+        <span class="cur">Products Catalog</span>
+      </nav>
+
+      <div class="hero-tag rv d1">
+        <span class="tag-dot"></span>
+        <span>IEC 61439 · IS:8623 · CPRI 100kA Tested</span>
       </div>
-      <div class="phero-tag rv d1">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="margin-right:4px"><path d="M12 2L2 22h20L12 2z"/></svg>
-        IEC 61439 · IS:8623 · CPRI Certified
+
+      <h1 class="hero-h1 rv d1">
+        Engineered Switchboards &amp;<br>
+        <em>Power Distribution</em>
+      </h1>
+
+      <p class="hero-sub rv d2">
+        Explore our 25+ specialized product lines spanning custom LV &amp; MV switchgears, motor control centers (MCC), intelligent PLC/VFD automation, and heavy-duty busways.
+      </p>
+
+      <div class="hero-btns rv d3">
+        <a href="#catalog" class="btn-red">
+          <span>Browse Catalog</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+        </a>
+        <a href="contactus.html" class="btn-ghost">
+          <span>Request Custom Quote</span>
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
-      <h1 class="phero-h1 rv d1">The Complete<br><em>Product</em> Showcase</h1>
-      <p class="phero-sub rv d2">Explore 25+ engineered product lines spanning LV &amp; MV switchgears, intelligent automation panels, HVAC controls, and comprehensive electrical infrastructure.</p>
     </div>
-    <div class="phero-visual rv d3">
-      <a href="#lt-panel" class="pv-card tall">
-        <img src="https://image.made-in-china.com/202f0j00LCnbwlagCpkz/Low-Voltage-Panels-Electrical-LV-Panel-Low-Voltage-Switchgear.webp" alt="LT Power Panels"/>
-        <div class="pv-ov"></div>
-        <div class="pv-txt">
-          <h4>LT Power Panels</h4>
-          <p>Up to 6300A · IP66</p>
+
+    <!-- Right Column: 3-Card Showcase Matrix -->
+    <div class="hero-showcase rv d2">
+      <a href="#lv-switchgear" class="hsc-item tall">
+        <img src="images/gallery/panel1.png" alt="LV Switchgear Panels"/>
+        <div class="hsc-overlay"></div>
+        <div class="hsc-caption">
+          <span class="hsc-tag">Flagship</span>
+          <h4>LV Power Switchboards</h4>
         </div>
       </a>
-      <a href="#plc-panel" class="pv-card">
-        <img src="https://esswin.com/wp-content/uploads/2024/08/vfdplc-n2.jpeg" alt="Automation & PLC"/>
-        <div class="pv-ov"></div>
-        <div class="pv-txt">
+
+      <a href="#plc-panel" class="hsc-item">
+        <img src="images/gallery/panel2.png" alt="Automation & PLC Panels"/>
+        <div class="hsc-overlay"></div>
+        <div class="hsc-caption">
+          <span class="hsc-tag">Automation</span>
           <h4>PLC &amp; AC Drives</h4>
-          <p>Smart Automation</p>
         </div>
       </a>
-      <a href="#busduct" class="pv-card">
-        <img src="https://5.imimg.com/data5/SELLER/Default/2024/5/411234568/lv-bus-duct-system.jpg" alt="HV/LV Bus Ducts"/>
-        <div class="pv-ov"></div>
-        <div class="pv-txt">
-          <h4>HV/LV Bus Ducts</h4>
-          <p>99.9% Copper Systems</p>
+
+      <a href="#busduct" class="hsc-item">
+        <img src="images/gallery/busduct.png" alt="Bus Duct Systems"/>
+        <div class="hsc-overlay"></div>
+        <div class="hsc-caption">
+          <span class="hsc-tag">Infrastructure</span>
+          <h4>HV / LV Busways</h4>
         </div>
       </a>
     </div>
   </div>
 </section>
 
-<!-- STOREFRONT SECTION -->
-<div class="W storefront">
+<!-- ==========================================================================
+     STOREFRONT & CATALOG SECTION
+     ========================================================================== -->
+<div class="W storefront" id="catalog">
   
-  <!-- SIDEBAR NAV -->
+  <!-- Sidebar Filter Navigation -->
   <aside class="sidebar-nav">
-      <h3 class="sn-title">Product Categories</h3>
-      
-      <div class="f-search-wrap">
-        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <input class="f-search" type="text" id="srch" placeholder="Search product..."/>
-      </div>
+    <div class="sn-head">
+      <span class="sn-title">Categories</span>
+    </div>
 
-      <button class="f-btn active" data-f="all">All Products <span class="f-cnt" id="cntAll">28</span></button>
-      <div class="f-div"></div>
-      <span class="f-grp-lbl">LV/MV Switchgear</span>
-      <button class="f-btn" data-f="distribution">Distribution <span class="f-cnt">10</span></button>
-      <button class="f-btn" data-f="control">Control & Sync <span class="f-cnt">6</span></button>
-      <div class="f-div"></div>
-      <span class="f-grp-lbl">Application</span>
-      <button class="f-btn" data-f="building">HVAC & Building <span class="f-cnt">4</span></button>
-      <button class="f-btn" data-f="special">Specialty <span class="f-cnt">6</span></button>
-      <div class="f-div"></div>
-      <span class="f-grp-lbl">Infrastructure</span>
-      <button class="f-btn" data-f="infra">Pathways & Busways <span class="f-cnt">2</span></button>
+    <div class="f-search-wrap">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input class="f-search" type="text" id="srch" placeholder="Search panel type..."/>
+    </div>
+
+    <button class="f-btn active" data-f="all">
+      <span>All Products</span>
+      <span class="f-cnt" id="cntAll">28</span>
+    </button>
+
+    <div class="f-grp-lbl">LV/MV Switchgear</div>
+    <button class="f-btn" data-f="distribution">
+      <span>Distribution</span>
+      <span class="f-cnt">10</span>
+    </button>
+    <button class="f-btn" data-f="control">
+      <span>Control &amp; Sync</span>
+      <span class="f-cnt">6</span>
+    </button>
+
+    <div class="f-grp-lbl">Specialized Systems</div>
+    <button class="f-btn" data-f="building">
+      <span>Building &amp; HVAC</span>
+      <span class="f-cnt">4</span>
+    </button>
+    <button class="f-btn" data-f="special">
+      <span>Specialty &amp; Solar</span>
+      <span class="f-cnt">6</span>
+    </button>
+
+    <div class="f-grp-lbl">Infrastructure</div>
+    <button class="f-btn" data-f="infra">
+      <span>Busways &amp; Trays</span>
+      <span class="f-cnt">2</span>
+    </button>
+
+    <div class="sn-help">
+      <div class="sn-help-title">Custom Spec?</div>
+      <p>Our chief electrical engineers can design custom single-line diagrams.</p>
+      <a href="contactus.html">
+        <span>Engineering Desk &rarr;</span>
+      </a>
+    </div>
   </aside>
 
-  <!-- PRODUCTS MAIN -->
+  <!-- Products Main Content -->
   <div class="storefront-main">
     <div class="results-meta rv">
-      <span class="rm-c">Showing <strong id="visCnt">28</strong> of 28 products</span>
+      <span class="rm-c">Showing <strong id="visCnt">28</strong> of 28 engineered products</span>
       <span class="rm-lbl" id="activeLbl">All Categories</span>
     </div>
 
     <div class="products-grid" id="grid">
 
-      <!-- -------------------------------- CAT 1 -------------------------------- -->
+      <!-- ==================== CAT 01: DISTRIBUTION ==================== -->
       <div class="cat-hdr" data-cat="distribution">
         <span class="cat-hdr-n">01</span>
-        <span class="cat-hdr-t">Distribution <em>Panels</em></span>
+        <span class="cat-hdr-t">Distribution <em>Switchgear</em></span>
         <div class="cat-hdr-line"></div>
-        <span class="cat-hdr-sub">LV &amp; MV Switchgears · 10 Products</span>
+        <span class="cat-hdr-sub">10 Products</span>
       </div>
 
-      <!-- LV SWITCHGEAR — FULL WIDTH -->
-      <article class="pcard feat" data-cat="distribution" style="animation-delay:0ms" id="lv-switchgear">
+      <!-- LV Switchgear (Featured Full-Width) -->
+      <article class="pcard feat" data-cat="distribution" id="lv-switchgear">
         <div class="pc-img">
-          <span class="pc-cat-badge">LV Switchgear · Featured</span>
-          <div class="pc-stds"><span class="pc-std">IEC 61439</span><span class="pc-std">IS:8623</span><span class="pc-std">CPRI</span></div>
-          <img src="https://image.made-in-china.com/202f0j00LCnbwlagCpkz/Low-Voltage-Panels-Electrical-LV-Panel-Low-Voltage-Switchgear.webp" alt="LV Switchgear Panels"/>
+          <span class="pc-cat-badge">Flagship Switchgear</span>
+          <div class="pc-stds">
+            <span class="pc-std">IEC 61439</span>
+            <span class="pc-std">CPRI 100kA</span>
+            <span class="pc-std">IS:8623</span>
+          </div>
+          <img src="images/gallery/panel1.png" alt="LV Switchgear Panels"/>
         </div>
         <div class="pc-body">
-          <div class="pc-idx">01 — Flagship Product</div>
+          <div class="pc-idx">01 — Core Power Distribution</div>
           <h3 class="pc-title">LV Switchgear Panels</h3>
-          <p class="pc-desc">Our flagship Low Tension panels manufactured to stringent national and international standards. Used for centralised control and monitoring of mains supply using protective switchgears and for distributing power to load centers and sub-distribution boards. Wall-mount and floor-mount types with full customisation per client requirements.</p>
+          <p class="pc-desc">Our flagship Low Tension power distribution panels manufactured strictly to IEC 61439-1&amp;2. Designed for central control, monitoring, and fault-tolerant power distribution across industrial manufacturing plants, data centers, and IT tech parks.</p>
           <table class="pc-tbl">
-            <tr><td>Supply</td><td>430V · 3-Phase · 4-Wire · 50Hz</td></tr>
-            <tr><td>Rated Current</td><td>Up to 6300 Amps</td></tr>
-            <tr><td>Rated Voltage</td><td>Up to 690V AC / 1500V DC</td></tr>
-            <tr><td>Short Time</td><td>Up to 100 kA / 1 sec (CPRI Certified)</td></tr>
-            <tr><td>Design Form</td><td>Form-1 to Form-4</td></tr>
-            <tr><td>IP Protection</td><td>IP42 to IP55 / IP65 (custom)</td></tr>
-            <tr><td>Construction</td><td>14/16 Gauge CRCA sheet fabricated</td></tr>
-            <tr><td>Busbar</td><td>Cu/Al · Interleaved design above 2500A</td></tr>
+            <tr><td>Rated Current</td><td>Up to 6300 Amps · 415V / 690V AC</td></tr>
+            <tr><td>Short Time Withstand</td><td>Up to 100 kA for 1 sec (CPRI Certified)</td></tr>
+            <tr><td>Form of Separation</td><td>Form 1 to Form 4b Compartmentalized</td></tr>
+            <tr><td>Enclosure Rating</td><td>IP42 to IP55 / IP65 CRCA 14/16 Gauge</td></tr>
+            <tr><td>Busbar System</td><td>Electrolytic E91E Grade Cu/Al (Interleaved above 2500A)</td></tr>
           </table>
           <div class="pc-foot">
-            <a href="contactus.html?prod=LV_Switchgear" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-            <span class="pc-std-lbl">IEC 61439-1&amp;2 · IS:8623 · CPRI Certified</span>
+            <a href="contactus.html?prod=LV_Switchgear" class="pc-enq">
+              <span>Request Technical Quote</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <span class="pc-std-lbl">CPRI &amp; IEC 61439-1/2 Certified</span>
           </div>
         </div>
       </article>
 
-      <!-- MV SWITCHGEAR -->
-      <article class="pcard" data-cat="distribution" style="animation-delay:40ms" id="mv-switchgear">
-        <div class="pc-img"><span class="pc-cat-badge">MV Switchgear</span><img src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b6?w=800&q=80" alt="MV Switchgear Panels"/></div>
+      <!-- MV Switchgear -->
+      <article class="pcard" data-cat="distribution" id="mv-switchgear">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Medium Voltage</span>
+          <div class="pc-stds"><span class="pc-std">Up to 33kV</span></div>
+          <img src="images/gallery/panel3.png" alt="MV Switchgear Panels"/>
+        </div>
         <div class="pc-body">
-          <div class="pc-idx">01b — Medium Voltage</div>
+          <div class="pc-idx">02 — Medium Voltage</div>
           <h3 class="pc-title">MV Switchgear Panels</h3>
-          <p class="pc-desc">Medium voltage switchgear systems up to 33kV for primary and secondary distribution. Type-tested to International Standard IEC 62271-200 and CPRI certified up to 5000A. Highly robust construction featuring VCB or SF6 gas-insulated breakers, providing exceptional safety and reliability for substations, utilities, and heavy industries.</p>
-          <div class="chips"><span class="chip hi">Up to 33kV</span><span class="chip">VCB / SF6</span><span class="chip">Arc Resistant</span><span class="chip">Indoor / Outdoor</span></div>
-          <div class="pc-foot"><a href="contactus.html?prod=MV_Switchgear" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="pc-std-lbl">IEC 62271-200</span></div>
+          <p class="pc-desc">Medium voltage switchgear systems up to 33kV for primary substation distribution. Features vacuum circuit breakers (VCB) or SF6 gas-insulated breakers with internal arc classification for utmost personnel safety.</p>
+          <div class="chips">
+            <span class="chip hi">Up to 33kV</span>
+            <span class="chip">VCB / SF6</span>
+            <span class="chip">Arc Resistant</span>
+            <span class="chip">CPRI Tested</span>
+          </div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=MV_Switchgear" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <span class="pc-std-lbl">IEC 62271-200</span>
+          </div>
         </div>
       </article>
 
-      <!-- CSS -->
-      <article class="pcard" data-cat="distribution" style="animation-delay:80ms" id="css">
-        <div class="pc-img"><span class="pc-cat-badge">Substation</span><div class="pc-stds"><span class="pc-std">IP43/IP54</span></div><img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=800&q=85" alt="Compact Substation"/></div>
+      <!-- Compact Substation (CSS) -->
+      <article class="pcard" data-cat="distribution" id="css">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Substation</span>
+          <div class="pc-stds"><span class="pc-std">IP54 Weather-proof</span></div>
+          <img src="images/gallery/factory.png" alt="Compact Substation"/>
+        </div>
         <div class="pc-body">
-          <div class="pc-idx">01c — Infrastructure</div>
+          <div class="pc-idx">03 — Packaged Power</div>
           <h3 class="pc-title">Compact Substation (CSS)</h3>
-          <p class="pc-desc">Prefabricated Packaged/Compact Substations completely assembled, wired, and tested at the factory. Integrating MV switchgear, transformer, and LV switchboards into a single, weather-proof, highly secure steel or aluminium enclosure. Dramatic reduction in site execution time.</p>
-          <div class="chips"><span class="chip hi">Prefabricated</span><span class="chip">Space Saving</span><span class="chip">Weather-proof</span><span class="chip">Plug-and-Play</span></div>
-          <div class="pc-foot"><a href="contactus.html?prod=CSS" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+          <p class="pc-desc">Prefabricated packaged substation integrating MV switchgear, step-down transformer, and LV distribution boards in a single weather-proof housing. Minimizes site installation time.</p>
+          <div class="chips">
+            <span class="chip hi">Plug &amp; Play</span>
+            <span class="chip">Space Saving</span>
+            <span class="chip">Outdoor IP54</span>
+          </div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=CSS" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
       <!-- Transformers -->
-      <article class="pcard" data-cat="distribution" style="animation-delay:120ms" id="transformer">
-        <div class="pc-img"><span class="pc-cat-badge">Power Conversion</span><div class="pc-stds"><span class="pc-std">IS:1180</span></div><img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=85" alt="Transformers"/></div>
-        <div class="pc-body">
-          <div class="pc-idx">01d — Core Power</div>
-          <h3 class="pc-title">Transformers</h3>
-          <p class="pc-desc">High-efficiency Distribution and Power Transformers, available in oil-cooled or dry-type configurations. Built for minimum losses, high overload capability, and exceptional durability. We provide complete sourcing, installation, and O&M for all transformer capacities.</p>
-          <div class="chips"><span class="chip hi">Oil-Cooled</span><span class="chip">Dry-Type</span><span class="chip">Low Loss</span><span class="chip">Energy Efficient</span></div>
-          <div class="pc-foot"><a href="contactus.html?prod=Transformer" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+      <article class="pcard" data-cat="distribution" id="transformer">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Power Conversion</span>
+          <div class="pc-stds"><span class="pc-std">IS:1180</span></div>
+          <img src="images/gallery/testing.png" alt="Distribution Transformers"/>
         </div>
-      </article>
-
-
-
-      <!-- MCC -->
-      <article class="pcard" data-cat="distribution" style="animation-delay:40ms" id="mcc-panel">
-        <div class="pc-img"><span class="pc-cat-badge">Motor Control</span><img src="https://image.made-in-china.com/202f0j00LCnbwlagCpkz/Low-Voltage-Panels-Electrical-LV-Panel-Low-Voltage-Switchgear.webp" alt="MCC Panel"/></div>
         <div class="pc-body">
-          <div class="pc-idx">02 — Distribution</div>
-          <h3 class="pc-title">MCC Panel</h3>
-          <p class="pc-desc">Motor Control Centers with multiple enclosed sections on a common power bus. Each section houses combination starters, fuses/circuit breakers, and power disconnect. Integrates push buttons, indicators, VFDs, PLCs, and metering. Low power consumption, easy installation, can combine with the building service entrance.</p>
-          <div class="chips"><span class="chip hi">VFD / PLC Ready</span><span class="chip">Draw-out</span><span class="chip">3-Phase</span><span class="chip">Indoor / Outdoor</span></div>
-          <div class="pc-foot"><a href="contactus.html?prod=MCC_Panel" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="pc-std-lbl">IEC 61439</span></div>
-        </div>
-      </article>
-
-      <!-- PCC -->
-      <article class="pcard" data-cat="distribution" style="animation-delay:80ms" id="pcc-panel">
-        <div class="pc-img"><span class="pc-cat-badge">Power Control</span><div class="pc-stds"><span class="pc-std">IP52</span><span class="pc-std">IP65</span></div><img src="https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=700&q=80" alt="PCC Panel"/></div>
-        <div class="pc-body">
-          <div class="pc-idx">03 — Distribution</div>
-          <h3 class="pc-title">PCC Panel</h3>
-          <p class="pc-desc">Power Control Center systems for distribution and control of power including solar power systems. Distributes from one or more supply sources to various loads with integrated switching, protection and controls. Draw-out or non-draw-out, single/double front access, indoor (IP52) or outdoor (IP65).</p>
-          <div class="chips"><span class="chip hi">Solar Ready</span><span class="chip">IP52 Indoor</span><span class="chip">IP65 Outdoor</span><span class="chip">Double Front</span></div>
-          <div class="pc-foot"><a href="contactus.html?prod=PCC_Panel" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-        </div>
-      </article>
-
-      <!-- PMCC -->
-      <article class="pcard" data-cat="distribution" style="animation-delay:120ms" id="pmcc-panel">
-        <div class="pc-img"><span class="pc-cat-badge">Combined Control</span><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=700&q=80" alt="PMCC Panel"/></div>
-        <div class="pc-body">
-          <div class="pc-idx">04 — Distribution</div>
-          <h3 class="pc-title">PMCC Panel</h3>
-          <p class="pc-desc">Power Motor Control Center combining power distribution and motor control in one integrated enclosure. AC drive panels control speed of induction motors by changing supply frequency and voltage proportionally for smooth, efficient performance. Widely deployed across process industries as speed controllers.</p>
-          <div class="chips"><span class="chip hi">AC Drive Integrated</span><span class="chip">Speed Control</span><span class="chip">Modular</span></div>
-          <div class="pc-foot"><a href="contactus.html?prod=PMCC_Panel" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-        </div>
-      </article>
-
-      <!-- Star Delta -->
-      <article class="pcard" data-cat="distribution" style="animation-delay:160ms" id="star-delta">
-        <div class="pc-img"><span class="pc-cat-badge">Motor Starting</span><img src="https://images.unsplash.com/photo-1620735692151-26a7e0748429?w=700&q=80" alt="Star Delta Starter Panel"/></div>
-        <div class="pc-body">
-          <div class="pc-idx">05 — Distribution</div>
-          <h3 class="pc-title">Star Delta Panel</h3>
-          <p class="pc-desc">Reduced-voltage starter panels that limit motor inrush current during startup by connecting in Star (Y) then switching to Delta (Δ) for full-load running. Prevents voltage sags and protects upstream infrastructure. Essential for large AC motors above 7.5 kW in industrial and commercial applications.</p>
-          <div class="chips"><span class="chip hi">Reduced Inrush Current</span><span class="chip">Auto / Manual</span><span class="chip">Timer Based</span><span class="chip">7.5 kW+</span></div>
-          <div class="pc-foot"><a href="contactus.html?prod=Star_Delta" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-        </div>
-      </article>
-
-      <!-- Power Dist Panel -->
-      <article class="pcard" data-cat="distribution" style="animation-delay:200ms" id="power-dist">
-        <div class="pc-img"><span class="pc-cat-badge">Power Distribution</span><img src="https://images.unsplash.com/photo-1498084393753-b411b2d26b34?w=700&q=80" alt="Power Distribution Panel"/></div>
-        <div class="pc-body">
-          <div class="pc-idx">06 — Distribution</div>
-          <h3 class="pc-title">Power Distribution Panel</h3>
-          <p class="pc-desc">Divides an electrical power feed into subsidiary circuits, providing protective fuses or circuit breakers for each in a common enclosure. Integrates main switch and RCBOs with overcurrent protection. Purpose-built for heavy industries — textile, sugar mills, iron, steel, and cement plants.</p>
-          <div class="chips"><span class="chip">RCBO / MCB</span><span class="chip hi">Heavy Industry</span><span class="chip">Overload Protection</span><span class="chip">Short Circuit</span></div>
-          <div class="pc-foot"><a href="contactus.html?prod=Power_Dist" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-        </div>
-      </article>
-
-      <!-- Raw Power -->
-      <article class="pcard" data-cat="distribution" style="animation-delay:240ms" id="raw-power">
-        <div class="pc-img"><span class="pc-cat-badge">Primary Hub</span><div class="pc-stds"><span class="pc-std">ACB/MCCB</span></div><img src="https://images.unsplash.com/photo-1546198632-9ef6368bef12?w=700&q=80" alt="Raw Power Panel"/></div>
-        <div class="pc-body">
-          <div class="pc-idx">07 — Distribution</div>
-          <h3 class="pc-title">Raw Power Panel</h3>
-          <p class="pc-desc">Primary LV distribution hub receiving power directly from utility or transformer — the central nerve centre distributing to MCC, PCC, DBs, HVAC, and lighting panels. ACB/MCCB main incomer with high fault protection. Modular copper/aluminium busbar, indoor and outdoor variants.</p>
-          <div class="feats">
-            <div class="ft">ACB/MCCB incomer with 50 kA fault protection</div>
-            <div class="ft">Multiple outgoing feeders for all downstream loads</div>
-            <div class="ft">Modular, compartmentalised, extendable architecture</div>
+          <div class="pc-idx">04 — Transformer Systems</div>
+          <h3 class="pc-title">Distribution Transformers</h3>
+          <p class="pc-desc">High-efficiency oil-cooled and dry-type (CRT) transformers built for minimal core losses, high overload capability, and endurance per IS:1180 Level-2 energy standards.</p>
+          <div class="chips">
+            <span class="chip hi">Oil-Cooled / Dry</span>
+            <span class="chip">Low Loss</span>
+            <span class="chip">IS:1180 Energy</span>
           </div>
-          <div class="pc-foot"><a href="contactus.html?prod=Raw_Power" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=Transformer" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
-      <!-- -------------------------------- CAT 2 -------------------------------- -->
+      <!-- MCC Panel -->
+      <article class="pcard" data-cat="distribution" id="mcc-panel">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Motor Control</span>
+          <div class="pc-stds"><span class="pc-std">Draw-out / Fixed</span></div>
+          <img src="images/gallery/panel2.png" alt="Motor Control Center"/>
+        </div>
+        <div class="pc-body">
+          <div class="pc-idx">05 — Motor Control</div>
+          <h3 class="pc-title">MCC Panel</h3>
+          <p class="pc-desc">Motor Control Centers with multiple modular compartments. Houses DOL/Star-Delta starters, VFD drives, soft starters, and intelligent feeder protection with centralized metering.</p>
+          <div class="chips">
+            <span class="chip hi">VFD / PLC Ready</span>
+            <span class="chip">Draw-out</span>
+            <span class="chip">Form 3b/4b</span>
+          </div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=MCC_Panel" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <span class="pc-std-lbl">IEC 61439</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- PCC Panel -->
+      <article class="pcard" data-cat="distribution" id="pcc-panel">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Power Control</span>
+          <div class="pc-stds"><span class="pc-std">IP52 / IP65</span></div>
+          <img src="images/gallery/panel4.png" alt="Power Control Center"/>
+        </div>
+        <div class="pc-body">
+          <div class="pc-idx">06 — Central Control</div>
+          <h3 class="pc-title">PCC Panel</h3>
+          <p class="pc-desc">Power Control Center switchboards receiving power directly from transformers or generators and feeding MCCs, sub-DBs, and heavy industrial plant machinery with high fault clearance.</p>
+          <div class="chips">
+            <span class="chip hi">High Fault Rating</span>
+            <span class="chip">Single/Double Front</span>
+            <span class="chip">Solar Ready</span>
+          </div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=PCC_Panel" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PMCC Panel -->
+      <article class="pcard" data-cat="distribution" id="pmcc-panel">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Combined System</span>
+          <img src="images/gallery/panel5.png" alt="PMCC Panel"/>
+        </div>
+        <div class="pc-body">
+          <div class="pc-idx">07 — Power &amp; Motor Combined</div>
+          <h3 class="pc-title">PMCC Panel</h3>
+          <p class="pc-desc">Power Motor Control Center integrating power distribution and motor control feeders into one seamless footprint for process plants requiring space-efficient electrical rooms.</p>
+          <div class="chips">
+            <span class="chip hi">Integrated Spine</span>
+            <span class="chip">Space Saving</span>
+            <span class="chip">Modular</span>
+          </div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=PMCC_Panel" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Star Delta Panel -->
+      <article class="pcard" data-cat="distribution" id="star-delta">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Motor Starting</span>
+          <img src="images/gallery/hero.png" alt="Star Delta Starter Panel"/>
+        </div>
+        <div class="pc-body">
+          <div class="pc-idx">08 — Reduced Voltage Start</div>
+          <h3 class="pc-title">Star Delta Panel</h3>
+          <p class="pc-desc">Reduced-voltage motor starter panels designed to limit motor starting inrush current, preventing electrical voltage sags and mechanical stress on motors above 7.5 kW.</p>
+          <div class="chips">
+            <span class="chip hi">Inrush Protection</span>
+            <span class="chip">Timer Controlled</span>
+            <span class="chip">7.5kW to 150kW</span>
+          </div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=Star_Delta" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Power Distribution Panel -->
+      <article class="pcard" data-cat="distribution" id="power-dist">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Sub-Distribution</span>
+          <img src="images/gallery/panel1.png" alt="Power Distribution Panel"/>
+        </div>
+        <div class="pc-body">
+          <div class="pc-idx">09 — Secondary Distribution</div>
+          <h3 class="pc-title">Power Distribution Panel</h3>
+          <p class="pc-desc">Distributes electrical feeds into subsidiary branch circuits with MCCB/MCB and RCBO protection. Custom-built for textile, steel, pharmaceutical, and institutional complexes.</p>
+          <div class="chips">
+            <span class="chip hi">RCBO Protection</span>
+            <span class="chip">Heavy Duty</span>
+            <span class="chip">IS:8623</span>
+          </div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=Power_Dist" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Raw Power Panel -->
+      <article class="pcard" data-cat="distribution" id="raw-power">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Primary Incomer</span>
+          <div class="pc-stds"><span class="pc-std">ACB / MCCB</span></div>
+          <img src="images/gallery/panel3.png" alt="Raw Power Panel"/>
+        </div>
+        <div class="pc-body">
+          <div class="pc-idx">10 — Mains Incomer Hub</div>
+          <h3 class="pc-title">Raw Power Panel</h3>
+          <p class="pc-desc">Primary LV distribution hub receiving raw power directly from utility transformers with high-interrupting ACB protection and feeding multiple downstream distribution boards.</p>
+          <div class="feats">
+            <div class="ft">ACB/MCCB incomer with 50kA/65kA fault protection</div>
+            <div class="ft">Compartmentalized busbar isolation</div>
+          </div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=Raw_Power" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- ==================== CAT 02: CONTROL & SYNC ==================== -->
       <div class="cat-hdr" data-cat="control">
         <span class="cat-hdr-n">02</span>
-        <span class="cat-hdr-t">Control &amp; <em>Sync</em></span>
+        <span class="cat-hdr-t">Control &amp; <em>Synchronization</em></span>
         <div class="cat-hdr-line"></div>
-        <span class="cat-hdr-sub">Automation · 6 Products</span>
+        <span class="cat-hdr-sub">6 Products</span>
       </div>
 
       <!-- DG Sync -->
-      <article class="pcard" data-cat="control" style="animation-delay:0ms" id="dg-sync">
-        <div class="pc-img"><span class="pc-cat-badge">Generator Control</span><img src="https://brothersengineering.co.in/nm/DG%20SYNCHRONIZING%20PANEL.jpeg" alt="DG Synchronization Panel"/></div>
+      <article class="pcard" data-cat="control" id="dg-sync">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Generator Sync</span>
+          <img src="images/gallery/panel2.png" alt="DG Synchronization Panel"/>
+        </div>
         <div class="pc-body">
-          <div class="pc-idx">08 — Control &amp; Sync</div>
+          <div class="pc-idx">11 — Multi-Generator Sync</div>
           <h3 class="pc-title">DG Synchronization Panel</h3>
-          <p class="pc-desc">Allows multiple diesel generators to operate in parallel for large-scale power redundancy and load sharing. Seamlessly synchronises multiple gensets for mission-critical facilities. Equipped with sync check relays, load sharing controllers, and AMF logic for automatic mains failure response.</p>
-          <div class="feats">
-            <div class="ft">Multi-generator parallel operation &amp; load sharing</div>
-            <div class="ft">Synchronisation check relay protection</div>
-            <div class="ft">AMF logic — Automatic Mains Failure response</div>
-            <div class="ft">Ideal for data centres, hospitals, industrial plants</div>
+          <p class="pc-desc">Enables seamless parallel operation and automatic load sharing of multiple DG sets with auto frequency/voltage matching, sync check relays, and emergency blackout recovery.</p>
+          <div class="chips">
+            <span class="chip hi">Auto Load Sharing</span>
+            <span class="chip">Sync Check Relay</span>
+            <span class="chip">AMF Logic</span>
           </div>
-          <div class="pc-foot"><a href="contactus.html?prod=DG_Sync" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=DG_Sync" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
-      <!-- APFC -->
-      <article class="pcard" data-cat="control" style="animation-delay:40ms" id="apfc-panel">
-        <div class="pc-img"><span class="pc-cat-badge">Power Factor</span><img src="https://cpimg.tistatic.com/07702569/b/4/HT-APFC-Panel.jpg" alt="APFC Panel"/></div>
+      <!-- APFC Panel -->
+      <article class="pcard" data-cat="control" id="apfc-panel">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Power Factor</span>
+          <div class="pc-stds"><span class="pc-std">Target PF 0.99</span></div>
+          <img src="images/gallery/panel4.png" alt="APFC Panel"/>
+        </div>
         <div class="pc-body">
-          <div class="pc-idx">09 — Control &amp; Sync</div>
+          <div class="pc-idx">12 — Reactive Power Compensation</div>
           <h3 class="pc-title">APFC Panel</h3>
-          <p class="pc-desc">Automatic Power Factor Correction panels eliminate reactive power penalties from DISCOM. The APFC relay automatically switches capacitor banks ON/OFF based on actual working load, maintaining power factor close to unity. Available with detuned reactors for capacitor protection against harmonics.</p>
-          <div class="chips"><span class="chip hi">Unity PF Target</span><span class="chip">Auto Cap Switch</span><span class="chip">Harmonic Reactors</span><span class="chip">Penalty Elimination</span></div>
-          <div class="pc-foot"><a href="contactus.html?prod=APFC" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-        </div>
-      </article>
-
-      <!-- ATS -->
-      <article class="pcard" data-cat="control" style="animation-delay:80ms" id="ats-panel">
-        <div class="pc-img"><span class="pc-cat-badge">Auto Transfer</span><div class="pc-stds"><span class="pc-std">Auto/Manual</span></div><img src="https://brothersengineering.co.in/nm/DG%20SYNCHRONIZING%20PANEL.jpeg" alt="ATS Panel"/></div>
-        <div class="pc-body">
-          <div class="pc-idx">10 — Control &amp; Sync</div>
-          <h3 class="pc-title">ATS Panel</h3>
-          <p class="pc-desc">Automatic Transfer Switch controllers manage emergency power transfer from mains to backup generator. When mains voltage drops below 80%, ATS auto-starts the emergency genset after a preset delay and transfers load — ensuring zero interruption in critical applications.</p>
-          <table class="pc-tbl">
-            <tr><td>Transfer Trigger</td><td>Voltage below 80% nominal</td></tr>
-            <tr><td>Controller</td><td>High-performance digital</td></tr>
-            <tr><td>Modes</td><td>Auto / Manual override</td></tr>
-            <tr><td>Applications</td><td>Hospitals, data centres, commercial</td></tr>
-          </table>
-          <div class="pc-foot"><a href="contactus.html?prod=ATS" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-        </div>
-      </article>
-
-      <!-- PLC -->
-      <article class="pcard" data-cat="control" style="animation-delay:120ms" id="plc-panel">
-        <div class="pc-img"><span class="pc-cat-badge">Automation</span><img src="https://esswin.com/wp-content/uploads/2024/08/vfdplc-n2.jpeg" alt="PLC Control Panel"/></div>
-        <div class="pc-body">
-          <div class="pc-idx">11 — Control &amp; Sync</div>
-          <h3 class="pc-title">PLC Control Panel</h3>
-          <p class="pc-desc">Programmable Logic Controller panels for automating and monitoring production lines. Reduces relay count and eliminates space constraints. Enables stand-alone control, remote monitoring, SCADA integration, and automated data logging for manufacturing, utilities, and process industries.</p>
-          <div class="feats">
-            <div class="ft">Stand-alone and remote system control</div>
-            <div class="ft">SCADA and HMI interface compatibility</div>
-            <div class="ft">Automated reporting and data logging</div>
+          <p class="pc-desc">Automatic Power Factor Correction panels with intelligent microprocessor relays and detuned harmonic reactors. Maintains power factor near unity, eliminating DISCOM penalties.</p>
+          <div class="chips">
+            <span class="chip hi">Detuned Reactors</span>
+            <span class="chip">Thyristor / Contactor</span>
+            <span class="chip">Zero Penalty</span>
           </div>
-          <div class="pc-foot"><a href="contactus.html?prod=PLC" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=APFC" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
-      <!-- VFD -->
-      <article class="pcard" data-cat="control" style="animation-delay:160ms" id="vfd-panel">
-        <div class="pc-img"><span class="pc-cat-badge">Variable Frequency Drive</span><img src="https://esswin.com/wp-content/uploads/2024/08/vfdplc-n2.jpeg" alt="VFD Panel"/></div>
+      <!-- ATS Panel -->
+      <article class="pcard" data-cat="control" id="ats-panel">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Auto Transfer</span>
+          <img src="images/gallery/panel5.png" alt="ATS Panel"/>
+        </div>
         <div class="pc-body">
-          <div class="pc-idx">12 — Control &amp; Sync</div>
+          <div class="pc-idx">13 — Transfer Switch</div>
+          <h3 class="pc-title">ATS Panel</h3>
+          <p class="pc-desc">Automatic Transfer Switch panels managing emergency power transfer from mains to backup generator with 4-pole motorized interlocks, sensing mains failure in milliseconds.</p>
+          <div class="chips">
+            <span class="chip hi">Zero-Break Transfer</span>
+            <span class="chip">Motorized Interlock</span>
+            <span class="chip">Hospitals &amp; Data Centers</span>
+          </div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=ATS" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- PLC Automation -->
+      <article class="pcard" data-cat="control" id="plc-panel">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Industrial Automation</span>
+          <img src="images/gallery/panel2.png" alt="PLC Control Panel"/>
+        </div>
+        <div class="pc-body">
+          <div class="pc-idx">14 — Industrial PLC Automation</div>
+          <h3 class="pc-title">PLC Control Panel</h3>
+          <p class="pc-desc">Programmable Logic Controller panels for process automation, SCADA data acquisition, and HMI touch interface monitoring. Built with Siemens, Schneider, and ABB controllers.</p>
+          <div class="chips">
+            <span class="chip hi">SCADA &amp; HMI</span>
+            <span class="chip">IoT Energy Logging</span>
+            <span class="chip">Siemens / ABB</span>
+          </div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=PLC" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- VFD Panel -->
+      <article class="pcard" data-cat="control" id="vfd-panel">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Drive Control</span>
+          <img src="images/gallery/panel1.png" alt="VFD Panel"/>
+        </div>
+        <div class="pc-body">
+          <div class="pc-idx">15 — Variable Frequency Drive</div>
           <h3 class="pc-title">VFD Panel</h3>
-          <p class="pc-desc">Variable Frequency Drive panels control AC induction motor and pump speeds. Dirt-proof enclosures with maintained internal ambient and full VFD protections. Dramatically reduces energy consumption at partial loads and extends motor life. Used in extrusion, rolling mills, tube mills, paper mills, cable industry, drilling.</p>
-          <div class="chips"><span class="chip hi">Energy Saving</span><span class="chip">Extended Motor Life</span><span class="chip">Dirt-proof IP</span><span class="chip">Pump/Fan/Conveyor</span></div>
-          <div class="pc-foot"><a href="contactus.html?prod=VFD" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+          <p class="pc-desc">Variable Frequency Drive panels providing smooth motor speed modulation, soft starts, and substantial energy savings for pumps, HVAC chillers, compressors, and conveyors.</p>
+          <div class="chips">
+            <span class="chip hi">Energy Optimization</span>
+            <span class="chip">Soft Ramp Up</span>
+            <span class="chip">Chillers &amp; Pumps</span>
+          </div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=VFD" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
-      <!-- Meter -->
-      <article class="pcard" data-cat="control" style="animation-delay:200ms" id="meter-panel">
-        <div class="pc-img"><span class="pc-cat-badge">Measurement</span><img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=700&q=80" alt="Meter Panel"/></div>
+      <!-- Meter Panel -->
+      <article class="pcard" data-cat="control" id="meter-panel">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Measurement</span>
+          <img src="images/gallery/panel3.png" alt="Meter Panel"/>
+        </div>
         <div class="pc-body">
-          <div class="pc-idx">13 — Control &amp; Sync</div>
+          <div class="pc-idx">16 — Power Quality &amp; Metering</div>
           <h3 class="pc-title">Meter Panel</h3>
-          <p class="pc-desc">Precision switchgear panels for accurate metering in agricultural, domestic, and commercial applications. Manufactured using quality-approved components per IS norms. Analogue and digital metering variants available. Full customisation per client specifications at competitive prices.</p>
-          <div class="chips"><span class="chip">Analog / Digital</span><span class="chip hi">Agriculture &amp; Commercial</span><span class="chip">Custom Specs</span><span class="chip">IS Norms</span></div>
-          <div class="pc-foot"><a href="contactus.html?prod=Meter" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+          <p class="pc-desc">Precision energy metering and power quality monitoring panels with multi-function digital meters (MFM), dual source utility/DG metering, and RS485 Modbus telemetry.</p>
+          <div class="chips">
+            <span class="chip hi">Modbus RS485</span>
+            <span class="chip">Dual Source</span>
+            <span class="chip">Class 0.2s / 0.5s</span>
+          </div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=Meter" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
-      <!-- -------------------------------- CAT 3 -------------------------------- -->
+
+      <!-- ==================== CAT 03: BUILDING & HVAC ==================== -->
       <div class="cat-hdr" data-cat="building">
         <span class="cat-hdr-n">03</span>
-        <span class="cat-hdr-t">Building &amp; <em>HVAC</em></span>
+        <span class="cat-hdr-t">Building &amp; <em>HVAC Systems</em></span>
         <div class="cat-hdr-line"></div>
-        <span class="cat-hdr-sub">Specialised Systems · 4 Products</span>
+        <span class="cat-hdr-sub">4 Products</span>
       </div>
 
-      <!-- HVAC -->
-      <article class="pcard" data-cat="building" style="animation-delay:0ms" id="hvac-panel">
-        <div class="pc-img"><span class="pc-cat-badge">Climate Control</span><img src="https://www.powercontrolsystems.in/innovtouch/uploads/2021/08/pcs-oem-drive-panels-1.jpg" alt="HVAC Control Panel"/></div>
+      <!-- HVAC Control -->
+      <article class="pcard" data-cat="building" id="hvac-panel">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Climate Control</span>
+          <img src="images/gallery/panel4.png" alt="HVAC Control Panel"/>
+        </div>
         <div class="pc-body">
-          <div class="pc-idx">14 — Building &amp; HVAC</div>
+          <div class="pc-idx">17 — HVAC Automation</div>
           <h3 class="pc-title">HVAC Control Panel</h3>
-          <p class="pc-desc">High-performance panels for HVAC systems delivering superior output with lower energy consumption. Manufactured from quality raw materials, highly resistant to temperature extremes and corrosion. Shock-proof enclosures with integral internal wiring hidden from external conditions and smart energy optimisation logic.</p>
-          <div class="feats">
-            <div class="ft">Smart energy optimisation and sequencing logic</div>
-            <div class="ft">Shock-proof enclosure with hidden internal wiring</div>
-            <div class="ft">High temperature and corrosion resistant materials</div>
-            <div class="ft">Customised per HVAC system design requirements</div>
+          <p class="pc-desc">Custom automation panels for central cooling plants, chillers, cooling towers, and primary/secondary pumping loops with BMS building management system integration.</p>
+          <div class="chips">
+            <span class="chip hi">BMS Interfacing</span>
+            <span class="chip">Chiller Sequencing</span>
+            <span class="chip">VFD Drive Control</span>
           </div>
-          <div class="pc-foot"><a href="contactus.html?prod=HVAC" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=HVAC" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
-      <!-- AHU -->
-      <article class="pcard" data-cat="building" style="animation-delay:40ms" id="ahu-panel">
-        <div class="pc-img"><span class="pc-cat-badge">Air Handling Unit</span><img src="https://images.unsplash.com/photo-1597175587595-5e2ee9c4f93b?w=700&q=80" alt="AHU Control Panel"/></div>
+      <!-- AHU Panel -->
+      <article class="pcard" data-cat="building" id="ahu-panel">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Air Handling</span>
+          <img src="images/gallery/panel5.png" alt="AHU Control Panel"/>
+        </div>
         <div class="pc-body">
-          <div class="pc-idx">15 — Building &amp; HVAC</div>
+          <div class="pc-idx">18 — Air Handling Control</div>
           <h3 class="pc-title">AHU Control Panel</h3>
-          <p class="pc-desc">Intuitive controls that optimise Air Handling Unit performance, minimising energy use and maximising output without compromising environment quality. Integral wiring fully protects cables from external conditions. Latest technology to manage workloads and use performance data to greatest effect.</p>
-          <div class="chips"><span class="chip hi">AHU Optimised</span><span class="chip">Easy Install</span><span class="chip">Shock-proof</span><span class="chip">Performance Data</span></div>
-          <div class="pc-foot"><a href="contactus.html?prod=AHU" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-        </div>
-      </article>
-
-      <!-- Lift -->
-      <article class="pcard" data-cat="building" style="animation-delay:80ms" id="lift-panel">
-        <div class="pc-img"><span class="pc-cat-badge">Vertical Transport</span><div class="pc-stds"><span class="pc-std">PLC/VFD</span></div><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700&q=80" alt="Lift Control Panel"/></div>
-        <div class="pc-body">
-          <div class="pc-idx">16 — Building &amp; HVAC</div>
-          <h3 class="pc-title">Lift Control Panel</h3>
-          <p class="pc-desc">Safe, reliable, efficient control of elevator systems for residential, commercial, and industrial buildings. Microprocessor or PLC-based with VFD-driven operation for smooth acceleration and deceleration. Intelligent door control, safety interlocks, auto fault detection, and auto/manual modes.</p>
-          <div class="feats">
-            <div class="ft">Microprocessor / PLC-based control system</div>
-            <div class="ft">VFD-driven smooth acceleration and deceleration</div>
-            <div class="ft">Intelligent door control and safety interlocks</div>
-            <div class="ft">Automatic fault detection and alarm indication</div>
+          <p class="pc-desc">Air Handling Unit panels for cleanrooms, commercial buildings, and hospitals with damper actuator controls, VFD blower modulation, and air filter differential pressure safety.</p>
+          <div class="chips">
+            <span class="chip hi">Cleanroom Grade</span>
+            <span class="chip">Damper Actuators</span>
+            <span class="chip">Fire Trip Relay</span>
           </div>
-          <div class="pc-foot"><a href="contactus.html?prod=Lift" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=AHU" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
-      <!-- Aviation -->
-      <article class="pcard" data-cat="building" style="animation-delay:120ms" id="aviation-panel">
-        <div class="pc-img"><span class="pc-cat-badge">Aviation Safety</span><div class="pc-stds"><span class="pc-std">DGCA</span><span class="pc-std">ICAO</span></div><img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=700&q=80" alt="Aviation Lighting Panel"/></div>
+      <!-- Lift Panel -->
+      <article class="pcard" data-cat="building" id="lift-panel">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Elevators</span>
+          <img src="images/gallery/panel1.png" alt="Lift Control Panel"/>
+        </div>
         <div class="pc-body">
-          <div class="pc-idx">17 — Building &amp; HVAC</div>
-          <h3 class="pc-title">Aviation Lighting Panel</h3>
-          <p class="pc-desc">Control and monitoring of aviation obstruction lights on tall structures — high-rise buildings, telecom towers, chimneys, cranes, and wind turbines. Compliant with DGCA/ICAO/FAA standards. Automatic day/night switching, fault alarm signals for any light failure, ensuring aircraft pilots can identify obstacles safely.</p>
-          <div class="chips"><span class="chip hi">DGCA / ICAO / FAA</span><span class="chip">Auto Day/Night</span><span class="chip">Fault Alarm</span><span class="chip">Tower / Chimney</span></div>
-          <div class="pc-foot"><a href="contactus.html?prod=Aviation" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="pc-std-lbl">DGCA / ICAO Compliant</span></div>
+          <div class="pc-idx">19 — Elevator Distribution</div>
+          <h3 class="pc-title">Lift Distribution Panel</h3>
+          <p class="pc-desc">Specialized power distribution and emergency rescue device (ARD) panels providing dedicated, isolated, and surge-protected feeds for residential and commercial elevator banks.</p>
+          <div class="chips">
+            <span class="chip hi">ARD Ready</span>
+            <span class="chip">Surge Suppression</span>
+            <span class="chip">Lift Bank Feeds</span>
+          </div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=Lift" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
-      <!-- -------------------------------- CAT 4 -------------------------------- -->
+      <!-- Aviation Lighting Panel -->
+      <article class="pcard" data-cat="building" id="aviation-panel">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Aviation Safety</span>
+          <div class="pc-stds"><span class="pc-std">ICAO / DGCA</span></div>
+          <img src="images/gallery/panel2.png" alt="Aviation Lighting Panel"/>
+        </div>
+        <div class="pc-body">
+          <div class="pc-idx">20 — Obstruction Lighting</div>
+          <h3 class="pc-title">Aviation Lighting Panel</h3>
+          <p class="pc-desc">Control and fail-safe monitoring for aviation obstruction warning lights on tall chimneys, telecom towers, and high-rise buildings compliant with DGCA and ICAO regulations.</p>
+          <div class="chips">
+            <span class="chip hi">DGCA / ICAO</span>
+            <span class="chip">Dusk-to-Dawn Sensor</span>
+            <span class="chip">Lamp Failure Alarm</span>
+          </div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=Aviation" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- ==================== CAT 04: SPECIALTY & SOLAR ==================== -->
       <div class="cat-hdr" data-cat="special">
         <span class="cat-hdr-n">04</span>
-        <span class="cat-hdr-t">Specialty <em>Panels</em></span>
+        <span class="cat-hdr-t">Specialty &amp; <em>Renewable</em></span>
         <div class="cat-hdr-line"></div>
-        <span class="cat-hdr-sub">Purpose-Built Systems · 6 Products</span>
+        <span class="cat-hdr-sub">6 Products</span>
       </div>
 
-      <!-- Street Light -->
-      <article class="pcard" data-cat="special" style="animation-delay:0ms" id="street-light">
-        <div class="pc-img"><span class="pc-cat-badge">Street Lighting</span><img src="https://images.unsplash.com/photo-1505855265981-d52719d1f64e?w=700&q=80" alt="Street Light Panel"/></div>
+      <!-- Street Light Panel -->
+      <article class="pcard" data-cat="special" id="street-light">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Outdoor Lighting</span>
+          <img src="images/gallery/panel3.png" alt="Street Light Panel"/>
+        </div>
         <div class="pc-body">
-          <div class="pc-idx">18 — Specialty</div>
+          <div class="pc-idx">21 — Public &amp; Industrial Lighting</div>
           <h3 class="pc-title">Street Light Panel</h3>
-          <p class="pc-desc">Centralised control of street lighting systems in residential layouts, industrial areas, highways, campuses, and public streets. Automatic switching based on day/night conditions via photocell or timer. Protection against overload, short circuit, and earth faults for energy-efficient and unattended operation.</p>
-          <div class="chips"><span class="chip hi">Auto Day/Night</span><span class="chip">Photocell / Timer</span><span class="chip">Overload Protection</span><span class="chip">Manual Override</span></div>
-          <div class="pc-foot"><a href="contactus.html?prod=Street_Light" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+          <p class="pc-desc">Outdoor lighting distribution panels with automatic timer and astronomical photocell controllers, manual override bypass, and phase balancing for public roads and industrial campuses.</p>
+          <div class="chips">
+            <span class="chip hi">Astronomical Timer</span>
+            <span class="chip">Photocell Auto</span>
+            <span class="chip">IP65 Weatherproof</span>
+          </div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=Street_Light" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
-      <!-- Water Pump -->
-      <article class="pcard" data-cat="special" style="animation-delay:40ms" id="water-pump">
-        <div class="pc-img"><span class="pc-cat-badge">Pump Control</span><img src="https://spikeelectric.com/wp-content/uploads/2021/05/pump-control-panel-spike-electric-800.jpg" alt="Water Pump Panel"/></div>
+      <!-- Water Pump Panel -->
+      <article class="pcard" data-cat="special" id="water-pump">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Pump Management</span>
+          <img src="images/gallery/panel4.png" alt="Water Pump Panel"/>
+        </div>
         <div class="pc-body">
-          <div class="pc-idx">19 — Specialty</div>
+          <div class="pc-idx">22 — Hydro-Pneumatic Control</div>
           <h3 class="pc-title">Water Pump Panel</h3>
-          <p class="pc-desc">Dedicated control panels for water pump systems in residential, commercial, and industrial applications. Auto/manual start, dry-run protection, overload, short-circuit, and phase-failure protection. Level-based automatic operation and multi-pump alternating duty cycle for optimal system longevity.</p>
-          <div class="feats">
-            <div class="ft">Dry-run protection and auto-restart logic</div>
-            <div class="ft">Water level-based automatic control</div>
-            <div class="ft">Multi-pump alternating duty cycle</div>
-            <div class="ft">Overload, short circuit, phase-failure protection</div>
+          <p class="pc-desc">Automatic pump control panels with water level sensor logic, dry-run protection, cyclic pump alternation, and overload safety for municipal, industrial, and commercial water supply.</p>
+          <div class="chips">
+            <span class="chip hi">Dry-Run Cutoff</span>
+            <span class="chip">Level Sensors</span>
+            <span class="chip">Duty Alternation</span>
           </div>
-          <div class="pc-foot"><a href="contactus.html?prod=Water_Pump" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=Water_Pump" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
       </article>
 
-      <!-- Fire Pump -->
-      <article class="pcard" data-cat="special" style="animation-delay:80ms" id="fire-pump">
-        <div class="pc-img"><span class="pc-cat-badge">Fire Safety</span><div class="pc-stds"><span class="pc-std">NFPA 20</span></div><img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=700&q=80" alt="Fire Pump Panel"/></div>
+      <!-- Fire Pump Panel -->
+      <article class="pcard" data-cat="special" id="fire-pump">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Life Safety</span>
+          <div class="pc-stds"><span class="pc-std">NFPA 20</span></div>
+          <img src="images/gallery/panel5.png" alt="Fire Pump Panel"/>
+        </div>
         <div class="pc-body">
-          <div class="pc-idx">20 — Specialty</div>
+          <div class="pc-idx">23 — Fire Suppression</div>
           <h3 class="pc-title">Fire Pump Panel</h3>
-          <p class="pc-desc">Life-safety control panels for fire suppression pump systems compliant with NFPA 20 and IS standards. Automatic fire pump activation during emergencies. Jockey pump control maintains system pressure continuously. Alarm outputs and monitoring for 24/7 fire protection coverage in commercial and industrial buildings.</p>
-          <div class="chips"><span class="chip hi">NFPA 20 / IS</span><span class="chip">Jockey Pump</span><span class="chip">Auto Activation</span><span class="chip">Alarm Outputs</span></div>
-          <div class="pc-foot"><a href="contactus.html?prod=Fire_Pump" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="pc-std-lbl">NFPA 20 / IS</span></div>
-        </div>
-      </article>
-
-      <!-- UPS -->
-      <article class="pcard" data-cat="special" style="animation-delay:120ms" id="ups-panel">
-        <div class="pc-img"><span class="pc-cat-badge">Uninterruptible Power</span><img src="https://images.unsplash.com/photo-1597008641621-cefdcf718025?w=700&q=80" alt="UPS Panel"/></div>
-        <div class="pc-body">
-          <div class="pc-idx">21 — Specialty</div>
-          <h3 class="pc-title">UPS Panel</h3>
-          <p class="pc-desc">Clean, regulated, continuous power supply panels for sensitive loads — IT servers, medical devices, and critical process systems. Zero transfer time switchover during mains failure. Full protection against surges, spikes, sags, and power quality disturbances. Integrated battery management and monitoring.</p>
-          <div class="chips"><span class="chip hi">Zero Transfer Time</span><span class="chip">Surge Protection</span><span class="chip">Battery Mgmt</span><span class="chip">IT / Medical</span></div>
-          <div class="pc-foot"><a href="contactus.html?prod=UPS" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-        </div>
-      </article>
-
-      <!-- Solar -->
-      <article class="pcard" data-cat="special" style="animation-delay:160ms" id="solar-panel">
-        <div class="pc-img"><span class="pc-cat-badge">Renewable Energy</span><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=700&q=80" alt="Solar Panel Distribution"/></div>
-        <div class="pc-body">
-          <div class="pc-idx">22 — Specialty</div>
-          <h3 class="pc-title">Solar Panel Distribution</h3>
-          <p class="pc-desc">Distribution and control panels for solar PV systems. Manages DC input from solar arrays, MPPT integration, inverter interfacing, and grid synchronisation. Grid-tie and off-grid configurations for industrial and commercial solar installations. Net metering and grid synchronisation ready.</p>
-          <div class="feats">
-            <div class="ft">DC string combiner and array protection</div>
-            <div class="ft">MPPT integration and inverter interfacing</div>
-            <div class="ft">Grid-tie and off-grid configurations</div>
-            <div class="ft">Net metering and grid synchronisation ready</div>
+          <p class="pc-desc">Life safety fire fighting panels compliant with NFPA 20 and NBC norms. Coordinates main electrical fire pump, diesel backup pump, and jockey pressure maintenance pump.</p>
+          <div class="chips">
+            <span class="chip hi">NFPA 20 Standards</span>
+            <span class="chip">Jockey &amp; Main Pump</span>
+            <span class="chip">Fire Alarm Interface</span>
           </div>
-          <div class="pc-foot"><a href="contactus.html?prod=Solar" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-        </div>
-      </article>
-
-      <!-- Kitchen -->
-      <article class="pcard" data-cat="special" style="animation-delay:200ms" id="kitchen-panel">
-        <div class="pc-img"><span class="pc-cat-badge">Commercial Kitchen</span><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80" alt="Kitchen Panel"/></div>
-        <div class="pc-body">
-          <div class="pc-idx">23 — Specialty</div>
-          <h3 class="pc-title">Kitchen Panel</h3>
-          <p class="pc-desc">Purpose-built electrical distribution panels for commercial kitchens, restaurants, and industrial catering. Handles high-load cooking equipment, ventilation, refrigeration, and exhaust systems. Moisture-resistant construction, ELCB/RCD earth leakage protection, and individual circuit isolation for safe kitchen operation.</p>
-          <div class="chips"><span class="chip hi">Moisture Resistant</span><span class="chip">ELCB / RCD</span><span class="chip">Commercial Kitchen</span><span class="chip">High-load Rated</span></div>
-          <div class="pc-foot"><a href="contactus.html?prod=Kitchen" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-        </div>
-      </article>
-
-      <!-- Other Modified -->
-      <article class="pcard" data-cat="special" style="animation-delay:240ms" id="modified-panel">
-        <div class="pc-img"><span class="pc-cat-badge">Bespoke Solutions</span><img src="https://images.unsplash.com/photo-1565008576549-57569a49371d?w=700&q=80" alt="Modified Custom Panel"/></div>
-        <div class="pc-body">
-          <div class="pc-idx">24 — Specialty</div>
-          <h3 class="pc-title">Other Modified Panels</h3>
-          <p class="pc-desc">Completely bespoke panel solutions designed and manufactured to your exact application requirements. Our engineering team analyses site conditions, load profiles, and operational requirements to deliver custom electrical panels — from concept and design through manufacturing, testing, and commissioning.</p>
-          <div class="feats">
-            <div class="ft">Fully custom design from initial engineering brief</div>
-            <div class="ft">Site-specific load analysis and engineering</div>
-            <div class="ft">Manufactured to any applicable IEC / IS standard</div>
-            <div class="ft">Full testing, commissioning, and documentation</div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=Fire_Pump" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <span class="pc-std-lbl">NFPA 20 Compliant</span>
           </div>
-          <div class="pc-foot"><a href="contactus.html?prod=Custom" class="pc-enq">Discuss Requirements <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
         </div>
       </article>
 
-      <!-- -------------------------------- CAT 5 -------------------------------- -->
+      <!-- UPS Distribution Panel -->
+      <article class="pcard" data-cat="special" id="ups-panel">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Critical Power</span>
+          <img src="images/gallery/panel1.png" alt="UPS Panel"/>
+        </div>
+        <div class="pc-body">
+          <div class="pc-idx">24 — Uninterruptible Power</div>
+          <h3 class="pc-title">UPS Distribution Panel</h3>
+          <p class="pc-desc">Clean power distribution panels designed for critical IT infrastructure, server rooms, and medical ICU equipment with transient voltage surge suppressors (TVSS) and isolated earth busbars.</p>
+          <div class="chips">
+            <span class="chip hi">TVSS Surge Class B/C</span>
+            <span class="chip">Isolated Earth Bus</span>
+            <span class="chip">Server Grade</span>
+          </div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=UPS" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Solar ACDB / DCDB -->
+      <article class="pcard" data-cat="special" id="solar-panel">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Solar Photovoltaic</span>
+          <div class="pc-stds"><span class="pc-std">1000V/1500V DC</span></div>
+          <img src="images/gallery/panel2.png" alt="Solar ACDB DCDB Panel"/>
+        </div>
+        <div class="pc-body">
+          <div class="pc-idx">25 — Solar PV Array</div>
+          <h3 class="pc-title">Solar ACDB &amp; DCDB</h3>
+          <p class="pc-desc">Solar PV array combiner boxes and AC distribution boards with DC isolators, string fuses, Type-2 surge protection devices (SPD), and bi-directional net energy metering.</p>
+          <div class="chips">
+            <span class="chip hi">1000V/1500V DC SPD</span>
+            <span class="chip">Net Metering</span>
+            <span class="chip">Grid-Tie &amp; Off-Grid</span>
+          </div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=Solar" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Custom Modified Panels -->
+      <article class="pcard" data-cat="special" id="modified-panel">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Bespoke Engineering</span>
+          <img src="images/gallery/hero.png" alt="Custom Modified Panels"/>
+        </div>
+        <div class="pc-body">
+          <div class="pc-idx">26 — Bespoke Industrial Application</div>
+          <h3 class="pc-title">Custom Engineered Panels</h3>
+          <p class="pc-desc">Completely customized switchgear panels designed and fabricated to non-standard electrical schemas, custom dimensions, dual source incoming lines, or marine/coastal grade requirements.</p>
+          <div class="feats">
+            <div class="ft">Tailored to exact site dimensions &amp; clearance limits</div>
+            <div class="ft">Full CAD drafting and CEIG liaisoning included</div>
+          </div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=Custom" class="pc-enq">
+              <span>Discuss Requirements</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- ==================== CAT 05: INFRASTRUCTURE ==================== -->
       <div class="cat-hdr" data-cat="infra">
         <span class="cat-hdr-n">05</span>
-        <span class="cat-hdr-t">Electrical <em>Infrastructure</em></span>
+        <span class="cat-hdr-t">Electrical <em>Infrastructure &amp; Pathways</em></span>
         <div class="cat-hdr-line"></div>
-        <span class="cat-hdr-sub">Pathways &amp; Busways · 2 Products</span>
+        <span class="cat-hdr-sub">2 Products</span>
       </div>
 
-      <!-- Bus Duct — FULL WIDTH FEATURED -->
-      <article class="pcard feat" data-cat="infra" style="animation-delay:0ms" id="busduct">
+      <!-- Bus Duct (Featured Full-Width) -->
+      <article class="pcard feat" data-cat="infra" id="busduct">
         <div class="pc-img">
-          <span class="pc-cat-badge">Busway Systems · Featured</span>
-          <div class="pc-stds"><span class="pc-std">IP54–IP66</span><span class="pc-std">AS1530.4</span><span class="pc-std">630–6300A</span></div>
-          <img src="https://5.imimg.com/data5/SELLER/Default/2024/5/411234568/lv-bus-duct-system.jpg" alt="HV LV Bus Duct"/>
-        </div>
-        <div class="pc-body">
-          <div class="pc-idx">25a — Infrastructure · Featured</div>
-          <h3 class="pc-title">HV &amp; LV Bus Duct / Busways</h3>
-          <p class="pc-desc">Expert-manufactured 3-phase busways carrying power efficiently from transformers to panels without heavy cabling. Superior copper conductors with 99.97% purity and silver-plated full-length conductors to minimise oxidation and voltage drop. Fire resistance certified per AS1530.4:2014. Widely used in industrial process automation and multi-floor buildings.</p>
-          <table class="pc-tbl">
-            <tr><td>Copper Busways</td><td>630A to 6300A · 99.97% purity · silver-plated full-length conductors</td></tr>
-            <tr><td>Aluminium + Cu</td><td>800A to 6300A · copper contact joints for reliability</td></tr>
-            <tr><td>Polarities</td><td>3L + PE · 3L + N + PE</td></tr>
-            <tr><td>Max Rated Voltage</td><td>1000V</td></tr>
-            <tr><td>Fire Resistance</td><td>Certified AS1530.4:2014 · assessed AS 4072.1-2005</td></tr>
-            <tr><td>IP Protection</td><td>IP54 to IP66</td></tr>
-          </table>
-          <div class="pc-foot"><a href="contactus.html?prod=Busduct" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><span class="pc-std-lbl">AS1530.4:2014 Fire Certified</span></div>
-        </div>
-      </article>
-
-      <!-- Cable Tray — half width -->
-      <article class="pcard half" data-cat="infra" style="animation-delay:40ms" id="cable-tray">
-        <div class="pc-img" style="height:260px"><span class="pc-cat-badge">Cable Management</span><img src="https://images.unsplash.com/photo-1601055283742-8b27e81b5553?w=800&q=80" alt="Cable Tray Raceways"/></div>
-        <div class="pc-body">
-          <div class="pc-idx">25b — Infrastructure</div>
-          <h3 class="pc-title">Cable Tray &amp; Raceways</h3>
-          <p class="pc-desc">Safe, organised, and efficient pathways for power, control, and data cables. Eliminates mechanical damage risk while improving ventilation to prevent overheating. Raceways provide enclosed protection from dust, moisture, and physical damage. Strong, durable, corrosion-resistant materials for indoor and outdoor use.</p>
-          <div class="feats-2col">
-            <div><div class="fcg-lbl">Cable Tray Types</div><div class="feats"><div class="ft">Ladder Type</div><div class="ft">Perforated</div><div class="ft">Solid Bottom</div><div class="ft">Wire Mesh</div><div class="ft">Channel Type</div></div></div>
-            <div><div class="fcg-lbl">Raceway Types</div><div class="feats"><div class="ft">Metal Raceway</div><div class="ft">PVC Raceway</div><div class="ft">Surface Raceway</div><div class="ft">Underfloor</div><div class="ft">Cable Trunking</div></div></div>
+          <span class="pc-cat-badge">Heavy Infrastructure · Featured</span>
+          <div class="pc-stds">
+            <span class="pc-std">630A–6300A</span>
+            <span class="pc-std">IP55–IP68</span>
+            <span class="pc-std">99.97% Cu</span>
           </div>
-          <div class="pc-foot"><a href="contactus.html?prod=Cable_Tray" class="pc-enq">Enquire Now <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+          <img src="images/gallery/busduct.png" alt="HV LV Bus Duct Systems"/>
+        </div>
+        <div class="pc-body">
+          <div class="pc-idx">27 — High-Current Power Busways</div>
+          <h3 class="pc-title">HV &amp; LV Bus Duct Systems</h3>
+          <p class="pc-desc">Precision-engineered sandwich and air-insulated busduct systems transmitting bulk power between transformers, generators, and switchboards with minimal voltage drop and superior fire resistance.</p>
+          <table class="pc-tbl">
+            <tr><td>Current Rating</td><td>630A to 6300A (Copper &amp; Aluminium options)</td></tr>
+            <tr><td>Conductor Purity</td><td>99.97% Electrolytic Copper with full-length silver plating</td></tr>
+            <tr><td>Configuration</td><td>3-Phase 3-Wire / 3-Phase 4-Wire + 50%/100% Integral Earth</td></tr>
+            <tr><td>Short-Circuit Rating</td><td>Up to 100kA rms for 1 second</td></tr>
+            <tr><td>Ingress Protection</td><td>IP55 Indoor / IP66 Outdoor / Cast Resin IP68</td></tr>
+          </table>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=Busduct" class="pc-enq">
+              <span>Request Busway Engineering Quote</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <span class="pc-std-lbl">Type Tested per IEC 61439-6</span>
+          </div>
         </div>
       </article>
 
-      <!-- EMPTY STATE -->
+      <!-- Cable Trays & Raceways -->
+      <article class="pcard" data-cat="infra" id="cable-tray">
+        <div class="pc-img">
+          <span class="pc-cat-badge">Cable Management</span>
+          <img src="images/gallery/factory.png" alt="Cable Tray and Raceways"/>
+        </div>
+        <div class="pc-body">
+          <div class="pc-idx">28 — Pathways &amp; Routing</div>
+          <h3 class="pc-title">Cable Trays &amp; Raceways</h3>
+          <p class="pc-desc">Heavy-gauge perforated, ladder-type, and solid-bottom cable trays with hot-dip galvanized (HDG) coating or powder finish. Prevents cable overheating and ensures neat industrial routing.</p>
+          <div class="chips">
+            <span class="chip hi">Ladder &amp; Perforated</span>
+            <span class="chip">Hot-Dip Galvanized</span>
+            <span class="chip">High Load Bearing</span>
+          </div>
+          <div class="pc-foot">
+            <a href="contactus.html?prod=Cable_Tray" class="pc-enq">
+              <span>Enquire Now</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Empty State -->
       <div class="no-results" id="noResults" style="display:none">
-        <div class="nr-big">—</div>
-        <p class="nr-msg">No products match · Try "All" or a different category</p>
+        <div class="nr-big">0</div>
+        <p class="nr-msg">No products match your search · Try searching for "Switchgear", "PLC", "APFC", or "Busduct"</p>
       </div>
 
-    </div><!-- /grid -->
-
-    <!-- CTA -->
-    <div class="cta-block rv">
-      <div>
-        <h3 class="cta-h">Need a <em>Custom</em> Solution?</h3>
-        <p class="cta-p">Every installation is unique. Our engineers will design, manufacture, test, and commission a solution precisely to your technical specifications and site requirements.</p>
-      </div>
-      <div class="cta-btns">
-        <a href="contactus.html" class="btn-r">Request a Quote &rarr;</a>
-        <a href="tel:+919900604365" class="btn-o">Call Directly</a>
-      </div>
     </div>
   </div>
 </div>
 
-<!-- FOOTER -->
+<!-- ==========================================================================
+     CALL TO ACTION
+     ========================================================================== -->
+<div class="cta-sec">
+  <div class="W cta-grid">
+    <div class="cta-content rv">
+      <h2>Require Custom Technical <em>Specifications?</em></h2>
+      <p>Consult with our engineering team for customized panel designs, busbar thermal sizing, and complete turnkey CEIG liaisoning across Karnataka.</p>
+    </div>
+    <div class="cta-action rv d1">
+      <a href="contactus.html" class="btn-white">
+        <span>Request Engineering Quote</span>
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Global Footer placeholder injected by site.js -->
 <div id="site-footer"></div>
 
-<!-- -------------------------------- SCRIPTS -------------------------------- -->
-<script src="site.js"></script>
+<!-- Back to top button -->
+<button id="btt" aria-label="Back to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">&uarr;</button>
+
+<!-- ==========================================================================
+     SCRIPTS & FILTERING LOGIC
+     ========================================================================== -->
 <script>
-/**
- * Product Filter & Search Logic
- */
-(function() {
-  const cards = document.querySelectorAll('.pcard');
-  const catHdrs = document.querySelectorAll('.cat-hdr');
-  const noRes = document.getElementById('noResults');
-  const visCnt = document.getElementById('visCnt');
-  const activeLbl = document.getElementById('activeLbl');
-  const srch = document.getElementById('srch');
-  const fBtns = document.querySelectorAll('.f-btn');
-  const labels = {
-    all: 'All Categories',
-    distribution: 'Distribution Panels',
-    control: 'Control & Sync',
-    building: 'Building & HVAC',
-    special: 'Specialty Panels',
-    infra: 'Infrastructure'
-  };
-
-  function filter() {
-    const active = document.querySelector('.f-btn.active');
-    const cat = active ? active.dataset.f : 'all';
-    const q = srch.value.toLowerCase().trim();
-    let vis = 0;
-    const visCats = new Set();
-
-    cards.forEach(c => {
-      const cc = c.dataset.cat || '';
-      const t = (c.querySelector('.pc-title')?.textContent || '').toLowerCase();
-      const d = (c.querySelector('.pc-desc')?.textContent || '').toLowerCase();
-      const catOk = cat === 'all' || cc === cat;
-      const qOk = !q || t.includes(q) || d.includes(q);
-      const show = catOk && qOk;
-      c.classList.toggle('hidden', !show);
-      if (show) {
-        vis++;
-        visCats.add(cc);
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
       }
     });
+  }, {
+    threshold: 0.08,
+    rootMargin: '0px 0px -30px 0px'
+  });
 
-    catHdrs.forEach(h => {
-      const hc = h.dataset.cat;
-      if (cat === 'all' && !q) {
-        h.classList.remove('hid');
-      } else {
-        h.classList.toggle('hid', !visCats.has(hc));
-      }
+  document.querySelectorAll('.rv, .rl, .rr').forEach((el) => observer.observe(el));
+
+  const btt = document.getElementById('btt');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 350) {
+      btt.classList.add('on');
+    } else {
+      btt.classList.remove('on');
+    }
+  }, { passive: true });
+
+  /**
+   * Product Filter & Search Engine
+   */
+  (function() {
+    const cards = document.querySelectorAll('.pcard');
+    const catHdrs = document.querySelectorAll('.cat-hdr');
+    const noRes = document.getElementById('noResults');
+    const visCnt = document.getElementById('visCnt');
+    const activeLbl = document.getElementById('activeLbl');
+    const srch = document.getElementById('srch');
+    const fBtns = document.querySelectorAll('.f-btn');
+    const labels = {
+      all: 'All Categories',
+      distribution: 'Distribution Switchgear',
+      control: 'Control & Synchronization',
+      building: 'Building & HVAC Systems',
+      special: 'Specialty & Renewable Panels',
+      infra: 'Infrastructure & Busways'
+    };
+
+    function filter() {
+      const active = document.querySelector('.f-btn.active');
+      const cat = active ? active.dataset.f : 'all';
+      const q = srch.value.toLowerCase().trim();
+      let vis = 0;
+      const visCats = new Set();
+
+      cards.forEach((c) => {
+        const cc = c.dataset.cat || '';
+        const t = (c.querySelector('.pc-title')?.textContent || '').toLowerCase();
+        const d = (c.querySelector('.pc-desc')?.textContent || '').toLowerCase();
+        const chips = (c.querySelector('.chips')?.textContent || '').toLowerCase();
+        const catOk = cat === 'all' || cc === cat;
+        const qOk = !q || t.includes(q) || d.includes(q) || chips.includes(q);
+        const show = catOk && qOk;
+        c.classList.toggle('hidden', !show);
+        if (show) {
+          vis++;
+          visCats.add(cc);
+        }
+      });
+
+      catHdrs.forEach((h) => {
+        const hc = h.dataset.cat;
+        if (cat === 'all' && !q) {
+          h.classList.remove('hid');
+        } else {
+          h.classList.toggle('hid', !visCats.has(hc));
+        }
+      });
+
+      visCnt.textContent = vis;
+      activeLbl.textContent = q ? `Search: "${srch.value}"` : (labels[cat] || 'All');
+      noRes.style.display = vis === 0 ? 'flex' : 'none';
+    }
+
+    fBtns.forEach((b) => {
+      b.addEventListener('click', () => {
+        fBtns.forEach((x) => x.classList.remove('active'));
+        b.classList.add('active');
+        filter();
+      });
     });
 
-    visCnt.textContent = vis;
-    activeLbl.textContent = q ? `"${srch.value}"` : (labels[cat] || 'All');
-    noRes.style.display = vis === 0 ? 'flex' : 'none';
-  }
-
-  fBtns.forEach(b => {
-    b.addEventListener('click', () => {
-      fBtns.forEach(x => x.classList.remove('active'));
-      b.classList.add('active');
+    srch.addEventListener('input', () => {
+      fBtns.forEach((x) => x.classList.remove('active'));
+      const allBtn = document.querySelector('[data-f="all"]');
+      if (allBtn) allBtn.classList.add('active');
       filter();
-      if(window.scrollY > 300) {
-        window.scrollTo({ top: 300, behavior: 'smooth' });
-      }
     });
-  });
-
-  srch.addEventListener('input', () => {
-    fBtns.forEach(x => x.classList.remove('active'));
-    document.querySelector('[data-f="all"]').classList.add('active');
-    filter();
-  });
-
-  // Initialize - reveal animation is handled by site.js globally
-})();
+  })();
 </script>
+<script src="site.js"></script>
 </body>
 </html>

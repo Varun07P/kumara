@@ -1,266 +1,1366 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Manufacturing Process — Kumara Engineering Solutions</title>
-<meta name="description" content="Explore the 6-step precision manufacturing process at KES — from CAD design to CEIG-certified commissioning. IEC 61439 compliant panel production in Bengaluru."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manufacturing & Engineering Process — Kumara Engineering Solutions</title>
+<meta name="description" content="Explore the rigorous 6-stage engineering and manufacturing workflow at KES — from CAD Single Line Diagrams to CNC fabrication, 7-tank pre-treatment, 4000A testing, and CEIG handover in Bengaluru.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* SVGs */
-.svg-ic { width: 1.25em; height: 1.25em; display: inline-block; vertical-align: middle; flex-shrink: 0; }
+  /* ==========================================================================
+     DESIGN TOKENS & SYSTEM
+     ========================================================================== */
+  :root {
+    --navy:        #07101e;
+    --navy-2:      #0b1a32;
+    --navy-3:      #102344;
+    --red:         #cc2700;
+    --red-hover:   #a81e00;
+    --red-accent:  #ff5722;
+    --red-soft:    rgba(204, 39, 0, 0.08);
+    --red-border:  rgba(204, 39, 0, 0.2);
+    --red-glow:    rgba(204, 39, 0, 0.3);
+    
+    --bg-page:     #ffffff;
+    --bg-alt:      #f8fafd;
+    --bg-card:     #ffffff;
+    
+    --border:      #e2eaf2;
+    --border-subtle: #edf2f8;
+    --border-dark: rgba(255, 255, 255, 0.08);
+    
+    --text-main:   #09182d;
+    --text-body:   #506176;
+    --text-muted:  #8595a8;
+    --text-light:  rgba(255, 255, 255, 0.72);
+    
+    --shadow-sm:   0 2px 6px rgba(7, 16, 30, 0.04);
+    --shadow-md:   0 6px 18px rgba(7, 16, 30, 0.06);
+    --shadow-lg:   0 12px 30px rgba(7, 16, 30, 0.09);
+    
+    --radius-sm:   5px;
+    --radius-md:   8px;
+    --radius-lg:   12px;
+    --radius-full: 9999px;
+    
+    --font-heading: 'Barlow Condensed', -apple-system, sans-serif;
+    --font-body:    'Barlow', -apple-system, sans-serif;
+    --ease:         cubic-bezier(0.16, 1, 0.3, 1);
+  }
 
-:root{
-  --navy:     #08111f;
-  --navy2:    #0c1a30;
-  --navy3:    #0f2040;
-  --blue:     #1251a3;
-  --blue2:    #1565c8;
-  --blue3:    #1a7ae8;
-  --blue-pale:#fbeae6;
-  --blue-alt:#cc2700; 
-  --blue-alt2:#a81e00; 
-  --blue-alt3:#8a1800; 
-  --white:    #ffffff;
-  --off:      #f9f5f4;
-  --grey:     #64748b;
-  --grey2:    #94a3b8;
-  --border:   #dde6f5;
-  --text:     #0f1f35;
-  --s1: 0 2px 16px rgba(8,17,31,.08);
-  --s2: 0 8px 36px rgba(8,17,31,.14);
-  --s3: 0 24px 64px rgba(8,17,31,.22);
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Barlow',sans-serif;color:var(--text);background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-a{text-decoration:none;color:inherit}
-button{font-family:inherit;cursor:pointer;border:none;outline:none;background:none}
-img{display:block;max-width:100%}
-.W{max-width:1300px;margin:0 auto;padding:0 48px}
+  /* Reset & Base */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: var(--font-body);
+    color: var(--text-main);
+    background: var(--bg-page);
+    line-height: 1.55;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { text-decoration: none; color: inherit; transition: color 0.2s var(--ease); }
+  button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; }
+  img { display: block; max-width: 100%; height: auto; object-fit: cover; }
+  ul { list-style: none; }
 
-/* Navbar / Header */
+  /* Layout Containers */
+  .W { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 28px; }
+  .sec { padding: 46px 0; position: relative; }
+  .sec-alt { background: var(--bg-alt); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
+  .sec-dark { background: var(--navy); color: #fff; }
 
+  .sec-header { text-align: center; max-width: 640px; margin: 0 auto 28px; }
+  
+  .sec-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-heading);
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding: 3px 10px;
+    background: var(--red-soft);
+    border: 1px solid var(--red-border);
+    border-radius: var(--radius-full);
+    margin-bottom: 8px;
+  }
+  .sec-badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--red); }
 
-/* Hero Subpage */
-.hero-subpage{position:relative;padding:120px 0 80px;background:var(--navy);overflow:hidden}
-.hero-subpage::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1502444330042-d1a1ddf9bb5b?w=1600&q=80') center/cover no-repeat;opacity:0.25;filter:brightness(0.5)}
-.hero-subpage::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,var(--navy) 0%,transparent 100%)}
-.hero-sub-inner{position:relative;z-index:10;text-align:center}
-.title-big{font-family:'Barlow Condensed',sans-serif;font-size:clamp(48px,8vw,120px);font-weight:900;color:#fff;text-transform:uppercase;line-height:0.9;letter-spacing:-0.03em;margin-bottom:20px}
-.title-big em{font-style:normal;color:var(--blue-alt)}
-.hero-path{display:flex;justify-content:center;gap:12px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em}
-.hero-path span.active{color:var(--blue-alt)}
+  .sec-title {
+    font-family: var(--font-heading);
+    font-size: clamp(26px, 2.8vw, 38px);
+    font-weight: 900;
+    color: var(--text-main);
+    letter-spacing: -0.015em;
+    text-transform: uppercase;
+    line-height: 1.05;
+    margin-bottom: 8px;
+  }
+  .sec-title em { font-style: normal; color: var(--red); }
+  .sec-title.inv { color: #fff; }
+  .sec-title.inv em {
+    background: linear-gradient(135deg, #ff7a59 0%, #cc2700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
-/* Process Timeline Layout */
-.sec { padding: 96px 0; }
-.bggry { background: var(--off); }
-.sec-hd { text-align: center; max-width: 680px; margin: 0 auto 56px; }
-.sec-hd .sl-bar { width: 32px; height: 3px; background: var(--blue-alt); display: inline-block; vertical-align: middle; margin-right: 8px; border-radius: 2px;}
-.sec-hd .sl-txt { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; color: var(--blue-alt); letter-spacing: 0.15em; text-transform: uppercase; vertical-align: middle;}
-.sec-hd h2 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(32px, 4vw, 54px); font-weight: 800; color: var(--navy); text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.1; margin-top: 14px; margin-bottom: 18px; }
-.sec-hd h2 em { font-style: normal; color: var(--blue-alt); }
-.sec-hd p { font-size: 15px; color: var(--grey); line-height: 1.6; }
+  .sec-desc { font-size: 14px; line-height: 1.55; color: var(--text-body); font-weight: 400; }
+  .sec-desc.inv { color: var(--text-light); }
 
-.timeline { position: relative; max-width: 1000px; margin: 0 auto; padding: 40px 0; }
-.timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 4px; background: var(--border); transform: translateX(-50%); border-radius: 2px; }
+  /* Scroll Reveal */
+  .rv, .rl, .rr { opacity: 0; transition: opacity 0.55s var(--ease), transform 0.55s var(--ease); will-change: opacity, transform; }
+  .rv { transform: translateY(18px); }
+  .rl { transform: translateX(-18px); }
+  .rr { transform: translateX(18px); }
+  .rv.in, .rl.in, .rr.in { opacity: 1; transform: none; }
+  .d1 { transition-delay: 0.06s; }
+  .d2 { transition-delay: 0.12s; }
+  .d3 { transition-delay: 0.18s; }
 
-.tl-item { position: relative; width: 100%; margin-bottom: 80px; align-items: center; justify-content: space-between; clear: both; display: flex; }
-.tl-item:last-child { margin-bottom: 0; }
+  /* Buttons */
+  .btn-red {
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    background: var(--red); color: #fff; padding: 10px 22px; border-radius: var(--radius-sm);
+    font-family: var(--font-heading); font-size: 14px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.05em; transition: all 0.22s var(--ease); box-shadow: 0 4px 14px var(--red-glow);
+    white-space: nowrap;
+  }
+  .btn-red:hover { background: var(--red-hover); transform: translateY(-1.5px); color: #fff; }
 
-.tl-content { width: 45%; background: #fff; padding: 32px; border-radius: 12px; border: 1px solid var(--border); box-shadow: var(--s1); position: relative; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-.tl-content:hover { transform: translateY(-5px); border-color: var(--blue-alt); box-shadow: var(--s2); }
+  .btn-ghost {
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    border: 1.5px solid rgba(255, 255, 255, 0.2); color: rgba(255, 255, 255, 0.85);
+    padding: 9px 18px; border-radius: var(--radius-sm); font-family: var(--font-heading);
+    font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+    backdrop-filter: blur(8px); background: rgba(255, 255, 255, 0.04); transition: all 0.22s var(--ease);
+    white-space: nowrap;
+  }
+  .btn-ghost:hover { border-color: rgba(255, 255, 255, 0.5); color: #fff; background: rgba(255, 255, 255, 0.08); transform: translateY(-1.5px); }
 
-/* Marker dot on the line */
-.tl-marker { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 24px; height: 24px; background: #fff; border: 4px solid var(--blue-alt); border-radius: 50%; z-index: 2; box-shadow: 0 0 0 4px rgba(204,39,0,0.1); }
-.tl-step { position: absolute; font-family: 'Barlow Condensed', sans-serif; font-size: 48px; font-weight: 900; color: var(--border); top: -24px; z-index: 0; transition: color 0.3s; }
-.tl-item:hover .tl-step { color: var(--blue-pale); }
+  .btn-white {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: #fff; color: var(--red); padding: 12px 28px; border-radius: var(--radius-sm);
+    font-family: var(--font-heading); font-size: 14.5px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.05em; transition: all 0.22s var(--ease); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    white-space: nowrap;
+  }
+  .btn-white:hover { transform: translateY(-2px); color: var(--navy); }
 
-.tl-left .tl-content { margin-right: auto; }
-.tl-right .tl-content { margin-left: auto; }
-.tl-left .tl-step { right: 24px; }
-.tl-right .tl-step { left: 24px; }
+  /* ==========================================================================
+     HERO SECTION (Compact & Sharp)
+     ========================================================================== */
+  .hero-sec {
+    position: relative; background: var(--navy); overflow: hidden;
+    padding: 36px 0 32px; border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('images/gallery/process_bg.jpg') center/cover no-repeat;
+    opacity: 0.18; filter: saturate(1.2) contrast(1.1);
+  }
+  .hero-grad {
+    position: absolute; inset: 0;
+    background: linear-gradient(108deg, var(--navy) 30%, rgba(7, 16, 30, 0.94) 65%, rgba(7, 16, 30, 0.75) 100%);
+  }
+  .hero-grid-pattern {
+    position: absolute; inset: 0;
+    background-image: 
+      linear-gradient(rgba(204, 39, 0, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(204, 39, 0, 0.03) 1px, transparent 1px);
+    background-size: 32px 32px; pointer-events: none;
+  }
+  .hero-glow {
+    position: absolute; top: -100px; right: 8%; width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(204, 39, 0, 0.14) 0%, transparent 70%); pointer-events: none;
+  }
+  .hero-grid {
+    position: relative; z-index: 2; display: grid;
+    grid-template-columns: 1.15fr 0.85fr; gap: 32px; align-items: center;
+  }
+  .hero-content { display: flex; flex-direction: column; align-items: flex-start; }
 
-.tl-content h3 { position: relative; z-index: 10; font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 800; color: var(--navy); text-transform: uppercase; margin-bottom: 12px; }
-.tl-content p { position: relative; z-index: 10; font-size: 14.5px; color: var(--grey); line-height: 1.65; }
+  .breadcrumb {
+    display: flex; align-items: center; gap: 6px; font-family: var(--font-heading);
+    font-size: 11px; font-weight: 700; color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px;
+  }
+  .breadcrumb a:hover { color: var(--red); }
+  .breadcrumb .sep { color: rgba(255, 255, 255, 0.15); }
+  .breadcrumb .cur { color: var(--red-accent); }
 
-/* In-house specific callout grid underneath */
-.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 80px; }
-.f-box { text-align: center; padding: 32px; background: #fff; border: 1px dashed var(--border); border-radius: 10px; transition: all 0.3s; }
-.f-box:hover { border-style: solid; border-color: var(--blue-alt); background: var(--off); transform: translateY(-3px); }
-.f-box-ico { width: 64px; height: 64px; margin: 0 auto 20px; background: var(--blue-pale); color: var(--blue-alt); border-radius: 50%; display: grid; place-items: center; font-size: 28px; }
-.f-box h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; color: var(--navy); text-transform: uppercase; margin-bottom: 8px; }
-.f-box p { font-size: 13.5px; color: var(--grey); }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(204, 39, 0, 0.12); border: 1px solid var(--red-border);
+    color: #ff6036; font-family: var(--font-heading); font-size: 10.5px;
+    font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: var(--radius-sm); margin-bottom: 10px;
+  }
+  .tag-dot {
+    width: 5px; height: 5px; border-radius: 50%; background: var(--red);
+    box-shadow: 0 0 6px var(--red); animation: pulseGlow 2s infinite ease-in-out;
+  }
+  @keyframes pulseGlow { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.3); opacity: 0.7; } }
 
-/* Facility Banner */
-.fac-banner { display: grid; grid-template-columns: 1fr 1fr; background: var(--navy); overflow: hidden; }
-.fac-vid { position: relative; min-height: 400px; }
-.fac-vid img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
-.fac-content { padding: 96px 80px; color: #fff; display: flex; flex-direction: column; justify-content: center; }
-.fac-content h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 40px; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; color: #fff; line-height: 1.1; }
-.fac-content h3 em { font-style: normal; color: var(--blue-alt); }
-.lc-step::after { content: '\2192'; position: absolute; right: -12px; top: 28px; font-size: 20px; color: rgba(255,255,255,0.2); pointer-events: none; }
-.fac-content p { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 32px; }
+  .hero-h1 {
+    font-family: var(--font-heading); font-size: clamp(30px, 3.6vw, 46px);
+    font-weight: 900; color: #fff; text-transform: uppercase; line-height: 0.98;
+    letter-spacing: -0.02em; margin-bottom: 10px;
+  }
+  .hero-h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, #ff7a59 0%, #cc2700 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero-sub {
+    font-size: 13.5px; color: rgba(255, 255, 255, 0.7); max-width: 500px;
+    line-height: 1.55; margin-bottom: 18px; font-weight: 300;
+  }
+  .hero-btns { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 
-/* Shared footer handled by site.js */
+  /* ==========================================================================
+     HERO: INTERACTIVE PROCESS PIPELINE HUB (Distinct from About Us)
+     ========================================================================== */
+  .pipeline-hub {
+    background: rgba(11, 26, 50, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    padding: 16px 18px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+    position: relative;
+    overflow: hidden;
+  }
+  .pipeline-hub::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2.5px;
+    background: linear-gradient(90deg, var(--red), var(--red-accent), #ff9800);
+  }
 
+  /* Hub Header */
+  .ph-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 11px;
+    margin-bottom: 11px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .ph-title {
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .ph-title svg {
+    width: 14px;
+    height: 14px;
+    stroke: var(--red-accent);
+    fill: none;
+    stroke-width: 2;
+  }
+  .ph-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 700;
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.1);
+    border: 1px solid rgba(74, 222, 128, 0.25);
+    padding: 2px 7px;
+    border-radius: var(--radius-full);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .ph-status-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 6px #4ade80;
+  }
 
-/* Reveal */
-.rv{opacity:0;transform:translateY(30px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
-.rl{opacity:0;transform:translateX(-32px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
-.rr{opacity:0;transform:translateX(32px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
-.rv.in,.rl.in,.rr.in{opacity:1;transform:none}
-.d1{transition-delay:.1s}
-.d2{transition-delay:.2s}
-.d3{transition-delay:.3s}
+  /* Pipeline Track & Rows */
+  .ph-track {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+  }
+  .ph-track::before {
+    content: '';
+    position: absolute;
+    left: 17px;
+    top: 14px;
+    bottom: 14px;
+    width: 2px;
+    background: linear-gradient(180deg, rgba(204, 39, 0, 0.8), rgba(255, 87, 34, 0.4), rgba(255, 255, 255, 0.1));
+    z-index: 1;
+  }
 
-@media(max-width:1024px){
-  .timeline::before { left: 24px; }
-  .tl-content { width: calc(100% - 60px); }
-  .tl-left .tl-content, .tl-right .tl-content { margin-left: 60px; margin-right: 0; }
-  .tl-marker { left: 24px; }
-  .features-grid { grid-template-columns: 1fr; }
-  .fac-banner { grid-template-columns: 1fr; }
-  .fac-content { padding: 48px; }
-}
+  .pl-row {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-md);
+    padding: 9px 12px 9px 9px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.22s var(--ease);
+  }
+  .pl-row:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(204, 39, 0, 0.4);
+    transform: translateX(3px);
+  }
+
+  /* Step Node Ring */
+  .pl-node {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--navy);
+    border: 2px solid var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 900;
+    color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(204, 39, 0, 0.3);
+    transition: all 0.22s;
+  }
+  .pl-row:hover .pl-node {
+    background: var(--red);
+    box-shadow: 0 0 12px var(--red);
+  }
+
+  /* Content */
+  .pl-content {
+    flex: 1;
+    min-width: 0;
+  }
+  .pl-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    margin-bottom: 1px;
+  }
+  .pl-stage-tag {
+    font-family: var(--font-heading);
+    font-size: 9.5px;
+    font-weight: 700;
+    color: var(--red-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .pl-metric {
+    font-family: var(--font-heading);
+    font-size: 9.5px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.65);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1px 5px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .pl-title {
+    font-family: var(--font-heading);
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .pl-sub {
+    font-size: 10.5px;
+    color: rgba(255, 255, 255, 0.48);
+    line-height: 1.25;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Footer bar */
+  .ph-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .ph-footer strong {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* ==========================================================================
+     6-STAGE WORKFLOW PIPELINE
+     ========================================================================== */
+  .stages-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+  }
+  
+  .stage-card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 20px 22px;
+    display: grid;
+    grid-template-columns: 70px 1fr 240px;
+    gap: 20px;
+    align-items: center;
+    transition: all 0.28s var(--ease);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(7, 16, 30, 0.03);
+  }
+  
+  .stage-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 3.5px;
+    background: var(--navy);
+    transition: background 0.25s var(--ease);
+  }
+  .stage-card:hover::before {
+    background: var(--red);
+  }
+  .stage-card:hover {
+    transform: translateY(-2.5px);
+    box-shadow: 0 8px 24px rgba(7, 16, 30, 0.07);
+    border-color: rgba(204, 39, 0, 0.28);
+  }
+
+  /* Stage Number & Icon Col */
+  .st-num-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+  }
+  .st-idx {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 1;
+    transition: color 0.25s;
+  }
+  .stage-card:hover .st-idx {
+    color: var(--red);
+  }
+  .st-ico {
+    width: 36px;
+    height: 36px;
+    background: var(--red-soft);
+    border: 1px solid var(--red-border);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s var(--ease);
+  }
+  .stage-card:hover .st-ico {
+    background: var(--red);
+    box-shadow: 0 4px 10px var(--red-glow);
+  }
+  .st-ico svg {
+    width: 17px;
+    height: 17px;
+    stroke: var(--red);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.25s;
+  }
+  .stage-card:hover .st-ico svg {
+    stroke: #ffffff;
+  }
+
+  /* Stage Content Col */
+  .st-main h3 {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.015em;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .st-tag {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 700;
+    background: rgba(7, 16, 30, 0.06);
+    color: var(--navy);
+    padding: 1.5px 7px;
+    border-radius: 3px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .st-desc {
+    font-size: 13.5px;
+    color: var(--text-body);
+    line-height: 1.55;
+    margin-bottom: 8px;
+  }
+  
+  .st-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .st-chip {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--navy);
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .st-chip::before {
+    content: '';
+    width: 3.5px;
+    height: 3.5px;
+    border-radius: 50%;
+    background: var(--red);
+  }
+
+  /* Stage Deliverable Col */
+  .st-deliverable {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-left: 3px solid var(--navy);
+  }
+  .st-del-label {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .st-del-text {
+    font-family: var(--font-heading);
+    font-size: 13.5px;
+    font-weight: 800;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+  .st-del-sub {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  /* ==========================================================================
+     IN-HOUSE QUALITY PILLARS GRID
+     ========================================================================== */
+  .qa-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .qa-card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 16px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: all 0.25s var(--ease);
+    position: relative;
+    overflow: hidden;
+  }
+  .qa-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s var(--ease);
+  }
+  .qa-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+    border-color: rgba(204, 39, 0, 0.25);
+  }
+  .qa-card:hover::after {
+    transform: scaleX(1);
+  }
+  
+  .qa-ico {
+    width: 32px;
+    height: 32px;
+    background: var(--red-soft);
+    border: 1px solid var(--red-border);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .qa-ico svg {
+    width: 15px;
+    height: 15px;
+    stroke: var(--red);
+    fill: none;
+    stroke-width: 2;
+  }
+  .qa-card h4 {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+  }
+  .qa-card p {
+    font-size: 12px;
+    color: var(--text-body);
+    line-height: 1.45;
+  }
+
+  /* ==========================================================================
+     FACILITY & LAB SHOWCASE
+     ========================================================================== */
+  .fac-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .fac-body {
+    display: flex;
+    flex-direction: column;
+  }
+  .fac-body h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(26px, 2.8vw, 38px);
+    font-weight: 900;
+    color: var(--text-main);
+    text-transform: uppercase;
+    line-height: 1.05;
+    margin-bottom: 8px;
+  }
+  .fac-body h2 em {
+    font-style: normal;
+    color: var(--red);
+  }
+  .fac-lead {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-body);
+    margin-bottom: 16px;
+  }
+  
+  .fac-specs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .fac-spec-box {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+  }
+  .fac-spec-title {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--navy);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .fac-spec-desc {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    line-height: 1.35;
+  }
+
+  .fac-visual {
+    position: relative;
+  }
+  .fac-frame {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    height: 340px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+  }
+  .fac-frame img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s var(--ease);
+  }
+  .fac-visual:hover .fac-frame img {
+    transform: scale(1.02);
+  }
+  
+  .fac-badge-float {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    background: rgba(7, 16, 30, 0.92);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .fbf-ico {
+    width: 28px;
+    height: 28px;
+    background: rgba(204, 39, 0, 0.2);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .fbf-ico svg {
+    width: 15px;
+    height: 15px;
+    stroke: var(--red-accent);
+    fill: none;
+    stroke-width: 2;
+  }
+  .fbf-txt strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 13px;
+    text-transform: uppercase;
+  }
+  .fbf-txt span {
+    font-size: 10.5px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* ==========================================================================
+     CALL TO ACTION
+     ========================================================================== */
+  .cta-sec {
+    background: linear-gradient(135deg, var(--navy) 0%, #0d1f3c 60%, #170503 100%);
+    padding: 42px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-grid {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+  }
+  .cta-content h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1.05;
+    margin-bottom: 6px;
+  }
+  .cta-content h2 em {
+    font-style: normal;
+    color: var(--red-accent);
+  }
+  .cta-content p {
+    font-size: 13.5px;
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 520px;
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  /* Back to top */
+  #btt {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 38px;
+    height: 38px;
+    background: var(--red);
+    color: #fff;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s, transform 0.25s;
+    box-shadow: 0 4px 12px var(--red-glow);
+    z-index: 999;
+  }
+  #btt.on { opacity: 1; pointer-events: auto; }
+  #btt:hover { transform: translateY(-2px); background: var(--red-hover); }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .W { padding: 0 20px; }
+    .sec { padding: 38px 0; }
+    .hero-grid { grid-template-columns: 1fr; gap: 24px; }
+    .stage-card { grid-template-columns: 60px 1fr; }
+    .st-deliverable { grid-column: span 2; }
+    .qa-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .fac-split { grid-template-columns: 1fr; gap: 24px; }
+    .fac-frame { height: 280px; }
+  }
+  @media (max-width: 640px) {
+    .sec { padding: 32px 0; }
+    .hero-highlights { grid-template-columns: 1fr; gap: 8px; }
+    .hero-btns { flex-direction: column; width: 100%; }
+    .btn-red, .btn-ghost, .btn-white { width: 100%; }
+    .stage-card { grid-template-columns: 1fr; gap: 12px; }
+    .st-num-box { flex-direction: row; justify-content: flex-start; gap: 10px; }
+    .st-deliverable { grid-column: span 1; }
+    .qa-grid { grid-template-columns: 1fr; }
+    .fac-specs { grid-template-columns: 1fr; }
+    .cta-grid { flex-direction: column; text-align: center; gap: 18px; }
+  }
 </style>
 </head>
 <body>
 
-<!-- Shared header loaded by site.js -->
+<!-- Global Header placeholder injected by site.js -->
 <div id="site-header"></div>
 
-<!-- -------------------------------- HERO SUBPAGE -------------------------------- -->
-<header class="hero-subpage">
-  <div class="W hero-sub-inner">
-    <div class="hero-path rv">Home / <span class="active">Process</span></div>
-    <h1 class="title-big rv" style="transition-delay:0.1s">Factory <em>Floor</em></h1>
-    <p style="color:rgba(255,255,255,0.7); max-width:600px; margin:0 auto; font-size:16px" class="rv" style="transition-delay:0.2s">From blueprint CAD software to physical steel fabrication and rigid high-voltage testing, explore how we build world-class switchgear.</p>
-  </div>
-</header>
+<!-- ==========================================================================
+     HERO SECTION
+     ========================================================================== -->
+<section class="hero-sec">
+  <div class="hero-bg"></div>
+  <div class="hero-grad"></div>
+  <div class="hero-grid-pattern"></div>
+  <div class="hero-glow"></div>
 
-<!-- -------------------------------- TIMELINE MAIN -------------------------------- -->
-<section class="sec bggry">
+  <div class="W hero-grid">
+    <!-- Left Column: Identity & Actions -->
+    <div class="hero-content">
+      <nav class="breadcrumb rv" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">/</span>
+        <span class="cur">Manufacturing Process</span>
+      </nav>
+
+      <div class="hero-tag rv d1">
+        <span class="tag-dot"></span>
+        <span>ISO 9001:2015 · IEC 61439 Standardized Workflow</span>
+      </div>
+
+      <h1 class="hero-h1 rv d1">
+        Precision Engineering &amp;<br>
+        <em>Manufacturing Lifecycle</em>
+      </h1>
+
+      <p class="hero-sub rv d2">
+        From CAD single-line blueprints and CNC sheet fabrication to 7-tank anti-corrosion pre-treatment, 4000A primary injection testing, and CEIG turnkey handover.
+      </p>
+
+      <div class="hero-btns rv d3">
+        <a href="#stages" class="btn-red">
+          <span>Explore 6 Stages</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+        </a>
+        <a href="contactus.html" class="btn-ghost">
+          <span>Schedule Factory Visit</span>
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right Column: Interactive Process Pipeline Hub (Distinct from About Us) -->
+    <div class="pipeline-hub rv d2">
+      <!-- Hub Header -->
+      <div class="ph-header">
+        <div class="ph-title">
+          <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <span>Production Pipeline Hub</span>
+        </div>
+        <div class="ph-status">
+          <span class="ph-status-dot"></span>
+          <span>4 Critical Milestones</span>
+        </div>
+      </div>
+
+      <!-- Pipeline Track -->
+      <div class="ph-track">
+        <!-- Milestone 1 -->
+        <div class="pl-row">
+          <div class="pl-node">01</div>
+          <div class="pl-content">
+            <div class="pl-top">
+              <span class="pl-stage-tag">Phase 01 · Engineering</span>
+              <span class="pl-metric">AutoCAD &amp; SLD</span>
+            </div>
+            <div class="pl-title">CAD Design &amp; Thermal Sizing</div>
+            <div class="pl-sub">General arrangement, busbar sizing &amp; IEC clearance rules</div>
+          </div>
+        </div>
+
+        <!-- Milestone 2 -->
+        <div class="pl-row">
+          <div class="pl-node">02</div>
+          <div class="pl-content">
+            <div class="pl-top">
+              <span class="pl-stage-tag">Phase 02 · Fabrication</span>
+              <span class="pl-metric">&lt;0.5mm CNC &amp; 7-Tank</span>
+            </div>
+            <div class="pl-title">CNC Shearing &amp; Powder Coat</div>
+            <div class="pl-sub">14/16G CRCA steel with pure epoxy RAL 7032/7035 finish</div>
+          </div>
+        </div>
+
+        <!-- Milestone 3 -->
+        <div class="pl-row">
+          <div class="pl-node">03</div>
+          <div class="pl-content">
+            <div class="pl-top">
+              <span class="pl-stage-tag">Phase 03 · Integration</span>
+              <span class="pl-metric">100kA Cu/Al Spine</span>
+            </div>
+            <div class="pl-title">Busbar &amp; Switchgear Assembly</div>
+            <div class="pl-sub">Electrolytic Cu/Al, torque fastening &amp; FRLS wiring</div>
+          </div>
+        </div>
+
+        <!-- Milestone 4 -->
+        <div class="pl-row">
+          <div class="pl-node">04</div>
+          <div class="pl-content">
+            <div class="pl-top">
+              <span class="pl-stage-tag">Phase 04 · QA &amp; Handover</span>
+              <span class="pl-metric">4000A Lab &amp; CEIG</span>
+            </div>
+            <div class="pl-title">Lab Testing &amp; Turnkey Handover</div>
+            <div class="pl-sub">2.5kV HV dielectric, FAT report &amp; CEIG energization</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hub Footer -->
+      <div class="ph-footer">
+        <span>Standard: <strong>IEC 61439 &amp; IS:8623</strong></span>
+        <span>Inspection: <strong>100% FAT Certified</strong></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     6-STAGE MANUFACTURING PIPELINE
+     ========================================================================== -->
+<section class="sec sec-alt" id="stages">
   <div class="W">
-    
-    <div class="sec-hd rv">
-      <span class="sl-bar"></span><span class="sl-txt">Manufacturing Stages</span>
-      <h2>The 6-Step <em>Workflow</em></h2>
-      <p>Precision executed at every stage ensuring safety, longevity, and IEC compliance.</p>
+    <div class="sec-header">
+      <div class="sec-badge rv">Step-by-Step Execution</div>
+      <h2 class="sec-title rv">The 6-Stage <em>Manufacturing Pipeline</em></h2>
+      <p class="sec-desc rv">Engineered with uncompromising precision at every step — ensuring high reliability, electrical safety, and decades of operational life.</p>
     </div>
 
-    <div class="timeline">
-      
-      <!-- Stage 1 -->
-      <div class="tl-item tl-left rv">
-        <div class="tl-marker"></div>
-        <div class="tl-content">
-          <div class="tl-step">01</div>
-          <h3>Design &amp; Estimation</h3>
-          <p>Our in-house engineering team works closely with factory requirements to draft precise Single Line Diagrams (SLDs) and fully realized layout plans using advanced CAD tools.</p>
+    <div class="stages-container">
+
+      <!-- STAGE 01 -->
+      <div class="stage-card rv d1">
+        <div class="st-num-box">
+          <div class="st-idx">01</div>
+          <div class="st-ico">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+        </div>
+        <div class="st-main">
+          <h3>
+            Engineering Design &amp; Estimation
+            <span class="st-tag">CAD &amp; Thermal Sizing</span>
+          </h3>
+          <p class="st-desc">
+            Our specialized electrical design engineers draft precise Single Line Diagrams (SLDs), General Arrangement (GA) drawings, control schematics, and busbar thermal calculations strictly in accordance with <strong>IEC 61439</strong> and client site specifications.
+          </p>
+          <div class="st-chips">
+            <span class="st-chip">AutoCAD Electrical Modeling</span>
+            <span class="st-chip">Short-Circuit Withstand Calculations</span>
+            <span class="st-chip">Form 3b / Form 4b Separation</span>
+          </div>
+        </div>
+        <div class="st-deliverable">
+          <div class="st-del-label">Stage Deliverable</div>
+          <div class="st-del-text">Approved Blueprint &amp; BOM</div>
+          <div class="st-del-sub">Signed GA Drawing &amp; Wiring Schematic</div>
         </div>
       </div>
 
-      <!-- Stage 2 -->
-      <div class="tl-item tl-right rv">
-        <div class="tl-marker"></div>
-        <div class="tl-content">
-          <div class="tl-step">02</div>
-          <h3>Fabrication &amp; Coating</h3>
-          <p>Premium CRCA sheet steel is rigorously fabricated, folded, and passed through a 9-tank pre-treatment anti-corrosion process before receiving a thick RAL 7032/7035 powder coating.</p>
+      <!-- STAGE 02 -->
+      <div class="stage-card rv d2">
+        <div class="st-num-box">
+          <div class="st-idx">02</div>
+          <div class="st-ico">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="15"/><line x1="15" y1="9" x2="9" y2="15"/></svg>
+          </div>
+        </div>
+        <div class="st-main">
+          <h3>
+            CNC Fabrication &amp; 7-Tank Pre-Treatment
+            <span class="st-tag">14/16 Gauge CRCA</span>
+          </h3>
+          <p class="st-desc">
+            Premium CRCA sheet steel undergoes computer-controlled shearing, turret punching, and hydraulic bending. Frames pass through our automated <strong>7-tank chemical pre-treatment</strong> (degreasing, phosphating, passivation) before pure epoxy powder coating.
+          </p>
+          <div class="st-chips">
+            <span class="st-chip">Tight CNC Tolerance (&lt;0.5mm)</span>
+            <span class="st-chip">7-Tank Chemical Rust Inhibition</span>
+            <span class="st-chip">RAL 7032 / 7035 Powder Finish</span>
+          </div>
+        </div>
+        <div class="st-deliverable">
+          <div class="st-del-label">Stage Deliverable</div>
+          <div class="st-del-text">Corrosion-Proof Enclosure</div>
+          <div class="st-del-sub">IP42 to IP55 Ingress Protection</div>
         </div>
       </div>
 
-      <!-- Stage 3 -->
-      <div class="tl-item tl-left rv">
-        <div class="tl-marker"></div>
-        <div class="tl-content">
-          <div class="tl-step">03</div>
-          <h3>Switchgear Assembly</h3>
-          <p>The panel backbone. Internal busbar routing is implemented utilizing highly conductive Copper or Aluminium rated precisely per IS standards, with safety torque marking visible.</p>
+      <!-- STAGE 03 -->
+      <div class="stage-card rv d3">
+        <div class="st-num-box">
+          <div class="st-idx">03</div>
+          <div class="st-ico">
+            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+        </div>
+        <div class="st-main">
+          <h3>
+            Busbar Engineering &amp; Switchgear Assembly
+            <span class="st-tag">Electrolytic Cu / Al</span>
+          </h3>
+          <p class="st-desc">
+            Electrolytic Grade high-conductivity E91E Copper or Aluminium busbars are precision-bent, routed, and insulated with heat-shrinkable color-coded PVC sleeves. OEM switchgear (ABB, Schneider, L&amp;T, Siemens) is mounted with calibrated torque wrenches.
+          </p>
+          <div class="st-chips">
+            <span class="st-chip">100kA Short-Circuit Sizing</span>
+            <span class="st-chip">Heat-Shrinkable Color Sleeves</span>
+            <span class="st-chip">Calibrated Torque Fastening</span>
+          </div>
+        </div>
+        <div class="st-deliverable">
+          <div class="st-del-label">Stage Deliverable</div>
+          <div class="st-del-text">Integrated Power Spine</div>
+          <div class="st-del-sub">Torque-Marked &amp; Shrouded Busbars</div>
         </div>
       </div>
 
-      <!-- Stage 4 -->
-      <div class="tl-item tl-right rv">
-        <div class="tl-marker"></div>
-        <div class="tl-content">
-          <div class="tl-step">04</div>
-          <h3>Wiring &amp; Harnessing</h3>
-          <p>Immaculate control logic wiring using flame-retardant (FRLS) wires. Neat PVC channel routing with distinct color coding makes later troubleshooting and maintenance entirely straightforward.</p>
+      <!-- STAGE 04 -->
+      <div class="stage-card rv d1">
+        <div class="st-num-box">
+          <div class="st-idx">04</div>
+          <div class="st-ico">
+            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+        </div>
+        <div class="st-main">
+          <h3>
+            Control Wiring &amp; Harness Routing
+            <span class="st-tag">FRLS Multi-Strand</span>
+          </h3>
+          <p class="st-desc">
+            Control circuits, PLC automation lines, metering units, and protection relays are wired using flame-retardant low-smoke (FRLS) multi-strand copper wires. All terminations feature clear numerical cross-ferrules and neat PVC conduit routing.
+          </p>
+          <div class="st-chips">
+            <span class="st-chip">FRLS Copper Wire Wiring</span>
+            <span class="st-chip">Laser-Printed Numerical Ferrules</span>
+            <span class="st-chip">Electrical &amp; Mechanical Interlocks</span>
+          </div>
+        </div>
+        <div class="st-deliverable">
+          <div class="st-del-label">Stage Deliverable</div>
+          <div class="st-del-text">Fault-Isolated Harness</div>
+          <div class="st-del-sub">100% Traceable Control Circuitry</div>
         </div>
       </div>
 
-      <!-- Stage 5 -->
-      <div class="tl-item tl-left rv">
-        <div class="tl-marker"></div>
-        <div class="tl-content">
-          <div class="tl-step">05</div>
-          <h3>Testing &amp; Q/C</h3>
-          <p>Safety is non-negotiable. Every delivered panel is subjected to rigorous high-voltage tests, Megger insulation tests, and routine functional checks before earning its internal QC passing tag.</p>
+      <!-- STAGE 05 -->
+      <div class="stage-card rv d2">
+        <div class="st-num-box">
+          <div class="st-idx">05</div>
+          <div class="st-ico">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+        </div>
+        <div class="st-main">
+          <h3>
+            In-House Lab Testing &amp; Quality Control
+            <span class="st-tag">Dielectric &amp; Megger</span>
+          </h3>
+          <p class="st-desc">
+            Safety is paramount. Every single switchboard undergoes comprehensive routine testing in our in-house lab: 2.5kV AC High-Voltage Dielectric test, 1000V DC Megger insulation resistance, contact resistance milli-volt drop, and full functional relay simulation.
+          </p>
+          <div class="st-chips">
+            <span class="st-chip">2.5kV AC HV Dielectric Test (1 min)</span>
+            <span class="st-chip">1000V DC Megger Insulation</span>
+            <span class="st-chip">Primary Current Injection (Up to 4000A)</span>
+          </div>
+        </div>
+        <div class="st-deliverable">
+          <div class="st-del-label">Stage Deliverable</div>
+          <div class="st-del-text">Signed QA Test Certificate</div>
+          <div class="st-del-sub">Factory Acceptance Test (FAT) Report</div>
         </div>
       </div>
 
-      <!-- Stage 6 -->
-      <div class="tl-item tl-right rv">
-        <div class="tl-marker"></div>
-        <div class="tl-content">
-          <div class="tl-step">06</div>
-          <h3>Dispatch &amp; Handover</h3>
-          <p>Once certified, the panels are safely packed for transit. Our certified erection engineers manage onsite placement, perform commissioning, and navigate the final CEIG handover.</p>
+      <!-- STAGE 06 -->
+      <div class="stage-card rv d3">
+        <div class="st-num-box">
+          <div class="st-idx">06</div>
+          <div class="st-ico">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+        </div>
+        <div class="st-main">
+          <h3>
+            Packaging, Logistics &amp; CEIG Handover
+            <span class="st-tag">Turnkey Erection</span>
+          </h3>
+          <p class="st-desc">
+            Certified panels are wrapped in heavy-gauge polythene, corner-padded, and crated for secure transport. Our certified field engineers supervise on-site placement, re-torque checks, secondary injection testing, and complete statutory <strong>CEIG liaisoning</strong>.
+          </p>
+          <div class="st-chips">
+            <span class="st-chip">Vibration-Damped Packaging</span>
+            <span class="st-chip">On-Site Erection &amp; Alignment</span>
+            <span class="st-chip">Chief Electrical Inspectorate Approval</span>
+          </div>
+        </div>
+        <div class="st-deliverable">
+          <div class="st-del-label">Stage Deliverable</div>
+          <div class="st-del-text">CEIG Energization Pass</div>
+          <div class="st-del-sub">Final Handover &amp; As-Built Drawings</div>
         </div>
       </div>
 
     </div>
-
-    <div class="features-grid">
-      <div class="f-box rv d1">
-        <div class="f-box-ico">📏</div>
-        <h4>Precision Fabrication</h4>
-        <p>1.6mm & 2.0mm CRCA sheet bending with exact tight-tolerance CNC matching.</p>
-      </div>
-      <div class="f-box rv d2">
-        <div class="f-box-ico">🎨</div>
-        <h4>9-Tank Process</h4>
-        <p>Complete rust-free chemical treatment ensuring zero corrosion over decades of use.</p>
-      </div>
-      <div class="f-box rv d3">
-        <div class="f-box-ico">🧪</div>
-        <h4>HV Testing Lab</h4>
-        <p>In-house high voltage injection tests providing CPRI level quality assurance.</p>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- -------------------------------- FACILITY BANNER -------------------------------- -->
-<section class="fac-banner rv">
-  <div class="fac-content">
-    <h3>Visit our <em>Manufacturing Unit</em></h3>
-    <p>Located in BTM Layout, Bengaluru, our production facility houses advanced sheet routing, heavy-duty busbar cutting machinery, and full inventory bays ensuring fast turnaround times.</p>
-    <div>
-      <a href="contactus.html" class="nav-cta" style="display:inline-flex; border-radius:4px">Schedule a Tour <span class="arr">&rarr;</span></a>
+<!-- ==========================================================================
+     IN-HOUSE QUALITY PILLARS GRID (4 Key Standards)
+     ========================================================================== -->
+<section class="sec">
+  <div class="W">
+    <div class="sec-header">
+      <div class="sec-badge rv">Quality Assurance</div>
+      <h2 class="sec-title rv">Zero-Defect <em>Engineering Standards</em></h2>
+      <p class="sec-desc rv">Four foundational pillars governing every manufacturing stage at our Bengaluru facility.</p>
     </div>
-  </div>
-  <div class="fac-vid">
-    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80" alt="Factory Floor">
+
+    <div class="qa-grid">
+      <div class="qa-card rv d1">
+        <div class="qa-ico">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="15"/><line x1="15" y1="9" x2="9" y2="15"/></svg>
+        </div>
+        <h4>CNC Precision (<0.5mm)</h4>
+        <p>Tight-tolerance hydraulic shearing and CNC turret bending ensuring zero misalignment and rigid structural integrity.</p>
+      </div>
+
+      <div class="qa-card rv d2">
+        <div class="qa-ico">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4>7-Tank Rust Prevention</h4>
+        <p>Complete chemical degreasing, phosphating, and electrostatic epoxy coating tested for 500+ hours salt-spray resistance.</p>
+      </div>
+
+      <div class="qa-card rv d3">
+        <div class="qa-ico">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h4>In-House Testing Lab</h4>
+        <p>Calibrated 4000A primary injection, 2.5kV AC dielectric breakdown, and micro-ohm contact resistance verification.</p>
+      </div>
+
+      <div class="qa-card rv d1">
+        <div class="qa-ico">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h4>CEIG Liaisoning</h4>
+        <p>Turnkey drawing approvals, physical inspectorate liaisoning, and official energization certification across Karnataka.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Shared footer loaded by site.js -->
+<!-- ==========================================================================
+     MANUFACTURING FACILITY & LAB SHOWCASE
+     ========================================================================== */
+-->
+<section class="sec sec-alt">
+  <div class="W">
+    <div class="fac-split">
+      <div class="fac-body rl">
+        <div class="sec-badge">Plant Infrastructure</div>
+        <h2>Bengaluru Manufacturing <em>&amp; Testing Facility</em></h2>
+        <p class="fac-lead">
+          Our 5,000+ sq. ft. modern facility in Bengaluru is purpose-built for heavy-duty switchboard fabrication, automated surface preparation, switchgear integration, and rigorous high-voltage pre-commissioning.
+        </p>
+
+        <div class="fac-specs">
+          <div class="fac-spec-box">
+            <div class="fac-spec-title">5,000+ Sq. Ft. Plant</div>
+            <div class="fac-spec-desc">Dedicated fabrication, assembly, and testing bays under one roof.</div>
+          </div>
+          <div class="fac-spec-box">
+            <div class="fac-spec-title">OEM Switchgear Stock</div>
+            <div class="fac-spec-desc">Direct partnership with ABB, Schneider, L&amp;T, and Siemens.</div>
+          </div>
+          <div class="fac-spec-box">
+            <div class="fac-spec-title">Hydraulic Busbar Line</div>
+            <div class="fac-spec-desc">High-speed precision cutting, punching, and bending machinery.</div>
+          </div>
+          <div class="fac-spec-box">
+            <div class="fac-spec-title">FAT Staging Area</div>
+            <div class="fac-spec-desc">Comfortable inspection facility for client and consultant testing.</div>
+          </div>
+        </div>
+
+        <div>
+          <a href="contactus.html" class="btn-red">
+            <span>Schedule a Plant Walkthrough</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="fac-visual rr">
+        <div class="fac-frame">
+          <img src="images/gallery/testing.png" alt="KES Advanced Testing Bench and Panel Assembly">
+        </div>
+        <div class="fac-badge-float">
+          <div class="fbf-ico">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="fbf-txt">
+            <strong>Calibrated Testing Lab</strong>
+            <span>Up to 4000A Primary Current Injection</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CALL TO ACTION
+     ========================================================================== -->
+<div class="cta-sec">
+  <div class="W cta-grid">
+    <div class="cta-content rv">
+      <h2>Have Custom Panel <em>Specifications?</em></h2>
+      <p>Consult with our chief electrical engineers today. We review your Single Line Diagrams (SLDs) and deliver comprehensive technical estimates within 48 hours.</p>
+    </div>
+    <div class="cta-action rv d1">
+      <a href="contactus.html" class="btn-white">
+        <span>Request Engineering Quote</span>
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Global Footer placeholder injected by site.js -->
 <div id="site-footer"></div>
 
-<!-- -------------------------------- SCRIPTS -------------------------------- -->
+<!-- Back to top button -->
+<button id="btt" aria-label="Back to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">&uarr;</button>
+
+<!-- Intersection Observer Reveal & Back to Top -->
 <script>
-(function(){
-  const els = document.querySelectorAll('.rv,.rl,.rr');
-  const io = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);} });
-  },{threshold:0.1,rootMargin:'0px 0px -60px 0px'});
-  els.forEach(el=>io.observe(el));
-})();
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -30px 0px'
+  });
+
+  document.querySelectorAll('.rv, .rl, .rr').forEach((el) => observer.observe(el));
+
+  const btt = document.getElementById('btt');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 350) {
+      btt.classList.add('on');
+    } else {
+      btt.classList.remove('on');
+    }
+  }, { passive: true });
 </script>
 <script src="site.js"></script>
 </body>

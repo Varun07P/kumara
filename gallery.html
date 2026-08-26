@@ -4,321 +4,632 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Gallery — Kumara Engineering Solutions Pvt. Ltd.</title>
-<meta name="description" content="Explore our gallery of premium electrical panels, manufacturing facility, and completed projects. LT Panels, MCC, PCC, APFC, PLC and more."/>
+<meta name="description" content="A glimpse of our work in action — precision-engineered electrical panels, automated systems, manufacturing facilities, and turnkey project delivery across Karnataka."/>
+<link rel="canonical" href="gallery.html"/>
+<meta property="og:title" content="Gallery — Kumara Engineering Solutions Pvt. Ltd."/>
+<meta property="og:description" content="Explore our project gallery featuring switchgear panels, PLC automation, transformers, and industrial electrical installations."/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="images/gallery/panel1.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
-.svg-ic{width:1.25em;height:1.25em;display:inline-block;vertical-align:middle;flex-shrink:0}
-:root{
-  --navy:#08111f;--navy2:#0c1a30;--navy3:#0f2040;
-  --blue:#1251a3;--blue2:#1565c8;--blue3:#1a7ae8;
-  --blue-pale:#fbeae6;--blue-alt:#cc2700;--blue-alt2:#a81e00;--blue-alt3:#8a1800;
-  --white:#ffffff;--off:#f9f5f4;--grey:#64748b;--grey2:#94a3b8;
-  --border:#dde6f5;--text:#0f1f35;
-  --s1:0 2px 16px rgba(8,17,31,.08);--s2:0 8px 36px rgba(8,17,31,.14);--s3:0 24px 64px rgba(8,17,31,.22);
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Barlow',sans-serif;color:var(--text);background:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-a{text-decoration:none;color:inherit}
-button{font-family:inherit;cursor:pointer;border:none;outline:none;background:none}
-img{display:block;max-width:100%}
-.W{max-width:1300px;margin:0 auto;padding:0 48px}
-@media(max-width:900px){.W{padding:0 28px}}
-@media(max-width:480px){.W{padding:0 18px}}
-
-/* Reveal */
-.rv{opacity:0;transform:translateY(30px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
-.rl{opacity:0;transform:translateX(-32px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
-.rr{opacity:0;transform:translateX(32px);transition:opacity .72s cubic-bezier(.16,1,.3,1),transform .72s cubic-bezier(.16,1,.3,1)}
-.rv.in,.rl.in,.rr.in{opacity:1;transform:none}
-.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}
-
-/* -------------------------------- GALLERY HERO -------------------------------- */
-.gal-hero{position:relative;min-height:520px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--navy)}
-.gal-hero-bg{position:absolute;inset:0}
-.gal-hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.3) saturate(.6);transform:scale(1.04);animation:heroZoom 20s ease-in-out infinite alternate}
-@keyframes heroZoom{from{transform:scale(1.04)}to{transform:scale(1.12)}}
-.gal-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,17,31,.7) 0%,rgba(8,17,31,.4) 40%,rgba(8,17,31,.85) 100%);z-index:1}
-.gal-hero-content{position:relative;z-index:10;text-align:center;padding:120px 20px 80px}
-.gal-hero-path{display:flex;justify-content:center;gap:12px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:24px}
-.gal-hero-path .active{color:var(--blue-alt)}
-.gal-hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(204,39,0,.1);border:1px solid rgba(204,39,0,.3);padding:7px 18px;border-radius:100px;margin-bottom:24px}
-.gal-hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--blue-alt);animation:blink 2.4s infinite}
-@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.2;transform:scale(1.8)}}
-.gal-hero-badge span{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,.55);letter-spacing:.14em;text-transform:uppercase}
-.gal-hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(52px,9vw,120px);font-weight:900;color:#fff;text-transform:uppercase;line-height:.9;letter-spacing:-.03em;margin-bottom:20px}
-.gal-hero h1 em{font-style:normal;color:var(--blue-alt);text-shadow:0 0 60px rgba(204,39,0,.3)}
-.gal-hero-sub{font-size:clamp(14px,1.4vw,17px);line-height:1.7;color:rgba(255,255,255,.45);font-weight:300;max-width:560px;margin:0 auto 32px}
-.gal-hero-stats{display:flex;justify-content:center;gap:48px;margin-top:20px}
-.ghs-item{text-align:center}
-.ghs-num{font-family:'Barlow Condensed',sans-serif;font-size:44px;font-weight:900;color:#fff;line-height:1}
-.ghs-num span{color:var(--blue-alt);font-size:28px}
-.ghs-lbl{font-size:10px;color:rgba(255,255,255,.35);letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-top:4px}
-.gal-hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:10;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.25);font-size:9px;letter-spacing:.15em;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;font-weight:600;animation:scrollPulse 2s ease-in-out infinite}
-.gal-hero-scroll .line{width:1px;height:36px;background:linear-gradient(180deg,rgba(204,39,0,.6),transparent)}
-@keyframes scrollPulse{0%,100%{opacity:.4;transform:translateX(-50%) translateY(0)}50%{opacity:1;transform:translateX(-50%) translateY(6px)}}
-
-/* -------------------------------- FILTER BAR -------------------------------- */
-.filter-bar{background:var(--navy2);border-bottom:1px solid rgba(255,255,255,.04);position:sticky;top:68px;z-index:100}
-.filter-inner{display:flex;align-items:center;gap:6px;padding:14px 0;overflow-x:auto;scrollbar-width:none}
-.filter-inner::-webkit-scrollbar{display:none}
-.fbtn-filter{padding:9px 20px;border-radius:100px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.08);background:transparent;cursor:pointer;transition:all .25s;white-space:nowrap;flex-shrink:0}
-.fbtn-filter:hover{color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.2)}
-.fbtn-filter.active{background:var(--blue-alt);color:#fff;border-color:var(--blue-alt);box-shadow:0 4px 18px rgba(204,39,0,.35)}
-
-/* -------------------------------- GALLERY GRID -------------------------------- */
-.gal-sec{padding:72px 0 100px;background:var(--off)}
-.gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.gal-item{position:relative;overflow:hidden;border-radius:12px;cursor:pointer;background:var(--navy);box-shadow:var(--s1);transition:all .4s cubic-bezier(.16,1,.3,1)}
-.gal-item.tall{grid-row:span 2}
-.gal-item.wide{grid-column:span 2}
-.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.16,1,.3,1),filter .4s;filter:brightness(.85) saturate(.9)}
-.gal-item:hover img{transform:scale(1.08);filter:brightness(1) saturate(1.1)}
-.gal-item::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,17,31,.85) 0%,rgba(8,17,31,.1) 45%,transparent 100%);opacity:.7;transition:opacity .35s}
-.gal-item:hover::after{opacity:.9}
-.gal-item-info{position:absolute;bottom:0;left:0;right:0;padding:24px 20px;z-index:2;transform:translateY(8px);transition:transform .35s cubic-bezier(.16,1,.3,1);opacity:.85}
-.gal-item:hover .gal-item-info{transform:translateY(0);opacity:1}
-.gal-item-cat{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;color:var(--blue-alt);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
-.gal-item-title{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:.02em;line-height:1.15}
-.gal-item .gal-zoom{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(.5);width:56px;height:56px;border-radius:50%;background:rgba(204,39,0,.85);display:flex;align-items:center;justify-content:center;opacity:0;transition:all .35s cubic-bezier(.16,1,.3,1);z-index:3;backdrop-filter:blur(10px)}
-.gal-item:hover .gal-zoom{opacity:1;transform:translate(-50%,-50%) scale(1)}
-.gal-zoom svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.gal-item:hover{transform:translateY(-4px);box-shadow:var(--s3)}
-
-/* Row heights */
-.gal-item:not(.tall){min-height:280px}
-.gal-item.tall{min-height:576px}
-
-@media(max-width:900px){
-  .gal-grid{grid-template-columns:repeat(2,1fr);gap:12px}
-  .gal-item.wide{grid-column:span 1}
-  .gal-item:not(.tall){min-height:240px}
-  .gal-item.tall{min-height:400px}
-  .gal-hero-stats{gap:28px}
-  .ghs-num{font-size:32px}
-}
-@media(max-width:560px){
-  .gal-grid{grid-template-columns:1fr}
-  .gal-item.tall{grid-row:span 1;min-height:300px}
-  .gal-item:not(.tall){min-height:260px}
-  .gal-hero-stats{flex-wrap:wrap;gap:20px}
+/* === DESIGN TOKENS === */
+:root {
+  --navy:   #07101e;
+  --navy2:  #0b1829;
+  --blue:   #1251a3;
+  --red:    #cc2700;
+  --orange: #ff5722;
+  --orange2:#e64a19;
+  --white:  #ffffff;
+  --off:    #f8f9fb;
+  --off2:   #f1f5f9;
+  --grey:   #64748b;
+  --grey2:  #94a3b8;
+  --border: #e2e8f0;
+  --text:   #0f1f35;
+  --s1: 0 4px 20px rgba(8,17,31,.05);
+  --s2: 0 12px 36px rgba(8,17,31,.08);
+  --s3: 0 24px 64px rgba(8,17,31,.12);
+  --ease: cubic-bezier(.16,1,.3,1);
 }
 
-/* -------------------------------- LIGHTBOX -------------------------------- */
-.lightbox{position:fixed;inset:0;z-index:9999;background:rgba(4,8,18,.95);backdrop-filter:blur(20px);display:none;align-items:center;justify-content:center;opacity:0;transition:opacity .35s}
-.lightbox.open{display:flex;opacity:1}
-.lb-close{position:absolute;top:24px;right:28px;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:10}
-.lb-close:hover{background:var(--blue-alt);border-color:var(--blue-alt)}
-.lb-close svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2}
-.lb-img-wrap{max-width:85vw;max-height:80vh;position:relative}
-.lb-img-wrap img{max-width:85vw;max-height:80vh;object-fit:contain;border-radius:10px;box-shadow:0 32px 80px rgba(0,0,0,.6)}
-.lb-caption{position:absolute;bottom:-48px;left:0;right:0;text-align:center}
-.lb-caption-cat{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;color:var(--blue-alt);letter-spacing:.14em;text-transform:uppercase}
-.lb-caption-title{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:#fff;text-transform:uppercase;margin-top:4px}
-.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;z-index:10}
-.lb-nav:hover{background:var(--blue-alt);border-color:var(--blue-alt)}
-.lb-nav svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.lb-prev{left:24px}
-.lb-next{right:24px}
-.lb-counter{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,.3);letter-spacing:.1em}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Barlow', sans-serif;
+  color:var(--text); background:var(--off);
+  overflow-x:hidden; -webkit-font-smoothing:antialiased;
+}
+a { text-decoration:none; color:inherit; }
+button { font-family:inherit; cursor:pointer; border:none; outline:none; background:none; }
+img { display:block; max-width:100%; }
 
-/* -------------------------------- CTA BANNER -------------------------------- */
-.gal-cta{background:var(--navy);padding:80px 0;text-align:center;position:relative;overflow:hidden}
-.gal-cta::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(204,39,0,.4),transparent)}
-.gal-cta-inner{position:relative;z-index:2}
-.gal-cta h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(30px,4vw,54px);font-weight:900;color:#fff;text-transform:uppercase;line-height:1;margin-bottom:16px}
-.gal-cta h2 em{font-style:normal;color:var(--blue-alt)}
-.gal-cta p{font-size:15px;color:rgba(255,255,255,.4);max-width:500px;margin:0 auto 32px;line-height:1.7;font-weight:300}
-.gal-cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--blue-alt);color:#fff;padding:16px 38px;border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;transition:all .25s;box-shadow:0 6px 28px rgba(204,39,0,.32)}
-.gal-cta-btn:hover{background:var(--blue-alt2);transform:translateY(-2px);box-shadow:0 12px 36px rgba(204,39,0,.45)}
+.W { max-width:1320px; margin:0 auto; padding:0 36px; }
+@media(max-width:900px){ .W { padding:0 20px; } }
+@media(max-width:480px){ .W { padding:0 14px; } }
+
+/* Reveal Engine */
+.rv {
+  opacity:0; transform:translateY(24px);
+  transition:opacity .75s var(--ease), transform .75s var(--ease);
+}
+.rv.in { opacity:1; transform:none; }
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* === HEADER HERO AREA (MATCHING REFERENCE SCREENSHOT) === */
+.gal-hero-sec {
+  position:relative;
+  padding:48px 0 36px;
+  background:#ffffff url('images/gallery/gallery_bg.jpg') right center / 58% no-repeat;
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+}
+
+/* Subtle Technical CAD Grid Background Pattern & Soft Blueprint Blend */
+.gal-hero-sec::before {
+  content:'';
+  position:absolute; inset:0;
+  background:
+    linear-gradient(90deg, #ffffff 40%, rgba(255,255,255,0.72) 64%, rgba(255,255,255,0.38) 100%),
+    linear-gradient(rgba(204,39,0,.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(204,39,0,.02) 1px, transparent 1px);
+  background-size:100% 100%, 32px 32px, 32px 32px;
+  pointer-events:none;
+  z-index:1;
+}
+.gal-hero-sec::after {
+  content:'';
+  position:absolute; top:-20%; right:5%; width:500px; height:500px;
+  background:radial-gradient(circle, rgba(255,87,34,0.08) 0%, transparent 70%);
+  pointer-events:none;
+  z-index:1;
+}
+
+.gal-hero-grid {
+  position:relative; z-index:2;
+  display:grid; grid-template-columns:1.1fr 1.3fr;
+  align-items:center; gap:40px;
+}
+
+/* Left Title & Breadcrumb */
+.gal-breadcrumb {
+  display:flex; align-items:center; gap:8px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:12.5px; font-weight:700; color:var(--grey);
+  letter-spacing:.08em; text-transform:uppercase; margin-bottom:14px;
+}
+.gal-breadcrumb a { color:var(--grey); transition:color .2s; }
+.gal-breadcrumb a:hover { color:var(--orange); }
+.gal-breadcrumb .sep { color:var(--grey2); font-size:11px; }
+.gal-breadcrumb .cur { color:var(--orange); }
+
+.gal-main-title {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(40px, 4.8vw, 68px);
+  font-weight:900; line-height:1;
+  text-transform:uppercase; letter-spacing:-.01em;
+  color:#07101e; margin-bottom:10px;
+}
+.gal-main-title .txt-accent {
+  color:var(--orange);
+  background:linear-gradient(180deg, #ff7043 0%, #cc2700 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  margin-left:8px;
+}
+
+.gal-title-bar {
+  width:44px; height:3.5px;
+  background:linear-gradient(90deg, #ff5722, #cc2700);
+  border-radius:2px; margin-bottom:14px;
+}
+
+.gal-hero-sub {
+  font-size:14.5px; line-height:1.65;
+  color:var(--grey); font-weight:400; max-width:440px;
+}
+
+/* Right Stats Box (4-in-1 Floating Card) */
+.gal-stats-card {
+  background:#ffffff;
+  border:1px solid #e6edf5;
+  border-radius:14px;
+  padding:20px 24px;
+  box-shadow:0 10px 32px rgba(8,17,31,0.06);
+  display:grid; grid-template-columns:repeat(4, 1fr);
+  gap:16px;
+}
+.gstat-item {
+  display:flex; align-items:center; gap:12px;
+  position:relative;
+}
+.gstat-item:not(:last-child)::after {
+  content:''; position:absolute; right:0; top:12%; bottom:12%; width:1px;
+  background:#edf2f7;
+}
+.gstat-ico {
+  width:38px; height:38px; border-radius:8px;
+  background:rgba(255,87,34,0.08); border:1px solid rgba(255,87,34,0.18);
+  display:grid; place-items:center; flex-shrink:0; color:var(--orange);
+}
+.gstat-ico svg { width:19px; height:19px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.gstat-info { display:flex; flex-direction:column; }
+.gstat-val {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:22px; font-weight:900; color:#07101e;
+  line-height:1; letter-spacing:-.01em; margin-bottom:3px;
+}
+.gstat-lbl {
+  font-size:10px; font-weight:600; color:var(--grey);
+  text-transform:uppercase; letter-spacing:.04em; line-height:1.2;
+}
+
+@media(max-width:1100px){
+  .gal-hero-sec { background-size:cover; background-position:right center; }
+  .gal-hero-grid { grid-template-columns:1fr; gap:28px; }
+  .gal-stats-card { grid-template-columns:repeat(4,1fr); }
+}
+@media(max-width:768px){
+  .gal-stats-card { grid-template-columns:repeat(2,1fr); gap:18px; }
+  .gstat-item:nth-child(2)::after { display:none; }
+}
+@media(max-width:480px){
+  .gal-stats-card { grid-template-columns:1fr; }
+  .gstat-item::after { display:none !important; }
+}
+
+/* === MAIN GALLERY CARD CONTAINER === */
+.gal-main-sec {
+  padding:36px 0 60px;
+}
+
+.gal-card-frame {
+  background:#ffffff;
+  border:1px solid #e8edf5;
+  border-radius:18px;
+  box-shadow:0 18px 54px rgba(8,17,31,0.05);
+  padding:28px 30px 30px;
+  position:relative;
+}
+@media(max-width:768px){ .gal-card-frame { padding:20px 16px 22px; border-radius:14px; } }
+
+/* Frame Top Header */
+.gal-frame-head {
+  display:flex; align-items:center; justify-content:space-between;
+  padding-bottom:20px; margin-bottom:24px;
+  border-bottom:1px solid #edf2f7;
+  flex-wrap:wrap; gap:16px;
+}
+.gal-frame-title {
+  display:flex; align-items:center; gap:10px;
+}
+.gft-icon {
+  width:26px; height:26px; border-radius:6px;
+  background:rgba(255,87,34,0.1); color:var(--orange);
+  display:grid; place-items:center;
+}
+.gft-icon svg { width:15px; height:15px; stroke:currentColor; fill:none; stroke-width:2; }
+.gft-txt {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:18px; font-weight:900; color:#07101e;
+  text-transform:uppercase; letter-spacing:.05em;
+}
+
+/* Category Filter Tabs */
+.gal-filters {
+  display:flex; align-items:center; gap:6px; flex-wrap:wrap;
+}
+.gal-tab {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:12px; font-weight:700; color:var(--grey);
+  padding:5px 12px; border-radius:4px;
+  background:var(--off); border:1px solid #e2e8f0;
+  text-transform:uppercase; letter-spacing:.05em;
+  transition:all .2s; cursor:pointer;
+}
+.gal-tab:hover { color:var(--orange); border-color:var(--orange); background:#fff; }
+.gal-tab.active {
+  background:var(--orange); color:#fff; border-color:var(--orange);
+  box-shadow:0 3px 10px rgba(255,87,34,0.3);
+}
+
+.gal-head-right {
+  display:flex; align-items:center; gap:10px;
+}
+.gal-dot-indicator {
+  width:8px; height:8px; border-radius:50%;
+  background:var(--orange); box-shadow:0 0 8px rgba(255,87,34,0.7);
+}
+
+/* === GALLERY 4-COLUMN GRID === */
+.gal-grid {
+  display:grid; grid-template-columns:repeat(4, 1fr);
+  gap:16px;
+}
+@media(max-width:1180px){ .gal-grid { grid-template-columns:repeat(3, 1fr); gap:14px; } }
+@media(max-width:860px) { .gal-grid { grid-template-columns:repeat(2, 1fr); gap:12px; } }
+@media(max-width:480px) { .gal-grid { grid-template-columns:1fr; gap:14px; } }
+
+/* Gallery Card (Crafted with Text On Top Overlay) */
+.gal-item {
+  position:relative;
+  border-radius:12px;
+  overflow:hidden;
+  background:#07101e;
+  aspect-ratio:16/11;
+  cursor:pointer;
+  box-shadow:0 6px 20px rgba(8,17,31,0.06);
+  border:1px solid rgba(0,0,0,0.04);
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s;
+}
+.gal-item:hover {
+  transform:translateY(-5px);
+  box-shadow:0 16px 40px rgba(204,39,0,0.18);
+  border-color:rgba(255,87,34,0.4);
+}
+
+.gal-item img {
+  width:100%; height:100%; object-fit:cover;
+  filter:brightness(0.92) contrast(1.02);
+  transition:transform .65s var(--ease), filter .35s;
+  display:block;
+}
+.gal-item:hover img {
+  transform:scale(1.08);
+  filter:brightness(0.85) contrast(1.06);
+}
+
+/* Text On Top Overlay: Category Tag + Title */
+.gal-top-overlay {
+  position:absolute; top:0; left:0; right:0;
+  padding:12px 14px;
+  background:linear-gradient(180deg, rgba(6,13,26,0.85) 0%, rgba(6,13,26,0.4) 60%, transparent 100%);
+  z-index:2; display:flex; flex-direction:column; gap:3px;
+  transition:transform .3s var(--ease);
+}
+.gal-tag {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:9.5px; font-weight:800;
+  color:#ff8a65; text-transform:uppercase; letter-spacing:.08em;
+  background:rgba(255,87,34,0.2); border:1px solid rgba(255,87,34,0.3);
+  padding:2px 7px; border-radius:3px; width:fit-content;
+  backdrop-filter:blur(6px);
+}
+.gal-title {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:14.5px; font-weight:800;
+  color:#ffffff; text-transform:uppercase; letter-spacing:.02em;
+  line-height:1.2; text-shadow:0 1px 4px rgba(0,0,0,0.6);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+
+/* Expand Icon Button (Bottom Right) */
+.gal-expand-btn {
+  position:absolute; bottom:10px; right:10px;
+  width:32px; height:32px; border-radius:50%;
+  background:#ffffff;
+  box-shadow:0 4px 14px rgba(0,0,0,0.25);
+  display:grid; place-items:center;
+  color:var(--orange);
+  z-index:3;
+  transition:transform .3s var(--ease), background .2s, color .2s;
+}
+.gal-expand-btn svg {
+  width:15px; height:15px;
+  stroke:currentColor; fill:none; stroke-width:2.2;
+  stroke-linecap:round; stroke-linejoin:round;
+}
+.gal-item:hover .gal-expand-btn {
+  background:var(--orange); color:#ffffff;
+  transform:scale(1.12);
+}
+
+/* === BOTTOM VALUE BANNER (INSIDE CARD FRAME) === */
+.gal-value-banner {
+  margin-top:28px;
+  background:linear-gradient(90deg, #fff5f0 0%, #ffffff 40%, #fff7f2 100%);
+  border:1px solid rgba(255,87,34,0.18);
+  border-radius:12px;
+  padding:16px 20px;
+  display:flex; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; gap:18px;
+}
+.gvb-left {
+  display:flex; align-items:center; gap:14px;
+}
+.gvb-ico-box {
+  width:44px; height:44px; border-radius:10px;
+  background:rgba(255,87,34,0.12); border:1px solid rgba(255,87,34,0.25);
+  display:grid; place-items:center; flex-shrink:0; color:var(--orange);
+}
+.gvb-ico-box svg { width:22px; height:22px; stroke:currentColor; fill:none; stroke-width:1.8; }
+.gvb-heading {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:16.5px; font-weight:900; color:#07101e;
+  text-transform:uppercase; letter-spacing:.02em; line-height:1.15;
+  margin-bottom:2px;
+}
+.gvb-desc {
+  font-size:12px; color:var(--grey); font-weight:400;
+}
+
+/* 3 Pillars */
+.gvb-pillars {
+  display:flex; align-items:center; gap:20px;
+}
+.gvb-pillar {
+  display:flex; align-items:center; gap:8px;
+  position:relative;
+}
+.gvb-pillar:not(:last-child)::after {
+  content:''; position:absolute; right:-10px; top:15%; bottom:15%; width:1px;
+  background:rgba(0,0,0,0.08);
+}
+.gp-ico {
+  width:26px; height:26px; border-radius:50%;
+  background:rgba(255,87,34,0.08); border:1px solid rgba(255,87,34,0.2);
+  display:grid; place-items:center; color:var(--orange); flex-shrink:0;
+}
+.gp-ico svg { width:13px; height:13px; stroke:currentColor; fill:none; stroke-width:2; }
+.gp-txt {
+  font-size:11.5px; color:#1e293b; line-height:1.2;
+}
+.gp-txt strong {
+  display:block; font-family:'Barlow Condensed',sans-serif;
+  font-size:12.5px; font-weight:800; text-transform:uppercase; color:#07101e;
+}
+
+.gvb-btn {
+  display:inline-flex; align-items:center; gap:8px;
+  background:linear-gradient(135deg, #ff5722, #cc2700);
+  color:#ffffff;
+  padding:10px 22px; border-radius:4px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:13px; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+  box-shadow:0 4px 16px rgba(255,87,34,0.3);
+  transition:all .22s; white-space:nowrap;
+}
+.gvb-btn:hover {
+  background:linear-gradient(135deg, #ff6b3d, #e62800);
+  transform:translateY(-2px); box-shadow:0 6px 20px rgba(255,87,34,0.45);
+  color:#ffffff;
+}
+.gvb-btn .arr { font-size:14px; transition:transform .2s; }
+.gvb-btn:hover .arr { transform:translateX(3px); }
+
+@media(max-width:1100px){
+  .gvb-pillars { display:none; }
+}
+@media(max-width:768px){
+  .gal-value-banner { flex-direction:column; align-items:flex-start; }
+  .gvb-btn { width:100%; justify-content:center; }
+}
+
+/* === LIGHTBOX MODAL === */
+.lightbox {
+  position:fixed; inset:0; z-index:9999;
+  background:rgba(5, 12, 24, 0.94);
+  backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  display:none; align-items:center; justify-content:center;
+  opacity:0; transition:opacity .3s var(--ease);
+  padding:20px;
+}
+.lightbox.open { display:flex; opacity:1; }
+
+.lb-btn {
+  position:absolute; width:48px; height:48px; border-radius:50%;
+  background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2);
+  color:#fff; display:grid; place-items:center;
+  cursor:pointer; transition:all .2s; z-index:10;
+}
+.lb-btn:hover { background:var(--orange); border-color:var(--orange); transform:scale(1.08); }
+.lb-btn svg { width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:2.2; }
+.lb-close { top:24px; right:24px; }
+.lb-prev { left:24px; top:50%; transform:translateY(-50%); }
+.lb-next { right:24px; top:50%; transform:translateY(-50%); }
+
+.lb-content {
+  position:relative; max-width:90vw; max-height:85vh;
+  display:flex; flex-direction:column; align-items:center;
+}
+.lb-content img {
+  max-width:100%; max-height:72vh;
+  object-fit:contain; border-radius:8px;
+  box-shadow:0 24px 72px rgba(0,0,0,0.6);
+  border:1px solid rgba(255,255,255,0.1);
+  animation:lbZoom .35s var(--ease);
+}
+@keyframes lbZoom { from{opacity:0;transform:scale(0.92)} to{opacity:1;transform:scale(1)} }
+
+.lb-caption {
+  text-align:center; margin-top:14px;
+}
+.lb-caption-cat {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:11px; font-weight:800; color:var(--orange);
+  text-transform:uppercase; letter-spacing:.12em; margin-bottom:4px;
+}
+.lb-caption-title {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:22px; font-weight:800; color:#ffffff;
+  text-transform:uppercase; letter-spacing:.02em;
+}
+.lb-counter {
+  position:absolute; bottom:20px; left:50%; transform:translateX(-50%);
+  font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:700;
+  color:rgba(255,255,255,0.45); letter-spacing:.1em;
+}
+
+@media(max-width:768px){
+  .lb-prev { left:10px; }
+  .lb-next { right:10px; }
+  .lb-close { top:12px; right:12px; }
+  .lb-btn { width:40px; height:40px; }
+}
 </style>
 </head>
 <body>
 
 <div id="site-header"></div>
 
-<!-- -------------------------------- GALLERY HERO -------------------------------- -->
-<header class="gal-hero">
-  <div class="gal-hero-bg"><img src="images/gallery/hero.png" alt="KES Manufacturing Facility"/></div>
-  <div class="gal-hero-content">
-    <div class="gal-hero-path rv">Home / <span class="active">Gallery</span></div>
-    <div class="gal-hero-badge rv d1"><span class="dot"></span><span>Our Portfolio</span></div>
-    <h1 class="rv d2">Project <em>Gallery</em></h1>
-    <p class="gal-hero-sub rv d3">Explore our portfolio of precision-engineered electrical panels, state-of-the-art manufacturing facility, and successfully delivered industrial projects across Karnataka.</p>
-    <div class="gal-hero-stats rv d4">
-      <div class="ghs-item"><div class="ghs-num">200<span>+</span></div><div class="ghs-lbl">Projects</div></div>
-      <div class="ghs-item"><div class="ghs-num">25<span>+</span></div><div class="ghs-lbl">Products</div></div>
-      <div class="ghs-item"><div class="ghs-num">24<span>yr</span></div><div class="ghs-lbl">Experience</div></div>
+<!-- === HEADER HERO (EXACT SCREENSHOT REDESIGN) === -->
+<header class="gal-hero-sec">
+  <div class="W">
+    <div class="gal-hero-grid">
+      
+      <!-- Left: Breadcrumb, Main Title & Description -->
+      <div class="gal-hero-left rv">
+        <div class="gal-breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="sep">&gt;</span>
+          <span class="cur">Gallery</span>
+        </div>
+        <h1 class="gal-main-title">OUR<span class="txt-accent">GALLERY</span></h1>
+        <div class="gal-title-bar"></div>
+        <p class="gal-hero-sub">A glimpse of our work in action. Every project reflects our commitment to precision, quality, and excellence.</p>
+      </div>
+
+      <!-- Right: 4-in-1 Floating Metric Card -->
+      <div class="gal-hero-right rv d1">
+        <div class="gal-stats-card">
+          
+          <div class="gstat-item">
+            <div class="gstat-ico">
+              <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </div>
+            <div class="gstat-info">
+              <span class="gstat-val">250+</span>
+              <span class="gstat-lbl">Projects Completed</span>
+            </div>
+          </div>
+
+          <div class="gstat-item">
+            <div class="gstat-ico">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            </div>
+            <div class="gstat-info">
+              <span class="gstat-val">100%</span>
+              <span class="gstat-lbl">Quality Assured</span>
+            </div>
+          </div>
+
+          <div class="gstat-item">
+            <div class="gstat-ico">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="gstat-info">
+              <span class="gstat-val">120+</span>
+              <span class="gstat-lbl">Happy Clients</span>
+            </div>
+          </div>
+
+          <div class="gstat-item">
+            <div class="gstat-ico">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            </div>
+            <div class="gstat-info">
+              <span class="gstat-val">24+</span>
+              <span class="gstat-lbl">Years Excellence</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </div>
-  <div class="gal-hero-scroll"><div class="line"></div>Scroll</div>
 </header>
 
-<!-- -------------------------------- FILTER BAR -------------------------------- -->
-<div class="filter-bar">
+<!-- === MAIN GALLERY SECTION === -->
+<main class="gal-main-sec">
   <div class="W">
-    <div class="filter-inner">
-      <button class="fbtn-filter active" data-filter="all">All Projects</button>
-      <button class="fbtn-filter" data-filter="panels">Panels</button>
-      <button class="fbtn-filter" data-filter="facility">Facility</button>
-      <button class="fbtn-filter" data-filter="infrastructure">Infrastructure</button>
-      <button class="fbtn-filter" data-filter="testing">Testing & QA</button>
-    </div>
-  </div>
-</div>
+    
+    <div class="gal-card-frame rv">
+      
+      <!-- Frame Header -->
+      <div class="gal-frame-head">
+        <div class="gal-frame-title">
+          <div class="gft-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <span class="gft-txt">Project Gallery</span>
+        </div>
 
-<!-- -------------------------------- GALLERY GRID -------------------------------- -->
-<section class="gal-sec">
-  <div class="W">
-    <div class="gal-grid" id="galGrid">
-
-      <div class="gal-item tall rv" data-cat="panels">
-        <img src="images/gallery/panel1.png" alt="LT Distribution Panel"/>
-        <div class="gal-item-info"><div class="gal-item-cat">Distribution</div><div class="gal-item-title">LT Panel Board</div></div>
-        <div class="gal-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+        <div class="gal-head-right">
+          <span id="galCountBadge" style="font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:700; color:var(--grey); background:var(--off); border:1px solid var(--border); padding:3px 12px; border-radius:4px; text-transform:uppercase; letter-spacing:.05em;">Loading...</span>
+          <span class="gal-dot-indicator" title="Live Verified Showcase"></span>
+        </div>
       </div>
 
-      <div class="gal-item rv d1" data-cat="panels">
-        <img src="images/gallery/panel2.png" alt="MCC Panel"/>
-        <div class="gal-item-info"><div class="gal-item-cat">Control</div><div class="gal-item-title">MCC Panel</div></div>
-        <div class="gal-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      <!-- 4-Column Grid -->
+      <div class="gal-grid" id="galGrid" aria-live="polite">
+        <!-- Rendered dynamically by gallery.js (with full curated fallback & API synchronization) -->
       </div>
 
-      <div class="gal-item rv d2" data-cat="facility">
-        <img src="images/gallery/factory.png" alt="Manufacturing Facility"/>
-        <div class="gal-item-info"><div class="gal-item-cat">Facility</div><div class="gal-item-title">Manufacturing Floor</div></div>
-        <div class="gal-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-      </div>
+      <!-- Bottom Value Banner -->
+      <div class="gal-value-banner">
+        <div class="gvb-left">
+          <div class="gvb-ico-box">
+            <svg viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M18 16v2"/><path d="M6 16v2"/><path d="M12 16v2"/></svg>
+          </div>
+          <div>
+            <div class="gvb-heading">Engineering Solutions That Power Industries Forward</div>
+            <div class="gvb-desc">From concept to commissioning — we deliver with precision, reliability, and pride.</div>
+          </div>
+        </div>
 
-      <div class="gal-item wide rv" data-cat="panels">
-        <img src="images/gallery/panel3.png" alt="PCC Panel"/>
-        <div class="gal-item-info"><div class="gal-item-cat">Power</div><div class="gal-item-title">Power Control Center</div></div>
-        <div class="gal-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-      </div>
+        <div class="gvb-pillars">
+          <div class="gvb-pillar">
+            <div class="gp-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="gp-txt"><strong>Precision</strong>in Every Detail</div>
+          </div>
+          <div class="gvb-pillar">
+            <div class="gp-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div class="gp-txt"><strong>On-Time</strong>Every Time</div>
+          </div>
+          <div class="gvb-pillar">
+            <div class="gp-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+            <div class="gp-txt"><strong>Trusted by</strong>Industry Leaders</div>
+          </div>
+        </div>
 
-      <div class="gal-item rv d1" data-cat="testing">
-        <img src="images/gallery/testing.png" alt="Quality Testing"/>
-        <div class="gal-item-info"><div class="gal-item-cat">QA</div><div class="gal-item-title">Panel Testing & Inspection</div></div>
-        <div class="gal-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-      </div>
-
-      <div class="gal-item rv" data-cat="panels">
-        <img src="images/gallery/panel4.png" alt="APFC Panel"/>
-        <div class="gal-item-info"><div class="gal-item-cat">Correction</div><div class="gal-item-title">APFC Panel</div></div>
-        <div class="gal-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-      </div>
-
-      <div class="gal-item rv d1" data-cat="infrastructure">
-        <img src="images/gallery/busduct.png" alt="Bus Duct System"/>
-        <div class="gal-item-info"><div class="gal-item-cat">Infrastructure</div><div class="gal-item-title">HV & LV Bus Duct</div></div>
-        <div class="gal-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-      </div>
-
-      <div class="gal-item tall rv d2" data-cat="panels">
-        <img src="images/gallery/panel5.png" alt="PLC Control Panel"/>
-        <div class="gal-item-info"><div class="gal-item-cat">Automation</div><div class="gal-item-title">PLC Control Panel</div></div>
-        <div class="gal-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
-      </div>
-
-      <div class="gal-item wide rv" data-cat="facility">
-        <img src="images/gallery/hero.png" alt="Assembly Line"/>
-        <div class="gal-item-info"><div class="gal-item-cat">Facility</div><div class="gal-item-title">Panel Assembly Line</div></div>
-        <div class="gal-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+        <a href="contactus.html" class="gvb-btn">
+          <span>Work With Us</span>
+          <span class="arr">&#8599;</span>
+        </a>
       </div>
 
     </div>
-  </div>
-</section>
 
-<!-- -------------------------------- CTA BANNER -------------------------------- -->
-<section class="gal-cta">
-  <div class="W gal-cta-inner rv">
-    <h2>Ready to <em>Power</em> Your Project?</h2>
-    <p>From concept to commissioning — let our engineering expertise bring your electrical infrastructure to life.</p>
-    <a href="contactus.html" class="gal-cta-btn">Get a Quote <span>&#8594;</span></a>
   </div>
-</section>
+</main>
 
-<!-- -------------------------------- LIGHTBOX -------------------------------- -->
-<div class="lightbox" id="lightbox">
-  <button class="lb-close" id="lbClose"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-  <button class="lb-nav lb-prev" id="lbPrev"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
-  <button class="lb-nav lb-next" id="lbNext"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
-  <div class="lb-img-wrap">
-    <img id="lbImg" src="" alt=""/>
-    <div class="lb-caption"><div class="lb-caption-cat" id="lbCat"></div><div class="lb-caption-title" id="lbTitle"></div></div>
+<!-- === LIGHTBOX MODAL === -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <button class="lb-btn lb-close" id="lbClose" aria-label="Close Lightbox">
+    <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous Image">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Next Image">
+    <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+  </button>
+  
+  <div class="lb-content">
+    <img id="lbImg" src="" alt="Project View"/>
+    <div class="lb-caption">
+      <div class="lb-caption-cat" id="lbCat">Switchgear &amp; Panels</div>
+      <div class="lb-caption-title" id="lbTitle">LT Distribution Switchboard</div>
+    </div>
   </div>
-  <div class="lb-counter" id="lbCounter"></div>
+  
+  <div class="lb-counter" id="lbCounter">01 / 08</div>
 </div>
 
-<!-- -------------------------------- FOOTER -------------------------------- -->
 <div id="site-footer"></div>
 
-<!-- -------------------------------- SCRIPTS -------------------------------- -->
 <script src="site.js"></script>
-<script>
-(function(){
-  // Filter
-  const btns = document.querySelectorAll('.fbtn-filter');
-  const items = document.querySelectorAll('.gal-item');
-  btns.forEach(b => b.addEventListener('click', () => {
-    btns.forEach(x => x.classList.remove('active'));
-    b.classList.add('active');
-    const f = b.dataset.filter;
-    items.forEach(item => {
-      if (f === 'all' || item.dataset.cat === f) {
-        item.style.display = '';
-        setTimeout(() => item.classList.add('in'), 50);
-      } else {
-        item.style.display = 'none';
-        item.classList.remove('in');
-      }
-    });
-  }));
-
-  // Lightbox
-  const lb = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lbImg');
-  const lbCat = document.getElementById('lbCat');
-  const lbTitle = document.getElementById('lbTitle');
-  const lbCounter = document.getElementById('lbCounter');
-  let current = 0, visible = [];
-
-  function getVisible() {
-    return [...document.querySelectorAll('.gal-item')].filter(i => i.style.display !== 'none');
-  }
-  function openLB(idx) {
-    visible = getVisible();
-    current = idx;
-    showSlide();
-    lb.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function showSlide() {
-    const el = visible[current];
-    lbImg.src = el.querySelector('img').src;
-    lbCat.textContent = el.querySelector('.gal-item-cat').textContent;
-    lbTitle.textContent = el.querySelector('.gal-item-title').textContent;
-    lbCounter.textContent = (current + 1) + ' / ' + visible.length;
-  }
-  function closeLB() { lb.classList.remove('open'); document.body.style.overflow = ''; }
-
-  items.forEach((item, i) => item.addEventListener('click', () => {
-    const vis = getVisible();
-    openLB(vis.indexOf(item));
-  }));
-  document.getElementById('lbClose').addEventListener('click', closeLB);
-  document.getElementById('lbPrev').addEventListener('click', () => { current = (current - 1 + visible.length) % visible.length; showSlide(); });
-  document.getElementById('lbNext').addEventListener('click', () => { current = (current + 1) % visible.length; showSlide(); });
-  lb.addEventListener('click', e => { if (e.target === lb) closeLB(); });
-  document.addEventListener('keydown', e => {
-    if (!lb.classList.contains('open')) return;
-    if (e.key === 'Escape') closeLB();
-    if (e.key === 'ArrowLeft') { current = (current - 1 + visible.length) % visible.length; showSlide(); }
-    if (e.key === 'ArrowRight') { current = (current + 1) % visible.length; showSlide(); }
-  });
-})();
-</script>
+<script src="gallery.js"></script>
 </body>
 </html>
