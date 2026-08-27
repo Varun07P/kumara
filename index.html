@@ -992,17 +992,18 @@ h2.sec-title-w em { color:var(--red); }
   .div3-card { min-height:280px; }
 }
 
-/* === FEATURED PRODUCTS (COMPACT & CRAFTED) === */
+/* === FEATURED PRODUCTS (CONTINUOUS MOVING MARQUEE & SHOWCASE) === */
 .prod-sec {
-  padding: 16px 0 24px;
-  background: #fff;
+  padding: 16px 0 6px;
+  background: #ffffff;
   position: relative;
+  overflow: hidden;
 }
 .prod-head-row {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   flex-wrap: wrap;
   gap: 12px;
 }
@@ -1018,206 +1019,213 @@ h2.sec-title-w em { color:var(--red); }
   font-size: 13.5px;
   line-height: 1.45;
 }
+.fprod-head-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.fprod-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--blue-alt);
+  background: rgba(204, 39, 0, 0.08);
+  border: 1px solid rgba(204, 39, 0, 0.2);
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.fprod-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--blue-alt);
+  box-shadow: 0 0 0 0 rgba(204, 39, 0, 0.7);
+  animation: fprodPulseAnim 1.8s infinite;
+}
+@keyframes fprodPulseAnim {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(204, 39, 0, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(204, 39, 0, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(204, 39, 0, 0); }
+}
 .prod-head-btn {
-  padding: 10px 22px;
+  padding: 9px 20px;
   font-size: 13px;
 }
 
-.prod-mosaic {
-  display: grid;
-  grid-template-columns: 1.8fr 1fr 1fr;
-  grid-template-rows: 185px 185px;
-  gap: 8px;
-}
-.prod-card {
-  position: relative;
+.fprod-marquee-wrapper {
+  width: 100%;
   overflow: hidden;
-  cursor: pointer;
+  position: relative;
+  padding: 8px 0 4px;
+  margin: 4px 0 0;
+  mask-image: linear-gradient(to right, transparent 0%, #000 3%, #000 97%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 3%, #000 97%, transparent 100%);
+  user-select: none;
+}
+.fprod-marquee-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  will-change: transform;
+  animation: fprodScrollAnim 40s linear infinite;
+}
+.fprod-marquee-wrapper:hover .fprod-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes fprodScrollAnim {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.fprod-card {
+  flex: 0 0 320px;
+  width: 320px;
+  height: 250px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
   background: var(--navy);
-  border-radius: 8px;
-  border: 1px solid rgba(8, 17, 31, 0.08);
-  box-shadow: var(--s1);
+  border: 1px solid rgba(8, 17, 31, 0.12);
+  box-shadow: 0 6px 20px rgba(8, 17, 31, 0.08);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s;
+  cursor: pointer;
 }
-.prod-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 34px rgba(8, 17, 31, 0.18);
-  border-color: rgba(204, 39, 0, 0.35);
+.fprod-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 38px rgba(204, 39, 0, 0.2);
+  border-color: rgba(204, 39, 0, 0.45);
 }
-.prod-card.tall {
-  grid-row: 1 / 3;
+
+.fprod-card-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
-.prod-card img {
+.fprod-card-bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.58) saturate(0.8);
-  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s;
+  filter: brightness(0.68) saturate(0.85);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s;
 }
-.prod-card:hover img {
-  transform: scale(1.06);
-  filter: brightness(0.32) saturate(0.6);
+.fprod-card:hover .fprod-card-bg img {
+  transform: scale(1.08);
+  filter: brightness(0.42) saturate(0.7);
 }
-.prod-over {
+
+.fprod-card-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(7, 16, 30, 0.92) 0%, rgba(7, 16, 30, 0.35) 45%, transparent 75%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 14px 16px;
+  background: linear-gradient(to top, rgba(7, 16, 30, 0.96) 0%, rgba(7, 16, 30, 0.5) 50%, rgba(7, 16, 30, 0.15) 100%);
   z-index: 1;
+  pointer-events: none;
 }
-.prod-meta-top {
-  position: absolute;
-  top: 10px;
-  left: 12px;
-  right: 12px;
+
+.fprod-card-top {
+  position: relative;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 2;
+  padding: 12px 14px;
 }
-.prod-badge-spec {
+.fprod-card-chip {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 9.5px;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.85);
-  background: rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(6px);
+  color: #fff;
+  background: var(--blue-alt);
+  padding: 2px 7px;
+  border-radius: 3px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.fprod-card-spec {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9.5px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
   padding: 2px 7px;
   border-radius: 3px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
-.prod-cat {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 9.5px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #ff5722;
-  margin-bottom: 2px;
-}
-.prod-name {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 16.5px;
-  font-weight: 800;
-  color: #fff;
-  line-height: 1.1;
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
-}
-.prod-card.tall .prod-name {
-  font-size: 23px;
-}
-.prod-hover {
-  position: absolute;
-  inset: 0;
+
+.fprod-card-body {
+  position: relative;
+  z-index: 2;
+  padding: 14px 16px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  text-align: center;
-  opacity: 0;
-  z-index: 2;
-  transition: opacity 0.28s var(--ease);
+  gap: 3px;
 }
-.prod-card:hover .prod-hover {
-  opacity: 1;
-}
-.prod-hover p {
-  font-size: 11.5px;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.5;
-  max-width: 220px;
-  font-weight: 300;
-}
-.ph-btn {
-  margin-top: 8px;
-  background: var(--red);
-  color: #fff;
-  border-radius: 3px;
-  padding: 6px 16px;
+.fprod-card-cat {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11.5px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  font-size: 10px;
+  font-weight: 700;
+  color: #ff7043;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  transition: background 0.2s, transform 0.2s;
+}
+.fprod-card-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin-bottom: 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.fprod-card-cta {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-}
-.ph-btn:hover {
-  background: #fff;
-  color: var(--red);
-}
-
-.prod-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 12px;
-}
-.ptag {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--grey);
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  padding: 4px 12px;
-  background: #fff;
-  cursor: pointer;
-  transition: all 0.2s;
-  letter-spacing: 0.03em;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+  transition: color 0.2s, transform 0.2s;
 }
-.ptag:hover {
-  border-color: var(--red);
-  color: var(--red);
-  background: rgba(204, 39, 0, 0.04);
+.fprod-card:hover .fprod-card-cta {
+  color: #ff7043;
+  transform: translateX(3px);
 }
-.ptag.accent {
-  background: var(--red);
-  color: #fff;
-  border-color: var(--red2);
-  font-weight: 800;
-}
-.ptag.accent:hover {
-  background: var(--red2);
-  color: #fff;
+.fprod-card-cta svg {
+  width: 12px;
+  height: 12px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  fill: none;
 }
 
-@media(max-width: 1024px) {
-  .prod-mosaic {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 210px 170px 170px;
+@media(max-width: 768px) {
+  .fprod-card {
+    flex: 0 0 280px;
+    width: 280px;
+    height: 230px;
   }
-  .prod-card.tall {
-    grid-row: 1 / 2;
-    grid-column: 1 / 3;
-  }
-}
-@media(max-width: 600px) {
-  .prod-sec {
-    padding: 16px 0 20px;
-  }
-  .prod-mosaic {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 8px;
-  }
-  .prod-card {
-    min-height: 160px;
-  }
-  .prod-card.tall {
-    grid-row: auto;
-    grid-column: auto;
-    min-height: 190px;
+  .fprod-card-title {
+    font-size: 15.5px;
   }
 }
 
@@ -1834,102 +1842,32 @@ h2.sec-title-w em { color:var(--red); }
   </div>
 </section>
 
-<!-- === FEATURED PRODUCTS === -->
+<!-- === FEATURED PRODUCTS (DYNAMIC HOMEPAGE MARQUEE CAROUSEL) === -->
 <section class="sec prod-sec" id="products">
   <div class="W">
     <div class="prod-head-row rv">
       <div>
         <div class="sec-label"><div class="sl-bar"></div><span class="sl-txt">Our Products</span></div>
         <h2 class="sec-title">Featured <em>Products</em></h2>
-        <p class="sec-body">IEC 61439 &amp; IS:8623 certified panels &mdash; custom built for every industrial requirement.</p>
+        <p class="sec-body">IEC 61439 &amp; IS:8623 compliant panels &mdash; custom built for every industrial requirement.</p>
       </div>
-      <a href="products.html" class="btn-red prod-head-btn">View All Products <span class="arr">&rarr;</span></a>
+      <div class="fprod-head-actions">
+        <span class="fprod-live-badge"><span class="fprod-pulse"></span>Live Showcase</span>
+        <a href="products.html" class="btn-red prod-head-btn">View All Products <span class="arr">&rarr;</span></a>
+      </div>
     </div>
-    <div class="prod-mosaic">
-      <a class="prod-card tall rv" href="products.html#lv-switchgear">
-        <img loading="lazy" src="images/gallery/panel1.png" alt="LV Switchgear Panels"/>
-        <div class="prod-meta-top">
-          <span class="prod-badge-spec">Up to 6300A</span>
-          <span class="prod-badge-spec">Form 4b</span>
-        </div>
-        <div class="prod-over">
-          <div class="prod-cat">Distribution</div>
-          <div class="prod-name">LV Switchgear Panels</div>
-        </div>
-        <div class="prod-hover">
-          <p>Low-tension distribution and Motor Control Centres &mdash; built to IS &amp; IEC 61439-2.</p>
-          <span class="ph-btn">Explore <span class="arr">&rarr;</span></span>
-        </div>
-      </a>
-      <a class="prod-card rv d1" href="products.html#mv-switchgear">
-        <img loading="lazy" src="images/gallery/panel2.png" alt="MV Switchgear"/>
-        <div class="prod-meta-top">
-          <span class="prod-badge-spec">Up to 33kV</span>
-        </div>
-        <div class="prod-over">
-          <div class="prod-cat">Medium Voltage</div>
-          <div class="prod-name">MV Switchgear</div>
-        </div>
-        <div class="prod-hover">
-          <p>Systems up to 33kV with VCB or SF6 breakers for primary distribution.</p>
-          <span class="ph-btn">Explore <span class="arr">&rarr;</span></span>
-        </div>
-      </a>
-      <a class="prod-card rv d2" href="products.html#transformer">
-        <img loading="lazy" src="images/gallery/panel3.png" alt="Transformer"/>
-        <div class="prod-meta-top">
-          <span class="prod-badge-spec">Oil &amp; Dry</span>
-        </div>
-        <div class="prod-over">
-          <div class="prod-cat">Power</div>
-          <div class="prod-name">Transformers</div>
-        </div>
-        <div class="prod-hover">
-          <p>High-efficiency distribution &amp; power transformers; oil-cooled and dry-type.</p>
-          <span class="ph-btn">Explore <span class="arr">&rarr;</span></span>
-        </div>
-      </a>
-      <a class="prod-card rv d3" href="products.html#css">
-        <img loading="lazy" src="images/gallery/panel4.png" alt="Compact Substation"/>
-        <div class="prod-meta-top">
-          <span class="prod-badge-spec">Packaged CSS</span>
-        </div>
-        <div class="prod-over">
-          <div class="prod-cat">Infrastructure</div>
-          <div class="prod-name">Compact Substation</div>
-        </div>
-        <div class="prod-hover">
-          <p>Prefabricated packaged substations (CSS) for rapid site execution.</p>
-          <span class="ph-btn">Explore <span class="arr">&rarr;</span></span>
-        </div>
-      </a>
-      <a class="prod-card rv d4" href="products.html#busduct">
-        <img loading="lazy" src="images/gallery/busduct.png" alt="Bus Duct"/>
-        <div class="prod-meta-top">
-          <span class="prod-badge-spec">630A&ndash;6300A</span>
-        </div>
-        <div class="prod-over">
-          <div class="prod-cat">Transmission</div>
-          <div class="prod-name">HV/LV Bus Duct</div>
-        </div>
-        <div class="prod-hover">
-          <p>99.97% pure copper, silver-plated conductors. IP54&ndash;IP66 certified.</p>
-          <span class="ph-btn">Explore <span class="arr">&rarr;</span></span>
-        </div>
-      </a>
-    </div>
-    <div class="prod-tags rv">
-      <a class="ptag" href="products.html#lv-switchgear">LV Switchgear</a><a class="ptag" href="products.html#mv-switchgear">MV Switchgear</a><a class="ptag" href="products.html#css">CSS</a>
-      <a class="ptag" href="products.html#transformer">Transformers</a><a class="ptag" href="products.html#mcc-panel">MCC Panel</a><a class="ptag" href="products.html#pcc-panel">PCC Panel</a>
-      <a class="ptag" href="products.html#apfc-panel">APFC Panel</a><a class="ptag" href="products.html#plc-panel">PLC Panel</a><a class="ptag" href="products.html#hvac-panel">HVAC Panel</a>
-      <a class="ptag" href="products.html#busduct">Bus Duct</a><a class="ptag" href="products.html#aviation-panel">Aviation Lighting</a>
-      <a class="ptag accent" href="products.html">+ View All &rarr;</a>
+  </div>
+
+  <!-- Full-width Continuous Moving Product Marquee Carousel -->
+  <div class="fprod-marquee-wrapper" id="featuredMarqueeWrapper">
+    <div class="fprod-marquee-track" id="featuredProductsTrack">
+      <!-- Dynamic featured product cards rendered by loadFeaturedProducts() from /api/featured -->
     </div>
   </div>
 </section>
 
 <!-- === WHY KES === -->
-<section class="sec" style="background:var(--off)" id="why-kes">
+<section class="sec" style="background:var(--off); padding: 32px 0 52px;" id="why-kes">
   <div class="W">
     <div class="why-wrap">
       <div class="why-left rl">
@@ -2276,6 +2214,207 @@ h2.sec-title-w em { color:var(--red); }
   window.addEventListener('scroll', requestUpdate, { passive:true });
   window.addEventListener('resize', requestUpdate);
   requestUpdate();
+})();
+
+/* -- DYNAMIC FEATURED PRODUCTS MARQUEE CAROUSEL (BACKEND API INTEGRATION) -- */
+(function(){
+  'use strict';
+
+  const API_CANDIDATES = window.KES_API_BASE ? [window.KES_API_BASE] : ['/api', '/Backend/public/api'];
+
+  const DEFAULT_FEATURED = [
+    {
+      title: 'LV Switchgear Panels',
+      cat: 'Distribution',
+      spec: 'Up to 6300A · Form 4b',
+      img: 'images/gallery/panel1.png',
+      link: 'products.html#lv-switchgear'
+    },
+    {
+      title: 'MV Switchgear Panels',
+      cat: 'Medium Voltage',
+      spec: 'Up to 33kV · VCB/SF6',
+      img: 'images/gallery/panel2.png',
+      link: 'products.html#mv-switchgear'
+    },
+    {
+      title: 'Distribution & Power Transformers',
+      cat: 'Power',
+      spec: 'Oil & Dry-Type',
+      img: 'images/gallery/panel3.png',
+      link: 'products.html#transformer'
+    },
+    {
+      title: 'Compact Substation (CSS)',
+      cat: 'Infrastructure',
+      spec: 'Packaged Unit',
+      img: 'images/gallery/panel4.png',
+      link: 'products.html#css'
+    },
+    {
+      title: 'HV / LV Sandwich Bus Duct',
+      cat: 'Transmission',
+      spec: '630A–6300A · IP66',
+      img: 'images/gallery/busduct.png',
+      link: 'products.html#busduct'
+    },
+    {
+      title: 'Motor Control Centre (MCC / VFD)',
+      cat: 'Automation',
+      spec: 'Type-2 Coordination',
+      img: 'images/gallery/panel5.png',
+      link: 'products.html#mcc-panel'
+    }
+  ];
+
+  async function resolveApiBase() {
+    for (const base of API_CANDIDATES) {
+      try {
+        const res = await fetch(`${base}/featured`, { credentials: 'same-origin', cache: 'no-store' });
+        if (res.headers.get('content-type')?.includes('application/json')) {
+          const uploadBase = window.KES_UPLOAD_BASE
+            || (base.includes('/Backend/public/api') ? base.replace(/\/api$/, '/storage/uploads/compressed') : `${base}/storage/uploads/compressed`);
+          return { apiBase: base, uploadBase: uploadBase };
+        }
+      } catch (e) {
+        continue;
+      }
+    }
+    return null;
+  }
+
+  function escapeHTML(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function renderTrack(items) {
+    const track = document.getElementById('featuredProductsTrack');
+    if (!track || !items || !items.length) return;
+
+    track.innerHTML = '';
+
+    // Duplicate the diverse list once for seamless 50% translation loop
+    const fullSet = items.concat(items);
+
+    const fragment = document.createDocumentFragment();
+
+    fullSet.forEach((item) => {
+      const card = document.createElement('a');
+      card.className = 'fprod-card';
+      card.href = item.link || 'products.html';
+
+      const bg = document.createElement('div');
+      bg.className = 'fprod-card-bg';
+      const img = document.createElement('img');
+      img.loading = 'lazy';
+      img.src = item.img;
+      img.alt = item.title;
+      bg.appendChild(img);
+
+      const overlay = document.createElement('div');
+      overlay.className = 'fprod-card-overlay';
+
+      const top = document.createElement('div');
+      top.className = 'fprod-card-top';
+      top.innerHTML = `
+        <span class="fprod-card-chip">Featured</span>
+        <span class="fprod-card-spec">${escapeHTML(item.spec || 'IEC 61439')}</span>
+      `;
+
+      const body = document.createElement('div');
+      body.className = 'fprod-card-body';
+      body.innerHTML = `
+        <div class="fprod-card-cat">${escapeHTML(item.cat || 'Custom Switchboard')}</div>
+        <div class="fprod-card-title">${escapeHTML(item.title)}</div>
+        <div class="fprod-card-cta">
+          <span>Explore Product</span>
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      `;
+
+      card.appendChild(bg);
+      card.appendChild(overlay);
+      card.appendChild(top);
+      card.appendChild(body);
+
+      fragment.appendChild(card);
+    });
+
+    track.appendChild(fragment);
+
+    // Speed scaling based on element count
+    const speed = Math.max(30, fullSet.length * 3);
+    track.style.animationDuration = speed + 's';
+  }
+
+  async function loadFeaturedProducts() {
+    const section = document.getElementById('products');
+    if (!section) return;
+
+    // Render defaults first so there is never a flash of empty space
+    renderTrack(DEFAULT_FEATURED);
+
+    try {
+      const apiInfo = await resolveApiBase();
+      if (!apiInfo) return; // Keep defaults if API is not reachable
+
+      const res = await fetch(`${apiInfo.apiBase}/featured`, {
+        credentials: 'same-origin',
+        cache: 'no-store'
+      });
+
+      if (!res.ok) return;
+
+      const payload = await res.json();
+      
+      // If admin disabled featured section toggle in admin dashboard:
+      if (payload.visible === false) {
+        section.style.display = 'none';
+        return;
+      }
+
+      section.style.display = '';
+
+      // If admin uploaded/assigned featured images
+      if (Array.isArray(payload.images) && payload.images.length > 0) {
+        const dynamicItems = payload.images.map((img) => {
+          const caption = (img.caption && img.caption.trim())
+            || (img.original_filename && img.original_filename.replace(/\.[^/.]+$/, '').replace(/[_|-]/g, ' '))
+            || 'Custom Electrical Switchboard';
+
+          return {
+            title: caption,
+            cat: 'Featured Showcase',
+            spec: 'IEC 61439 Standard',
+            img: `${apiInfo.uploadBase}/${encodeURIComponent(img.stored_filename)}`,
+            link: 'products.html'
+          };
+        });
+
+        // Merge: Show all admin's custom featured products at the front, and fill remaining slots with diverse default catalog products so it never duplicates the same image
+        let combinedList = [...dynamicItems];
+        if (combinedList.length < DEFAULT_FEATURED.length) {
+          const remaining = DEFAULT_FEATURED.slice(dynamicItems.length);
+          combinedList = combinedList.concat(remaining);
+        }
+
+        renderTrack(combinedList);
+      }
+    } catch (e) {
+      console.warn('Featured products fallback to curated defaults:', e);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadFeaturedProducts);
+  } else {
+    loadFeaturedProducts();
+  }
 })();
 </script>
 
