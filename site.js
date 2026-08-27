@@ -345,8 +345,8 @@
     </span>
   </div>
   <div class="tb-right">
-    <span class="tb-cert">ISO 9001:2015</span>
-    <span class="tb-cert">CPRI</span>
+    <span class="tb-cert">Class-I Licensed</span>
+    <span class="tb-cert">CEIG Approved</span>
     <span class="tb-cert">IEC 61439</span>
   </div>
 </div></div></div>
@@ -398,7 +398,7 @@
             </div>
             <div class="sc-body">
               <div class="sc-title">Panel Manufacturing <span class="sc-arr">&rarr;</span></div>
-              <div class="sc-sub">CPRI 100kA Switchboards &amp; Bus Ducts</div>
+              <div class="sc-sub">Type-Tested Switchboards &amp; Bus Ducts</div>
             </div>
           </a>
         </div>
@@ -461,7 +461,7 @@
             <a class="mega-item" href="products.html#cable-tray">Cable Raceway</a>
           </div>
           <div class="mega-drop-footer">
-            <span>28+ Products &middot; IEC 61439 &middot; IS:8623 &middot; CPRI Certified</span>
+            <span>28+ Products &middot; IEC 61439 &middot; IS:8623 &middot; Type-Tested</span>
             <a href="products.html">View All Products &rarr;</a>
           </div>
         </div>
@@ -831,43 +831,6 @@ footer {
   flex-shrink: 0;
 }
 
-/* Round Back to Top */
-#btt {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 999;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: var(--blue-alt);
-  color: #ffffff;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 14px rgba(204, 39, 0, 0.38);
-  transition: all .2s ease;
-  outline: none;
-}
-
-#btt.on {
-  display: flex;
-}
-
-#btt:hover {
-  background: var(--blue-alt2);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(204, 39, 0, 0.5);
-}
-
-#btt svg {
-  width: 18px;
-  height: 18px;
-  stroke: #ffffff;
-}
-
 /* Responsive */
 @media (max-width: 1100px) {
   .ft-grid {
@@ -912,7 +875,7 @@ footer {
           <img src="images/logo.png" alt="Kumara Engineering Solutions">
         </a>
         <div class="ft-brand-line"></div>
-        <p class="ft-desc">The True Leader in End-to-End Power Distribution, Control Systems and Turnkey Electrical Solutions. Serving Karnataka and beyond &mdash; built on 24+ years of inherited excellence.</p>
+        <p class="ft-desc">Govt. Licensed Class I Electrical Contractors &amp; Engineers. Specialists in HT/LT installations, switchboard manufacturing, MEPF consultancy, and 24/7 facility maintenance built on 25+ years of engineering excellence.</p>
         
         <div class="ft-soc">
           <a href="#" class="fsoc" aria-label="LinkedIn">in</a>
@@ -932,7 +895,7 @@ footer {
           <a href="aboutus.html"><span class="ft-chev">&gt;</span> About Us</a>
           <a href="services.html"><span class="ft-chev">&gt;</span> Services</a>
           <a href="products.html"><span class="ft-chev">&gt;</span> Products</a>
-          <a href="consultancy.html"><span class="ft-chev">&gt;</span> Consultancy</a>
+          <a href="engineeringcounsultancy.html"><span class="ft-chev">&gt;</span> Consultancy</a>
           <a href="process.html"><span class="ft-chev">&gt;</span> Manufacturing Process</a>
           <a href="gallery.html"><span class="ft-chev">&gt;</span> Gallery</a>
           <a href="contactus.html"><span class="ft-chev">&gt;</span> Contact</a>
@@ -992,8 +955,8 @@ footer {
         <div class="ft-badges-strip">
           <span class="ft-cert-chip">IEC 61439</span>
           <span class="ft-cert-chip">IS:8623</span>
-          <span class="ft-cert-chip">CPRI</span>
-          <span class="ft-cert-chip">ISO 9001</span>
+          <span class="ft-cert-chip">CEIG Approved</span>
+          <span class="ft-cert-chip">Class-I Licensed</span>
         </div>
       </div>
     </div>
@@ -1018,8 +981,8 @@ footer {
 
       <div class="ft-b-badges">
         <span class="ft-pill">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-          ISO CERTIFIED
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          CEIG APPROVED
         </span>
         <span class="ft-pill">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18h20M4 18v-4a8 8 0 1 1 16 0v4M9 10h6"/></svg>
@@ -1036,24 +999,13 @@ footer {
       </div>
     </div>
   </div>
-</footer>
-
-<button id="btt" type="button" aria-label="Back to top">
-  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-</button>`;
+</footer>`;
 
   const headerSlot = document.getElementById('site-header');
   const footerSlot = document.getElementById('site-footer');
 
   if (headerSlot) headerSlot.outerHTML = headerHTML;
   if (footerSlot) footerSlot.outerHTML = footerHTML;
-
-  const btt = document.getElementById('btt');
-  if (btt) {
-    btt.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
 
   function setActiveNav() {
     const page = location.pathname.split('/').pop() || 'index.html';
@@ -1114,11 +1066,9 @@ footer {
       positionMegaDropdowns();
       positionMobileMenu();
 
-      var btt = document.getElementById('btt');
       navbar.style.boxShadow = scrollY > 10
         ? '0 2px 28px rgba(8,17,31,.14)'
         : '0 2px 24px rgba(8,17,31,.10)';
-      if (btt) btt.classList.toggle('on', scrollY > 400);
     }, { passive: true });
 
     /* -------------------------------- Hamburger toggle -------------------------------- */
@@ -1134,7 +1084,15 @@ footer {
       }
     });
 
-    /* -------------------------------- Dropdown accordion on mobile -------------------------------- */
+    /* -------------------------------- Close on outside click -------------------------------- */
+    document.addEventListener('click', function (e) {
+      if (!navbar.contains(e.target)) {
+        closeMenu();
+        navItems.forEach(function (i) { i.classList.remove('open'); });
+      }
+    });
+
+    /* -------------------------------- Mobile submenu accordion -------------------------------- */
     navItems.forEach(function (item) {
       var link = item.querySelector(':scope > .nav-link');
       var dropdown = item.querySelector(':scope > .dropdown') || item.querySelector(':scope > .mega-dropdown');
@@ -1187,9 +1145,60 @@ footer {
     document.querySelectorAll('.rv, .rl, .rr').forEach(function (el) { io.observe(el); });
   }
 
+  /* -------------------------------- Floating WhatsApp Chat Widget -------------------------------- */
+  function initWhatsAppWidget() {
+    if (document.getElementById('floating-wa-btn')) return;
+    
+    var waStyle = document.createElement('style');
+    waStyle.textContent = 
+      '#floating-wa-btn {' +
+      '  position: fixed; bottom: 24px; right: 24px; z-index: 998;' +
+      '  display: flex; align-items: center; gap: 8px;' +
+      '  background: #25d366; color: #ffffff;' +
+      '  padding: 10px 16px 10px 12px; border-radius: 50px;' +
+      '  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.4);' +
+      '  text-decoration: none; font-family: "Inter", system-ui, sans-serif;' +
+      '  font-size: 13px; font-weight: 700; letter-spacing: .02em;' +
+      '  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);' +
+      '}' +
+      '#floating-wa-btn:hover {' +
+      '  background: #20ba5a; transform: translateY(-3px) scale(1.03);' +
+      '  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.55); color: #ffffff;' +
+      '}' +
+      '#floating-wa-btn svg { width: 22px; height: 22px; fill: #ffffff; flex-shrink: 0; }' +
+      '#floating-wa-btn .wa-pulse {' +
+      '  position: absolute; top: 0; left: 0; width: 100%; height: 100%;' +
+      '  border-radius: 50px; border: 2px solid #25d366;' +
+      '  animation: waPulse 2s infinite; pointer-events: none; opacity: 0;' +
+      '}' +
+      '@keyframes waPulse {' +
+      '  0% { transform: scale(1); opacity: 0.8; }' +
+      '  100% { transform: scale(1.18); opacity: 0; }' +
+      '}' +
+      '@media(max-width: 640px) {' +
+      '  #floating-wa-btn { bottom: 18px; right: 16px; padding: 10px; border-radius: 50%; }' +
+      '  #floating-wa-btn .wa-txt { display: none; }' +
+      '}';
+    document.head.appendChild(waStyle);
+
+    var waLink = document.createElement('a');
+    waLink.id = 'floating-wa-btn';
+    waLink.href = 'https://wa.me/919900604365?text=Hello%20Kumara%20Engineering%20Solutions,%20I%20would%20like%20to%20inquire%20about%20your%20services.';
+    waLink.target = '_blank';
+    waLink.rel = 'noopener';
+    waLink.setAttribute('aria-label', 'Chat with Kumara Engineering Solutions on WhatsApp');
+    waLink.innerHTML = 
+      '<div class="wa-pulse"></div>' +
+      '<svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.57 4.185 1.564 5.938l-1.564 5.719 5.873-1.541c1.707.935 3.666 1.467 5.748 1.467 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>' +
+      '<span class="wa-txt">Chat with Us</span>';
+    
+    document.body.appendChild(waLink);
+  }
+
   setTimeout(function() {
     setActiveNav();
     initNav();
     initReveal();
+    initWhatsAppWidget();
   }, 0);
 })();

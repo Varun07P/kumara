@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -302,114 +302,161 @@ h2.sec-title-w em { color:var(--red); }
 .t-sep { color:var(--red); opacity:.5; font-size:7px; }
 @keyframes tickAnim { to{ transform:translateX(-50%); } }
 
-/* === ABOUT SECTION === */
-.about-sec { padding:52px 0; background:#fff; overflow:hidden; position:relative; }
-.about-sec::before {
-  content:''; position:absolute; inset:0;
-  background-image:linear-gradient(rgba(204,39,0,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(204,39,0,.02) 1px,transparent 1px);
-  background-size:80px 80px; pointer-events:none;
-}
+/* === ABOUT SECTION (HIGH-TECH CRAFTED DESIGN) === */
+.about-sec { padding:48px 0 42px; background:#fff; overflow:hidden; position:relative; }
 .about-inner { position:relative; z-index:2; }
-.about-intro { display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:end; margin-bottom:34px; }
-.about-intro-right { font-size:14px; line-height:1.72; color:var(--grey); font-weight:300; }
-.about-intro-right strong { color:var(--red); font-weight:600; }
 
+/* About Section Header */
+.about-intro {
+  display:grid; grid-template-columns:1.05fr 1fr; gap:36px;
+  align-items:center; margin-bottom:28px;
+}
+.about-badge-label {
+  display:inline-flex; align-items:center; gap:7px; margin-bottom:10px;
+}
+.about-badge-bar {
+  width:18px; height:2px; background:var(--red); border-radius:2px;
+}
+.about-badge-txt {
+  font-family:'Barlow Condensed',sans-serif; font-size:11.5px; font-weight:800;
+  color:var(--red); letter-spacing:.18em; text-transform:uppercase;
+}
+.about-main-title {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(26px, 2.7vw, 36px);
+  font-weight:800; color:var(--navy);
+  line-height:1.08; text-transform:uppercase;
+  letter-spacing:-.01em; margin:0;
+}
+.about-title-accent {
+  display:inline-block; color:#ff5722;
+  background:linear-gradient(180deg, #ff7a47 0%, #cc2700 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+}
+
+/* Glowing Optical Flare Beam Line (Light theme optimized) */
+.about-glow-beam {
+  position:relative; width:100%; max-width:340px; height:1.5px;
+  background:linear-gradient(90deg, transparent 0%, #ff5722 20%, #ffaa3b 50%, #ff5722 80%, transparent 100%);
+  margin:12px 0 14px; box-shadow:0 0 10px rgba(255,87,34,.5);
+}
+.about-glow-beam::before {
+  content:''; position:absolute; top:50%; left:18%; transform:translate(-50%, -50%);
+  width:14px; height:3.5px; background:var(--red); border-radius:50%;
+  filter:blur(.8px); box-shadow:0 0 8px #ff5722, 0 0 16px #ff9800;
+}
+
+.about-intro-right { display:flex; flex-direction:column; gap:12px; }
+.about-intro-p { font-size:13px; line-height:1.64; color:var(--grey); font-weight:300; margin:0; }
+.about-intro-p strong { color:var(--navy); font-weight:600; }
+.about-chips-row { display:flex; flex-wrap:wrap; gap:6px; margin-top:2px; }
+.ab-chip {
+  display:inline-flex; align-items:center; gap:5px;
+  background:rgba(204,39,0,.06); border:1px solid rgba(204,39,0,.22);
+  border-radius:100px; padding:3px 10px;
+  font-family:'Barlow Condensed',sans-serif; font-size:10.5px; font-weight:700;
+  color:var(--red); letter-spacing:.05em; text-transform:uppercase;
+}
+.ab-chip svg { width:11px; height:11px; stroke:currentColor; fill:none; stroke-width:2; }
+
+/* Grid Main Body */
 .about-grid {
   display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:3px;
   align-items:stretch; border-radius:12px; overflow:hidden; box-shadow:var(--s3);
 }
-.ag-left { background:var(--navy); padding:30px 32px; display:flex; flex-direction:column; min-height:100%; }
+.ag-left { background:var(--navy); padding:26px 28px; display:flex; flex-direction:column; min-height:100%; }
 .director-card {
-  display:flex; gap:16px; align-items:flex-start; padding-bottom:20px; margin-bottom:18px;
+  display:flex; gap:14px; align-items:flex-start; padding-bottom:16px; margin-bottom:14px;
   border-bottom:1px solid rgba(255,255,255,.07);
 }
 .director-avatar {
-  width:54px; height:54px; border-radius:8px; flex-shrink:0; overflow:hidden;
-  border:2px solid rgba(204,39,0,.35); background:linear-gradient(135deg,var(--navy3),var(--navy2));
-  display:grid; place-items:center;
+  width:48px; height:48px; border-radius:8px; flex-shrink:0; overflow:hidden;
+  border:1.5px solid rgba(255,87,34,.5); background:linear-gradient(135deg,var(--navy3),var(--navy2));
+  display:grid; place-items:center; box-shadow:0 4px 12px rgba(0,0,0,.4);
 }
-.director-avatar svg { width:26px; height:26px; fill:none; stroke:var(--red); stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
-.director-name { font-family:'Barlow Condensed',sans-serif; font-size:18px; font-weight:900; color:#fff; text-transform:uppercase; letter-spacing:.02em; margin-bottom:2px; }
-.director-title { font-size:10px; color:var(--red); font-weight:600; letter-spacing:.1em; text-transform:uppercase; margin-bottom:5px; }
-.director-bio { font-size:12px; line-height:1.56; color:rgba(255,255,255,.88); font-weight:300; }
+.director-avatar svg { width:22px; height:22px; fill:none; stroke:var(--red); stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; }
+.director-name { font-family:'Barlow Condensed',sans-serif; font-size:17px; font-weight:900; color:#fff; text-transform:uppercase; letter-spacing:.02em; margin-bottom:2px; }
+.director-title { font-size:10px; color:var(--red); font-weight:700; letter-spacing:.1em; text-transform:uppercase; margin-bottom:4px; }
+.director-bio { font-size:11.5px; line-height:1.52; color:rgba(255,255,255,.85); font-weight:300; }
 
-.cert-row { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:18px; }
+.cert-row { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:14px; }
 .cert-badge {
-  display:inline-flex; align-items:center; gap:6px;
+  display:inline-flex; align-items:center; gap:5px;
   background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.09);
-  border-radius:100px; padding:4px 9px;
-  font-family:'Barlow Condensed',sans-serif; font-size:10.5px; font-weight:700;
+  border-radius:100px; padding:3px 9px;
+  font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:700;
   color:rgba(255,255,255,.85); letter-spacing:.06em; text-transform:uppercase;
   cursor:default; transition:all .22s;
 }
-.cert-badge:hover { border-color:rgba(204,39,0,.5); color:var(--red); background:rgba(204,39,0,.07); }
-.cert-badge svg { width:12px; height:12px; fill:none; stroke:var(--red); stroke-width:2; flex-shrink:0; }
+.cert-badge:hover { border-color:rgba(255,87,34,.5); color:#ff7a47; background:rgba(255,87,34,.08); }
+.cert-badge svg { width:11px; height:11px; fill:none; stroke:var(--red); stroke-width:2; flex-shrink:0; }
 
-.ops-sec-title { font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,.65); letter-spacing:.18em; text-transform:uppercase; margin-bottom:10px; }
+.ops-sec-title { font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:800; color:rgba(255,255,255,.6); letter-spacing:.16em; text-transform:uppercase; margin-bottom:8px; }
 .ops-rows {
   display:flex; flex-direction:column; flex:1;
-  border:1px solid rgba(255,255,255,.07); border-radius:10px; overflow:hidden;
+  border:1px solid rgba(255,255,255,.07); border-radius:8px; overflow:hidden;
   background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.015));
 }
-.ops-row { display:flex; align-items:center; gap:12px; flex:1; padding:11px 14px; border-bottom:1px solid rgba(255,255,255,.06); }
+.ops-row { display:flex; align-items:center; gap:10px; flex:1; padding:9px 12px; border-bottom:1px solid rgba(255,255,255,.06); }
 .ops-row:last-child { border-bottom:none; }
 .ops-row-ico {
-  width:34px; height:34px; border-radius:6px;
-  background:rgba(204,39,0,.09); border:1px solid rgba(204,39,0,.2);
+  width:30px; height:30px; border-radius:6px;
+  background:rgba(204,39,0,.1); border:1px solid rgba(204,39,0,.22);
   display:grid; place-items:center; flex-shrink:0;
 }
-.ops-row-ico svg { width:16px; height:16px; fill:none; stroke:var(--red); stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; }
-.ops-row-label { font-size:9.5px; font-weight:700; color:rgba(255,255,255,.7); letter-spacing:.08em; text-transform:uppercase; margin-bottom:1px; }
-.ops-row-val { font-size:12px; font-weight:400; color:#fff; line-height:1.4; }
+.ops-row-ico svg { width:14px; height:14px; fill:none; stroke:var(--red); stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; }
+.ops-row-label { font-size:9px; font-weight:700; color:rgba(255,255,255,.65); letter-spacing:.08em; text-transform:uppercase; margin-bottom:1px; }
+.ops-row-val { font-size:11.5px; font-weight:400; color:#fff; line-height:1.35; }
 
-.ag-right { display:grid; grid-template-rows:280px auto; min-height:100%; }
+.ag-right { display:grid; grid-template-rows:260px auto; min-height:100%; }
 .ag-right-img { position:relative; overflow:hidden; min-height:0; }
-.ag-right-img img { width:100%; height:100%; object-fit:cover; display:block; }
-.ag-right-img::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,transparent 50%,rgba(7,16,30,.65) 100%); }
+.ag-right-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease; }
+.ag-right:hover .ag-right-img img { transform:scale(1.04); }
+.ag-right-img::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg,transparent 45%,rgba(7,16,30,.72) 100%); }
 .ag-img-caption {
-  position:absolute; bottom:14px; left:18px; right:18px; z-index:2;
-  font-family:'Barlow Condensed',sans-serif; font-size:12.5px; font-weight:600;
-  color:rgba(255,255,255,.9); letter-spacing:.06em; text-transform:uppercase;
+  position:absolute; bottom:12px; left:16px; right:16px; z-index:2;
+  font-family:'Barlow Condensed',sans-serif; font-size:12px; font-weight:700;
+  color:#ffffff; letter-spacing:.06em; text-transform:uppercase; text-shadow:0 1px 4px rgba(0,0,0,.8);
 }
 
 .ag-stats { display:grid; grid-template-columns:repeat(2,1fr); background:var(--off2); }
-.ag-stat { padding:16px 18px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); transition:background .25s; cursor:default; }
+.ag-stat { padding:14px 16px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); transition:background .25s; cursor:default; }
 .ag-stat:nth-child(2){ border-right:none; }
 .ag-stat:nth-child(3){ border-bottom:none; }
 .ag-stat:nth-child(4){ border-right:none; border-bottom:none; }
 .ag-stat:hover { background:#fff; }
-.ag-stat-val { font-family:'Barlow Condensed',sans-serif; font-size:32px; font-weight:900; color:var(--red); line-height:1; letter-spacing:-.03em; margin-bottom:4px; }
-.ag-stat-lbl { font-size:10px; font-weight:700; color:var(--grey2); letter-spacing:.09em; text-transform:uppercase; }
-.ag-stat-sub { font-size:11px; color:var(--grey); margin-top:2px; font-weight:300; }
+.ag-stat-val { font-family:'Barlow Condensed',sans-serif; font-size:28px; font-weight:900; color:var(--red); line-height:1; letter-spacing:-.03em; margin-bottom:3px; }
+.ag-stat-lbl { font-size:9.5px; font-weight:700; color:var(--grey2); letter-spacing:.09em; text-transform:uppercase; }
+.ag-stat-sub { font-size:10.5px; color:var(--grey); margin-top:1px; font-weight:300; }
 
 .expert-strip {
   margin-top:3px; border-radius:0 0 12px 12px; overflow:hidden;
   background:var(--off); border:1px solid var(--border); border-top:none;
   display:grid; grid-template-columns:repeat(5,1fr);
 }
-.exp-item { display:flex; align-items:center; gap:10px; padding:12px 16px; border-right:1px solid var(--border); transition:background .22s; cursor:default; }
+.exp-item { display:flex; align-items:center; gap:9px; padding:10px 14px; border-right:1px solid var(--border); transition:background .22s; cursor:default; }
 .exp-item:last-child { border-right:none; }
 .exp-item:hover { background:#fff; }
-.exp-ico { width:28px; height:28px; border-radius:5px; flex-shrink:0; background:rgba(204,39,0,.08); display:grid; place-items:center; }
-.exp-ico svg { width:14px; height:14px; fill:none; stroke:var(--red); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-.exp-lbl { font-size:11px; font-weight:600; color:var(--text); line-height:1.35; }
+.exp-ico { width:26px; height:26px; border-radius:5px; flex-shrink:0; background:rgba(204,39,0,.08); display:grid; place-items:center; }
+.exp-ico svg { width:13px; height:13px; fill:none; stroke:var(--red); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.exp-lbl { font-size:10.5px; font-weight:600; color:var(--text); line-height:1.35; }
 
 @media(max-width:1100px){
   .about-grid { grid-template-columns:1fr; }
-  .ag-left { padding:30px 24px; }
-  .ag-right { grid-template-rows:260px auto; }
+  .ag-left { padding:26px 20px; }
+  .ag-right { grid-template-rows:240px auto; }
 }
 @media(max-width:900px){
-  .about-intro { grid-template-columns:1fr; gap:18px; margin-bottom:32px; }
+  .about-intro { grid-template-columns:1fr; gap:16px; margin-bottom:24px; }
   .expert-strip { grid-template-columns:repeat(3,1fr); }
   .exp-item:nth-child(3n){ border-right:none; }
 }
 @media(max-width:600px){
   .about-sec { padding:32px 0; }
-  .ag-left { padding:22px 16px; }
-  .director-card { flex-direction:column; gap:12px; }
-  .ops-row { padding:12px 10px; }
-  .ag-right { grid-template-rows:200px auto; }
+  .ag-left { padding:18px 14px; }
+  .director-card { flex-direction:column; gap:10px; }
+  .ops-row { padding:10px 8px; }
+  .ag-right { grid-template-rows:180px auto; }
   .ag-stats { grid-template-columns:1fr; }
   .ag-stat { border-right:none; }
   .expert-strip { grid-template-columns:repeat(2,1fr); }
@@ -417,86 +464,450 @@ h2.sec-title-w em { color:var(--red); }
   .exp-item { border-bottom:1px solid var(--border); }
 }
 
-/* === WHAT WE DO === */
-.wwd-sec { background:#0c0d0f; position:relative; overflow:hidden; padding:56px 0; }
-@keyframes spinCw { from { transform:translate(-50%,-50%) rotate(0deg); } to { transform:translate(-50%,-50%) rotate(360deg); } }
-@keyframes spinCcw { from { transform:translate(-50%,-50%) rotate(360deg); } to { transform:translate(-50%,-50%) rotate(0deg); } }
-.wwd-circles { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none; }
-.wwd-circle  { position:absolute; border-radius:50%; transform:translate(-50%,-50%); top:50%; left:50%; }
-.wwd-c1 { width:420px; height:420px; border:1px solid rgba(204,39,0,.15); border-top:2px solid rgba(204,39,0,.6); animation:spinCw 24s linear infinite; }
-.wwd-c2 { width:740px; height:740px; border:1px solid rgba(204,39,0,.07); border-bottom:2px solid rgba(204,39,0,.4); animation:spinCcw 32s linear infinite; }
-.wwd-c3 { width:1060px; height:1060px; border:1px solid rgba(204,39,0,.035); border-left:2px solid rgba(204,39,0,.25); animation:spinCw 45s linear infinite; }
+/* === WHAT WE DO (PREMIUM HIGH-TECH INDUSTRIAL REDESIGN - CRAFTED COMPACT) === */
+.wwd-sec {
+  background: radial-gradient(circle at 85% 40%, rgba(204,39,0,0.08) 0%, rgba(6,14,26,0.98) 55%, #050a12 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 48px 0 44px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.wwd-bg-decor {
+  position: absolute; inset: 0; pointer-events: none; z-index: 1;
+}
+.wwd-bg-decor::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: 
+    linear-gradient(rgba(204,39,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(204,39,0,0.03) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.6;
+}
+.wwd-bg-decor::after {
+  content: ''; position: absolute; top: 15%; right: 10%; width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(255,87,34,0.12) 0%, transparent 70%);
+  filter: blur(45px);
+}
 
-.wwd-wrap {
-  position:relative; z-index:2;
-  display:flex; align-items:center; justify-content:center;
-  min-height:560px; max-width:1200px; margin:0 auto; padding:0 20px;
+.wwd-container {
+  display: grid;
+  grid-template-columns: 1.05fr 1.35fr;
+  gap: clamp(24px, 3.5vw, 44px);
+  align-items: stretch;
+  position: relative;
+  z-index: 2;
 }
-.wwd-center { text-align:center; max-width:460px; position:relative; z-index:10; }
-.wwd-sup {
-  display:inline-block; color:var(--red); font-family:'Barlow Condensed',sans-serif;
-  font-size:11px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
-  margin-bottom:14px; background:rgba(204,39,0,.08); border:1px solid rgba(204,39,0,.22);
-  padding:4px 12px; border-radius:100px;
-}
-.wwd-h2 {
-  font-family:'Barlow Condensed',sans-serif; font-size:clamp(26px,3vw,42px); font-weight:800;
-  color:#fff; line-height:1.2; margin:0 0 26px; letter-spacing:-.01em;
-}
-.wwd-h2 em { font-style:italic; color:var(--red); font-weight:700; }
-.wwd-btn {
-  display:inline-flex; align-items:center; gap:10px;
-  background:var(--red); color:#fff; padding:13px 30px; border-radius:3px;
-  font-family:'Barlow Condensed',sans-serif; font-size:14px; font-weight:800; letter-spacing:.08em; text-transform:uppercase;
-  transition:all .22s; cursor:pointer; box-shadow:0 6px 24px rgba(204,39,0,.28);
-}
-.wwd-btn:hover { background:var(--red2); transform:translateY(-2px); color:#fff; }
-.wwd-btn svg { width:14px; height:14px; fill:currentColor; transition:transform .2s; }
-.wwd-btn:hover svg { transform:translateX(3px); }
 
-.wwd-items { position:absolute; inset:0; pointer-events:none; }
-.wwd-item {
-  position:absolute; overflow:hidden; border-radius:10px;
-  background:#1a1a1c; box-shadow:0 12px 40px rgba(0,0,0,.6);
-  border:1px solid rgba(255,255,255,.07); pointer-events:auto; cursor:pointer;
-  transition:transform .25s var(--ease), box-shadow .25s, border-color .25s; z-index:5;
+/* Left Column */
+.wwd-left-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.wwd-item img { width:100%; height:100%; object-fit:cover; opacity:.72; transition:opacity .25s, transform .55s; }
-.wwd-item-info {
-  position:absolute; bottom:0; left:0; right:0;
-  background:linear-gradient(0deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.5) 55%,transparent 100%);
-  padding:36px 14px 14px;
-}
-.wwd-item-title {
-  font-family:'Barlow Condensed',sans-serif; font-size:13.5px; font-weight:800;
-  letter-spacing:.06em; text-transform:uppercase; color:#fff; line-height:1.1;
-  display:flex; align-items:center; gap:6px; margin-bottom:3px;
-}
-.wwd-item-title::before { content:''; display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--red); flex-shrink:0; }
-.wwd-item-desc {
-  font-size:10.5px; color:rgba(255,255,255,.85); line-height:1.45; font-weight:300;
-  display:-webkit-box; -webkit-line-clamp:2; line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
-}
-.wwd-item:hover { transform:scale(1.05) translateY(-5px) !important; box-shadow:0 22px 56px rgba(0,0,0,.65); border-color:rgba(204,39,0,.5); z-index:20; }
-.wwd-item:hover img { opacity:1; transform:scale(1.08); }
-.wwd-item:hover .wwd-item-title { color:var(--red); }
 
-@keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
-.wwd-1 { top:8%; left:1%; width:210px; height:148px; animation:floatY 6s ease-in-out infinite; }
-.wwd-2 { top:2%; right:4%; width:210px; height:148px; animation:floatY 7s ease-in-out infinite 1s; }
-.wwd-3 { bottom:8%; left:3%; width:210px; height:148px; animation:floatY 6.5s ease-in-out infinite .5s; }
-.wwd-4 { bottom:2%; right:1%; width:210px; height:148px; animation:floatY 8s ease-in-out infinite 1.5s; }
-
-@media(max-width:900px){
-  .wwd-sec { padding:36px 0; }
-  .wwd-circles { display:none; }
-  .wwd-wrap { flex-direction:column; gap:32px; min-height:auto; }
-  .wwd-center { padding:0; }
-  .wwd-items { position:relative; inset:auto; display:grid; grid-template-columns:repeat(2,1fr); gap:12px; width:100%; pointer-events:auto; }
-  .wwd-item { position:relative !important; top:auto !important; left:auto !important; right:auto !important; bottom:auto !important; width:100% !important; height:auto !important; aspect-ratio:4/3; animation:none !important; transform:none !important; }
-  .wwd-item:hover { transform:translateY(-4px) !important; }
+.wwd-badge-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 10px;
 }
-@media(max-width:480px){ .wwd-items { grid-template-columns:1fr; } }
+.wwd-badge-bar {
+  width: 18px;
+  height: 2px;
+  background: var(--red);
+  border-radius: 2px;
+}
+.wwd-badge-txt {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11.5px;
+  font-weight: 800;
+  color: var(--red);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.wwd-main-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(26px, 2.7vw, 36px);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.08;
+  text-transform: uppercase;
+  letter-spacing: -.01em;
+  margin: 0;
+}
+.wwd-title-accent {
+  display: inline-block;
+  color: #ff5722;
+  background: linear-gradient(180deg, #ff7a47 0%, #cc2700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glowing Optical Flare Beam Line */
+.wwd-glow-beam {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent 0%, #ff5722 20%, #ffaa3b 50%, #ff5722 80%, transparent 100%);
+  margin: 12px 0 14px;
+  box-shadow: 0 0 12px rgba(255, 87, 34, 0.6);
+}
+.wwd-glow-beam::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 18%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 4px;
+  background: #ffffff;
+  border-radius: 50%;
+  filter: blur(1px);
+  box-shadow: 0 0 10px #ff5722, 0 0 20px #ff9800;
+}
+
+.wwd-main-desc {
+  font-size: 13px;
+  line-height: 1.62;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 300;
+  margin: 0 0 16px;
+  max-width: 440px;
+}
+
+.wwd-cta-wrap {
+  margin-bottom: 16px;
+}
+
+.wwd-expert-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #091322;
+  border: 1px solid #ff5722;
+  border-radius: 4px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all .25s ease;
+  box-shadow: 0 4px 14px rgba(255,87,34,0.18);
+}
+.wwd-expert-btn .btn-txt {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  color: #ffffff;
+  padding: 8px 16px;
+  text-transform: uppercase;
+}
+.wwd-expert-btn .btn-arr-box {
+  background: #ff5722;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+  transition: background .2s, transform .2s;
+}
+.wwd-expert-btn .btn-arr-box svg {
+  width: 14px;
+  height: 14px;
+  stroke: #ffffff;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform .2s ease;
+}
+.wwd-expert-btn:hover {
+  background: #0e1d33;
+  border-color: #ff7a47;
+  box-shadow: 0 4px 20px rgba(255,87,34,0.4);
+  transform: translateY(-2px);
+}
+.wwd-expert-btn:hover .btn-arr-box {
+  background: #ff7a47;
+}
+.wwd-expert-btn:hover .btn-arr-box svg {
+  transform: translateX(2px);
+}
+
+/* 4 Value Pillars */
+.wwd-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.wwd-pillar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.wwd-pillar-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: rgba(255, 87, 34, 0.08);
+  border: 1px solid rgba(255, 87, 34, 0.3);
+  color: #ff5722;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all .2s;
+}
+.wwd-pillar-item:hover .wwd-pillar-icon {
+  background: #ff5722;
+  color: #fff;
+  border-color: #ff5722;
+}
+.wwd-pillar-icon svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.wwd-pillar-txt h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  margin: 0 0 2px;
+  line-height: 1.15;
+}
+.wwd-pillar-txt p {
+  font-size: 8.5px;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+  font-weight: 300;
+}
+
+/* Left Bottom Blueprint CAD Card */
+.wwd-blueprint-box {
+  margin-top: 14px;
+  background: #08111f;
+  border: 1px solid rgba(255, 87, 34, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+.wwd-bp-img-wrap {
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  background: #040810;
+}
+.wwd-bp-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.1) brightness(0.92);
+  transition: transform .6s ease;
+}
+.wwd-blueprint-box:hover .wwd-bp-img-wrap img {
+  transform: scale(1.06);
+}
+.wwd-bp-img-ov {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 65%, #08111f 100%), linear-gradient(180deg, transparent 75%, #08111f 100%);
+}
+.wwd-bp-content {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.wwd-bp-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10.5px;
+  font-weight: 800;
+  color: #ff5722;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  line-height: 1.22;
+  margin-bottom: 3px;
+}
+.wwd-bp-sub {
+  font-size: 9.5px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 300;
+  margin-bottom: 6px;
+}
+.wwd-bp-certs {
+  display: flex;
+  gap: 5px;
+}
+.bp-badge {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 8.5px;
+  font-weight: 800;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5px 5px;
+  border-radius: 3px;
+  letter-spacing: .05em;
+}
+
+/* Right 2x2 Grid */
+.wwd-right-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.wwd-feature-card {
+  background: #091322;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all .32s var(--ease);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+.wwd-feature-card:hover {
+  border-color: rgba(255, 87, 34, 0.55);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55), 0 0 20px rgba(255, 87, 34, 0.16);
+}
+
+.wfc-media {
+  height: 118px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #050a12;
+}
+.wfc-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(.85) contrast(1.05);
+  transition: transform .6s ease, filter .35s;
+}
+.wwd-feature-card:hover .wfc-media img {
+  transform: scale(1.08);
+  filter: brightness(1);
+}
+.wfc-media-ov {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8,16,29,0.05) 0%, rgba(9,19,34,0.95) 100%);
+}
+
+.wfc-body {
+  padding: 0 14px 14px;
+  position: relative;
+  z-index: 2;
+  margin-top: -18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wfc-hex-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 7px;
+  background: #091322;
+  border: 1.5px solid #ff5722;
+  color: #ff5722;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5), inset 0 0 8px rgba(255,87,34,0.12);
+  transition: all .28s ease;
+}
+.wwd-feature-card:hover .wfc-hex-icon {
+  background: #ff5722;
+  color: #ffffff;
+  transform: rotate(4deg) scale(1.05);
+  box-shadow: 0 4px 16px rgba(255,87,34,0.45);
+}
+.wfc-hex-icon svg {
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.wfc-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  margin: 0 0 4px;
+  line-height: 1.15;
+  transition: color .2s;
+}
+.wwd-feature-card:hover .wfc-title {
+  color: #ff7a47;
+}
+
+.wfc-desc {
+  font-size: 10.8px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.68);
+  margin: 0;
+  font-weight: 300;
+}
+
+/* Responsive */
+@media(max-width: 1024px) {
+  .wwd-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .wwd-pillars-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media(max-width: 768px) {
+  .wwd-sec { padding: 38px 0; }
+  .wwd-pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .wwd-blueprint-box {
+    grid-template-columns: 1fr;
+  }
+  .wwd-bp-img-wrap {
+    height: 120px;
+  }
+}
+@media(max-width: 540px) {
+  .wwd-right-grid {
+    grid-template-columns: 1fr;
+  }
+  .wwd-pillars-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
 /* === 3-DIVISION SECTION (COMPACT & CRAFTED) === */
 .div3-sec { padding:30px 0 14px; background:#fff; position:relative; overflow:hidden; }
@@ -528,7 +939,31 @@ h2.sec-title-w em { color:var(--red); }
   z-index:1;
 }
 .div3-card-content { position:relative; z-index:2; padding:18px 20px 16px; }
-.div3-num { font-family:'Barlow Condensed',sans-serif; font-size:46px; font-weight:900; color:rgba(204,39,0,.16); line-height:.85; letter-spacing:-.04em; margin-bottom:4px; }
+.div3-num {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:38px;
+  font-weight:900;
+  color:#ffffff;
+  line-height:1;
+  letter-spacing:-.02em;
+  margin-bottom:6px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-shadow:0 2px 8px rgba(0,0,0,.6);
+  transition:all .3s ease;
+}
+.div3-num::after {
+  content:'';
+  width:20px;
+  height:2.5px;
+  background:var(--red);
+  border-radius:2px;
+}
+.div3-card:hover .div3-num {
+  color:var(--red);
+  transform:translateX(2px);
+}
 .div3-badge { display:inline-flex; align-items:center; gap:6px; background:rgba(204,39,0,.14); border:1px solid rgba(204,39,0,.3); padding:3px 10px; border-radius:100px; margin-bottom:8px; }
 .div3-badge span { font-family:'Barlow Condensed',sans-serif; font-size:9.5px; font-weight:700; color:var(--red); letter-spacing:.1em; text-transform:uppercase; }
 .div3-title { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:900; color:#fff; text-transform:uppercase; letter-spacing:.01em; line-height:1.1; margin-bottom:6px; }
@@ -909,15 +1344,17 @@ h2.sec-title-w em { color:var(--red); }
 .clients-track { display:flex; width:max-content; gap:12px; animation:scrollLeft 44s linear infinite; }
 .clients-track:hover { animation-play-state:paused; }
 .cli-card {
-  width:160px; flex-shrink:0; background:#fff;
+  width:160px; height:74px; flex-shrink:0; background:#fff;
   border:1px solid var(--border); border-radius:8px;
-  padding:22px 10px; text-align:center; transition:all .25s; cursor:pointer; box-shadow:var(--s1);
+  padding:10px 14px; display:flex; align-items:center; justify-content:center;
+  transition:all .25s; cursor:pointer; box-shadow:var(--s1);
 }
 .cli-card:hover { border-color:var(--red); transform:translateY(-3px); box-shadow:var(--s2); }
-.cli-ico { font-size:20px; margin-bottom:10px; color:var(--red); }
-.cli-ico svg { width:22px; height:22px; fill:none; stroke:currentColor; stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; margin:0 auto; }
-.cli-n { font-size:11px; font-weight:700; color:var(--grey); line-height:1.35; transition:color .2s; text-transform:uppercase; letter-spacing:.04em; }
-.cli-card:hover .cli-n { color:var(--navy); }
+.cli-card img {
+  max-height:44px; max-width:125px; width:auto; height:auto; object-fit:contain;
+  opacity:1; transition:transform .3s;
+}
+.cli-card:hover img { transform:scale(1.08); }
 @keyframes scrollLeft { 0%{transform:translateX(0)} 100%{transform:translateX(calc(-50% - 6px))} }
 
 /* === CTA BAND === */
@@ -947,15 +1384,15 @@ h2.sec-title-w em { color:var(--red); }
 <section class="hero" id="home">
   <div class="hc-track" id="hcTrack">
 
-    <!-- SLIDE 1 — CONSULTANCY (Vertical 01) -->
+    <!-- SLIDE 1 — CONSULTANCY (Service 01) -->
     <div class="hc-slide active">
       <div class="h-bg"><img src="images/gallery/hero.png" alt="Engineering Consultancy"/></div>
       <div class="h-ov1"></div><div class="h-ov2"></div><div class="h-ov3"></div>
       <div class="hero-content"><div class="W" style="width:100%"><div class="hero-text">
-        <div class="h-badge"><div class="hb-dot"></div><span>Vertical 01 &mdash; Engineering Consultancy</span></div>
+        <div class="h-badge"><div class="hb-dot"></div><span>Service 01 &mdash; Engineering Consultancy</span></div>
         <h1 class="h-h1"><span class="h1-line1">Smarter Engineering.</span><span class="h1-line2">Stronger Systems.</span></h1>
-        <div class="h-sub">MEPF Design · Estimation · Project Management</div>
-        <p class="h-body">Practical electrical consultancy for safe, efficient and future-ready infrastructure—from initial design and estimation through commissioning.</p>
+        <div class="h-sub">MEPF Design · SLDs &amp; BOQs · CEIG Approvals · Project Management</div>
+        <p class="h-body">Govt. Licensed Class I electrical engineers providing electrical layouts, SLDs, CEIG power sanctions, tender estimation and project supervision across Karnataka.</p>
         <div class="h-btns">
           <a href="engineeringcounsultancy.html" class="h-btn-red">Explore Consultancy <span class="arr">&rarr;</span></a>
           <a href="contactus.html" class="h-btn-ghost">Get a Quote</a>
@@ -963,15 +1400,15 @@ h2.sec-title-w em { color:var(--red); }
       </div></div></div>
     </div>
 
-    <!-- SLIDE 2 — WORKS CONTRACT (Vertical 02) -->
+    <!-- SLIDE 2 — WORKS CONTRACT (Service 02) -->
     <div class="hc-slide">
       <div class="h-bg"><img loading="lazy" src="images/gallery/testing.png" alt="Works Contract"/></div>
       <div class="h-ov1"></div><div class="h-ov2"></div><div class="h-ov3"></div>
       <div class="hero-content"><div class="W" style="width:100%"><div class="hero-text">
-        <div class="h-badge"><div class="hb-dot"></div><span>Vertical 02 &mdash; Works Contract</span></div>
+        <div class="h-badge"><div class="hb-dot"></div><span>Service 02 &mdash; Works Contract</span></div>
         <h2 class="h-h1"><span class="h1-line1">Built Right.</span><span class="h1-line2">Delivered Safely.</span></h2>
-        <div class="h-sub">HT/LT Installation · Substation Erection · AMC</div>
-        <p class="h-body">End-to-end electrical execution—from HT/LT installations and substations to testing, approvals and dependable annual maintenance.</p>
+        <div class="h-sub">HT/LT Installations · 11kV/33kV Substations · HVAC &middot; 24/7 AMC</div>
+        <p class="h-body">Turnkey electrical contracting, HT &amp; LT distribution, statutory CEIG approvals, HVAC, fire safety, and dependable annual maintenance contracts.</p>
         <div class="h-btns">
           <a href="workscontract.html" class="h-btn-red">View Works Contract <span class="arr">&rarr;</span></a>
           <a href="process.html" class="h-btn-ghost">Our Process</a>
@@ -979,15 +1416,15 @@ h2.sec-title-w em { color:var(--red); }
       </div></div></div>
     </div>
 
-    <!-- SLIDE 3 — MANUFACTURING (Vertical 03) -->
+    <!-- SLIDE 3 — MANUFACTURING (Service 03) -->
     <div class="hc-slide">
       <div class="h-bg"><img loading="lazy" src="images/gallery/panel1.png" alt="Panel Manufacturing"/></div>
       <div class="h-ov1"></div><div class="h-ov2"></div><div class="h-ov3"></div>
       <div class="hero-content"><div class="W" style="width:100%"><div class="hero-text">
-        <div class="h-badge"><div class="hb-dot"></div><span>Vertical 03 &mdash; Panel Manufacturing</span></div>
+        <div class="h-badge"><div class="hb-dot"></div><span>Service 03 &mdash; Panel Manufacturing &amp; Supply</span></div>
         <h2 class="h-h1"><span class="h1-line1">Engineered Panels.</span><span class="h1-line2">Proven Performance.</span></h2>
-        <div class="h-sub">MV Panels · LT Panels · PLC · APFC · Bus Ducts</div>
-        <p class="h-body">Reliable MV and LT panels, automation systems and bus ducts manufactured for consistent performance and long-term operational confidence.</p>
+        <div class="h-sub">Cables &amp; Wires · HT &amp; LT Panels · Bus Ducts · Cable Trays · DBs</div>
+        <p class="h-body">High-grade HT &amp; LT panel boards, power cables &amp; wires, sandwich bus ducts, cable trays and distribution boards engineered for industrial and commercial reliability.</p>
         <div class="h-btns">
           <a href="manufacturing.html" class="h-btn-red">View Manufacturing <span class="arr">&rarr;</span></a>
           <a href="products.html" class="h-btn-ghost">Our Products</a>
@@ -1038,7 +1475,7 @@ h2.sec-title-w em { color:var(--red); }
     <div class="hs-item">
       <div class="hs-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
       <div>
-        <div class="hs-n">24<span>+</span></div>
+        <div class="hs-n">25<span>+</span></div>
         <div class="hs-l">Years Exp.</div>
       </div>
     </div>
@@ -1054,24 +1491,21 @@ h2.sec-title-w em { color:var(--red); }
 
 <!-- === TICKER === -->
 <div class="ticker"><div class="t-track">
-  <span class="t-item">Power Distribution<span class="t-sep">&bull;</span></span>
-  <span class="t-item">Control Systems<span class="t-sep">&bull;</span></span>
-  <span class="t-item">Panel Manufacturing<span class="t-sep">&bull;</span></span>
-  <span class="t-item">Turnkey Solutions<span class="t-sep">&bull;</span></span>
-  <span class="t-item">HT/LT Installations<span class="t-sep">&bull;</span></span>
-  <span class="t-item">Bus Duct Systems<span class="t-sep">&bull;</span></span>
-  <span class="t-item">CPRI Certified<span class="t-sep">&bull;</span></span>
-  <span class="t-item">ISO 9001:2015<span class="t-sep">&bull;</span></span>
-  <span class="t-item">IEC 61439 Compliant<span class="t-sep">&bull;</span></span>
-  <span class="t-item">Power Distribution<span class="t-sep">&bull;</span></span>
-  <span class="t-item">Control Systems<span class="t-sep">&bull;</span></span>
-  <span class="t-item">Panel Manufacturing<span class="t-sep">&bull;</span></span>
-  <span class="t-item">Turnkey Solutions<span class="t-sep">&bull;</span></span>
-  <span class="t-item">HT/LT Installations<span class="t-sep">&bull;</span></span>
-  <span class="t-item">Bus Duct Systems<span class="t-sep">&bull;</span></span>
-  <span class="t-item">CPRI Certified<span class="t-sep">&bull;</span></span>
-  <span class="t-item">ISO 9001:2015<span class="t-sep">&bull;</span></span>
-  <span class="t-item">IEC 61439 Compliant<span class="t-sep">&bull;</span></span>
+  <span class="t-item">Govt. Licensed Class I Electrical Contractors<span class="t-sep">&bull;</span></span>
+  <span class="t-item">HT/LT Panel Manufacturing<span class="t-sep">&bull;</span></span>
+  <span class="t-item">MEPF Engineering Consultancy<span class="t-sep">&bull;</span></span>
+  <span class="t-item">11kV/33kV Substation Installations<span class="t-sep">&bull;</span></span>
+  <span class="t-item">HVAC &amp; Fire Safety Systems<span class="t-sep">&bull;</span></span>
+  <span class="t-item">Statutory CEIG Approvals<span class="t-sep">&bull;</span></span>
+  <span class="t-item">24/7 AMC &amp; Facility Maintenance<span class="t-sep">&bull;</span></span>
+  <span class="t-item">IEC 61439 Type-Tested<span class="t-sep">&bull;</span></span>
+  <span class="t-item">Class I Licensed Electrical Contractor<span class="t-sep">&bull;</span></span>
+  <span class="t-item">Govt. Licensed Class I Electrical Contractors<span class="t-sep">&bull;</span></span>
+  <span class="t-item">HT/LT Panel Manufacturing<span class="t-sep">&bull;</span></span>
+  <span class="t-item">MEPF Engineering Consultancy<span class="t-sep">&bull;</span></span>
+  <span class="t-item">11kV/33kV Substation Installations<span class="t-sep">&bull;</span></span>
+  <span class="t-item">HVAC &amp; Fire Safety Systems<span class="t-sep">&bull;</span></span>
+  <span class="t-item">Statutory CEIG Approvals<span class="t-sep">&bull;</span></span>
 </div></div>
 
 <!-- === ABOUT === -->
@@ -1080,13 +1514,23 @@ h2.sec-title-w em { color:var(--red); }
 
     <div class="about-intro">
       <div class="rl">
-        <div class="sec-label"><div class="sl-bar"></div><span class="sl-txt">About KES</span></div>
-        <h2 class="sec-title">The True Leader in<br><em>Power Distribution</em></h2>
+        <div class="about-badge-label">
+          <span class="about-badge-bar"></span>
+          <span class="about-badge-txt">ABOUT KES</span>
+        </div>
+        <h2 class="about-main-title">Govt. Licensed Class I<br><span class="about-title-accent">Electrical Engineers &amp; Contractors</span></h2>
+        <!-- Glowing Optical Flare Beam Line -->
+        <div class="about-glow-beam"></div>
       </div>
-      <div class="rr d1">
-        <p class="about-intro-right">
-          <strong>Kumara Engineering Solutions Private Limited</strong> was formally incepted in 2025, inheriting the operational legacy of Sunrise Enterprises, established in 2011. Managed by <strong>Mr. Kumaraswamy B.R.</strong>, a professionally qualified Electrical Engineer with 24+ years of vast experience in Electrical Engineering and allied fields, operating from our 5,000 Sq. ft. state-of-the-art CNC manufacturing facility in Bengaluru.
+      <div class="about-intro-right rr d1">
+        <p class="about-intro-p">
+          <strong>Kumara Engineering Solutions Private Limited</strong> was established in 2025 as a private limited entity, continuing the 2011 operational foundation of Sunrise Enterprises. Managed by <strong>Mr. Kumaraswamy B.R.</strong>, a professionally qualified Electrical Engineer with 25+ years of extensive industry experience, delivering turnkey electrical installations, switchboard manufacturing, consultancy, and statutory CEIG liaisoning across Karnataka.
         </p>
+        <div class="about-chips-row">
+          <span class="ab-chip"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Class I Licensed</span>
+          <span class="ab-chip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 25+ Yrs Mastery</span>
+          <span class="ab-chip"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3"/></svg> Turnkey &amp; CEIG Specialist</span>
+        </div>
       </div>
     </div>
 
@@ -1099,15 +1543,15 @@ h2.sec-title-w em { color:var(--red); }
           <div class="director-info">
             <div class="director-name">Mr. Kumaraswamy B.R.</div>
             <div class="director-title">Managing Director &amp; Chief Engineer</div>
-            <div class="director-bio">Professionally qualified Electrical Engineer with 24+ years of hands-on experience in power distribution, panel manufacturing and turnkey project delivery across Karnataka.</div>
+            <div class="director-bio">B.E. Electrical &amp; Electronics &middot; 25+ years experience in electrical layouts, project estimation, turnkey execution, switchboard fabrication, and statutory power sanctions across Karnataka.</div>
           </div>
         </div>
 
         <div class="cert-row">
-          <span class="cert-badge"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>ABB ArTuk Partner</span>
-          <span class="cert-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>CPRI Certified (100kA)</span>
+          <span class="cert-badge"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Class I Licensed</span>
+          <span class="cert-badge"><svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>CEIG Approved</span>
           <span class="cert-badge"><svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>IEC 61439</span>
-          <span class="cert-badge"><svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>IS:8623</span>
+          <span class="cert-badge"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>IS:8623 Compliant</span>
         </div>
 
         <div class="ops-sec-title">Operational Details</div>
@@ -1118,15 +1562,15 @@ h2.sec-title-w em { color:var(--red); }
           </div>
           <div class="ops-row">
             <div class="ops-row-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
-            <div><div class="ops-row-label">Service Area</div><div class="ops-row-val">Pan-Karnataka coverage &amp; beyond</div></div>
+            <div><div class="ops-row-label">Service Area</div><div class="ops-row-val">Pan-Karnataka coverage &amp; South India</div></div>
           </div>
           <div class="ops-row">
             <div class="ops-row-ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
-            <div><div class="ops-row-label">Team Strength</div><div class="ops-row-val">25 permanent staff + 15+ trained technicians</div></div>
+            <div><div class="ops-row-label">Team Strength</div><div class="ops-row-val">Dedicated Onsite &amp; Offsite Engineering Workforce</div></div>
           </div>
           <div class="ops-row">
             <div class="ops-row-ico"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
-            <div><div class="ops-row-label">Established</div><div class="ops-row-val">KES Pvt. Ltd. 2023 · Legacy since 2011</div></div>
+            <div><div class="ops-row-label">Established</div><div class="ops-row-val">KES Pvt. Ltd. 2025 · Sunrise Enterprises Legacy since 2011</div></div>
           </div>
         </div>
       </div>
@@ -1134,13 +1578,13 @@ h2.sec-title-w em { color:var(--red); }
       <div class="ag-right">
         <div class="ag-right-img">
           <img loading="lazy" src="images/gallery/factory.png" alt="KES Manufacturing Facility"/>
-          <div class="ag-img-caption">State-of-the-Art 5,000 Sq. ft. Manufacturing Facility, Bengaluru</div>
+          <div class="ag-img-caption">State-of-the-Art CNC Manufacturing Facility, Bengaluru</div>
         </div>
         <div class="ag-stats">
-          <div class="ag-stat"><div class="ag-stat-val">24+</div><div class="ag-stat-lbl">Years Experience</div><div class="ag-stat-sub">Engineering since 2011</div></div>
-          <div class="ag-stat"><div class="ag-stat-val">25+</div><div class="ag-stat-lbl">Team Members</div><div class="ag-stat-sub">Permanent &amp; skilled staff</div></div>
+          <div class="ag-stat"><div class="ag-stat-val">25+</div><div class="ag-stat-lbl">Years Experience</div><div class="ag-stat-sub">Electrical Engineering</div></div>
+          <div class="ag-stat"><div class="ag-stat-val">Class I</div><div class="ag-stat-lbl">Govt. Licensed</div><div class="ag-stat-sub">Contractor &amp; Engineer</div></div>
           <div class="ag-stat"><div class="ag-stat-val">20+</div><div class="ag-stat-lbl">Products</div><div class="ag-stat-sub">IEC &amp; IS certified range</div></div>
-          <div class="ag-stat"><div class="ag-stat-val">18+</div><div class="ag-stat-lbl">Major Clients</div><div class="ag-stat-sub">Across Karnataka industries</div></div>
+          <div class="ag-stat"><div class="ag-stat-val">35+</div><div class="ag-stat-lbl">Major Clients</div><div class="ag-stat-sub">Across Karnataka industries</div></div>
         </div>
       </div>
     </div>
@@ -1156,37 +1600,171 @@ h2.sec-title-w em { color:var(--red); }
   </div>
 </section>
 
-<!-- === WHAT WE DO === -->
+<!-- === WHAT WE DO (REDESIGNED INDUSTRIAL SPEC) === -->
 <section class="wwd-sec" id="expertise">
-  <div class="wwd-circles">
-    <div class="wwd-circle wwd-c1"></div>
-    <div class="wwd-circle wwd-c2"></div>
-    <div class="wwd-circle wwd-c3"></div>
-  </div>
-  <div class="wwd-wrap rv">
-    <div class="wwd-center rv d1">
-      <span class="wwd-sup">What We Do</span>
-      <h2 class="wwd-h2">Engineering Excellence that <em>Powers Your Vision</em></h2>
-      <a href="contactus.html" class="wwd-btn">Consult Our Experts <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></a>
+  <div class="wwd-bg-decor"></div>
+  
+  <div class="W wwd-container">
+    
+    <!-- Left Column: Heading, Value Story, CTA, 4 Pillars & Blueprint Card -->
+    <div class="wwd-left-col rv">
+      <div class="wwd-badge-label">
+        <span class="wwd-badge-bar"></span>
+        <span class="wwd-badge-txt">WHAT WE DO</span>
+      </div>
+
+      <h2 class="wwd-main-title">
+        Engineering Excellence that<br>
+        <span class="wwd-title-accent">Powers Your Vision</span>
+      </h2>
+
+      <!-- Glowing Optical Flare Beam Line -->
+      <div class="wwd-glow-beam"></div>
+
+      <p class="wwd-main-desc">
+        We design and deliver intelligent electrical systems that are dependable, high-performing, and built to meet the toughest industrial demands &mdash; with safety at the core and scalability in every build.
+      </p>
+
+      <div class="wwd-cta-wrap">
+        <a href="contactus.html" class="wwd-expert-btn">
+          <span class="btn-txt">CONSULT OUR EXPERTS</span>
+          <span class="btn-arr-box">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </div>
+
+      <!-- 4 Value Proposition Pillars -->
+      <div class="wwd-pillars-grid">
+        <!-- Pillar 1 -->
+        <div class="wwd-pillar-item">
+          <div class="wwd-pillar-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
+          </div>
+          <div class="wwd-pillar-txt">
+            <h4>SAFETY FIRST</h4>
+            <p>Built to protect people, assets &amp; operations.</p>
+          </div>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="wwd-pillar-item">
+          <div class="wwd-pillar-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <div class="wwd-pillar-txt">
+            <h4>ENGINEERED RELIABILITY</h4>
+            <p>Systems you can count on, every time.</p>
+          </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="wwd-pillar-item">
+          <div class="wwd-pillar-icon">
+            <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/><line x1="1" y1="21" x2="23" y2="21"/></svg>
+          </div>
+          <div class="wwd-pillar-txt">
+            <h4>BUILT TO SCALE</h4>
+            <p>Flexible solutions for today and tomorrow.</p>
+          </div>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="wwd-pillar-item">
+          <div class="wwd-pillar-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <div class="wwd-pillar-txt">
+            <h4>LIFETIME SUPPORT</h4>
+            <p>Expert service that goes the distance.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Blueprint CAD Card -->
+      <div class="wwd-blueprint-box">
+        <div class="wwd-bp-img-wrap">
+          <img loading="lazy" src="images/gallery/wwd_blueprint.jpg" alt="Industrial Electrical CAD Schematic Blueprint">
+          <div class="wwd-bp-img-ov"></div>
+        </div>
+        <div class="wwd-bp-content">
+          <div class="wwd-bp-tag">BUILT ON STANDARDS,<br>DRIVEN BY INNOVATION.</div>
+          <div class="wwd-bp-sub">Compliant &middot; Certified &middot; Connected</div>
+          <div class="wwd-bp-certs">
+            <span class="bp-badge">IEC</span>
+            <span class="bp-badge">CEIG</span>
+            <span class="bp-badge">IS</span>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <div class="wwd-items">
-      <a class="wwd-item wwd-1" href="products.html">
-        <img loading="lazy" src="images/gallery/panel2.png" alt="Power Distribution">
-        <div class="wwd-item-info"><div class="wwd-item-title">Power Distribution</div><div class="wwd-item-desc">Custom LT, MCC, PCC panels &amp; HT/LT substations &mdash; IEC 61439 certified.</div></div>
+
+    <!-- Right Column: 2x2 Feature Cards Grid -->
+    <div class="wwd-right-grid">
+      
+      <!-- Card 1: Power Distribution -->
+      <a href="products.html" class="wwd-feature-card rv d1">
+        <div class="wfc-media">
+          <img loading="lazy" src="images/gallery/panel2.png" alt="Power Distribution">
+          <div class="wfc-media-ov"></div>
+        </div>
+        <div class="wfc-body">
+          <div class="wfc-hex-icon" title="Power Distribution">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polygon points="13 6 8 14 12 14 11 18 16 10 12 10 13 6"/></svg>
+          </div>
+          <h3 class="wfc-title">POWER DISTRIBUTION</h3>
+          <p class="wfc-desc">Custom LT, MCC, PCC panels &amp; HT/LT substations &mdash; IEC 61439 certified.</p>
+        </div>
       </a>
-      <a class="wwd-item wwd-2" href="products.html">
-        <img loading="lazy" src="images/gallery/panel3.png" alt="Control Automation">
-        <div class="wwd-item-info"><div class="wwd-item-title">Control &amp; Automation</div><div class="wwd-item-desc">PLC, VFD, APFC, HVAC &mdash; intelligent control for every industrial application.</div></div>
+
+      <!-- Card 2: Control & Automation -->
+      <a href="products.html" class="wwd-feature-card rv d2">
+        <div class="wfc-media">
+          <img loading="lazy" src="images/gallery/panel3.png" alt="Control & Automation">
+          <div class="wfc-media-ov"></div>
+        </div>
+        <div class="wfc-body">
+          <div class="wfc-hex-icon" title="Control & Automation">
+            <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+          </div>
+          <h3 class="wfc-title">CONTROL &amp; AUTOMATION</h3>
+          <p class="wfc-desc">PLC, VFD, APFC, HVAC and intelligent control systems for industrial applications.</p>
+        </div>
       </a>
-      <a class="wwd-item wwd-3" href="services.html">
-        <img loading="lazy" src="images/gallery/testing.png" alt="Turnkey Projects">
-        <div class="wwd-item-info"><div class="wwd-item-title">Turnkey Projects</div><div class="wwd-item-desc">End-to-end delivery &mdash; Design, Supply, Erection, Testing, Commissioning &amp; O&amp;M.</div></div>
+
+      <!-- Card 3: Turnkey Projects -->
+      <a href="workscontract.html" class="wwd-feature-card rv d3">
+        <div class="wfc-media">
+          <img loading="lazy" src="images/gallery/testing.png" alt="Turnkey Projects">
+          <div class="wfc-media-ov"></div>
+        </div>
+        <div class="wfc-body">
+          <div class="wfc-hex-icon" title="Turnkey Projects">
+            <svg viewBox="0 0 24 24"><path d="M2 18h20"/><path d="M4 18v-4a8 8 0 1 1 16 0v4"/><line x1="12" y1="4" x2="12" y2="2"/><line x1="8" y1="18" x2="8" y2="14"/><line x1="16" y1="18" x2="16" y2="14"/></svg>
+          </div>
+          <h3 class="wfc-title">TURNKEY PROJECTS</h3>
+          <p class="wfc-desc">End-to-end execution covering design, supply, erection, testing and commissioning.</p>
+        </div>
       </a>
-      <a class="wwd-item wwd-4" href="products.html#busduct">
-        <img loading="lazy" src="images/gallery/busduct.png" alt="Bus Ducts">
-        <div class="wwd-item-info"><div class="wwd-item-title">Bus Ducts &amp; Rising Mains</div><div class="wwd-item-desc">Robust power transmission for high-current industrial applications.</div></div>
+
+      <!-- Card 4: Bus Ducts & Rising Mains -->
+      <a href="products.html#busduct" class="wwd-feature-card rv d4">
+        <div class="wfc-media">
+          <img loading="lazy" src="images/gallery/busduct.png" alt="Bus Ducts & Rising Mains">
+          <div class="wfc-media-ov"></div>
+        </div>
+        <div class="wfc-body">
+          <div class="wfc-hex-icon" title="Bus Ducts & Rising Mains">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="10" rx="2"/><line x1="6" y1="7" x2="6" y2="17"/><line x1="12" y1="7" x2="12" y2="17"/><line x1="18" y1="7" x2="18" y2="17"/><circle cx="12" cy="12" r="1.5"/></svg>
+          </div>
+          <h3 class="wfc-title">BUS DUCTS &amp; RISING MAINS</h3>
+          <p class="wfc-desc">Robust power transmission systems built for high-current industrial environments.</p>
+        </div>
       </a>
+
     </div>
+
   </div>
 </section>
 
@@ -1200,21 +1778,20 @@ h2.sec-title-w em { color:var(--red); }
     </div>
     <div class="div3-grid">
 
-      <a href="manufacturing.html" class="div3-card rv">
-        <div class="div3-card-bg"><img loading="lazy" src="images/gallery/panel1.png" alt="Manufacturing"/></div>
+      <a href="engineeringcounsultancy.html" class="div3-card rv">
+        <div class="div3-card-bg"><img loading="lazy" src="images/gallery/hero.png" alt="Consultancy"/></div>
         <div class="div3-card-content">
           <div class="div3-num">01</div>
-          <div class="div3-badge"><span>Manufacturing</span></div>
-          <div class="div3-title">Panel Manufacturing &amp; Products</div>
-          <div class="div3-desc">25+ precision-engineered products &mdash; LT/MV panels, MCC, PCC, bus ducts, cable trays. ISO 9001 &amp; CPRI certified, rated up to 6300A.</div>
+          <div class="div3-badge"><span>Consultancy</span></div>
+          <div class="div3-title">Engineering &amp; MEPF Design</div>
+          <div class="div3-desc">Full MEPF integration &mdash; Electrical, HVAC, Plumbing, Fire Safety and Structured Cabling design services for complex infrastructure projects.</div>
           <div class="div3-tags">
-            <span class="div3-tag">LT Panels</span>
-            <span class="div3-tag">MCC/PCC</span>
-            <span class="div3-tag">Bus Duct</span>
-            <span class="div3-tag">APFC</span>
-            <span class="div3-tag">PLC</span>
+            <span class="div3-tag">Electrical</span>
+            <span class="div3-tag">HVAC</span>
+            <span class="div3-tag">Fire Safety</span>
+            <span class="div3-tag">MEPF</span>
           </div>
-          <div class="div3-link">Explore Manufacturing Excellence <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div>
+          <div class="div3-link">Expert MEPF Solutions <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div>
         </div>
       </a>
 
@@ -1235,20 +1812,21 @@ h2.sec-title-w em { color:var(--red); }
         </div>
       </a>
 
-      <a href="engineeringcounsultancy.html" class="div3-card rv d2">
-        <div class="div3-card-bg"><img loading="lazy" src="images/gallery/hero.png" alt="Consultancy"/></div>
+      <a href="manufacturing.html" class="div3-card rv d2">
+        <div class="div3-card-bg"><img loading="lazy" src="images/gallery/panel1.png" alt="Manufacturing"/></div>
         <div class="div3-card-content">
           <div class="div3-num">03</div>
-          <div class="div3-badge"><span>Consultancy</span></div>
-          <div class="div3-title">Engineering &amp; MEPF Design</div>
-          <div class="div3-desc">Full MEPF integration &mdash; Electrical, HVAC, Plumbing, Fire Safety and Structured Cabling design services for complex infrastructure projects.</div>
+          <div class="div3-badge"><span>Manufacturing</span></div>
+          <div class="div3-title">Panel Manufacturing &amp; Products</div>
+          <div class="div3-desc">25+ precision-engineered products &mdash; LT/MV panels, MCC, PCC, bus ducts, cable trays. Built to IEC 61439 &amp; IS:8623 standards, rated up to 6300A.</div>
           <div class="div3-tags">
-            <span class="div3-tag">Electrical</span>
-            <span class="div3-tag">HVAC</span>
-            <span class="div3-tag">Fire Safety</span>
-            <span class="div3-tag">MEPF</span>
+            <span class="div3-tag">LT Panels</span>
+            <span class="div3-tag">MCC/PCC</span>
+            <span class="div3-tag">Bus Duct</span>
+            <span class="div3-tag">APFC</span>
+            <span class="div3-tag">PLC</span>
           </div>
-          <div class="div3-link">Expert MEPF Solutions <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div>
+          <div class="div3-link">Explore Manufacturing Excellence <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div>
         </div>
       </a>
 
@@ -1365,7 +1943,7 @@ h2.sec-title-w em { color:var(--red); }
           <li class="why-row"><span class="why-row-num">05</span><div class="why-row-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="why-row-body"><div class="why-row-title">Standardized Brands</div><p class="why-row-desc">Only premium standardized branded switchgears in compliance with IEC &amp; IS standards.</p></div></li>
           <li class="why-row"><span class="why-row-num">06</span><div class="why-row-ico"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="why-row-body"><div class="why-row-title">Ultimate Flexibility</div><p class="why-row-desc">Highly adaptable to client requirements, design changes, and project variations.</p></div></li>
           <li class="why-row"><span class="why-row-num">07</span><div class="why-row-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.996.361 1.98.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.83.35 1.813.576 2.81.7A2 2 0 0122 16.92z"/></svg></div><div class="why-row-body"><div class="why-row-title">Quick Action Support</div><p class="why-row-desc">Rapid response for site calls by our dedicated experienced technical support team.</p></div></li>
-          <li class="why-row"><span class="why-row-num">08</span><div class="why-row-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div><div class="why-row-body"><div class="why-row-title">ISO &amp; CPRI Certified</div><p class="why-row-desc">ISO 9001:2015 and CPRI certified &mdash; adhering purely to global quality benchmarks.</p></div></li>
+          <li class="why-row"><span class="why-row-num">08</span><div class="why-row-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><div class="why-row-body"><div class="why-row-title">Quality &amp; Standards Compliance</div><p class="why-row-desc">Built in compliance with international IEC 61439 and Indian IS:8623 engineering benchmarks.</p></div></li>
           <li class="why-row"><span class="why-row-num">09</span><div class="why-row-ico"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 21v-4a2 2 0 012-2h2a2 2 0 012 2v4"/></svg></div><div class="why-row-body"><div class="why-row-title">Advanced Infrastructure</div><p class="why-row-desc">State-of-the-art facility with trained technicians, automated machinery and in-house testing.</p></div></li>
           <li class="why-row"><span class="why-row-num">10</span><div class="why-row-ico"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14M22 4L12 14.01l-3-3"/></svg></div><div class="why-row-body"><div class="why-row-title">Comprehensive Warranty</div><p class="why-row-desc">All manufactured and traded electrical goods covered by a robust warranty.</p></div></li>
         </ul>
@@ -1459,7 +2037,7 @@ h2.sec-title-w em { color:var(--red); }
         <div class="proc-card-content">
           <div class="proc-title">Fabrication</div>
           <p class="proc-desc">Precision CRCA sheet cutting, 9-tank coating &amp; busbar.</p>
-          <span class="proc-tag">5,000 Sq.Ft</span>
+          <span class="proc-tag">CNC Plant</span>
         </div>
       </div>
 
@@ -1562,26 +2140,35 @@ h2.sec-title-w em { color:var(--red); }
     </div>
     <div class="clients-wrap rv">
       <div class="clients-track">
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 21v-4a2 2 0 012-2h2a2 2 0 012 2v4M9 7h6M9 11h6M9 15h6"/></svg></div><div class="cli-n">Wipro Limited</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M6 21v-7m4 7v-7m4 7V8m4 13V8M2 3l10 5 10-5M12 8v13"/></svg></div><div class="cli-n">Wipro Enterprises</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.6 9a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 4.6a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.6V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/></svg></div><div class="cli-n">JSW Group</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 21h16M3 11h18M5 11v6m4-6v6m4-6v6m4-6v6M12 2l9 5H3l9-5z"/></svg></div><div class="cli-n">Wells Fargo</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 10v6M2 10l10-5 10 5-10 5z"/><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div class="cli-n">Azim Premji University</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 21h16M3 10h18M5 10v7m4-7v7m4-7v7m4-7v7M12 2l9 4H3l9-4z"/></svg></div><div class="cli-n">CBRE</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 10v12M18 10a4 4 0 00-8 0v12M18 10H6M6 4h12l-1 6H7z"/></svg></div><div class="cli-n">MTR Foods</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 18h6M10 22h4m-2-12a4 4 0 10-4 4v2h8v-2a4 4 0 10-4-4z"/></svg></div><div class="cli-n">Krypton India</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 2v4l-4 8v8h14v-8l-4-8V2M9 2h6"/></svg></div><div class="cli-n">LSI India R&amp;D</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V9l10-5 4 2v15M9 21v-4a2 2 0 012-2h2a2 2 0 012 2v4"/></svg></div><div class="cli-n">South India Agencies</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="cli-n">Perfect Day India</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 2v4l-4 8v8h14v-8l-4-8V2M9 2h6M6 14h12"/></svg></div><div class="cli-n">Raman Thermosets</div></div>
+        <div class="cli-card" title="Wipro Limited"><img src="images/logos/wipro_new_logo.svg" alt="Wipro Limited"/></div>
+        <div class="cli-card" title="HSBC Bank"><img src="images/logos/01_HSBC_MASTERBRAND_LOGO_RGB.svg" alt="HSBC Bank"/></div>
+        <div class="cli-card" title="Essar Group"><img src="images/logos/2560px-Essar_logo.svg_.png" alt="Essar Group"/></div>
+        <div class="cli-card" title="Azim Premji Foundation"><img src="images/logos/APF-Logo-col-w_o-box-FINAL-qo6xubnds3ffeho21n2lingngl4mn1njc5atawq38u.png" alt="Azim Premji Foundation"/></div>
+        <div class="cli-card" title="JSW Group"><img src="images/logos/JSW_Group_Logo.png" alt="JSW Group"/></div>
+        <div class="cli-card" title="Krypton Solutions"><img src="images/logos/krypton_solutions_logo.png" alt="Krypton Solutions"/></div>
+        <div class="cli-card" title="Sumeru Realty"><img src="images/logos/SR_Logo_Group.png" alt="Sumeru Realty"/></div>
+        <div class="cli-card" title="Sparsh Hospital"><img src="images/logos/new-logo.svg" alt="Sparsh Hospital"/></div>
+        <div class="cli-card" title="Prestige Group"><img src="images/logos/Untitled-7.png" alt="Prestige Group"/></div>
+        <div class="cli-card" title="House of Hiranandani"><img src="images/logos/images.png" alt="House of Hiranandani"/></div>
+        <div class="cli-card" title="Raman Thermosets"><img src="images/logos/images (1).png" alt="Raman Thermosets"/></div>
+        <div class="cli-card" title="Tibet Bazar"><img src="images/logos/Asset-1@2x.png" alt="Tibet Bazar"/></div>
+        <div class="cli-card" title="Wellman Hindustan"><img src="images/logos/logo.svg" alt="Wellman Hindustan"/></div>
+        <div class="cli-card" title="South India Agencies"><img src="images/logos/ZMZCdIMZTtCRhNj0sJKCoJN84.svg" alt="South India Agencies"/></div>
         <!-- Duplicate for seamless loop -->
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 21v-4a2 2 0 012-2h2a2 2 0 012 2v4M9 7h6M9 11h6M9 15h6"/></svg></div><div class="cli-n">Wipro Limited</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M6 21v-7m4 7v-7m4 7V8m4 13V8M2 3l10 5 10-5M12 8v13"/></svg></div><div class="cli-n">Wipro Enterprises</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 21h16M3 11h18M5 11v6m4-6v6m4-6v6m4-6v6M12 2l9 5H3l9-5z"/></svg></div><div class="cli-n">Wells Fargo</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 21h16M3 10h18M5 10v7m4-7v7m4-7v7m4-7v7M12 2l9 4H3l9-4z"/></svg></div><div class="cli-n">CBRE</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 10v12M18 10a4 4 0 00-8 0v12M18 10H6M6 4h12l-1 6H7z"/></svg></div><div class="cli-n">MTR Foods</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V9l10-5 4 2v15M9 21v-4a2 2 0 012-2h2a2 2 0 012 2v4"/></svg></div><div class="cli-n">South India Agencies</div></div>
-        <div class="cli-card"><div class="cli-ico"><svg viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="cli-n">Perfect Day India</div></div>
+        <div class="cli-card" title="Wipro Limited"><img src="images/logos/wipro_new_logo.svg" alt="Wipro Limited"/></div>
+        <div class="cli-card" title="HSBC Bank"><img src="images/logos/01_HSBC_MASTERBRAND_LOGO_RGB.svg" alt="HSBC Bank"/></div>
+        <div class="cli-card" title="Essar Group"><img src="images/logos/2560px-Essar_logo.svg_.png" alt="Essar Group"/></div>
+        <div class="cli-card" title="Azim Premji Foundation"><img src="images/logos/APF-Logo-col-w_o-box-FINAL-qo6xubnds3ffeho21n2lingngl4mn1njc5atawq38u.png" alt="Azim Premji Foundation"/></div>
+        <div class="cli-card" title="JSW Group"><img src="images/logos/JSW_Group_Logo.png" alt="JSW Group"/></div>
+        <div class="cli-card" title="Krypton Solutions"><img src="images/logos/krypton_solutions_logo.png" alt="Krypton Solutions"/></div>
+        <div class="cli-card" title="Sumeru Realty"><img src="images/logos/SR_Logo_Group.png" alt="Sumeru Realty"/></div>
+        <div class="cli-card" title="Sparsh Hospital"><img src="images/logos/new-logo.svg" alt="Sparsh Hospital"/></div>
+        <div class="cli-card" title="Prestige Group"><img src="images/logos/Untitled-7.png" alt="Prestige Group"/></div>
+        <div class="cli-card" title="House of Hiranandani"><img src="images/logos/images.png" alt="House of Hiranandani"/></div>
+        <div class="cli-card" title="Raman Thermosets"><img src="images/logos/images (1).png" alt="Raman Thermosets"/></div>
+        <div class="cli-card" title="Tibet Bazar"><img src="images/logos/Asset-1@2x.png" alt="Tibet Bazar"/></div>
+        <div class="cli-card" title="Wellman Hindustan"><img src="images/logos/logo.svg" alt="Wellman Hindustan"/></div>
+        <div class="cli-card" title="South India Agencies"><img src="images/logos/ZMZCdIMZTtCRhNj0sJKCoJN84.svg" alt="South India Agencies"/></div>
       </div>
     </div>
   </div>

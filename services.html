@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Services — Engineering Consultancy, Works Contract & Panel Manufacturing | KES</title>
-<meta name="description" content="End-to-end electrical & MEPF engineering services by Kumara Engineering Solutions across Karnataka — Engineering Consultancy, Works Contract Turnkey Execution, and Precision Panel Manufacturing. Class I Govt. Licensed & CPRI Certified.">
+<meta name="description" content="End-to-end electrical & MEPF engineering services by Kumara Engineering Solutions across Karnataka — Engineering Consultancy, Works Contract Turnkey Execution, and Precision Panel Manufacturing. Class I Govt. Licensed & IEC 61439 Compliant.">
 <link rel="canonical" href="services.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -241,9 +241,11 @@
     background: rgba(204,39,0,.08); padding: 3px 10px; border-radius: 4px;
   }
   .vtri-num {
-    font-family: 'Barlow Condensed', sans-serif; font-size: 34px; font-weight: 900;
-    color: rgba(7,16,30,.1); line-height: 1;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 32px; font-weight: 900;
+    color: var(--navy); line-height: 1; letter-spacing: -.02em; opacity: 0.85;
+    transition: all .25s;
   }
+  .vtri-card:hover .vtri-num { color: var(--red); opacity: 1; }
   .vtri-ico {
     width: 48px; height: 48px; border-radius: 12px;
     background: rgba(204,39,0,.08); border: 1px solid rgba(204,39,0,.18);
@@ -600,11 +602,16 @@
   .clients-marquee:hover .clients-track { animation-play-state: paused; }
   .cli-pill {
     flex-shrink: 0; background: #fff; border: 1px solid var(--border); border-radius: 6px;
-    padding: 8px 16px; font-family: 'Barlow Condensed', sans-serif; font-size: 12.5px;
-    font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: .04em;
-    transition: all .2s; box-shadow: var(--s1);
+    padding: 8px 14px; height: 56px; width: 145px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all .2s; box-shadow: var(--s1); cursor: pointer;
   }
-  .cli-pill:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px); }
+  .cli-pill img {
+    max-height: 38px; max-width: 115px; width: auto; height: auto; object-fit: contain;
+    opacity: 1; transition: transform .3s;
+  }
+  .cli-pill:hover { border-color: var(--red); transform: translateY(-2px); box-shadow: var(--s2); }
+  .cli-pill:hover img { transform: scale(1.08); }
 
   /* ==================== CTA SECTION ==================== */
   .cta-band {
@@ -629,17 +636,6 @@
   .cta-inner h2 em { font-style: normal; color: var(--red); }
   .cta-inner p { font-size: 15px; color: rgba(255,255,255,.82); font-weight: 300; margin-bottom: 24px; }
   .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-
-  /* Back to top */
-  #btt {
-    position: fixed; bottom: 28px; right: 28px; z-index: 999;
-    width: 42px; height: 42px; border-radius: 6px;
-    background: var(--red); color: #fff; display: none; align-items: center; justify-content: center;
-    font-size: 18px; font-weight: 900; box-shadow: 0 4px 18px rgba(204,39,0,.4);
-    cursor: pointer; transition: all .22s; font-family: 'Barlow Condensed', sans-serif;
-  }
-  #btt.on { display: flex; }
-  #btt:hover { background: var(--red2); transform: translateY(-2px); }
 
   /* ==================== RESPONSIVE BREAKPOINTS ==================== */
   @media(max-width: 1024px) {
@@ -693,7 +689,7 @@
     </h1>
 
     <p class="hero-sub rv d2">
-      From high-level architectural MEPF consultancy and CEIG statutory sanctions, to Class I licensed turnkey project execution and CPRI-certified precision switchgear manufacturing in Bengaluru &mdash; KES is your unified engineering partner.
+      From high-level architectural MEPF consultancy and CEIG statutory sanctions, to Class I licensed turnkey project execution and precision switchgear manufacturing in Bengaluru &mdash; KES is your unified engineering partner.
     </p>
 
     <div class="hero-actions rv d3">
@@ -703,8 +699,8 @@
 
     <div class="hero-certs-ribbon rv d4">
       <div class="hcert-chip"><span>✓</span> Govt. Class I Licensed</div>
-      <div class="hcert-chip"><span>✓</span> CPRI 100kA Type-Tested</div>
-      <div class="hcert-chip"><span>✓</span> ISO 9001:2015 Certified</div>
+      <div class="hcert-chip"><span>✓</span> IEC 61439 Type-Tested</div>
+      <div class="hcert-chip"><span>✓</span> Standard Quality Compliant</div>
       <div class="hcert-chip"><span>✓</span> IEC 61439 Form 4b</div>
       <div class="hcert-chip"><span>✓</span> 24/7 SLA AMC Support</div>
     </div>
@@ -782,12 +778,12 @@
             <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           </div>
           <h3>Precision Panel Manufacturing</h3>
-          <p>5,000+ sq. ft. CNC manufacturing facility in Bengaluru. CPRI 100kA type-tested LV/MV switchboards, MCC, PCC, APFC, and bus ducts built to IEC 61439.</p>
+          <p>In-house CNC manufacturing facility in Bengaluru. Type-tested LV/MV switchboards, MCC, PCC, APFC, and bus ducts built to IEC 61439 standards.</p>
           <div class="vtri-features">
             <div class="vtri-feat">Main LT Panels up to 6300A (Form 4b)</div>
             <div class="vtri-feat">Motor Control Centres (MCC / VFD)</div>
             <div class="vtri-feat">Sandwich Bus Ducts (630A &ndash; 6300A)</div>
-            <div class="vtri-feat">100% In-House FAT Testing Lab</div>
+            <div class="vtri-feat">100% In-House Testing Lab</div>
           </div>
         </div>
         <div>
@@ -842,7 +838,7 @@
           Engineering Consultancy is the high-level advisory and architectural blueprint phase of any capital project. At KES, our senior electrical engineers act as your <strong>technical backbone</strong> &mdash; ensuring every cable route, switchgear panel, transformer capacity, and HVAC duct is engineered for optimal efficiency before construction commences.
         </p>
         <p>
-          Led by our Director, <strong>Mr. Kumaraswamy B.R.</strong> (B.E. Electrical &amp; Electronics) with 20+ years of power distribution mastery, we provide single-point accountability for Schematic Line Diagrams (SLDs), detailed BOQs, and statutory government sanctions under the Chief Electrical Inspectorate (CEIG).
+          Led by our Director, <strong>Mr. Kumaraswamy B.R.</strong> (B.E. Electrical &amp; Electronics) with 25+ years of power distribution mastery, we provide single-point accountability for Schematic Line Diagrams (SLDs), detailed BOQs, and statutory government sanctions under the Chief Electrical Inspectorate (CEIG).
         </p>
         <div class="intro-cap-chips">
           <span class="icap">Electrical SLD &amp; BOQ</span>
@@ -1238,15 +1234,15 @@
       <div class="intro-media rl">
         <img src="images/gallery/panel1.png" alt="KES Switchgear Fabrication Plant">
         <div class="intro-floating-badge">
-          <div class="val">5,000+</div>
-          <div class="lbl">Sq. ft. CNC Facility, Bengaluru</div>
+          <div class="val">CNC</div>
+          <div class="lbl">Manufacturing Plant, Bengaluru</div>
         </div>
       </div>
       <div class="intro-content rr">
         <div class="sec-lbl">Our Manufacturing Base</div>
         <h2 class="sec-title">Engineered with Precision,<br>Certified for <em>Performance</em></h2>
         <p>
-          From our <strong>5,000+ sq. ft. manufacturing facility in Bengaluru</strong>, Kumara Engineering Solutions (KES) designs, fabricates, powder coats, wires, and tests custom LV &amp; MV switchgear boards for industries, IT parks, hospitals, and infrastructure projects across Karnataka.
+          From our <strong>advanced CNC manufacturing facility in Bengaluru</strong>, Kumara Engineering Solutions (KES) designs, fabricates, powder coats, wires, and tests custom LV &amp; MV switchgear boards for industries, IT parks, hospitals, and infrastructure projects across Karnataka.
         </p>
         <p>
           Every switchboard is built using heavy-gauge CRCA sheet steel (14/16 SWG), 9-tank chemical pre-treatment, automated electrostatic powder coating (Siemens Grey RAL 7032), and high-conductivity 99.97% electrolytic copper/aluminium busbars.
@@ -1254,7 +1250,7 @@
         <div class="intro-cap-chips">
           <span class="icap">Form-1 to Form-4b Design</span>
           <span class="icap">Up to 6300A Capacity</span>
-          <span class="icap">100kA Fault Withstand</span>
+          <span class="icap">Type-Tested Fault Withstand</span>
           <span class="icap">IP42 to IP66 Protection</span>
           <span class="icap">Tier-1 OEM Switchgear</span>
         </div>
@@ -1268,7 +1264,7 @@
           <div class="sec-lbl" style="color:var(--red)">Engineering Parameters</div>
           <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:900;text-transform:uppercase;margin-bottom:8px">Standard Technical <em>Ratings</em></h3>
           <p style="font-size:13px;color:rgba(255,255,255,.75);line-height:1.6;font-weight:300">
-            All KES panels are built to strict IEC 61439-1&amp;2 and IS:8623 standards, with CPRI short-circuit withstand certifications. Custom configurations engineered for every project.
+            All KES panels are built to strict IEC 61439-1&amp;2 and IS:8623 standards, with short-circuit withstand test verifications. Custom configurations engineered for every project.
           </p>
         </div>
         <div class="specs-table">
@@ -1286,7 +1282,7 @@
           </div>
           <div class="specs-row">
             <div class="specs-cell">Short-Circuit Withstand</div>
-            <div class="specs-cell">50kA / 100kA for 1 Sec (CPRI Certified)</div>
+            <div class="specs-cell">50kA / 100kA for 1 Sec (Type-Tested)</div>
           </div>
           <div class="specs-row">
             <div class="specs-cell">Ingress Protection</div>
@@ -1319,7 +1315,7 @@
         </div>
         <div class="pcard-spec-strip">
           <span>Up to 6300A</span>
-          <span style="color:var(--red)">100kA CPRI</span>
+          <span style="color:var(--red)">Type-Tested</span>
         </div>
       </div>
 
@@ -1520,7 +1516,7 @@
           <span class="adv-ico-rupee">₹</span>
         </div>
         <h3>Direct Factory Prices in Rupees</h3>
-        <p>We build our own panels in our 5,000 sq.ft Bengaluru plant. You get direct manufacturer prices without contractor markups.</p>
+        <p>We build our own panels in our Bengaluru plant. You get direct manufacturer prices without contractor markups.</p>
         <span class="adv-highlight">Save 15% &ndash; 20% on Costs</span>
       </div>
 
@@ -1550,7 +1546,7 @@
           <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <h3>Tested &amp; Certified Safety</h3>
-        <p>All switchboards are CPRI 100kA type-tested and ISO 9001 certified. Built to international IEC 61439 safety standards.</p>
+        <p>All switchboards are type-tested and built to international IEC 61439 and IS:8623 safety standards.</p>
         <span class="adv-highlight">100% In-House FAT Tested</span>
       </div>
 
@@ -1582,35 +1578,35 @@
 
   <div class="clients-marquee">
     <div class="clients-track">
-      <div class="cli-pill">Wipro Limited (Bengaluru)</div>
-      <div class="cli-pill">Wells Fargo (via CBRE)</div>
-      <div class="cli-pill">Broadcom / LSI India (via CBRE)</div>
-      <div class="cli-pill">Swiss Re (via CBRE)</div>
-      <div class="cli-pill">JSW Township Project (Toranagallu)</div>
-      <div class="cli-pill">Sparsh Hospital (Mandya &amp; Bengaluru)</div>
-      <div class="cli-pill">Azim Premji University (Sarjapura)</div>
-      <div class="cli-pill">Wipro Enterprises (Corporate Office)</div>
-      <div class="cli-pill">Essar Group / L&amp;T (Water's Edge)</div>
-      <div class="cli-pill">South India Agencies (Koramangala)</div>
-      <div class="cli-pill">Krypton India Solutions</div>
-      <div class="cli-pill">Raman Thermosets (Nelamangala)</div>
-      <div class="cli-pill">Ess Enn Auto CNC (Hassan)</div>
-      <div class="cli-pill">Prestige Golfshire (Devanahalli)</div>
+      <div class="cli-pill" title="Wipro Limited"><img src="images/logos/wipro_new_logo.svg" alt="Wipro Limited"/></div>
+      <div class="cli-pill" title="HSBC Bank"><img src="images/logos/01_HSBC_MASTERBRAND_LOGO_RGB.svg" alt="HSBC Bank"/></div>
+      <div class="cli-pill" title="Essar Group"><img src="images/logos/2560px-Essar_logo.svg_.png" alt="Essar Group"/></div>
+      <div class="cli-pill" title="Azim Premji Foundation"><img src="images/logos/APF-Logo-col-w_o-box-FINAL-qo6xubnds3ffeho21n2lingngl4mn1njc5atawq38u.png" alt="Azim Premji Foundation"/></div>
+      <div class="cli-pill" title="JSW Group"><img src="images/logos/JSW_Group_Logo.png" alt="JSW Group"/></div>
+      <div class="cli-pill" title="Krypton Solutions"><img src="images/logos/krypton_solutions_logo.png" alt="Krypton Solutions"/></div>
+      <div class="cli-pill" title="Sumeru Realty"><img src="images/logos/SR_Logo_Group.png" alt="Sumeru Realty"/></div>
+      <div class="cli-pill" title="Sparsh Hospital"><img src="images/logos/new-logo.svg" alt="Sparsh Hospital"/></div>
+      <div class="cli-pill" title="Prestige Group"><img src="images/logos/Untitled-7.png" alt="Prestige Group"/></div>
+      <div class="cli-pill" title="House of Hiranandani"><img src="images/logos/images.png" alt="House of Hiranandani"/></div>
+      <div class="cli-pill" title="Raman Thermosets"><img src="images/logos/images (1).png" alt="Raman Thermosets"/></div>
+      <div class="cli-pill" title="Tibet Bazar"><img src="images/logos/Asset-1@2x.png" alt="Tibet Bazar"/></div>
+      <div class="cli-pill" title="Wellman Hindustan"><img src="images/logos/logo.svg" alt="Wellman Hindustan"/></div>
+      <div class="cli-pill" title="South India Agencies"><img src="images/logos/ZMZCdIMZTtCRhNj0sJKCoJN84.svg" alt="South India Agencies"/></div>
       <!-- Duplicate for infinite seamless marquee -->
-      <div class="cli-pill">Wipro Limited (Bengaluru)</div>
-      <div class="cli-pill">Wells Fargo (via CBRE)</div>
-      <div class="cli-pill">Broadcom / LSI India (via CBRE)</div>
-      <div class="cli-pill">Swiss Re (via CBRE)</div>
-      <div class="cli-pill">JSW Township Project (Toranagallu)</div>
-      <div class="cli-pill">Sparsh Hospital (Mandya &amp; Bengaluru)</div>
-      <div class="cli-pill">Azim Premji University (Sarjapura)</div>
-      <div class="cli-pill">Wipro Enterprises (Corporate Office)</div>
-      <div class="cli-pill">Essar Group / L&amp;T (Water's Edge)</div>
-      <div class="cli-pill">South India Agencies (Koramangala)</div>
-      <div class="cli-pill">Krypton India Solutions</div>
-      <div class="cli-pill">Raman Thermosets (Nelamangala)</div>
-      <div class="cli-pill">Ess Enn Auto CNC (Hassan)</div>
-      <div class="cli-pill">Prestige Golfshire (Devanahalli)</div>
+      <div class="cli-pill" title="Wipro Limited"><img src="images/logos/wipro_new_logo.svg" alt="Wipro Limited"/></div>
+      <div class="cli-pill" title="HSBC Bank"><img src="images/logos/01_HSBC_MASTERBRAND_LOGO_RGB.svg" alt="HSBC Bank"/></div>
+      <div class="cli-pill" title="Essar Group"><img src="images/logos/2560px-Essar_logo.svg_.png" alt="Essar Group"/></div>
+      <div class="cli-pill" title="Azim Premji Foundation"><img src="images/logos/APF-Logo-col-w_o-box-FINAL-qo6xubnds3ffeho21n2lingngl4mn1njc5atawq38u.png" alt="Azim Premji Foundation"/></div>
+      <div class="cli-pill" title="JSW Group"><img src="images/logos/JSW_Group_Logo.png" alt="JSW Group"/></div>
+      <div class="cli-pill" title="Krypton Solutions"><img src="images/logos/krypton_solutions_logo.png" alt="Krypton Solutions"/></div>
+      <div class="cli-pill" title="Sumeru Realty"><img src="images/logos/SR_Logo_Group.png" alt="Sumeru Realty"/></div>
+      <div class="cli-pill" title="Sparsh Hospital"><img src="images/logos/new-logo.svg" alt="Sparsh Hospital"/></div>
+      <div class="cli-pill" title="Prestige Group"><img src="images/logos/Untitled-7.png" alt="Prestige Group"/></div>
+      <div class="cli-pill" title="House of Hiranandani"><img src="images/logos/images.png" alt="House of Hiranandani"/></div>
+      <div class="cli-pill" title="Raman Thermosets"><img src="images/logos/images (1).png" alt="Raman Thermosets"/></div>
+      <div class="cli-pill" title="Tibet Bazar"><img src="images/logos/Asset-1@2x.png" alt="Tibet Bazar"/></div>
+      <div class="cli-pill" title="Wellman Hindustan"><img src="images/logos/logo.svg" alt="Wellman Hindustan"/></div>
+      <div class="cli-pill" title="South India Agencies"><img src="images/logos/ZMZCdIMZTtCRhNj0sJKCoJN84.svg" alt="South India Agencies"/></div>
     </div>
   </div>
 </section>
@@ -1622,7 +1618,7 @@
   <div class="cta-band-ov"></div>
   <div class="W cta-inner">
     <h2 class="rv">Ready to Work with a <em>Single-Point Partner</em>?</h2>
-    <p class="rv d1">Whether you need high-level MEPF consultancy drawings, a Class I licensed turnkey project contractor, custom CPRI switchgear panels, or a 24/7 AMC maintenance contract &mdash; our engineering team is ready to assist.</p>
+    <p class="rv d1">Whether you need high-level MEPF consultancy drawings, a Class I licensed turnkey project contractor, custom switchgear panels, or a 24/7 AMC maintenance contract &mdash; our engineering team is ready to assist.</p>
     <div class="cta-btns rv d2">
       <a href="contactus.html" class="btn-red">Get in Touch Today <span class="arr">&rarr;</span></a>
       <a href="tel:+919900604365" class="btn-ghost">Call +91 99006 04365</a>
@@ -1632,11 +1628,6 @@
 
 <!-- FOOTER (Injected by site.js) -->
 <div id="site-footer"></div>
-
-<!-- Back to Top -->
-<button id="btt" type="button" aria-label="Back to top">
-  <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-</button>
 
 <script>
   // Smooth scroll and active pill update for sticky navigation

@@ -323,27 +323,90 @@
     font-size: 10px; color: var(--grey); line-height: 1.45; font-weight: 300;
   }
 
-  /* === AMC HIGHLIGHT BAND === */
-  .amc-card-band {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
-    border: 1px solid rgba(255,255,255,.08); border-radius: 12px;
-    padding: 28px 32px; display: grid; grid-template-columns: 1fr auto;
-    gap: 32px; align-items: center; box-shadow: var(--s3); color: #fff;
+  /* === HIGHLIGHTED AMC & BREAKDOWN SECTION (COMPACT & CRAFTED) === */
+  .amc-highlight-sec {
+    background: radial-gradient(ellipse at 80% 30%, rgba(204,39,0,.1) 0%, #07101e 65%, #050a12 100%);
+    position: relative; overflow: hidden;
+    padding: 34px 0 30px;
+    border-top: 1px solid rgba(255,255,255,.06);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    color: #fff;
   }
-  .amc-card-band h3 {
-    font-family: 'Barlow Condensed', sans-serif; font-size: 26px; font-weight: 900;
-    color: #fff; text-transform: uppercase; line-height: 1.1; margin-bottom: 8px;
+  .amc-compact-wrap {
+    display: flex; flex-direction: column; gap: 18px;
+    position: relative; z-index: 2;
   }
-  .amc-card-band h3 em { font-style: normal; color: var(--red); }
-  .amc-card-band p {
-    font-size: 13px; color: rgba(255,255,255,.7); line-height: 1.6; max-width: 680px; font-weight: 300;
+  .amc-top-bar {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    gap: 20px; flex-wrap: wrap;
   }
-  .amc-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
-  .apill {
-    font-family: 'Barlow Condensed', sans-serif; font-size: 10.5px; font-weight: 700;
-    color: rgba(255,255,255,.85); background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.12); padding: 3px 9px; border-radius: 3px;
-    text-transform: uppercase; letter-spacing: .04em;
+  .amc-top-left { max-width: 680px; }
+  .amc-badge-label {
+    display: inline-flex; align-items: center; gap: 7px; margin-bottom: 5px;
+  }
+  .amc-badge-bar { width: 16px; height: 2px; background: #ff5722; border-radius: 2px; }
+  .amc-badge-txt {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 800;
+    color: #ff5722; letter-spacing: .16em; text-transform: uppercase;
+  }
+  .amc-main-title {
+    font-family: 'Barlow Condensed', sans-serif; font-size: clamp(22px, 2.5vw, 32px);
+    font-weight: 900; color: #fff; line-height: 1.1; text-transform: uppercase;
+    letter-spacing: -.01em; margin: 0 0 6px;
+  }
+  .amc-title-accent {
+    color: #ff5722;
+    background: linear-gradient(180deg, #ff7a47 0%, #cc2700 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .amc-sub {
+    font-size: 12.5px; line-height: 1.5; color: rgba(255,255,255,.75); font-weight: 300; margin: 0;
+  }
+  .amc-top-actions {
+    display: flex; gap: 10px; align-items: center; flex-wrap: wrap; flex-shrink: 0;
+  }
+  .amc-top-actions .btn-red { padding: 9px 18px; font-size: 12.5px; }
+  .amc-top-actions .btn-ghost { padding: 8px 16px; font-size: 12.5px; }
+
+  /* 4 Compact Cards Grid */
+  .amc-compact-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+  }
+  .amc-mini-card {
+    background: #091322; border: 1px solid rgba(255,255,255,.08);
+    border-radius: 8px; padding: 14px 14px 12px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    transition: all .25s var(--ease);
+  }
+  .amc-mini-card:hover {
+    border-color: rgba(255,87,34,.5); transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,.45), 0 0 14px rgba(255,87,34,.12);
+  }
+  .amc-mini-head {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+  }
+  .amc-mini-ico {
+    width: 28px; height: 28px; border-radius: 6px;
+    background: rgba(255,87,34,.12); border: 1px solid rgba(255,87,34,.35);
+    color: #ff5722; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .amc-mini-ico svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .amc-mini-card h4 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 13.5px; font-weight: 800;
+    color: #fff; text-transform: uppercase; letter-spacing: .03em; line-height: 1.15; margin: 0;
+  }
+  .amc-mini-card p {
+    font-size: 11px; color: rgba(255,255,255,.68); line-height: 1.45; font-weight: 300; margin: 0 0 8px;
+  }
+  .amc-mini-tags {
+    display: flex; flex-wrap: wrap; gap: 4px; padding-top: 8px;
+    border-top: 1px solid rgba(255,255,255,.06);
+  }
+  .amc-mini-tag {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 9px; font-weight: 700;
+    color: rgba(255,255,255,.8); background: rgba(255,255,255,.05);
+    padding: 1.5px 6px; border-radius: 2px; text-transform: uppercase; letter-spacing: .04em;
   }
 
   /* === VERIFIED ENTERPRISE CLIENTS MARQUEE === */
@@ -358,11 +421,16 @@
   .clients-marquee:hover .clients-track { animation-play-state: paused; }
   .cli-pill {
     flex-shrink: 0; background: #fff; border: 1px solid var(--border); border-radius: 6px;
-    padding: 8px 16px; font-family: 'Barlow Condensed', sans-serif; font-size: 12.5px;
-    font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: .04em;
-    transition: all .2s; box-shadow: var(--s1);
+    padding: 8px 14px; height: 56px; width: 145px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all .2s; box-shadow: var(--s1); cursor: pointer;
   }
-  .cli-pill:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px); }
+  .cli-pill img {
+    max-height: 38px; max-width: 115px; width: auto; height: auto; object-fit: contain;
+    opacity: 1; transition: transform .3s;
+  }
+  .cli-pill:hover { border-color: var(--red); transform: translateY(-2px); box-shadow: var(--s2); }
+  .cli-pill:hover img { transform: scale(1.08); }
 
   /* === CTA SECTION === */
   .cta-band {
@@ -388,29 +456,22 @@
   .cta-inner p { font-size: 14.5px; color: rgba(255,255,255,.8); font-weight: 300; margin-bottom: 22px; }
   .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
-  #btt {
-    position: fixed; bottom: 28px; right: 28px; z-index: 999;
-    width: 42px; height: 42px; border-radius: 6px;
-    background: var(--red); color: #fff; display: none; align-items: center; justify-content: center;
-    font-size: 18px; font-weight: 900; box-shadow: 0 4px 18px rgba(204,39,0,.4);
-    cursor: pointer; transition: all .22s; font-family: 'Barlow Condensed', sans-serif;
-  }
-  #btt.on { display: flex; }
-  #btt:hover { background: var(--red2); transform: translateY(-2px); }
-
   /* Responsive Breakpoints */
   @media(max-width: 1024px) {
     .svc-grid-6 { grid-template-columns: repeat(2, 1fr); }
     .steps-grid-7 { grid-template-columns: repeat(4, 1fr); }
     .intro-grid { grid-template-columns: 1fr; gap: 24px; }
     .approvals-grid { grid-template-columns: 1fr; gap: 24px; }
-    .amc-card-band { grid-template-columns: 1fr; gap: 20px; }
+    .amc-compact-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media(max-width: 640px) {
     .sec { padding: 32px 0; }
+    .amc-highlight-sec { padding: 28px 0; }
     .svc-grid-6 { grid-template-columns: 1fr; }
     .steps-grid-7 { grid-template-columns: repeat(2, 1fr); }
     .appr-list { grid-template-columns: 1fr; }
+    .amc-compact-grid { grid-template-columns: 1fr; }
+    .amc-top-bar { flex-direction: column; align-items: flex-start; }
     .hero-h1 { font-size: 34px; }
   }
 </style>
@@ -430,7 +491,7 @@
       <span class="sep">/</span>
       <a href="index.html#divisions">Divisions</a>
       <span class="sep">/</span>
-      <span class="cur">Vertical 02 — Works Contract</span>
+      <span class="cur">Service 02 — Works Contract</span>
     </div>
 
     <div class="hero-badge rv d1">⚡ Govt. Licensed Class I Electrical Contractors &amp; Engineers</div>
@@ -453,13 +514,119 @@
       <div class="hcert-chip"><span>✓</span> Govt. Class I Licensed</div>
       <div class="hcert-chip"><span>✓</span> CEIG Approval Specialists</div>
       <div class="hcert-chip"><span>✓</span> 11kV / 33kV Substation Ready</div>
-      <div class="hcert-chip"><span>✓</span> ISO 9001:2015 Certified</div>
+      <div class="hcert-chip"><span>✓</span> 24/7 SLA AMC Support</div>
     </div>
   </div>
 </section>
 
 
-<!-- ==================== INTRO & CORE ACCOUNTABILITY ==================== -->
+<!-- ==================== SECTION 02: HIGHLIGHTED AMC & 24/7 BREAKDOWN SUPPORT (COMPACT) ==================== -->
+<section class="amc-highlight-sec" id="amc-support">
+  <div class="W amc-compact-wrap">
+    
+    <!-- Top Bar: Title, Subtitle & Direct Action Buttons -->
+    <div class="amc-top-bar rv">
+      <div class="amc-top-left">
+        <div class="amc-badge-label">
+          <span class="amc-badge-bar"></span>
+          <span class="amc-badge-txt">24/7 ANNUAL MAINTENANCE CONTRACTS &amp; BREAKDOWN</span>
+        </div>
+        <h2 class="amc-main-title">
+          Mission-Critical Uptime with <span class="amc-title-accent">Certified AMC &amp; 24/7 Breakdown</span>
+        </h2>
+        <p class="amc-sub">
+          Prevent costly electrical downtime. KES provides preventive maintenance, transformer oil testing, FLIR thermal imaging, and rapid on-site emergency breakdown restoration across Karnataka.
+        </p>
+      </div>
+
+      <div class="amc-top-actions">
+        <a href="contactus.html" class="btn-red">Get AMC Proposal <span class="arr">&rarr;</span></a>
+        <a href="tel:+919900604365" class="btn-ghost">⚡ 24/7 Support: +91 99006 04365</a>
+      </div>
+    </div>
+
+    <!-- 4 Compact Core AMC Cards -->
+    <div class="amc-compact-grid">
+      
+      <!-- Card 1 -->
+      <div class="amc-mini-card rv d1">
+        <div>
+          <div class="amc-mini-head">
+            <div class="amc-mini-ico">
+              <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h4>24/7 Breakdown Squad</h4>
+          </div>
+          <p>Rapid deployment for transformer trips, breaker faults, and cable punctures.</p>
+        </div>
+        <div class="amc-mini-tags">
+          <span class="amc-mini-tag">Rapid SLA</span>
+          <span class="amc-mini-tag">Testing Van</span>
+          <span class="amc-mini-tag">Critical Spares</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="amc-mini-card rv d2">
+        <div>
+          <div class="amc-mini-head">
+            <div class="amc-mini-ico">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h4>Preventive Health</h4>
+          </div>
+          <p>Scheduled FLIR thermal scans, transformer oil BDV/DGA, and relay calibration.</p>
+        </div>
+        <div class="amc-mini-tags">
+          <span class="amc-mini-tag">Thermal Scan</span>
+          <span class="amc-mini-tag">Oil BDV</span>
+          <span class="amc-mini-tag">Relay Timing</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="amc-mini-card rv d3">
+        <div>
+          <div class="amc-mini-head">
+            <div class="amc-mini-ico">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h4>Substation &amp; O&amp;M</h4>
+          </div>
+          <p>Comprehensive operation of 11kV/33kV yards, DG sync, and APFC capacitor banks.</p>
+        </div>
+        <div class="amc-mini-tags">
+          <span class="amc-mini-tag">HT/LT Yards</span>
+          <span class="amc-mini-tag">DG Sync</span>
+          <span class="amc-mini-tag">APFC Tuning</span>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="amc-mini-card rv d4">
+        <div>
+          <div class="amc-mini-head">
+            <div class="amc-mini-ico">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            </div>
+            <h4>CEIG Safety Audits</h4>
+          </div>
+          <p>Annual electrical inspections, earth pit soil resistivity tests, and CEIG renewals.</p>
+        </div>
+        <div class="amc-mini-tags">
+          <span class="amc-mini-tag">CEIG Renewal</span>
+          <span class="amc-mini-tag">Earth Testing</span>
+          <span class="amc-mini-tag">Safety NOC</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ==================== SECTION 03: INTRO & CORE ACCOUNTABILITY ==================== -->
 <section class="sec" id="about-service">
   <div class="W">
     <div class="intro-grid">
@@ -731,32 +898,6 @@
 </section>
 
 
-<!-- ==================== AMC & BREAKDOWN SUPPORT ==================== -->
-<section class="sec">
-  <div class="W">
-    <div class="amc-card-band rv">
-      <div>
-        <h3>Annual Maintenance Contracts <em>(AMC) &amp; Breakdown Service</em></h3>
-        <p>
-          Prevent costly downtime with KES Annual Maintenance Contracts. Our certified technicians handle scheduled preventive inspections, thermal imaging, transformer oil testing, breaker servicing, and rapid 24/7 breakdown emergency response.
-        </p>
-        <div class="amc-pills">
-          <span class="apill">24/7 Breakdown Response</span>
-          <span class="apill">Preventive Maintenance</span>
-          <span class="apill">Transformer Oil Testing</span>
-          <span class="apill">Panel Servicing</span>
-          <span class="apill">Critical Spares Inventory</span>
-          <span class="apill">Facility O&amp;M</span>
-        </div>
-      </div>
-      <div>
-        <a href="contactus.html" class="btn-red">Get AMC Proposal <span class="arr">&rarr;</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
 <!-- ==================== VERIFIED ENTERPRISE CLIENTS ==================== -->
 <section class="sec sec-alt">
   <div class="W">
@@ -769,35 +910,35 @@
 
   <div class="clients-marquee">
     <div class="clients-track">
-      <div class="cli-pill">Wipro Limited (Bengaluru)</div>
-      <div class="cli-pill">Wells Fargo (via CBRE)</div>
-      <div class="cli-pill">Broadcom / LSI India (via CBRE)</div>
-      <div class="cli-pill">Swiss Re (via CBRE)</div>
-      <div class="cli-pill">JSW Township Project (Toranagallu)</div>
-      <div class="cli-pill">Sparsh Hospital (Mandya &amp; Bengaluru)</div>
-      <div class="cli-pill">Azim Premji University (Sarjapura)</div>
-      <div class="cli-pill">Wipro Enterprises (Corporate Office)</div>
-      <div class="cli-pill">Essar Group / L&amp;T (Water's Edge)</div>
-      <div class="cli-pill">South India Agencies (Koramangala)</div>
-      <div class="cli-pill">Krypton India Solutions</div>
-      <div class="cli-pill">Raman Thermosets (Nelamangala)</div>
-      <div class="cli-pill">Ess Enn Auto CNC (Hassan)</div>
-      <div class="cli-pill">Prestige Golfshire (Devanahalli)</div>
+      <div class="cli-pill" title="Wipro Limited"><img src="images/logos/wipro_new_logo.svg" alt="Wipro Limited"/></div>
+      <div class="cli-pill" title="HSBC Bank"><img src="images/logos/01_HSBC_MASTERBRAND_LOGO_RGB.svg" alt="HSBC Bank"/></div>
+      <div class="cli-pill" title="Essar Group"><img src="images/logos/2560px-Essar_logo.svg_.png" alt="Essar Group"/></div>
+      <div class="cli-pill" title="Azim Premji Foundation"><img src="images/logos/APF-Logo-col-w_o-box-FINAL-qo6xubnds3ffeho21n2lingngl4mn1njc5atawq38u.png" alt="Azim Premji Foundation"/></div>
+      <div class="cli-pill" title="JSW Group"><img src="images/logos/JSW_Group_Logo.png" alt="JSW Group"/></div>
+      <div class="cli-pill" title="Krypton Solutions"><img src="images/logos/krypton_solutions_logo.png" alt="Krypton Solutions"/></div>
+      <div class="cli-pill" title="Sumeru Realty"><img src="images/logos/SR_Logo_Group.png" alt="Sumeru Realty"/></div>
+      <div class="cli-pill" title="Sparsh Hospital"><img src="images/logos/new-logo.svg" alt="Sparsh Hospital"/></div>
+      <div class="cli-pill" title="Prestige Group"><img src="images/logos/Untitled-7.png" alt="Prestige Group"/></div>
+      <div class="cli-pill" title="House of Hiranandani"><img src="images/logos/images.png" alt="House of Hiranandani"/></div>
+      <div class="cli-pill" title="Raman Thermosets"><img src="images/logos/images (1).png" alt="Raman Thermosets"/></div>
+      <div class="cli-pill" title="Tibet Bazar"><img src="images/logos/Asset-1@2x.png" alt="Tibet Bazar"/></div>
+      <div class="cli-pill" title="Wellman Hindustan"><img src="images/logos/logo.svg" alt="Wellman Hindustan"/></div>
+      <div class="cli-pill" title="South India Agencies"><img src="images/logos/ZMZCdIMZTtCRhNj0sJKCoJN84.svg" alt="South India Agencies"/></div>
       <!-- Duplicate for infinite seamless marquee -->
-      <div class="cli-pill">Wipro Limited (Bengaluru)</div>
-      <div class="cli-pill">Wells Fargo (via CBRE)</div>
-      <div class="cli-pill">Broadcom / LSI India (via CBRE)</div>
-      <div class="cli-pill">Swiss Re (via CBRE)</div>
-      <div class="cli-pill">JSW Township Project (Toranagallu)</div>
-      <div class="cli-pill">Sparsh Hospital (Mandya &amp; Bengaluru)</div>
-      <div class="cli-pill">Azim Premji University (Sarjapura)</div>
-      <div class="cli-pill">Wipro Enterprises (Corporate Office)</div>
-      <div class="cli-pill">Essar Group / L&amp;T (Water's Edge)</div>
-      <div class="cli-pill">South India Agencies (Koramangala)</div>
-      <div class="cli-pill">Krypton India Solutions</div>
-      <div class="cli-pill">Raman Thermosets (Nelamangala)</div>
-      <div class="cli-pill">Ess Enn Auto CNC (Hassan)</div>
-      <div class="cli-pill">Prestige Golfshire (Devanahalli)</div>
+      <div class="cli-pill" title="Wipro Limited"><img src="images/logos/wipro_new_logo.svg" alt="Wipro Limited"/></div>
+      <div class="cli-pill" title="HSBC Bank"><img src="images/logos/01_HSBC_MASTERBRAND_LOGO_RGB.svg" alt="HSBC Bank"/></div>
+      <div class="cli-pill" title="Essar Group"><img src="images/logos/2560px-Essar_logo.svg_.png" alt="Essar Group"/></div>
+      <div class="cli-pill" title="Azim Premji Foundation"><img src="images/logos/APF-Logo-col-w_o-box-FINAL-qo6xubnds3ffeho21n2lingngl4mn1njc5atawq38u.png" alt="Azim Premji Foundation"/></div>
+      <div class="cli-pill" title="JSW Group"><img src="images/logos/JSW_Group_Logo.png" alt="JSW Group"/></div>
+      <div class="cli-pill" title="Krypton Solutions"><img src="images/logos/krypton_solutions_logo.png" alt="Krypton Solutions"/></div>
+      <div class="cli-pill" title="Sumeru Realty"><img src="images/logos/SR_Logo_Group.png" alt="Sumeru Realty"/></div>
+      <div class="cli-pill" title="Sparsh Hospital"><img src="images/logos/new-logo.svg" alt="Sparsh Hospital"/></div>
+      <div class="cli-pill" title="Prestige Group"><img src="images/logos/Untitled-7.png" alt="Prestige Group"/></div>
+      <div class="cli-pill" title="House of Hiranandani"><img src="images/logos/images.png" alt="House of Hiranandani"/></div>
+      <div class="cli-pill" title="Raman Thermosets"><img src="images/logos/images (1).png" alt="Raman Thermosets"/></div>
+      <div class="cli-pill" title="Tibet Bazar"><img src="images/logos/Asset-1@2x.png" alt="Tibet Bazar"/></div>
+      <div class="cli-pill" title="Wellman Hindustan"><img src="images/logos/logo.svg" alt="Wellman Hindustan"/></div>
+      <div class="cli-pill" title="South India Agencies"><img src="images/logos/ZMZCdIMZTtCRhNj0sJKCoJN84.svg" alt="South India Agencies"/></div>
     </div>
   </div>
 </section>
@@ -820,16 +961,12 @@
 </div>
 
 <div id="site-footer"></div>
-<button id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&uarr;</button>
 
 <script>
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
   }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
   document.querySelectorAll('.rv,.rl,.rr').forEach(el => observer.observe(el));
-
-  const btt = document.getElementById('btt');
-  window.addEventListener('scroll', () => btt.classList.toggle('on', window.scrollY > 500));
 </script>
 <script src="site.js"></script>
 </body>

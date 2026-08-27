@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Us — Kumara Engineering Solutions Pvt. Ltd.</title>
-<meta name="description" content="About Kumara Engineering Solutions — ISO 9001:2015 & CPRI certified manufacturer of custom electrical panels. Led by Mr. Kumaraswamy B.R., 24+ years experience in power distribution, Karnataka.">
+<meta name="description" content="About Kumara Engineering Solutions — Class I Licensed &amp; IEC 61439 compliant manufacturer of custom electrical panels. Led by Mr. Kumaraswamy B.R., 24+ years experience in power distribution, Karnataka.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -436,6 +436,30 @@
   .value-content p { font-size: 12px; color: var(--text-body); line-height: 1.45; }
 
   /* ==========================================================================
+     ORGANIZATIONAL WORKFORCE STRUCTURE
+     ========================================================================== */
+  .team-structure-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 18px; }
+  .team-col-card {
+    background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md);
+    padding: 20px 18px; position: relative; overflow: hidden; box-shadow: var(--shadow-sm);
+  }
+  .team-col-card::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+    background: var(--red);
+  }
+  .team-col-card.offsite::before { background: var(--navy); }
+  .team-col-title {
+    font-family: var(--font-heading); font-size: 16px; font-weight: 800;
+    color: var(--text-main); text-transform: uppercase; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;
+  }
+  .team-col-desc { font-size: 12.5px; color: var(--text-body); line-height: 1.6; margin-bottom: 12px; }
+  .team-roles-list { display: flex; flex-wrap: wrap; gap: 6px; }
+  .team-role-chip {
+    font-size: 11px; font-weight: 600; background: var(--off); border: 1px solid var(--border);
+    padding: 4px 10px; border-radius: 4px; color: var(--text-main);
+  }
+
+  /* ==========================================================================
      INFRASTRUCTURE & TEST LAB
      ========================================================================== */
   .infra-split { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 32px; align-items: center; }
@@ -493,12 +517,16 @@
 
   .client-chip {
     flex-shrink: 0; background: #fff; border: 1px solid var(--border); border-radius: var(--radius-sm);
-    padding: 7px 15px; font-family: var(--font-heading); font-size: 13px; font-weight: 700;
-    color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap;
-    display: flex; align-items: center; gap: 6px; transition: all 0.2s var(--ease);
+    padding: 8px 14px; height: 58px; width: 145px;
+    display: flex; align-items: center; justify-content: center; transition: all 0.2s var(--ease);
+    box-shadow: var(--shadow-sm); cursor: pointer;
   }
-  .client-chip::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--red); opacity: 0.5; }
-  .client-chip:hover { border-color: var(--red); color: var(--red); transform: translateY(-1px); }
+  .client-chip img {
+    max-height: 38px; max-width: 115px; width: auto; height: auto; object-fit: contain;
+    opacity: 1; transition: transform 0.3s;
+  }
+  .client-chip:hover { border-color: var(--red); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+  .client-chip:hover img { transform: scale(1.08); }
 
   /* ==========================================================================
      CTA
@@ -514,17 +542,6 @@
   }
   .cta-content h2 em { font-style: normal; color: var(--red-accent); }
   .cta-content p { font-size: 13.5px; color: rgba(255, 255, 255, 0.72); max-width: 520px; line-height: 1.5; font-weight: 300; }
-
-  /* Back to top */
-  #btt {
-    position: fixed; bottom: 20px; right: 20px; width: 38px; height: 38px;
-    background: var(--red); color: #fff; border-radius: var(--radius-sm);
-    display: flex; align-items: center; justify-content: center; font-size: 16px;
-    cursor: pointer; opacity: 0; pointer-events: none; transition: opacity 0.25s, transform 0.25s;
-    box-shadow: 0 4px 12px var(--red-glow); z-index: 999;
-  }
-  #btt.on { opacity: 1; pointer-events: auto; }
-  #btt:hover { transform: translateY(-2px); background: var(--red-hover); }
 
   /* Responsive */
   @media (max-width: 1024px) {
@@ -567,7 +584,7 @@
 
       <div class="hero-tag rv d1">
         <span class="tag-dot"></span>
-        <span>ISO 9001:2015 · CPRI Certified · Est. 2011</span>
+        <span>Govt. Class I Licensed · IEC 61439 Compliant · Est. 2011</span>
       </div>
 
       <h1 class="hero-h1 rv d1">
@@ -576,7 +593,7 @@
       </h1>
 
       <p class="hero-sub rv d2">
-        24+ years of engineering excellence in custom electrical switchboard manufacturing, CPRI type-tested design, and turnkey industrial execution.
+        24+ years of engineering excellence in custom electrical switchboard manufacturing, IEC &amp; IS type-tested design, and turnkey industrial execution.
       </p>
 
       <div class="hero-btns rv d3">
@@ -601,7 +618,7 @@
           <span class="hl-badge">Track Record</span>
         </div>
         <div>
-          <div class="hl-num">24<span>+</span> Years</div>
+          <div class="hl-num">25<span>+</span> Years</div>
           <div class="hl-title">Engineering Legacy</div>
           <div class="hl-sub">Pioneering leadership since 2011</div>
         </div>
@@ -616,7 +633,7 @@
         </div>
         <div>
           <div class="hl-num">100 <span>kA</span> / 5000A</div>
-          <div class="hl-title">CPRI &amp; IEC Certified</div>
+          <div class="hl-title">IEC &amp; IS Certified</div>
           <div class="hl-sub">Short-circuit withstand tested</div>
         </div>
       </div>
@@ -629,9 +646,9 @@
           <span class="hl-badge">Infrastructure</span>
         </div>
         <div>
-          <div class="hl-num">5,000<span>+</span> Sq.Ft</div>
-          <div class="hl-title">Bengaluru Plant</div>
-          <div class="hl-sub">CNC fabrication &amp; test lab</div>
+          <div class="hl-num">CNC <span>Plant</span></div>
+          <div class="hl-title">Bengaluru Facility</div>
+          <div class="hl-sub">Fabrication &amp; test lab</div>
         </div>
       </div>
 
@@ -643,9 +660,9 @@
           <span class="hl-badge">Clients</span>
         </div>
         <div>
-          <div class="hl-num">18<span>+</span> Enterprise</div>
-          <div class="hl-title">Key Partners</div>
-          <div class="hl-sub">Wipro, JSW, Wells Fargo, CBRE</div>
+          <div class="hl-num">35<span>+</span> Enterprise</div>
+          <div class="hl-title">Key Clients &amp; Projects</div>
+          <div class="hl-sub">Wipro, Sparsh, Essar, Azim Premji</div>
         </div>
       </div>
     </div>
@@ -664,7 +681,7 @@
             <div class="sbf-num">2011</div>
             <div class="sbf-text">
               Legacy Foundation
-              <span>Sunrise Enterprises to KES Pvt. Ltd.</span>
+              <span>Sunrise Enterprises to KES Pvt. Ltd. (2025)</span>
             </div>
           </div>
         </div>
@@ -672,17 +689,18 @@
 
       <!-- Narrative Right -->
       <div class="story-body rr">
-        <div class="sec-badge">About Kumara Engineering Solutions</div>
-        <h2 class="sec-title">End-to-End Electrical <em>Engineering &amp; Manufacturing</em></h2>
+        <div class="sec-badge">Govt. Licensed Class I Electrical Contractors &amp; Engineers</div>
+        <h2 class="sec-title">End-to-End Electrical <em>Engineering &amp; Infrastructure</em></h2>
 
         <p class="story-lead">
-          <strong>Kumara Engineering Solutions Private Limited</strong> was formally incorporated in 2023, inheriting the operational excellence and deep technical legacy of <strong>Sunrise Enterprises</strong> (founded in 2011). We manufacture custom electrical panels — PCC, MCC, LT Panels, APFC, ATS, DG Sync, PLC, HVAC, and Bus Ducts.
+          <strong>M/s. Kumara Engineering Solutions Pvt Ltd</strong> is a <strong>Govt. Licensed CLASS I ELECTRICAL CONTRACTOR and ENGINEER</strong> established in 2025 (inheriting the 2011 foundation of <strong>Sunrise Enterprises</strong>) by Mr. Kumaraswamy B.R., based in Bengaluru. We specialize in HT &amp; LT electrical installations, switchboard manufacturing, consultancy, HVAC, plumbing, fire safety &amp; security, and statutory CEIG approvals.
         </p>
         
         <div class="story-tags">
+          <span class="story-chip">Govt. Class I Licensed</span>
           <span class="story-chip">IEC 61439 &amp; IS:8623</span>
-          <span class="story-chip">5,000+ Sq. Ft. Facility</span>
-          <span class="story-chip">Turnkey CEIG Liaisoning</span>
+          <span class="story-chip">CNC Manufacturing Facility</span>
+          <span class="story-chip">Statutory CEIG Liaisoning</span>
         </div>
 
         <!-- Compact Director Block -->
@@ -693,7 +711,7 @@
           <div class="dir-info">
             <div class="dn">Mr. Kumaraswamy B.R.</div>
             <div class="dt">Managing Director &amp; Chief Engineer</div>
-            <div class="db">B.E. Electrical &amp; Electronics · 24+ years experience in electrical design, estimation, panel manufacturing, and turnkey project execution across Karnataka.</div>
+            <div class="db">B.E. Electrical &amp; Electronics &middot; 25+ years hands-on expertise in electrical engineering, project planning, estimation, execution, switchboard manufacturing, and turnkey project delivery across Karnataka.</div>
           </div>
         </div>
       </div>
@@ -714,28 +732,28 @@
       <!-- Card 1 -->
       <div class="cert-card rv d1">
         <div class="cert-ico-box">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
         </div>
         <div class="cert-body">
           <div class="cert-top-row">
-            <h4>ISO 9001:2015</h4>
-            <span class="cert-tag">QMS Certified</span>
+            <h4>Class I Licensed</h4>
+            <span class="cert-tag">Govt. Electrical</span>
           </div>
-          <p>Certified Quality Management System for design, fabrication, wiring, assembly, and testing.</p>
+          <p>Licensed Class-I electrical contractor and engineering firm authorized for high-tension and low-tension installations.</p>
         </div>
       </div>
 
       <!-- Card 2 -->
       <div class="cert-card rv d2">
         <div class="cert-ico-box">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
         </div>
         <div class="cert-body">
           <div class="cert-top-row">
-            <h4>CPRI Certified</h4>
-            <span class="cert-tag">100kA / 5000A</span>
+            <h4>CEIG Approved</h4>
+            <span class="cert-tag">Statutory Liaisoning</span>
           </div>
-          <p>Type-tested by Central Power Research Institute with short-circuit withstand rating up to 100kA for 1s.</p>
+          <p>Complete regulatory compliance and drawing clearances with Chief Electrical Inspectorate to Government (CEIG).</p>
         </div>
       </div>
 
@@ -770,14 +788,14 @@
       <!-- Card 5 -->
       <div class="cert-card rv d2">
         <div class="cert-ico-box">
-          <svg viewBox="0 0 24 24"><path d="M16 16v1a2 2 0 01-2 2H6a2 2 0 01-2-2V7a2 2 0 012-2h8a2 2 0 012 2v1"/><polyline points="12 12 16 16 22 10"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
         </div>
         <div class="cert-body">
           <div class="cert-top-row">
-            <h4>ABB ArTuK</h4>
-            <span class="cert-tag">Assembly Partner</span>
+            <h4>IP55 / IP65</h4>
+            <span class="cert-tag">Ingress Protection</span>
           </div>
-          <p>Licensed assembly partner for ABB "ArTuK" modular enclosure systems with high structural rigidity.</p>
+          <p>Enclosure designs tested for high ingress protection against dust, water jets, moisture, and extreme industrial environments.</p>
         </div>
       </div>
 
@@ -837,7 +855,7 @@
         </div>
         <div class="mvq-tag">Quality Policy</div>
         <h3>Right the First Time, Every Time</h3>
-        <p>Strict OEM component sourcing from ABB, Schneider, L&amp;T, and Siemens with comprehensive routine testing before dispatch to guarantee peak uptime.</p>
+        <p>Strict OEM component sourcing from Schneider Electric, L&amp;T, and Siemens with comprehensive routine testing before dispatch to guarantee peak uptime.</p>
       </div>
     </div>
   </div>
@@ -904,6 +922,57 @@
   </div>
 </section>
 
+<!-- ORGANIZATIONAL WORKFORCE & EXECUTION STRENGTH -->
+<section class="sec sec-alt" style="padding-top:0">
+  <div class="W">
+    <div class="sec-header">
+      <div class="sec-badge rv">Execution Muscle</div>
+      <h2 class="sec-title rv">Dedicated Onsite &amp; <em>Offsite Engineering Workforce</em></h2>
+      <p class="sec-desc rv">Our multidisciplinary engineering teams ensure tight project schedules, zero-defect execution, and proactive value engineering across Karnataka.</p>
+    </div>
+
+    <div class="team-structure-grid">
+      <!-- Onsite Workforce -->
+      <div class="team-col-card rv d1">
+        <div class="team-col-title">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--red)" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+          Dedicated Onsite Workforce
+        </div>
+        <p class="team-col-desc">
+          Experienced site engineers, certified technicians, and safety managers deployed on-ground to oversee equipment erection, testing, safety compliance, and commissioning.
+        </p>
+        <div class="team-roles-list">
+          <span class="team-role-chip">Project Managers</span>
+          <span class="team-role-chip">Project Engineers</span>
+          <span class="team-role-chip">Site Engineers &amp; Supervisors</span>
+          <span class="team-role-chip">Testing &amp; Commissioning Engineers</span>
+          <span class="team-role-chip">Safety Engineers</span>
+          <span class="team-role-chip">Planning Engineers</span>
+        </div>
+      </div>
+
+      <!-- Offsite Engineering Team -->
+      <div class="team-col-card offsite rv d2">
+        <div class="team-col-title">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--navy)" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          Offsite Technical &amp; Planning Team
+        </div>
+        <p class="team-col-desc">
+          Centralized engineering and commercial office managing precision SLD blueprints, BOQs, vendor negotiations, procurement, and billing management.
+        </p>
+        <div class="team-roles-list">
+          <span class="team-role-chip">Tender &amp; Estimation Managers</span>
+          <span class="team-role-chip">Design &amp; CAD Engineers</span>
+          <span class="team-role-chip">Purchase &amp; Material Managers</span>
+          <span class="team-role-chip">Billing &amp; Cost Engineers</span>
+          <span class="team-role-chip">Accounts &amp; HR Executives</span>
+          <span class="team-role-chip">Store &amp; Inventory Executives</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- MANUFACTURING & TESTING LAB -->
 <section class="sec">
   <div class="W">
@@ -912,7 +981,7 @@
         <div class="sec-badge">Advanced Facility</div>
         <h2 class="sec-title">Modern Manufacturing <em>&amp; Testing Lab</em></h2>
         <p class="sec-desc" style="margin-bottom: 14px">
-          Our 5,000+ sq. ft. Bengaluru facility integrates computer-controlled fabrication, automated powder coating, and precision testing under one roof.
+          Our Bengaluru manufacturing facility integrates computer-controlled fabrication, automated powder coating, and precision testing under one roof.
         </p>
 
         <div class="infra-steps">
@@ -980,38 +1049,36 @@
 
   <div class="marquee-wrapper">
     <div class="marquee-track">
-      <div class="client-chip">Wipro Limited</div>
-      <div class="client-chip">Wipro Enterprises</div>
-      <div class="client-chip">JSW Group</div>
-      <div class="client-chip">Wells Fargo</div>
-      <div class="client-chip">Azim Premji University</div>
-      <div class="client-chip">CBRE South Asia</div>
-      <div class="client-chip">MTR Foods</div>
-      <div class="client-chip">Krypton India Solutions</div>
-      <div class="client-chip">LSI India R&amp;D</div>
-      <div class="client-chip">Raman Thermosets</div>
-      <div class="client-chip">South India Agencies</div>
-      <div class="client-chip">Perfect Day India</div>
-      <div class="client-chip">Raun Infra</div>
-      <div class="client-chip">IMG Eco-Build</div>
-      <div class="client-chip">Dr. Pack India</div>
+      <div class="client-chip" title="Wipro Limited"><img src="images/logos/wipro_new_logo.svg" alt="Wipro Limited"/></div>
+      <div class="client-chip" title="HSBC Bank"><img src="images/logos/01_HSBC_MASTERBRAND_LOGO_RGB.svg" alt="HSBC Bank"/></div>
+      <div class="client-chip" title="Essar Group"><img src="images/logos/2560px-Essar_logo.svg_.png" alt="Essar Group"/></div>
+      <div class="client-chip" title="Azim Premji Foundation"><img src="images/logos/APF-Logo-col-w_o-box-FINAL-qo6xubnds3ffeho21n2lingngl4mn1njc5atawq38u.png" alt="Azim Premji Foundation"/></div>
+      <div class="client-chip" title="JSW Group"><img src="images/logos/JSW_Group_Logo.png" alt="JSW Group"/></div>
+      <div class="client-chip" title="Krypton Solutions"><img src="images/logos/krypton_solutions_logo.png" alt="Krypton Solutions"/></div>
+      <div class="client-chip" title="Sumeru Realty"><img src="images/logos/SR_Logo_Group.png" alt="Sumeru Realty"/></div>
+      <div class="client-chip" title="Sparsh Hospital"><img src="images/logos/new-logo.svg" alt="Sparsh Hospital"/></div>
+      <div class="client-chip" title="Prestige Group"><img src="images/logos/Untitled-7.png" alt="Prestige Group"/></div>
+      <div class="client-chip" title="House of Hiranandani"><img src="images/logos/images.png" alt="House of Hiranandani"/></div>
+      <div class="client-chip" title="Raman Thermosets"><img src="images/logos/images (1).png" alt="Raman Thermosets"/></div>
+      <div class="client-chip" title="Tibet Bazar"><img src="images/logos/Asset-1@2x.png" alt="Tibet Bazar"/></div>
+      <div class="client-chip" title="Wellman Hindustan"><img src="images/logos/logo.svg" alt="Wellman Hindustan"/></div>
+      <div class="client-chip" title="South India Agencies"><img src="images/logos/ZMZCdIMZTtCRhNj0sJKCoJN84.svg" alt="South India Agencies"/></div>
       
       <!-- Loop duplicate -->
-      <div class="client-chip">Wipro Limited</div>
-      <div class="client-chip">Wipro Enterprises</div>
-      <div class="client-chip">JSW Group</div>
-      <div class="client-chip">Wells Fargo</div>
-      <div class="client-chip">Azim Premji University</div>
-      <div class="client-chip">CBRE South Asia</div>
-      <div class="client-chip">MTR Foods</div>
-      <div class="client-chip">Krypton India Solutions</div>
-      <div class="client-chip">LSI India R&amp;D</div>
-      <div class="client-chip">Raman Thermosets</div>
-      <div class="client-chip">South India Agencies</div>
-      <div class="client-chip">Perfect Day India</div>
-      <div class="client-chip">Raun Infra</div>
-      <div class="client-chip">IMG Eco-Build</div>
-      <div class="client-chip">Dr. Pack India</div>
+      <div class="client-chip" title="Wipro Limited"><img src="images/logos/wipro_new_logo.svg" alt="Wipro Limited"/></div>
+      <div class="client-chip" title="HSBC Bank"><img src="images/logos/01_HSBC_MASTERBRAND_LOGO_RGB.svg" alt="HSBC Bank"/></div>
+      <div class="client-chip" title="Essar Group"><img src="images/logos/2560px-Essar_logo.svg_.png" alt="Essar Group"/></div>
+      <div class="client-chip" title="Azim Premji Foundation"><img src="images/logos/APF-Logo-col-w_o-box-FINAL-qo6xubnds3ffeho21n2lingngl4mn1njc5atawq38u.png" alt="Azim Premji Foundation"/></div>
+      <div class="client-chip" title="JSW Group"><img src="images/logos/JSW_Group_Logo.png" alt="JSW Group"/></div>
+      <div class="client-chip" title="Krypton Solutions"><img src="images/logos/krypton_solutions_logo.png" alt="Krypton Solutions"/></div>
+      <div class="client-chip" title="Sumeru Realty"><img src="images/logos/SR_Logo_Group.png" alt="Sumeru Realty"/></div>
+      <div class="client-chip" title="Sparsh Hospital"><img src="images/logos/new-logo.svg" alt="Sparsh Hospital"/></div>
+      <div class="client-chip" title="Prestige Group"><img src="images/logos/Untitled-7.png" alt="Prestige Group"/></div>
+      <div class="client-chip" title="House of Hiranandani"><img src="images/logos/images.png" alt="House of Hiranandani"/></div>
+      <div class="client-chip" title="Raman Thermosets"><img src="images/logos/images (1).png" alt="Raman Thermosets"/></div>
+      <div class="client-chip" title="Tibet Bazar"><img src="images/logos/Asset-1@2x.png" alt="Tibet Bazar"/></div>
+      <div class="client-chip" title="Wellman Hindustan"><img src="images/logos/logo.svg" alt="Wellman Hindustan"/></div>
+      <div class="client-chip" title="South India Agencies"><img src="images/logos/ZMZCdIMZTtCRhNj0sJKCoJN84.svg" alt="South India Agencies"/></div>
     </div>
   </div>
 </section>
@@ -1034,8 +1101,6 @@
 
 <div id="site-footer"></div>
 
-<button id="btt" aria-label="Back to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">&uarr;</button>
-
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -1050,15 +1115,6 @@
   });
 
   document.querySelectorAll('.rv, .rl, .rr').forEach((el) => observer.observe(el));
-
-  const btt = document.getElementById('btt');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 350) {
-      btt.classList.add('on');
-    } else {
-      btt.classList.remove('on');
-    }
-  }, { passive: true });
 </script>
 <script src="site.js"></script>
 </body>

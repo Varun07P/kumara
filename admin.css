@@ -687,4 +687,96 @@ input:checked + .slider::before { transform:translateX(22px); }
   .toolbar .btn { flex:1; }
   .image-grid { grid-template-columns:1fr; }
   .checks-grid { grid-template-columns:1fr; }
+  .career-form-grid { grid-template-columns:1fr !important; }
+  .career-row { flex-direction:column; align-items:flex-start !important; }
+  .career-row-actions { width:100%; justify-content:flex-end; }
 }
+
+/* === CAREER MANAGEMENT PANEL === */
+.career-ico { background:var(--blue-light) !important; }
+.career-ico svg { stroke:var(--blue) !important; }
+
+.career-add-form {
+  background:var(--surface2); border:1px solid var(--border);
+  border-radius:10px; padding:16px 18px; margin-bottom:16px;
+}
+.career-form-title {
+  font-family:'Barlow Condensed',sans-serif; font-size:14px; font-weight:800;
+  color:var(--ink); text-transform:uppercase; letter-spacing:.04em;
+  margin-bottom:12px;
+}
+.career-form-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:10px;
+  align-items:end;
+}
+.career-form-action { display:flex; align-items:flex-end; }
+.career-form-action .btn { width:100%; justify-content:center; }
+
+/* Career List */
+.career-list { display:flex; flex-direction:column; gap:8px; }
+
+.career-row {
+  display:flex; align-items:center; justify-content:space-between; gap:14px;
+  background:#fff; border:1px solid var(--border); border-radius:8px;
+  padding:12px 16px; transition:all .2s; position:relative;
+  overflow:hidden;
+}
+.career-row::before {
+  content:''; position:absolute; left:0; top:0; bottom:0;
+  width:3px; background:var(--green); transition:background .2s;
+}
+.career-row.inactive::before { background:var(--muted); }
+.career-row.inactive { opacity:.6; }
+.career-row:hover { transform:translateY(-1px); box-shadow:0 4px 12px rgba(0,0,0,.06); border-color:rgba(204,39,0,.2); }
+
+.career-row-info { flex:1; min-width:0; }
+.career-row-info h4 {
+  font-family:'Barlow Condensed',sans-serif; font-size:15px; font-weight:800;
+  color:var(--ink); text-transform:uppercase; letter-spacing:.02em;
+  margin:0 0 3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.career-row-meta {
+  display:flex; gap:10px; flex-wrap:wrap; font-size:11.5px; color:var(--muted);
+}
+.career-row-meta span { display:inline-flex; align-items:center; gap:4px; }
+.career-row-meta span::before { content:'•'; color:var(--red); font-size:14px; }
+.career-row-meta span:first-child::before { display:none; }
+
+.career-row-actions {
+  display:flex; align-items:center; gap:6px; flex-shrink:0;
+}
+
+/* Active Toggle Switch (reuse existing .switch) */
+.career-toggle-label {
+  font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:700;
+  color:var(--muted); text-transform:uppercase; letter-spacing:.06em;
+  text-align:center; min-width:44px;
+}
+.career-toggle-label.active-label { color:var(--green); }
+
+/* Small Action Buttons */
+.career-act-btn {
+  width:30px; height:30px; border-radius:6px; display:flex;
+  align-items:center; justify-content:center; transition:all .2s;
+  border:1px solid var(--border); background:var(--surface2); cursor:pointer;
+}
+.career-act-btn svg {
+  width:14px; height:14px; stroke:var(--muted); fill:none;
+  stroke-width:2; stroke-linecap:round; stroke-linejoin:round;
+}
+.career-act-btn:hover { border-color:var(--red); background:var(--orange-light); }
+.career-act-btn:hover svg { stroke:var(--red); }
+.career-act-btn.edit-btn:hover { border-color:var(--blue); background:var(--blue-light); }
+.career-act-btn.edit-btn:hover svg { stroke:var(--blue); }
+.career-act-btn.delete-btn:hover { border-color:#dc2626; background:#fef2f2; }
+.career-act-btn.delete-btn:hover svg { stroke:#dc2626; }
+
+/* Edit Mode Inline */
+.career-edit-form {
+  display:grid; grid-template-columns:1fr 1fr; gap:8px; width:100%;
+}
+.career-edit-form .input { font-size:12px; padding:6px 10px; }
+.career-edit-form .career-edit-actions {
+  grid-column:1/-1; display:flex; gap:6px; justify-content:flex-end; margin-top:4px;
+}
+.career-edit-form .btn { font-size:11px; padding:6px 14px; }

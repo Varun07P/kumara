@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Controllers\AuthController;
+use App\Controllers\CareerController;
 use App\Controllers\ImageController;
 use App\Controllers\SettingController;
 use App\Core\Response;
@@ -69,6 +70,14 @@ $router->delete('/api/images/{id}', [ImageController::class, 'delete']);
 
 $router->get('/api/settings/featured-toggle', [SettingController::class, 'getFeaturedToggle']);
 $router->put('/api/settings/featured-toggle', [SettingController::class, 'updateFeaturedToggle']);
+
+// Career Management
+$router->get('/api/careers', [CareerController::class, 'listPublic']);
+$router->get('/api/admin/careers', [CareerController::class, 'listAll']);
+$router->post('/api/admin/careers', [CareerController::class, 'create']);
+$router->put('/api/admin/careers/{id}', [CareerController::class, 'update']);
+$router->put('/api/admin/careers/{id}/toggle', [CareerController::class, 'toggleActive']);
+$router->delete('/api/admin/careers/{id}', [CareerController::class, 'delete']);
 
 try {
     $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';

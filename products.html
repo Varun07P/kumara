@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Products & Switchboards — Kumara Engineering Solutions</title>
-<meta name="description" content="Explore 25+ CPRI and IEC 61439 certified electrical switchboards, PCC, MCC, APFC, ATS, DG Sync, PLC automation, and bus duct systems manufactured by KES in Bengaluru.">
+<meta name="description" content="Explore 25+ IEC 61439 and IS:8623 compliant electrical switchboards, PCC, MCC, APFC, ATS, DG Sync, PLC automation, and bus duct systems manufactured by KES in Bengaluru.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -824,30 +824,6 @@
     font-weight: 300;
   }
 
-  /* Back to top */
-  #btt {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 38px;
-    height: 38px;
-    background: var(--red);
-    color: #fff;
-    border-radius: var(--radius-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    cursor: pointer;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s, transform 0.25s;
-    box-shadow: 0 4px 12px var(--red-glow);
-    z-index: 999;
-  }
-  #btt.on { opacity: 1; pointer-events: auto; }
-  #btt:hover { transform: translateY(-2px); background: var(--red-hover); }
-
   /* Responsive Breakpoints */
   @media (max-width: 1200px) {
     .products-grid { grid-template-columns: repeat(2, 1fr); }
@@ -909,7 +885,7 @@
 
       <div class="hero-tag rv d1">
         <span class="tag-dot"></span>
-        <span>IEC 61439 · IS:8623 · CPRI 100kA Tested</span>
+        <span>IEC 61439 · IS:8623 · Type-Tested</span>
       </div>
 
       <h1 class="hero-h1 rv d1">
@@ -1044,7 +1020,7 @@
           <span class="pc-cat-badge">Flagship Switchgear</span>
           <div class="pc-stds">
             <span class="pc-std">IEC 61439</span>
-            <span class="pc-std">CPRI 100kA</span>
+            <span class="pc-std">Form 4b</span>
             <span class="pc-std">IS:8623</span>
           </div>
           <img src="images/gallery/panel1.png" alt="LV Switchgear Panels"/>
@@ -1055,7 +1031,7 @@
           <p class="pc-desc">Our flagship Low Tension power distribution panels manufactured strictly to IEC 61439-1&amp;2. Designed for central control, monitoring, and fault-tolerant power distribution across industrial manufacturing plants, data centers, and IT tech parks.</p>
           <table class="pc-tbl">
             <tr><td>Rated Current</td><td>Up to 6300 Amps · 415V / 690V AC</td></tr>
-            <tr><td>Short Time Withstand</td><td>Up to 100 kA for 1 sec (CPRI Certified)</td></tr>
+            <tr><td>Short Time Withstand</td><td>Up to 100 kA for 1 sec (Type-Tested)</td></tr>
             <tr><td>Form of Separation</td><td>Form 1 to Form 4b Compartmentalized</td></tr>
             <tr><td>Enclosure Rating</td><td>IP42 to IP55 / IP65 CRCA 14/16 Gauge</td></tr>
             <tr><td>Busbar System</td><td>Electrolytic E91E Grade Cu/Al (Interleaved above 2500A)</td></tr>
@@ -1065,7 +1041,7 @@
               <span>Request Technical Quote</span>
               <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
-            <span class="pc-std-lbl">CPRI &amp; IEC 61439-1/2 Certified</span>
+            <span class="pc-std-lbl">IEC 61439-1/2 &amp; IS:8623 Compliant</span>
           </div>
         </div>
       </article>
@@ -1085,7 +1061,7 @@
             <span class="chip hi">Up to 33kV</span>
             <span class="chip">VCB / SF6</span>
             <span class="chip">Arc Resistant</span>
-            <span class="chip">CPRI Tested</span>
+            <span class="chip">Type-Tested</span>
           </div>
           <div class="pc-foot">
             <a href="contactus.html?prod=MV_Switchgear" class="pc-enq">
@@ -1805,9 +1781,6 @@
 <!-- Global Footer placeholder injected by site.js -->
 <div id="site-footer"></div>
 
-<!-- Back to top button -->
-<button id="btt" aria-label="Back to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">&uarr;</button>
-
 <!-- ==========================================================================
      SCRIPTS & FILTERING LOGIC
      ========================================================================== -->
@@ -1826,15 +1799,6 @@
   });
 
   document.querySelectorAll('.rv, .rl, .rr').forEach((el) => observer.observe(el));
-
-  const btt = document.getElementById('btt');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 350) {
-      btt.classList.add('on');
-    } else {
-      btt.classList.remove('on');
-    }
-  }, { passive: true });
 
   /**
    * Product Filter & Search Engine

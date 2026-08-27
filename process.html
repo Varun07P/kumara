@@ -840,30 +840,6 @@
     font-weight: 300;
   }
 
-  /* Back to top */
-  #btt {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 38px;
-    height: 38px;
-    background: var(--red);
-    color: #fff;
-    border-radius: var(--radius-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    cursor: pointer;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s, transform 0.25s;
-    box-shadow: 0 4px 12px var(--red-glow);
-    z-index: 999;
-  }
-  #btt.on { opacity: 1; pointer-events: auto; }
-  #btt:hover { transform: translateY(-2px); background: var(--red-hover); }
-
   /* Responsive */
   @media (max-width: 1024px) {
     .W { padding: 0 20px; }
@@ -914,7 +890,7 @@
 
       <div class="hero-tag rv d1">
         <span class="tag-dot"></span>
-        <span>ISO 9001:2015 · IEC 61439 Standardized Workflow</span>
+        <span>IEC 61439 &amp; IS:8623 Standardized Workflow</span>
       </div>
 
       <h1 class="hero-h1 rv d1">
@@ -1265,12 +1241,12 @@
         <div class="sec-badge">Plant Infrastructure</div>
         <h2>Bengaluru Manufacturing <em>&amp; Testing Facility</em></h2>
         <p class="fac-lead">
-          Our 5,000+ sq. ft. modern facility in Bengaluru is purpose-built for heavy-duty switchboard fabrication, automated surface preparation, switchgear integration, and rigorous high-voltage pre-commissioning.
+          Our modern manufacturing facility in Bengaluru is purpose-built for heavy-duty switchboard fabrication, automated surface preparation, switchgear integration, and rigorous high-voltage pre-commissioning.
         </p>
 
         <div class="fac-specs">
           <div class="fac-spec-box">
-            <div class="fac-spec-title">5,000+ Sq. Ft. Plant</div>
+            <div class="fac-spec-title">CNC Fabrication Plant</div>
             <div class="fac-spec-desc">Dedicated fabrication, assembly, and testing bays under one roof.</div>
           </div>
           <div class="fac-spec-box">
@@ -1334,10 +1310,7 @@
 <!-- Global Footer placeholder injected by site.js -->
 <div id="site-footer"></div>
 
-<!-- Back to top button -->
-<button id="btt" aria-label="Back to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">&uarr;</button>
-
-<!-- Intersection Observer Reveal & Back to Top -->
+<!-- Intersection Observer Reveal -->
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -1352,15 +1325,6 @@
   });
 
   document.querySelectorAll('.rv, .rl, .rr').forEach((el) => observer.observe(el));
-
-  const btt = document.getElementById('btt');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 350) {
-      btt.classList.add('on');
-    } else {
-      btt.classList.remove('on');
-    }
-  }, { passive: true });
 </script>
 <script src="site.js"></script>
 </body>

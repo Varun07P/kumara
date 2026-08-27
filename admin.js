@@ -7,6 +7,7 @@
     uploadBase: '',
     username: '',
     images: [],
+    careers: [],
     apiReady: false,
   };
 
@@ -25,6 +26,10 @@
     imageGrid: document.getElementById('imageGrid'),
     emptyState: document.getElementById('emptyState'),
     featuredToggle: document.getElementById('featuredToggle'),
+    careerAddForm: document.getElementById('careerAddForm'),
+    careerStatus: document.getElementById('careerStatus'),
+    careerList: document.getElementById('careerList'),
+    careerEmptyState: document.getElementById('careerEmptyState'),
     totalCount: document.getElementById('totalCount'),
     galleryCount: document.getElementById('galleryCount'),
     featuredCount: document.getElementById('featuredCount'),
@@ -52,6 +57,9 @@
     els.refreshBtn.addEventListener('click', loadDashboard);
     els.logoutBtn.addEventListener('click', handleLogout);
     els.featuredToggle.addEventListener('change', handleFeaturedToggle);
+    if (els.careerAddForm) {
+      els.careerAddForm.addEventListener('submit', handleAddCareer);
+    }
 
     // Password Eye Toggle
     const pwdToggle = document.getElementById('pwdToggle');
@@ -217,21 +225,33 @@
 
   async function loadDashboard() {
     setStatus(els.imagesStatus, 'Loading...');
+    if (els.careerStatus) {
+      setStatus(els.careerStatus, 'Loading...');
+    }
 
     try {
-      const [imagesData, settingData] = await Promise.all([
+      const [imagesData, settingData, careersData] = await Promise.all([
         request('/images'),
         request('/settings/featured-toggle'),
+        request('/admin/careers'),
       ]);
 
       state.images = Array.isArray(imagesData.images) ? imagesData.images : [];
+      state.careers = Array.isArray(careersData.careers) ? careersData.careers : [];
       els.featuredToggle.checked = Boolean(settingData.featured_section_visible);
       updateStats();
       renderImages();
+      renderCareers();
       setStatus(els.imagesStatus, `${state.images.length} image${state.images.length === 1 ? '' : 's'}`, 'ok');
+      if (els.careerStatus) {
+        setStatus(els.careerStatus, `${state.careers.length} opening${state.careers.length === 1 ? '' : 's'}`, 'ok');
+      }
       setStatus(els.settingsStatus, '');
     } catch (error) {
       setStatus(els.imagesStatus, error.message, 'bad');
+      if (els.careerStatus) {
+        setStatus(els.careerStatus, error.message, 'bad');
+      }
     }
   }
 
@@ -411,6 +431,275 @@
     } catch (error) {
       setStatus(els.imagesStatus, error.message, 'bad');
     }
+  }
+
+  /* ==========================================================================
+     CAREER MANAGEMENT FUNCTIONS
+     ========================================================================== */
+
+  async function handleAddCareer(event) {
+    event.preventDefault();
+    if (!els.careerStatus) return;
+    setStatus(els.careerStatus, 'Adding career opening...');
+
+    const title = els.careerAddForm.title.value.trim();
+    const location = els.careerAddForm.location.value.trim();
+    const job_type = els.careerAddForm.job_type.value;
+    const experience = els.careerAddForm.experience.value.trim();
+    const skills = els.careerAddForm.skills.value.trim();
+
+    if (!title || !location || !experience) {
+      setStatus(els.careerStatus, 'Title, location, and experience are required.', 'bad');
+      return;
+    }
+
+    try {
+      await request('/admin/careers', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title,
+          location,
+          job_type,
+          experience,
+          skills: skills || null,
+        }),
+      });
+
+      els.careerAddForm.reset();
+      setStatus(els.careerStatus, 'Career opening added successfully.', 'ok');
+      await loadDashboard();
+    } catch (error) {
+      setStatus(els.careerStatus, error.message, 'bad');
+    }
+  }
+
+  function renderCareers() {
+    if (!els.careerList) return;
+    els.careerList.replaceChildren();
+    if (els.careerEmptyState) {
+      els.careerEmptyState.classList.toggle('hidden', state.careers.length > 0);
+    }
+
+    state.careers.forEach((career) => {
+      els.careerList.appendChild(createCareerRow(career));
+    });
+  }
+
+  function createCareerRow(career) {
+    const row = document.createElement('div');
+    row.className = `career-row${career.is_active ? '' : ' inactive'}`;
+    row.dataset.id = career.id;
+
+    // Normal view mode
+    const infoDiv = document.createElement('div');
+    infoDiv.className = 'career-row-info';
+
+    const h4 = document.createElement('h4');
+    h4.textContent = career.title;
+
+    const metaDiv = document.createElement('div');
+    metaDiv.className = 'career-row-meta';
+
+    const locSpan = document.createElement('span');
+    locSpan.textContent = career.location;
+    metaDiv.appendChild(locSpan);
+
+    const typeSpan = document.createElement('span');
+    typeSpan.textContent = career.job_type || 'Full-Time';
+    metaDiv.appendChild(typeSpan);
+
+    const expSpan = document.createElement('span');
+    expSpan.textContent = career.experience;
+    metaDiv.appendChild(expSpan);
+
+    if (career.skills) {
+      const skillsSpan = document.createElement('span');
+      skillsSpan.textContent = career.skills;
+      metaDiv.appendChild(skillsSpan);
+    }
+
+    infoDiv.appendChild(h4);
+    infoDiv.appendChild(metaDiv);
+
+    // Actions
+    const actionsDiv = document.createElement('div');
+    actionsDiv.className = 'career-row-actions';
+
+    // Status label + Toggle switch
+    const toggleLabel = document.createElement('span');
+    toggleLabel.className = `career-toggle-label${career.is_active ? ' active-label' : ''}`;
+    toggleLabel.textContent = career.is_active ? 'Active' : 'Hidden';
+
+    const switchLabel = document.createElement('label');
+    switchLabel.className = 'switch';
+
+    const switchInput = document.createElement('input');
+    switchInput.type = 'checkbox';
+    switchInput.checked = Boolean(career.is_active);
+    switchInput.addEventListener('change', () => handleToggleCareer(career, switchInput.checked, toggleLabel, row));
+
+    const sliderSpan = document.createElement('span');
+    sliderSpan.className = 'slider';
+
+    switchLabel.appendChild(switchInput);
+    switchLabel.appendChild(sliderSpan);
+
+    // Edit button
+    const editBtn = document.createElement('button');
+    editBtn.className = 'career-act-btn edit-btn';
+    editBtn.type = 'button';
+    editBtn.title = 'Edit Opening';
+    editBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>';
+    editBtn.addEventListener('click', () => handleEditCareer(career, row));
+
+    // Delete button
+    const deleteBtn = document.createElement('button');
+    deleteBtn.className = 'career-act-btn delete-btn';
+    deleteBtn.type = 'button';
+    deleteBtn.title = 'Delete Opening';
+    deleteBtn.innerHTML = '<svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>';
+    deleteBtn.addEventListener('click', () => handleDeleteCareer(career));
+
+    actionsDiv.appendChild(toggleLabel);
+    actionsDiv.appendChild(switchLabel);
+    actionsDiv.appendChild(editBtn);
+    actionsDiv.appendChild(deleteBtn);
+
+    row.appendChild(infoDiv);
+    row.appendChild(actionsDiv);
+
+    return row;
+  }
+
+  async function handleToggleCareer(career, isChecked, labelEl, rowEl) {
+    if (!els.careerStatus) return;
+    setStatus(els.careerStatus, 'Updating status...');
+
+    try {
+      await request(`/admin/careers/${career.id}/toggle`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ is_active: isChecked }),
+      });
+
+      career.is_active = isChecked ? 1 : 0;
+      labelEl.textContent = isChecked ? 'Active' : 'Hidden';
+      labelEl.classList.toggle('active-label', isChecked);
+      rowEl.classList.toggle('inactive', !isChecked);
+      setStatus(els.careerStatus, `Opening "${career.title}" is now ${isChecked ? 'active' : 'hidden'}.`, 'ok');
+    } catch (error) {
+      setStatus(els.careerStatus, error.message, 'bad');
+      await loadDashboard();
+    }
+  }
+
+  function handleEditCareer(career, rowEl) {
+    rowEl.replaceChildren();
+
+    const form = document.createElement('form');
+    form.className = 'career-edit-form';
+
+    form.innerHTML = `
+      <div>
+        <label style="font-size:11px;font-weight:700;color:var(--ink);">Job Title *</label>
+        <input class="input" name="title" value="${escapeHtml(career.title)}" required/>
+      </div>
+      <div>
+        <label style="font-size:11px;font-weight:700;color:var(--ink);">Location *</label>
+        <input class="input" name="location" value="${escapeHtml(career.location)}" required/>
+      </div>
+      <div>
+        <label style="font-size:11px;font-weight:700;color:var(--ink);">Job Type</label>
+        <select class="input" name="job_type">
+          <option value="Full-Time" ${career.job_type === 'Full-Time' ? 'selected' : ''}>Full-Time</option>
+          <option value="Part-Time" ${career.job_type === 'Part-Time' ? 'selected' : ''}>Part-Time</option>
+          <option value="Contract" ${career.job_type === 'Contract' ? 'selected' : ''}>Contract</option>
+          <option value="Internship" ${career.job_type === 'Internship' ? 'selected' : ''}>Internship</option>
+        </select>
+      </div>
+      <div>
+        <label style="font-size:11px;font-weight:700;color:var(--ink);">Experience *</label>
+        <input class="input" name="experience" value="${escapeHtml(career.experience)}" required/>
+      </div>
+      <div style="grid-column:1/-1;">
+        <label style="font-size:11px;font-weight:700;color:var(--ink);">Skills Tag</label>
+        <input class="input" name="skills" value="${escapeHtml(career.skills || '')}" placeholder="e.g. AutoCAD / SLDs"/>
+      </div>
+      <div class="career-edit-actions">
+        <button class="btn btn-ghost cancel-btn" type="button">Cancel</button>
+        <button class="btn btn-primary" type="submit">Save Changes</button>
+      </div>
+    `;
+
+    form.querySelector('.cancel-btn').addEventListener('click', () => {
+      renderCareers();
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!els.careerStatus) return;
+      setStatus(els.careerStatus, 'Saving changes...');
+
+      const title = form.title.value.trim();
+      const location = form.location.value.trim();
+      const job_type = form.job_type.value;
+      const experience = form.experience.value.trim();
+      const skills = form.skills.value.trim();
+
+      if (!title || !location || !experience) {
+        setStatus(els.careerStatus, 'Title, location, and experience are required.', 'bad');
+        return;
+      }
+
+      try {
+        await request(`/admin/careers/${career.id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            title,
+            location,
+            job_type,
+            experience,
+            skills: skills || null,
+          }),
+        });
+
+        setStatus(els.careerStatus, 'Career opening updated.', 'ok');
+        await loadDashboard();
+      } catch (error) {
+        setStatus(els.careerStatus, error.message, 'bad');
+      }
+    });
+
+    rowEl.appendChild(form);
+  }
+
+  async function handleDeleteCareer(career) {
+    if (!window.confirm(`Delete career opening "${career.title}"? This cannot be undone.`)) {
+      return;
+    }
+
+    if (!els.careerStatus) return;
+    setStatus(els.careerStatus, 'Deleting career opening...');
+
+    try {
+      await request(`/admin/careers/${career.id}`, { method: 'DELETE' });
+      setStatus(els.careerStatus, 'Career opening deleted.', 'ok');
+      await loadDashboard();
+    } catch (error) {
+      setStatus(els.careerStatus, error.message, 'bad');
+    }
+  }
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
   }
 
   function imageUrl(filename) {

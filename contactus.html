@@ -819,30 +819,6 @@
     font-weight: 300;
   }
 
-  /* Back to top */
-  #btt {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 38px;
-    height: 38px;
-    background: var(--red);
-    color: #fff;
-    border-radius: var(--radius-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    cursor: pointer;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s, transform 0.25s;
-    box-shadow: 0 4px 12px var(--red-glow);
-    z-index: 999;
-  }
-  #btt.on { opacity: 1; pointer-events: auto; }
-  #btt:hover { transform: translateY(-2px); background: var(--red-hover); }
-
   /* Responsive */
   @media (max-width: 1024px) {
     .W { padding: 0 20px; }
@@ -969,7 +945,7 @@
         <div class="sec-badge">Direct Communication</div>
         <h2 class="sec-title">Bengaluru Facility <em>&amp; Support</em></h2>
         <p class="sec-desc">
-          Visit our 5,000+ sq. ft. manufacturing and testing facility in Bengaluru or reach out to our senior technical estimators for comprehensive project discussions.
+          Visit our manufacturing and testing facility in Bengaluru or reach out to our senior technical estimators for comprehensive project discussions.
         </p>
 
         <div class="contact-cards-grid">
@@ -1143,12 +1119,10 @@
           </a>
         </div>
       </div>
-
-      <!-- Right Column: 4 Job Cards -->
-      <div class="job-list rr">
-        
-        <!-- Job 1 -->
-        <div class="job-card">
+      <!-- Right Column: Dynamic Job Openings -->
+      <div class="job-list rr" id="jobListDynamic">
+        <!-- Rendered dynamically from /api/careers with fallback -->
+        <div class="job-card" style="opacity:0.6;">
           <div class="job-info">
             <h4>Senior Electrical Design Engineer</h4>
             <div class="job-meta">
@@ -1162,55 +1136,6 @@
             <span>Apply Now</span>
           </a>
         </div>
-
-        <!-- Job 2 -->
-        <div class="job-card">
-          <div class="job-info">
-            <h4>Turnkey Project Manager</h4>
-            <div class="job-meta">
-              <span>Karnataka (On-Site)</span>
-              <span>Full-Time</span>
-              <span>6–10 Years Exp.</span>
-              <span>Substation / CEIG</span>
-            </div>
-          </div>
-          <a href="mailto:hr@kumarasolutions.in?subject=Application%20for%20Turnkey%20Project%20Manager" class="job-btn">
-            <span>Apply Now</span>
-          </a>
-        </div>
-
-        <!-- Job 3 -->
-        <div class="job-card">
-          <div class="job-info">
-            <h4>Panel Testing &amp; QC Engineer</h4>
-            <div class="job-meta">
-              <span>Bengaluru Lab</span>
-              <span>Full-Time</span>
-              <span>2–5 Years Exp.</span>
-              <span>HV Dielectric / FAT</span>
-            </div>
-          </div>
-          <a href="mailto:hr@kumarasolutions.in?subject=Application%20for%20Panel%20Testing%20QC%20Engineer" class="job-btn">
-            <span>Apply Now</span>
-          </a>
-        </div>
-
-        <!-- Job 4 -->
-        <div class="job-card">
-          <div class="job-info">
-            <h4>AutoCAD Electrical Draftsman</h4>
-            <div class="job-meta">
-              <span>Bengaluru</span>
-              <span>Full-Time</span>
-              <span>1–4 Years Exp.</span>
-              <span>GA Layouts / Schematics</span>
-            </div>
-          </div>
-          <a href="mailto:hr@kumarasolutions.in?subject=Application%20for%20AutoCAD%20Electrical%20Draftsman" class="job-btn">
-            <span>Apply Now</span>
-          </a>
-        </div>
-
       </div>
     </div>
   </div>
@@ -1237,53 +1162,38 @@
      CALL TO ACTION
      ========================================================================== -->
 <div class="cta-sec">
-  <div class="W cta-grid">
-    <div class="cta-content rv">
-      <h2>Have an Upcoming <em>Infrastructure Project?</em></h2>
-      <p>Schedule a face-to-face consultation with Mr. Kumaraswamy B.R. and our engineering leads at our Bengaluru plant.</p>
-    </div>
-    <div class="cta-action rv d1">
-      <a href="tel:+919900604365" class="btn-white">
-        <span>Call +91 99006 04365</span>
-        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+  <div class="W">
+    <div class="cta-grid rv">
+      <div class="cta-content">
+        <h2>Partner with Karnataka's <em>Class I Engineers</em></h2>
+        <p>Whether you require full-scale substation execution, custom HT switchboards, or fast-track power sanction clearance, our team is equipped to deliver.</p>
+      </div>
+      <div>
+        <a href="tel:+919900604365" class="btn-red" style="font-size:15px;padding:12px 28px;">
+          <span>⚡ Emergency Line: +91 99006 04365</span>
+        </a>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- Global Footer placeholder injected by site.js -->
 <div id="site-footer"></div>
-
-<!-- Back to top button -->
-<button id="btt" aria-label="Back to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">&uarr;</button>
 
 <!-- ==========================================================================
      SCRIPTS & QUERY PARAMETER PREFILL
      ========================================================================== -->
 <script>
-  // Intersection Observer for scroll reveal animations
+  // Intersection Observer for scroll animations
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('in');
         observer.unobserve(entry.target);
       }
     });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -30px 0px'
-  });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  document.querySelectorAll('.rv, .rl, .rr').forEach((el) => observer.observe(el));
-
-  const btt = document.getElementById('btt');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 350) {
-      btt.classList.add('on');
-    } else {
-      btt.classList.remove('on');
-    }
-  }, { passive: true });
+  document.querySelectorAll('.rv, .rl, .rr').forEach(el => observer.observe(el));
 
   // Pre-fill product selection if linked from products.html
   window.addEventListener('DOMContentLoaded', () => {
@@ -1335,6 +1245,75 @@
       document.getElementById('quoteForm').reset();
     }, 600);
   }
+
+  // Dynamic Careers Loader
+  (async function loadPublicCareers() {
+    const container = document.getElementById('jobListDynamic');
+    if (!container) return;
+
+    const endpoints = window.KES_API_BASE
+      ? [`${window.KES_API_BASE}/careers`]
+      : ['/api/careers', '/Backend/public/api/careers'];
+
+    for (const endpoint of endpoints) {
+      try {
+        const response = await fetch(endpoint, { cache: 'no-store' });
+        if (!response.ok) continue;
+        const data = await response.json();
+        const careers = Array.isArray(data.careers) ? data.careers : [];
+
+        if (careers.length === 0) {
+          container.innerHTML = `
+            <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-md);padding:24px 20px;text-align:center;">
+              <h4 style="font-family:var(--font-heading);font-size:16px;color:var(--text-main);text-transform:uppercase;margin:0 0 6px;">No Open Positions Currently</h4>
+              <p style="font-size:13px;color:var(--text-body);margin:0;">We don't have active vacancies at the moment, but we're always keen to meet talented engineers. Send your resume to <a href="mailto:hr@kumarasolutions.in" style="color:var(--red);font-weight:700;">hr@kumarasolutions.in</a>.</p>
+            </div>`;
+          return;
+        }
+
+        container.replaceChildren();
+
+        careers.forEach(career => {
+          const card = document.createElement('div');
+          card.className = 'job-card';
+
+          const mailSubject = encodeURIComponent(`Application for ${career.title}`);
+          const skillsTag = career.skills ? `<span>${escapeHtml(career.skills)}</span>` : '';
+
+          card.innerHTML = `
+            <div class="job-info">
+              <h4>${escapeHtml(career.title)}</h4>
+              <div class="job-meta">
+                <span>${escapeHtml(career.location)}</span>
+                <span>${escapeHtml(career.job_type || 'Full-Time')}</span>
+                <span>${escapeHtml(career.experience)}</span>
+                ${skillsTag}
+              </div>
+            </div>
+            <a href="mailto:hr@kumarasolutions.in?subject=${mailSubject}" class="job-btn">
+              <span>Apply Now</span>
+            </a>
+          `;
+
+          container.appendChild(card);
+        });
+
+        return; // Successfully rendered
+      } catch (err) {
+        continue;
+      }
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+  })();
 </script>
 <script src="site.js"></script>
 </body>

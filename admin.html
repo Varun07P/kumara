@@ -110,6 +110,10 @@
         <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         <span>Featured Control</span>
       </a>
+      <a href="#careersPanel" class="nav-item">
+        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+        <span>Careers</span>
+      </a>
       <div class="nav-divider"></div>
       <a href="gallery.html" target="_blank" rel="noopener" class="nav-item external">
         <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -333,6 +337,77 @@
           </div>
           <h4>No Images Uploaded Yet</h4>
           <p>Use the upload form above to publish your first electrical engineering project image.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAREER OPENINGS MANAGER (FULL-WIDTH PANEL) -->
+    <section class="panel section-spaced" id="careersPanel">
+      <div class="panel-hd">
+        <div class="phd-left">
+          <div class="phd-ico career-ico">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          </div>
+          <div>
+            <h3>Career Openings Manager</h3>
+            <p class="panel-subtitle">Create, edit, toggle, and manage job openings displayed on the contact page</p>
+          </div>
+        </div>
+        <div class="status" id="careerStatus" role="status"></div>
+      </div>
+
+      <div class="panel-body">
+
+        <!-- Add New Career Form -->
+        <form class="career-add-form" id="careerAddForm">
+          <h4 class="career-form-title">Add New Opening</h4>
+          <div class="career-form-grid">
+            <div class="field">
+              <label for="careerTitle">Job Title *</label>
+              <input class="input" id="careerTitle" name="title" placeholder="e.g. Senior Electrical Design Engineer" required/>
+            </div>
+            <div class="field">
+              <label for="careerLocation">Location *</label>
+              <input class="input" id="careerLocation" name="location" placeholder="e.g. Bengaluru Plant" required/>
+            </div>
+            <div class="field">
+              <label for="careerType">Job Type</label>
+              <select class="input" id="careerType" name="job_type">
+                <option value="Full-Time" selected>Full-Time</option>
+                <option value="Part-Time">Part-Time</option>
+                <option value="Contract">Contract</option>
+                <option value="Internship">Internship</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="careerExp">Experience *</label>
+              <input class="input" id="careerExp" name="experience" placeholder="e.g. 4–7 Years Exp." required/>
+            </div>
+            <div class="field">
+              <label for="careerSkills">Skills Tag</label>
+              <input class="input" id="careerSkills" name="skills" placeholder="e.g. AutoCAD / SLDs"/>
+            </div>
+            <div class="field career-form-action">
+              <button class="btn btn-primary" type="submit" id="careerAddBtn">
+                <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <span>Add Opening</span>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <!-- Career Openings List -->
+        <div class="career-list" id="careerList">
+          <!-- Rendered dynamically by admin.js -->
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-box hidden" id="careerEmptyState">
+          <div class="empty-ico">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          </div>
+          <h4>No Career Openings</h4>
+          <p>Use the form above to create your first job opening. It will appear on the careers section of the contact page.</p>
         </div>
       </div>
     </section>
